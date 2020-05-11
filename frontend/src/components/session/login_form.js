@@ -16,7 +16,7 @@ class LoginForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            // redirect to main treasure page
+            this.props.history.push('/main');
         }
 
         this.setState({ errors: nextProps.errors });
