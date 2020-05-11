@@ -37,6 +37,8 @@ class SignupForm extends React.Component {
             lastName: this.state.lastName,
             password: this.state.password,
             password2: this.state.password2,
+            keyCount: 0,
+            loot: [],
         };
         
         this.props.signup(user, this.props.history);
