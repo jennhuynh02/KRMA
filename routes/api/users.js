@@ -28,6 +28,7 @@ router.post("/register", (req, res) => {
 
     User.findOne({ email: req.body.email }).then(user => {
         if (user) {
+            // debugger
             errors.email = "Email is taken";
             return res.status(400).json(errors);
         } else {
