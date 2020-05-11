@@ -23,6 +23,7 @@ const UserSchema = new Schema({
     default: 0
   },
   treasureId: {
+  
     type: Array,
     default: []
   },
