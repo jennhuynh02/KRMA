@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            // redirect to main treasure page
+            this.props.history.push('/main');
         }
 
         this.setState({ errors: nextProps.errors });
@@ -37,6 +37,8 @@ class SignupForm extends React.Component {
             lastName: this.state.lastName,
             password: this.state.password,
             password2: this.state.password2,
+            keyCount: 0,
+            loot: [],
         };
         
         this.props.signup(user, this.props.history);

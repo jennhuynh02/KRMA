@@ -1,18 +1,46 @@
-import { connect } from 'react-redux';
-import { createTreasure } from '../../actions/treasure_actions';
-import CreateTreasure from './signup_form';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        treasure: state.treasures[ownProps.match.params.treasureId],
-        errors: state.errors.treasure,
-    };
-};
+class CreateTreasure extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            createId: this.props.currentUser,
+            treasureType: "",
+            treasureUrl: ""            
+        }
+    }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        createTreasure: treasure => dispatch(createTreasure(treasure))
-    };
-};
+    update(field, e){
+        this.setState({ [field]: e.currentTarget.value });
+    }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTreasure);
+    handleSubmit(e){
+        e.preventDefault();
+        formData = new FormData();
+        formData.append('treasure[createId]', this.state.createId);
+        formData.append('treasure[ownerId]', "");
+        formData.append('treasure[teasureType]', this.state.treasureType);
+        formData.append('treasure[treasureUrl]', this.state.treasureUrl);
+        this.setState({ treasureType: "" });
+        this.setState({ treasureUrl: "" });
+        createTreasure(this.state);
+    }
+
+    render(){
+        return (
+            <div className="CreateTreasure">
+                <form className="CreateTreasureForm" onSubmit={e => handleSubmit(e)}>
+                    <label className="TreasureTypeLabel"></label>
+                    <input type="file" onChange={e => this.update("treasureType", e)}/>
+                    <label className="TreasureUrlLabel"></label>
+                    <input type="file" onChange={e => this.update("TreasureUrl", e)}/>
+                </form>
+            </div>
+        )
+    }
+
+    
+
+
+}
