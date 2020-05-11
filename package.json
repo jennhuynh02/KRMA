@@ -1,0 +1,33 @@
+{
+  "name": "treasure-box",
+  "version": "1.0.0",
+  "description": "Treasure Box is a web application where users can place media in a treasure box in exchange for a key.  Keys can be used to fetch an item out of one of the treasure boxes.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennhuynh02/treasure-box.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennhuynh02/treasure-box/issues"
+  },
+  "homepage": "https://github.com/jennhuynh02/treasure-box#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.13",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
