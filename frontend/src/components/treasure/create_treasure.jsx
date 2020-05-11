@@ -34,13 +34,11 @@ class CreateTreasure extends React.Component {
                     <label className="TreasureTypeLabel"></label>
                     <input type="file" onChange={e => this.update("treasureType", e)}/>
                     <label className="TreasureUrlLabel"></label>
-                    <input type="file" onChange={e => this.update("TreasureUrl", e)}/>
+                    <input type="file" onChange={e => this.update("treasureUrl", e)}/>
                 </form>
             </div>
         )
     }
-
-    
-
-
 }
+
+export default withRouter(CreateTreasure);
