@@ -8,7 +8,6 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
         id: req.user.id,
@@ -18,7 +17,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         keyCount: req.user.keyCount
     });
 })
-
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);

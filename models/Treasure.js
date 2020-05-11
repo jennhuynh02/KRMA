@@ -9,7 +9,7 @@ const TreasureSchema = new Schema ({
   ownerId: {
     type: Schema.Types.ObjectId,
     ref: 'users', 
-    default: '',
+    default: null,
   },
   treasureType: {
     type: String,
