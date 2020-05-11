@@ -34,8 +34,8 @@ router.post("/register", (req, res) => {
         } else {
             const newUser = new User({
                 email: req.body.email,
-                firstName: req.body.email,
-                lastName: req.body.email,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
                 password: req.body.password,
                 keyCount: 0
             });
@@ -47,7 +47,7 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            const payload = { id: user.id, lastName: user.lastName };
+                            const payload = { id: user.id, email: user.email };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                 res.json({
@@ -78,8 +78,8 @@ router.post('/login', (req, res) => {
                         const payload = {
                             id: user.id,
                             email: req.body.email,
-                            firstName: req.body.email,
-                            lastName: req.body.email
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName
                         }
                         jwt.sign(
                             payload,
