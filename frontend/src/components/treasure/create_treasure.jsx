@@ -8,7 +8,7 @@ class CreateTreasure extends React.Component {
             createId: this.props.currentUser.id,
             treasureType: "",
             treasureUrl: ""            
-        }
+        };
     }
 
     update(field, e){

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createTreasure } from '../../actions/treasure_actions';
-import CreateTreasure from './signup_form';
+import CreateTreasure from './create_treasure';
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
