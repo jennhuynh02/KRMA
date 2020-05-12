@@ -5,6 +5,7 @@ class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
+        this.getLinks = this.getLinks.bind(this);
     }
 
     logoutUser(e) {
@@ -12,14 +13,27 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    render() {
-        return (
-            <div>
-                <span>Treasure Box</span>
-                <div>
+    getLinks() {
+        if (this.props.loggedIn) {
+            return (
+                <div>                    
                     <Link to={'/collection'}>View Collection</Link>
                     <button onClick={this.logoutUser}>Log Out</button>
                 </div>
+            );
+        } else {
+            return (
+                <div>                    
+                    <h1>Welcome to Treasure Island!</h1>
+                </div>                
+            )
+        }
+    }
+
+    render() {
+        return (
+            <div>
+            { this.getLinks() }
             </div>
         );
     }
