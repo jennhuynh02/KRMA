@@ -1,30 +1,53 @@
 .session-navbar {
   text-align: center;
+  font-family: cursive;
+  font-size: 60px;
+  padding: 15px;
+  background-color: beige;
 }
 
 .login-signup-container {
-  border: solid 10px gold;
   background-image: url(treasuremap.jpg);
-  height: 650px;
+  height: 1000px;
+  font-family: cursive;
 }
 
 .mainpage-footer {
   text-align: center;
+  line-height: 50px;
+}
+
+.form-title {
+  padding-top: 20px;
+  font-size: 40px;
 }
 
 .session-header {
-  text-align: center;  
+  text-align: center;
+  font-size: 50px;
+  padding-top: 100px;
+  padding-bottom: 60px;
 }
 
 .forms {
   display: flex;
   justify-content: center;
 }
-.session-form {
-  border: solid 5px saddlebrown;
+.signup-session-form {
+  border: dashed 5px black;
   height: 500px;
   width: 350px;
   text-align-last: center;
+  padding: 30px;
+}
+
+.login-session-form {
+  border: dashed 5px black;
+  border-left: none;
+  height: 500px;
+  width: 350px;
+  text-align-last: center;
+  padding: 30px;
 }
 
 .form-inputs {
@@ -33,6 +56,21 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  height: 30px;
-  width: 175px;
+  padding: 15px;
+  width: 200px;
+  margin-bottom: 10px;
 }
+
+.session-buttons {
+  margin: 30px;
+  background-color: beige;
+  border-radius: 5px;
+  border: solid 2px black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+}
+

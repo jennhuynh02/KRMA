@@ -59,54 +59,55 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <h2>Signup</h2>
-                    <label>First Name</label>
+                <form className="signup-session-form" onSubmit={this.handleSubmit}>
+                    <h2 className="form-title">Signup</h2>
                     <br />
                     <input
                         className="form-inputs"
                         type="text"
                         value={this.state.firstName}
                         onChange={this.update('firstName')}
-                    />
+                        />
                     <br />
-                    <label>Last Name</label>
+                        <label>First Name</label>
                     <br />
                     <input
                         className="form-inputs"
                         type="text"
                         value={this.state.lastName}
                         onChange={this.update('lastName')}
-                    />
+                        />
                     <br />
-                    <label>Email</label>
+                        <label>Last Name</label>
                     <br />
                     <input
                         className="form-inputs"
                         type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
-                    />
+                        />
                     <br />
-                    <label>Password</label>
+                        <label>Email</label>
                     <br />
                     <input
                         className="form-inputs"
                         type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
-                    />
+                        />
                     <br />
-                    <label>Confirm Password</label>
+                        <label>Password</label>
                     <br />
                     <input
                         className="form-inputs"
                         type="password"
                         value={this.state.password2}
                         onChange={this.update('password2')}
-                    />
+                        />
+                    <br />
+                        <label>Confirm Password</label>
                     {this.renderErrors()}
-                    <button>Sign Up</button>
+                    <button className="session-buttons">Sign Up</button>
                 </form>
             </div>
         );

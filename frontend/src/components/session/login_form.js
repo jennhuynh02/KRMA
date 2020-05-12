@@ -47,18 +47,17 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <h2>Login</h2>
-                    <label>Email</label>
+                <form className="login-session-form" onSubmit={this.handleSubmit}>
+                    <h2 className="form-title">Login</h2>
                     <br />
                     <input
                         className="form-inputs"
                         type="text" 
                         value={this.state.email}
                         onChange={this.update('email')}
-                    />
+                        />
                     <br />
-                    <label>Password</label>
+                        <label>Email</label>
                     <br />
                     <input
                         className="form-inputs"
@@ -66,8 +65,10 @@ class LoginForm extends React.Component {
                         value={this.state.password}
                         onChange={this.update('password')}
                     />
+                        <br />
+                        <label>Password</label>
                     {this.renderErrors()}
-                    <button>Log In</button>
+                    <button className="session-buttons">Log In</button>
                 </form>
             </div>
         );
