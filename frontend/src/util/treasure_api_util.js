@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 // Admin only
 export const getTreasures = () => {
