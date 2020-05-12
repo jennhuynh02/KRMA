@@ -5,7 +5,7 @@
 .login-signup-container {
   border: solid 10px gold;
   background-image: url(treasuremap.jpg);
-  height: 900px;
+  height: 650px;
 }
 
 .mainpage-footer {
@@ -25,4 +25,14 @@
   height: 500px;
   width: 350px;
   text-align-last: center;
+}
+
+.form-inputs {
+  background-color: transparent;
+  border-bottom: solid 2px black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+  width: 175px;
 }

@@ -64,46 +64,46 @@ class SignupForm extends React.Component {
                     <label>First Name</label>
                     <br />
                     <input
+                        className="form-inputs"
                         type="text"
                         value={this.state.firstName}
                         onChange={this.update('firstName')}
-                        placeholder="First Name"
                     />
                     <br />
                     <label>Last Name</label>
                     <br />
                     <input
+                        className="form-inputs"
                         type="text"
                         value={this.state.lastName}
                         onChange={this.update('lastName')}
-                        placeholder="Last Name"
                     />
                     <br />
                     <label>Email</label>
                     <br />
                     <input
+                        className="form-inputs"
                         type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
-                        placeholder="Email"
                     />
                     <br />
                     <label>Password</label>
                     <br />
                     <input
+                        className="form-inputs"
                         type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
-                        placeholder="Password"
                     />
                     <br />
                     <label>Confirm Password</label>
                     <br />
                     <input
+                        className="form-inputs"
                         type="password"
                         value={this.state.password2}
                         onChange={this.update('password2')}
-                        placeholder="Confirm Password"
                     />
                     {this.renderErrors()}
                     <button>Sign Up</button>
