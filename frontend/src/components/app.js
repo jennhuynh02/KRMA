@@ -15,9 +15,6 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-      <Route exact path="/treasure/new" component={AWSCreateTreasure} />
-
-      {/* <ProtectedRoute exact path="/treasure/create" component={CreateTreasureContainer} /> */}
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
       <AdminRoute exact path="/adminmainpage" component={AdminMainPageContainer} />
