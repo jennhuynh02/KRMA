@@ -24,7 +24,7 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div>                    
-                    <h1>Welcome to Treasure Island!</h1>
+                    <h1 className="session-navbar">Welcome to Treasure Island!</h1>
                 </div>                
             )
         }

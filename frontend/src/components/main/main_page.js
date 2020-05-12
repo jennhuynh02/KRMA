@@ -7,9 +7,12 @@ class MainPage extends React.Component {
     return (
     <div>
         <div className="login-signup-container">
-          <h1>Login to unlock your treasures:</h1>
-          <LoginFormContainer />
-          <SignupFormContainer />
+          <h1 className="session-header">Login to unlock your treasures:</h1>
+            <div className="forms">
+            <SignupFormContainer />
+            {/* <br /> */}
+            <LoginFormContainer />
+            </div>
         </div>
 
       <footer className="mainpage-footer">

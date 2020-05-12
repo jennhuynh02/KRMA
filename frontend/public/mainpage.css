@@ -1,7 +1,26 @@
+.session-navbar {
+  text-align: center;
+}
+
 .login-signup-container {
-  border: solid 10px goldenrod;
+  border: solid 10px gold;
 }
 
 .mainpage-footer {
   text-align: center;
+}
+
+.session-header {
+  text-align: center;  
+}
+
+.forms {
+  display: flex;
+  justify-content: center;
+}
+.session-form {
+  border: solid 5px gold;
+  height: 500px;
+  width: 350px;
+  text-align-last: center;
 }
