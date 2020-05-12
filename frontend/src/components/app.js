@@ -10,7 +10,6 @@ import TreasureIslandContainer from "./treasure/treasure_island_container";
 import CreateTreasureContainer from "./treasure/creature_treasure_container";
 import CollectionContainer from "./collections/collection_container";
 import AdminMainPageContainer from "./moderator/admin_main/admin_main_container"
-import { Route } from 'react-router-dom';
 
 
 const App = () => (
