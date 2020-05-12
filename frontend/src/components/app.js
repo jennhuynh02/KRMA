@@ -7,7 +7,7 @@ import SignupFormContainer from "./session/signup_form_container";
 import AWSCreateTreasure from './treasure/aws_create_treasure';
 import NavBarContainer from '../components/navbar/navbar_container';
 import TreasureIslandContainer from "./treasure/treasure_island_container";
-import CreateTreasureContainer from "./treasure/creature_treasure_container";
+import CreateTreasureContainer from "./treasure/create_treasure_container";
 import CollectionContainer from "./collections/collection_container";
 import { Route } from 'react-router-dom';
 
