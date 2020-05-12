@@ -1,0 +1,28 @@
+.session-navbar {
+  text-align: center;
+}
+
+.login-signup-container {
+  border: solid 10px gold;
+  background-image: url(treasuremap.jpg);
+  height: 900px;
+}
+
+.mainpage-footer {
+  text-align: center;
+}
+
+.session-header {
+  text-align: center;  
+}
+
+.forms {
+  display: flex;
+  justify-content: center;
+}
+.session-form {
+  border: solid 5px saddlebrown;
+  height: 500px;
+  width: 350px;
+  text-align-last: center;
+}

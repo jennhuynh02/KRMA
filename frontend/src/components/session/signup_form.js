@@ -59,37 +59,53 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form className="session-form" onSubmit={this.handleSubmit}>
+                    <h2>Signup</h2>
+                    <label>First Name</label>
+                    <br />
                     <input
                         type="text"
                         value={this.state.firstName}
                         onChange={this.update('firstName')}
                         placeholder="First Name"
                     />
+                    <br />
+                    <label>Last Name</label>
+                    <br />
                     <input
                         type="text"
                         value={this.state.lastName}
                         onChange={this.update('lastName')}
                         placeholder="Last Name"
                     />
+                    <br />
+                    <label>Email</label>
+                    <br />
                     <input
                         type="text"
                         value={this.state.email}
                         onChange={this.update('email')}
                         placeholder="Email"
                     />
+                    <br />
+                    <label>Password</label>
+                    <br />
                     <input
                         type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
                         placeholder="Password"
                     />
+                    <br />
+                    <label>Confirm Password</label>
+                    <br />
                     <input
                         type="password"
                         value={this.state.password2}
                         onChange={this.update('password2')}
                         placeholder="Confirm Password"
                     />
+                    {this.renderErrors()}
                     <button>Sign Up</button>
                 </form>
             </div>
