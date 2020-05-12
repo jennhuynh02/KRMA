@@ -1,5 +1,15 @@
+.page-navbar {
+  text-align: end;
+  height: 25px;
+}
+
 .treasure-island {
   text-align: -webkit-center;
+}
+
+.island-header {
+  font-family: cursive;
+  font-size: 50px;
 }
 
 .treasure-island-page {
