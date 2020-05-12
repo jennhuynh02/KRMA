@@ -1,2 +1,3 @@
-/config/keys.js
+/config/keys_dev.js
+/config/keys_aws.js
 /node_modules

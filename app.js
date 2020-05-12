@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
-const db = require('./config/keys').mongoURI;
+const db = require('./config/keys_dev').mongoURI;
 const mongoose = require('mongoose');
 const passport = require('passport');
 
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
 
+const treasure = require('./routes/api/treasure');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/treasure", treasure);
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
