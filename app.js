@@ -16,10 +16,13 @@ if (process.env.NODE_ENV === 'production') {
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
 
+const treasure = require('./routes/api/treasure');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/treasure", treasure);
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
