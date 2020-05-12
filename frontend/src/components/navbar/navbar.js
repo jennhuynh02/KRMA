@@ -16,7 +16,7 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>                    
+                <div className="session-navbar">                    
                     <Link to={'/collection'}>View Collection</Link>
                     <button onClick={this.logoutUser}>Log Out</button>
                 </div>
