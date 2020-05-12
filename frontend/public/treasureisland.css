@@ -1,0 +1,9 @@
+.treasure-island {
+  text-align: -webkit-center;
+}
+
+.treasure-island-page {
+  background-image: url(treasureisland.jpg);
+  height: 900px;
+  width: 1200px;
+}
