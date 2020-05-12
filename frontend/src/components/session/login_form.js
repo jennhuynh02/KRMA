@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.handleDemoLoginButton = this.handleDemoLoginButton.bind(this);
+        this.handleModeratorLoginButton = this.handleModeratorLoginButton.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -36,6 +37,12 @@ class LoginForm extends React.Component {
     handleDemoLoginButton(e) {
         e.preventDefault();
         const user = { email: 'treasure@treasurebox.com', password: '123456' };
+        this.props.login(user);
+    }
+
+    handleModeratorLoginButton(e) {
+        e.preventDefault();
+        const user = { email: 'admin@treasurebox.com', password: '123456' };
         this.props.login(user);
     }
 
@@ -78,7 +85,7 @@ class LoginForm extends React.Component {
                     <button className="session-buttons">Log In</button>
                 </form>
                 {/* <br /> */}
-                <button className="auto-log-session-buttons">Moderator Portal</button>
+                <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
                 <br/>
                 <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
             </div>
