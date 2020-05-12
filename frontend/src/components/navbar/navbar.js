@@ -12,14 +12,27 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
+    handleContentsButton(e) {
+        e.preventDefault();
+        window.location.href = "/#/contents"
+    }
+    handleReportsButton(e) {
+        e.preventDefault();
+        window.location.href = "/#/reports"
+    }
+    handleUsersButton(e) {
+        e.preventDefault();
+        window.location.href = "/#/users"
+    }
+
     getLinks() {
         if(this.props.loggedIn && (this.props.user.email === 'admin@treasurebox.com')) {
             return (
                 <div className="page-navbar">                    
+                    <button className="session-buttons" onClick={this.handleContentsButton}>Contents</button>
+                    <button className="session-buttons" onClick={this.handleReportsButton}>Reports</button>
+                    <button className="session-buttons" onClick={this.handleUsersButton}>Users</button>
                     <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
-                    {/* <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
-                    <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
-                    <button className="session-buttons" onClick={this.logoutUser}>Log Out</button> */}
                 </div>
             );
         } else if (this.props.loggedIn) {
