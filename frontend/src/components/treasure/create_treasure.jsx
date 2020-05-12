@@ -5,7 +5,7 @@ class CreateTreasure extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            createId: this.props.currentUser,
+            createId: this.props.currentUser.id,
             treasureType: "",
             treasureUrl: ""            
         }
