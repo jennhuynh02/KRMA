@@ -46,8 +46,8 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form className="login-session-form" onSubmit={this.handleSubmit}>
+            <div className="login-session-form">
+                <form onSubmit={this.handleSubmit}>
                     <h2 className="form-title">Login</h2>
                     <br />
                     <input
@@ -70,6 +70,10 @@ class LoginForm extends React.Component {
                     {this.renderErrors()}
                     <button className="session-buttons">Log In</button>
                 </form>
+                {/* <br /> */}
+                <button className="auto-log-session-buttons">Moderator Portal</button>
+                <br/>
+                <button className="auto-log-session-buttons">Demo User Login</button>
             </div>
         );
     }

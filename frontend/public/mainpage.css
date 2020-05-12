@@ -74,3 +74,16 @@
   font-weight: 600;
 }
 
+.auto-log-session-buttons {
+  margin: 15px;
+  background-color: beige;
+  border-radius: 5px;
+  border: solid 2px black;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
