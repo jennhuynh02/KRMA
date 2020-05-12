@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.handleDemoLoginButton = this.handleDemoLoginButton.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -32,6 +33,12 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    handleDemoLoginButton(e) {
+        e.preventDefault();
+        const user = { email: 'treasure@treasurebox.com', password: '123456' };
+        this.props.login(user);
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -46,23 +53,34 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="login-session-form">
                 <form onSubmit={this.handleSubmit}>
+                    <h2 className="form-title">Login</h2>
+                    <br />
                     <input
+                        className="form-inputs"
                         type="text" 
                         value={this.state.email}
                         onChange={this.update('email')}
-                        placeholder="Email"
-                    />
+                        />
+                    <br />
+                        <label>Email</label>
+                    <br />
                     <input
+                        className="form-inputs"
                         type="password"
                         value={this.state.password}
                         onChange={this.update('password')}
-                        placehold="Password"
                     />
+                        <br />
+                        <label>Password</label>
                     {this.renderErrors()}
-                    <button>Log In</button>
+                    <button className="session-buttons">Log In</button>
                 </form>
+                {/* <br /> */}
+                <button className="auto-log-session-buttons">Moderator Portal</button>
+                <br/>
+                <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
             </div>
         );
     }

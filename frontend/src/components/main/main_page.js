@@ -1,12 +1,22 @@
 import React from 'react';
+import LoginFormContainer from '../session/login_form_container'
+import SignupFormContainer from "../session/signup_form_container";
 
 class MainPage extends React.Component {
   render() {
     return (
     <div>
-      <h1>Treasure Box</h1>
+        <div className="login-signup-container">
+          <h1 className="session-header">Login to unlock your treasures:</h1>
+            <div className="forms">
+            <SignupFormContainer />
+            {/* <br /> */}
+            <LoginFormContainer />
+            </div>
+        </div>
+
+      <footer className="mainpage-footer">
       <h5>Author-Programmers: James Jiang, Michael Murry, Joshua Silva-Roland, Jennifer Huynh</h5>
-      <footer>
         Copyright &copy; 2020 TreasureBox
       </footer>
     </div>
