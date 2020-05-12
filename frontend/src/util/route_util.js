@@ -14,9 +14,19 @@ const Protected = ({ component: Component, path, loggedIn, ...rest }) => (
   />
 );
 
+// const Admin = ({ component: Component, path, adminEmail, ...rest }) => (
+//   <Route {...rest} render={(props) => (
+//     (adminEmail === 'admin@treasurebox.com') ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+//   />
+// );
+
+
+
 const mapState = (state) => ({
   loggedIn: state.session.isAuthenticated,
+  // adminEmail: state.session.user.email,
 })
 
 export const AuthRoute = withRouter(connect(mapState)(Auth));
 export const ProtectedRoute = withRouter(connect(mapState)(Protected));
+// export const AdminRoute = withRouter(connect(mapState)(Admin));
