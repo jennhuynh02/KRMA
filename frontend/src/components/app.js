@@ -14,8 +14,8 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
 
-      <AuthRoute exact path="/treasureisland" component={TreasureIslandContainer} />
-      <AuthRoute exact path="/collection" component={CollectionContainer} />
+      <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
+      <ProtectedRoute exact path="/collection" component={CollectionContainer} />
     </Switch>
   </div>
 );

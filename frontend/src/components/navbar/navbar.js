@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -17,7 +16,6 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="session-navbar">                    
-                    <Link to={'/collection'}>View Collection</Link>
                     <button onClick={this.logoutUser}>Log Out</button>
                 </div>
             );
