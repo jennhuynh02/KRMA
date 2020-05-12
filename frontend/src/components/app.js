@@ -15,7 +15,8 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-      <Route exact path="/treasure/new" component={AWSCreateTreasure} />
+      <Route exact path="/treasure/new" component={AWSCreateTreasure} /> 
+      {/* maybe don't have a route for this, this can just be in the modal on treasure island */}
 
       {/* <ProtectedRoute exact path="/treasure/create" component={CreateTreasureContainer} /> */}
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />

@@ -1,3 +1,5 @@
+// might not need this file now that we have aws_create_treasure.jsx
+
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -36,6 +38,7 @@ class CreateTreasure extends React.Component {
                     <label className="TreasureUrlLabel"></label>
                     <input type="file" onChange={e => this.update("treasureUrl", e)}/>
                 </form> */}
+                create treasure component
             </div>
         )
     }

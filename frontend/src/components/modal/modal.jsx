@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { closeModal } from '../../actions/modal_actions';
 import CreateTreasureContainer from '../treasure/create_treasure_container';
-import ReportTreasureContainer from '../treasure/report_treasure_container';
+import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 
 const Modal = ({ modal, closeModal }) => {
     if (!modal) return null;
@@ -13,8 +13,8 @@ const Modal = ({ modal, closeModal }) => {
         case 'upload':
             component = <CreateTreasureContainer />;
             break;
-        case 'report':
-            component = <ReportTreasureContainer />; // to report the treasure you receive from the box
+        case 'retrieve':
+            component = <RetrieveTreasureContainer />;
             break;
         default:
             return null;
