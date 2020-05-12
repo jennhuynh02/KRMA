@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class TreasureIsland extends React.Component {
+  handleCollectionLink(e) {
+    e.preventDefault();
+    location.href = "/#/collection";
+  }
   render() {
     return (
     <div className="treasure-island">
       <h1 className="island-header">Treasure Island Page</h1>
-      <Link to={'/collection'}>View Collection</Link>
+      <button onClick={this.handleCollectionLink} className="session-buttons">Your Collection</button>
     <div className="treasure-island-page">
     </div>
     </div>
