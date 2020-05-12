@@ -4,7 +4,7 @@ const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-const keys = require('../../config/keys_dev');
+// const keys = require('../../config/keys_dev');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
