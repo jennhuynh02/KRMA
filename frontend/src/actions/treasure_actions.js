@@ -1,4 +1,4 @@
-import {createTreasure, getTreasure, getTreasures, getUserTreasures} from "../util/treasure_api_util"
+import {postTreasure, getTreasure, getTreasures, getUserTreasures} from "../util/treasure_api_util"
 
 export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
 export const RECEIVE_TREASURES = "RECEIVE_TREASURES";
@@ -41,10 +41,10 @@ export const fetchUserTreasures = id => dispatch => (
     getUserTreasures(id)
         .then(treasures => dispatch(dispatch(receiveUserTreasures(treasures))))
         .catch(err => console.log(err))
-)
+);
 
 export const createTreasure = data => dispatch => (
-    createTreasure(data)
+    postTreasure(data)
         .then(treasure => dispatch(receiveNewTreasure(treasure)))
         .catch(err => console.log(err))
 );

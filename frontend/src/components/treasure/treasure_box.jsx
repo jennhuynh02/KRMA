@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class extends React.Component{
+class TreasureBox extends React.Component{
     constructor(props){
         super(props);
     }
@@ -42,3 +42,5 @@ class extends React.Component{
         );
     }
 }
+
+export default withRouter(TreasureBox);

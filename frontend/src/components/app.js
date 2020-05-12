@@ -4,6 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import MainPage from "../components/main/main_page";
 import NavBarContainer from '../components/navbar/navbar_container';
 import TreasureIslandContainer from "./treasure/treasure_island_container";
+import CreateTreasureContainer from "./treasure/creature_treasure_container";
 import CollectionContainer from "./collections/collection_container";
 import { Route } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-      <ProtectedRoute exact path="/treasure/create" component={CreateTreasure} />
+      <ProtectedRoute exact path="/treasure/create" component={CreateTreasureContainer} />
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
     </Switch>
