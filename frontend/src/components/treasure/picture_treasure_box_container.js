@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 import { fetchTreasure } from '../../actions/treasure_actions';
-import CreateTreasure from './picture_island';
+import TreasureBox from './picture_island';
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
+    media: "image/*",
+    name: "Photo",
+    treasures: state.treasures,
     errors: state.errors.treasure
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchRandomTreasure: () => dispatch(fetchRandomTreasure(photo))
+    fetchTreasure: id => dispatch(fetchTreasure(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateTreasure);
+export default connect(mapStateToProps, mapDispatchToProps)(TreasureBox);
