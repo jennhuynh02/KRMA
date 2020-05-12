@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import AdminMainPage from './admin_main';
+import ReportsPage from './reports';
 
 const mapStateToProps = state => ({
 });
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminMainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ReportsPage);

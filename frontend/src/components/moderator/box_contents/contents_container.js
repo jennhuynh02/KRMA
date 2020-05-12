@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import AdminNavBar from './admin_navbar';
+import TreasureContentsPage from './contents';
 
 const mapStateToProps = state => ({
 });
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminNavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(TreasureContentsPage);
