@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, AdminRoute } from '../util/route_util';
 import MainPage from "../components/main/main_page";
 import AWSCreateTreasure from './treasure/aws_create_treasure';
 import NavBarContainer from '../components/navbar/navbar_container';
@@ -20,7 +20,7 @@ const App = () => (
       {/* <ProtectedRoute exact path="/treasure/create" component={CreateTreasureContainer} /> */}
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
-      <Route exact path="/adminmainpage" component={AdminMainPageContainer} />
+      <AdminRoute exact path="/adminmainpage" component={AdminMainPageContainer} />
     </Switch>
   </div>
 );
