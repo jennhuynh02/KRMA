@@ -1,18 +1,18 @@
-// import React from 'react';
+import React from 'react';
 
-// class AdminMainPage extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
+class ReportsPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
 
-//     render() {
-//         return (
-//             <div>
-//               This is the Admin Main Page.
-//             </div>
-//         );
-//     }
-// }
+    render() {
+        return (
+            <div>
+              This is the Reports Page for admin.
+            </div>
+        );
+    }
+}
 
-// export default AdminMainPage;
+export default ReportsPage;
