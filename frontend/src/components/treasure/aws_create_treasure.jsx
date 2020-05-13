@@ -57,22 +57,32 @@ class AWSCreateTreasure extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="card border-light mb-3 mt-5" style={{ boxShadow: '0 5px 10px 2px rgba(195,192,192,.5)' }}>
+        <div
+          className="create-treasure-wrapper"
+          style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
+        >
+          <button onClick={this.props.closeModal}>close modal</button>
           <div className="card-header">
-            <h3 style={{ color: '#555', marginLeft: '12px' }}>Single Image Upload</h3>
-            <p className="text-muted" style={{ marginLeft: '12px' }}>Upload Size: 250px x 250px (Max 4MB)</p>
+            <h3 style={{ color: "#555", marginLeft: "12px" }}>
+              Single Image Upload
+            </h3>
+            <p className="text-muted" style={{ marginLeft: "12px" }}>
+              Upload Size: 250px x 250px (Max 4MB)
+            </p>
           </div>
           <div className="card-body">
             <p className="card-text">Please upload an image for your profile</p>
-            <input type="file" onChange={this.handleFile}/>
+            <input type="file" onChange={this.handleFile} />
             <div className="mt-5">
-              <button className="btn btn-info" onClick={this.handleUpload}>Upload!</button>
+              <button className="btn btn-info" onClick={this.handleUpload}>
+                Upload!
+              </button>
+              <br />
+              <button onClick={() => this.props.openModal('retrieve')}>Retrieve Treasure Instead</button>
             </div>
           </div>
         </div>
-      </div>
-    )
+    );
   }
 }
 
