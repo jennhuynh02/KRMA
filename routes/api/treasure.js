@@ -55,7 +55,7 @@ router.post('/upload', (req, res) => {
         console.log('Error: No File Selected!');
         res.json('Error: No File Selected');
       } else {
-        // If Success
+        // If Success we do this
         const imageName = req.file.key;
         const imageLocation = req.file.location;
         // Need to save the file name into database into profile model
