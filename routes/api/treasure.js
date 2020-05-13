@@ -59,19 +59,30 @@ router.post('/upload', (req, res) => {
         ownerId: null,
         reported: false,
         reportMessage: '',
-        type: '',
+        type: 'picture',
       });
 
       // does not work...yet
-      User.findByIdAndUpdate(
-        { _id: uploadedTreasure.creatorId },
-        { $inc: { keyCount: 1 } },
-      );
+      // User.update(
+      //   { _id: req.body.ownerId },
+      //   { $inc: { keyCount: 1 } },
+      // );
 
+      User.find({
+        _id: req.body.ownerId
+      }).then(user => console.log(user))
+
+      User.updateOne(      
+        { _id: req.body.ownerId },
+        { $inc: { keyCount: 1 } }, 
+      )
+
+      // User.save();
       uploadedTreasure.save();
 
       res.json({
         owner: uploadedTreasure.creatorId,
+        treasureId: uploadedTreasure._id,
         location: uploadedTreasure.url,
       });
       
@@ -84,7 +95,6 @@ router.post('/upload', (req, res) => {
   });
 });
 
-
 router.get('/all', (req, res) => {
   Treasure.find({}, {url:1, reported:1, reportMessage:1})
     .then((treasures) => res.json(treasures))
@@ -94,6 +104,3 @@ router.get('/all', (req, res) => {
 })
 
 module.exports = router;
-
-//hello
-//greetings sire
