@@ -1,18 +1,15 @@
 import { connect } from 'react-redux';
-import { deleteTreasure } from '../../actions/treasure_actions';
-import TreasureBox from './treasure_box';
+import { fetchTreasure } from '../../actions/treasure_actions';
+import TreasureBox from './picture_island';
 
-const mapStateToProps = (state) => {
-    debugger
-    return {
-    currentUser: state.session.user,
+const mapStateToProps = (state) => ({
+    currentUser: state.session.currentUser,
     treasures: state.treasures,
-    collections: state.collections,
-    // errors: state.errors.treasure,
-}};
+    errors: state.errors.treasure
+});
 
 const mapDispatchToProps = dispatch => ({
-    deleteTreasure: treasure => dispatch(deleteTreasure(treasure)),
+    fetchTreasure: id => dispatch(fetchTreasure(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreasureBox);

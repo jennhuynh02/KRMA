@@ -10,6 +10,7 @@ import TreasureBoxContainer from "./treasure/treasure_box_container"
 // Admin
 import ReportsContainer from "./moderator/report_inbox/reports_container";
 import TreasureContentsContainer from "./moderator/box_contents/contents_container";
+import TreasureContainer from "./treasure/treasure_container";
 import UsersContainer from "./moderator/all_users/users_container";
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
       <AdminRoute exact path="/reports" component={ReportsContainer} />
       <AdminRoute exact path="/contents" component={TreasureContentsContainer} />
       <AdminRoute exact path="/users" component={UsersContainer} />
+      <Route exact path="/treasures/:id" component={TreasureContainer}/>
     </Switch>
   </div>
 );
