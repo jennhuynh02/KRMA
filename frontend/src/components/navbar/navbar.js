@@ -46,9 +46,18 @@ class NavBar extends React.Component {
         } else if (this.props.loggedIn) {
             return (
                 <div className="page-navbar">
-                    <img className="nav-collection" src="IconTreasureMap.jpg" onClick={this.handleTreasurePageButton} />                   
-                    <img className="nav-collection" src="TreasureBoxHeader.jpg" onClick={this.handleCollectionPageButton} />                   
-                    <img className="nav-collection" src="LogoutShip.jpg" onClick={this.logoutUser} />                   
+                    <div className="nav-item">
+                        <img alt="Treasure Island" title="Treasure Island" className="nav-icon" src="IconTreasureMap.jpg" onClick={this.handleTreasurePageButton} />
+                        <p>Treasure</p>                       
+                    </div>
+                    <div className="nav-item">
+                        <img alt="Treasure Collection" title="Treasure Collection" className="nav-icon" src="TreasureBoxHeader.jpg" onClick={this.handleCollectionPageButton} />                   
+                        <p>Collection</p>  
+                    </div>
+                    <div className="nav-item">
+                        <img alt="Sail Away!!!" title="Logout" className="nav-icon" src="LogoutShip.jpg" onClick={this.logoutUser} />                   
+                        <p>Logout</p>
+                    </div>
                 </div>
             );
         } else {
