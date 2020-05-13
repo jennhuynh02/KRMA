@@ -4,26 +4,34 @@ const Schema = mongoose.Schema;
 const TreasureSchema = new Schema ({
   creatorId: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
   ownerId: {
     type: Schema.Types.ObjectId,
     ref: 'users', 
     default: '',
   },
-  treasureType: {
-    type: String,
-    default: ''
+  reported: {
+    type: Boolean,
+    default: false,
   },
-  treasureUrl: {
+  reportMessage: {
     type: String,
-    default: ''
+    default: '',
+  },
+  type: {
+    type: String,
+    default: '',
+  },
+  url: {
+    type: String,
+    default: '',
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   }
 })
 
-const Treasure = mongoose.model('treasure', TreasureSchema);
+const Treasure = mongoose.model('Treasure', TreasureSchema);
 module.exports = Treasure;

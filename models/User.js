@@ -22,14 +22,13 @@ const UserSchema = new Schema({
     type: Number,
     default: 0
   },
-  treasureId: {
-  
-    type: Array,
-    default: []
+  savedTreasures: {
+    type: Schema.Types.ObjectId,
+    ref: 'savedTreasure', 
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 })
 
