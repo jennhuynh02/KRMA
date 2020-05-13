@@ -29,4 +29,4 @@ class Treasure extends React.Component {
     }
 }
 
-export default Treasure;
+export default withRouter(Treasure);

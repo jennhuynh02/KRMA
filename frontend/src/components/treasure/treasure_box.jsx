@@ -8,6 +8,7 @@ class TreasureBox extends React.Component{
 
     fetchRandomTreasure(e){
         e.preventDefault;
+        return 
         if(this.props.name === "Treasure"){
             // access combine length of all arrays length
             // Math.random to get random number from 0 to the total array lengths - 1

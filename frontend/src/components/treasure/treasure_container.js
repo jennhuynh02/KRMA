@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import Treasure from './treasure_container'
+import Treasure from './treasure';
+import {fetchTreasure} from '../../actions/treasure_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     treasureId: ownProps.match.params.treasureId,
