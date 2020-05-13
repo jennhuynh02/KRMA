@@ -80,4 +80,13 @@ router.post('/upload', (req, res) => {
   });
 });
 
+
+router.get('/all', (req, res) => {
+  Treasure.find({}, {url:1, reported:1, reportMessage:1})
+    .then((treasures) => res.json(treasures))
+    .catch((errors) => res.statusMessage(400).json({
+      notreasuresfound: "No Treasures Found"
+    }))
+})
+
 module.exports = router;
