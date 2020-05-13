@@ -16,3 +16,7 @@ export const getTreasure = id => {
 export const postTreasure = treasure => {
     return axios.post('api/treasures', treasure);
 };
+
+export const destroyTreasure = treasure => {
+    return axios.delete('api/treasures', treasure)
+}

@@ -1,6 +1,6 @@
-import { RECEIVE_TREASURE, RECEIVE_TREASURES, RECEIVE_USER_TREASURES, RECEIVE_NEW_TREASURE} from "../actions/treasure_actions"
+import {REMOVE_TREASURE, RECEIVE_TREASURE, RECEIVE_TREASURES, RECEIVE_USER_TREASURES, RECEIVE_NEW_TREASURE} from "../actions/treasure_actions"
 
-const treasureReducer = (state={all: {photos: [], quotes: []}, user={}, new: undefined}, action) => {
+const treasureReducer = (state= { treasures={}, user={}, new: undefined}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state)
     switch(action.type){
@@ -15,6 +15,9 @@ const treasureReducer = (state={all: {photos: [], quotes: []}, user={}, new: und
         case RECEIVE_NEW_TREASURE:
             newState.new = actions.treasure; // may or may not need an extension
             return newState;
+        case REMOVE_TREASURE:
+            delete newState.treasures[action.treasureId];
+            return newState
         default:
             return state;
     }
