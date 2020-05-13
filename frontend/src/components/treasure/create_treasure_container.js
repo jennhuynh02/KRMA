@@ -14,4 +14,6 @@ const mapDispatchToProps = (dispatch) => ({
 	closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AWSCreateTreasure);
+export default connect(
+	mapStateToProps, mapDispatchToProps,
+)(AWSCreateTreasure);

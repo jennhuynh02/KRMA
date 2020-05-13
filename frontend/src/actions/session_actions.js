@@ -57,10 +57,3 @@ export const signup = (user) => (dispatch) => (
     })
     .catch((errors) => dispatch(receiveErrors(errors.response.data)))
 )
-
-// export const signup = (user) => (dispatch) => (
-//   APIUtil.signup(user)
-//     .then(() => dispatch(receiveUserSignIn()), 
-//       errors => dispatch(receiveErrors(errors.response.data))
-//   )
-// )
