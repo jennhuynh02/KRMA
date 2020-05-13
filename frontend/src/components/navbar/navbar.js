@@ -24,6 +24,10 @@ class NavBar extends React.Component {
         e.preventDefault();
         window.location.href = "/#/users"
     }
+    handleTreasurePageButton(e) {
+        e.preventDefault();
+        window.location.href = "/#/treasureisland"
+    }
 
     getLinks() {
         if(this.props.loggedIn && (this.props.user.email === 'admin@treasurebox.com')) {
@@ -37,7 +41,8 @@ class NavBar extends React.Component {
             );
         } else if (this.props.loggedIn) {
             return (
-                <div className="page-navbar">                    
+                <div className="page-navbar">
+                    <img className="nav-treasure" src="TreasureBoxHeader.jpg" onClick={this.handleTreasurePageButton} />                   
                     <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
                 </div>
             );

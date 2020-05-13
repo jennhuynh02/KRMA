@@ -3,6 +3,11 @@
   height: 80px;
 }
 
+.nav-treasure {
+  height: 60px;
+  width: 60px;
+}
+
 .treasure-island {
   text-align: -webkit-center;
 }
