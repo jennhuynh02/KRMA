@@ -10,19 +10,19 @@ class TreasureIsland extends React.Component {
 
     const treasureLinks = () => (
       <div className="treasure-links">
-        <a className="upload-treasure" onClick={() => openModal('upload')}>
+        <button className="session-buttons" onClick={() => openModal('upload')}>
           Upload treasure and receive a key!
-        </a>
-        <a className="retrieve-treasure" onClick={() => openModal('retrieve')}>
+        </button>
+        <button className="session-buttons" onClick={() => openModal('retrieve')}>
           Use a key to open a treasure chest!
-        </a>
+        </button>
       </div> 
     )
 
     return (
       <div className="treasure-island">
-        <div className="treasure-island-header">
-          <h1>Welcome to Treasure Island</h1>
+        <div>
+          <h1 className="island-header">Welcome to Treasure Island</h1>
           <Link to={"/collection"}>View Collection</Link>
         </div>
         <div className="treasure-island-body">
