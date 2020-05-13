@@ -52,7 +52,7 @@ router.post('/upload', (req, res) => {
       res.json({
         error: error
       })
-    } else {
+    } else if (req.file) {
       const uploadedTreasure = new Treasure({
         creatorId: req.body.ownerId,
         url: req.file.location,
@@ -85,6 +85,12 @@ router.post('/upload', (req, res) => {
         treasureId: uploadedTreasure._id,
         location: uploadedTreasure.url,
       });
+      
+    // POST request for quotes
+    } else if (req.quoteText) {
+      // const uploadedQuote = new Treasure({
+      //   // shape this however you think will work best
+      // });
     }
   });
 });

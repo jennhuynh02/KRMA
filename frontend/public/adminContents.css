@@ -1,12 +1,12 @@
-.collection-page {
+.contents-page {
   text-align: -webkit-center;
-  background-image: url(TreasureCollectionPage.jpg);
+  background-image: url(CollectionPage.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 1200px;
 }
 
-.collection-header {
+.contents-header {
   font-family: cursive;
   font-size: 90px;
   text-align: center;
@@ -14,13 +14,7 @@
   padding: 40px;
 }
 
-.the-collection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.collection-item {
+.content-item {
   border: solid 5px white;
   border-radius: 10px;
   height: 350px;

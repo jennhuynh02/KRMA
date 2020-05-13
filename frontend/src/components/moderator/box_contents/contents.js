@@ -1,13 +1,7 @@
 import React from 'react';
+import AdminItemContainer from './admin_item_container';
 
 class TreasureContentsPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            treasures: [],
-        }
-    }
 
     componentDidMount() {
         const { getAllTreasures } = this.props;
@@ -15,9 +9,15 @@ class TreasureContentsPage extends React.Component {
     }
 
     render() {
+        const { allTreasures } = this.props
         return (
-            <div>
-              This is the Treasure Contents Page for admin.
+            <div className="contents-page">
+              <h1 className="contents-header">All Treasures</h1>
+              <div className="the-collection">
+              {allTreasures.map((treasure) => (
+                  <AdminItemContainer treasure={treasure} />
+                  ))}
+                </div>
             </div>
         );
     }
