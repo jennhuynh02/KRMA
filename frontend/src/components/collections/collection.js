@@ -6,14 +6,14 @@ class Collection extends React.Component {
     <div className="collection-page">
       <h1 className="collection-header">{this.props.firstName}'s Treasures</h1>
       <div className="the-collection">
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
-        <p className="collection-item">Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
       </div>
     </div>
     );
