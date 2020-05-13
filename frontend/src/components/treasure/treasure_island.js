@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
 import Modal from '../modal/modal';
 
 class TreasureIsland extends React.Component {
@@ -23,7 +21,6 @@ class TreasureIsland extends React.Component {
       <div className="treasure-island">
         <div>
           <h1 className="island-header">Welcome to Treasure Island</h1>
-          <Link to={"/collection"}>View Collection</Link>
         </div>
         <div className="treasure-island-body">
           <Modal />

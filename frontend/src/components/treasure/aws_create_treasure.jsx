@@ -33,11 +33,10 @@ class AWSCreateTreasure extends React.Component {
 
   render() {
     return (
-        <div
-          className="create-treasure-wrapper"
-          style={{ boxShadow: "0 5px 10px 2px rgba(195,192,192,.5)" }}
-        >
-          <button onClick={this.props.closeModal}>close modal</button>
+        <div className="create-treasure-wrapper">
+          <button className="close-modal" onClick={this.props.closeModal}>
+            X
+          </button>
           <div className="card-header">
             <h3 style={{ color: "#555", marginLeft: "12px" }}>
               Add a Photo to the Treasure Box
