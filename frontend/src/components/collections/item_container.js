@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import TreasureItem from './item'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
+
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 
 });
 
