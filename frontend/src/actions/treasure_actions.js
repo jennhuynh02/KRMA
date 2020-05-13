@@ -46,7 +46,11 @@ export const fetchTreasure = (id) => (dispatch) => (
 
 export const fetchTreasures = () => (dispatch) => (
 	getTreasures()
-			.then(treasures => dispatch(receiveTreasure(treasures)))
+		// .then(treasures => {
+			// debugger;
+			// console.log(treasures)})
+
+			.then(treasures => dispatch(receiveTreasures(treasures)))
 			.catch(err => console.log(err))
 );
 
