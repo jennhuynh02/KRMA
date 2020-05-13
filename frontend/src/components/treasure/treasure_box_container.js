@@ -4,8 +4,6 @@ import TreasureBox from './picture_island';
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser,
-    media: "image/*",
-    name: "Photo",
     treasures: state.treasures,
     errors: state.errors.treasure
 });

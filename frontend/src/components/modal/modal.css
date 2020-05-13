@@ -8,14 +8,33 @@
     bottom:0;
     width: auto !important;
     z-index: 40;
-}
+} */
 
 .modal-child {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 400
     width: 500px;
-    background-color: #fff;
-} */
+    background-color: #f5f5dc;
+}
+
+
+
+
+
+/* move this css to a separate file */
+
+.create-treasure-wrapper, .retrieve-treasure-wrapper {
+    border-radius: 5px;
+    border: 3px solid rgb(103, 43, 23);
+    box-shadow: 0 5px 10px 2px rgba(195,192,192,.5);
+    padding: 5px 20px 15px;
+}
+
+.close-modal {
+    position: absolute;
+    border: none;
+    right: 10px;
+    background-color: #f5f5dc;
+}

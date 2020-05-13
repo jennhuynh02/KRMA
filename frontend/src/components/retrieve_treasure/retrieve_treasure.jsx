@@ -12,7 +12,11 @@ class RetrieveTreasure extends React.Component {
 
         return (
           <div className="retrieve-treasure-wrapper">
-            retrieve treasure component
+            <button className="close-modal" onClick={this.props.closeModal}>
+                X
+                {/* maybe get an icon here */}
+            </button>
+            <br />
             <button>Save to Collection</button>
             {/* onClick, will call action that will add received treasureId to user's collection array */}
             <button>Report Treasure</button>
