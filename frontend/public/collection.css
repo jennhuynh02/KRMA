@@ -1,8 +1,9 @@
 .collection-page {
   text-align: -webkit-center;
-  background-image: url(CollectionPage.jpg);
+  background-image: url(TreasureCollectionPage.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  height: 1200px;
 }
 
 .collection-header {
