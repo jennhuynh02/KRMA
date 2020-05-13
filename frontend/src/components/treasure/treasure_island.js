@@ -10,7 +10,7 @@ class TreasureIsland extends React.Component {
       <div className="treasure-island-body">
         <img className="chest" src="TreasureChest.jpg" />
         <div>
-          <button className="treasure-buttons" onClick={() => openModal('upload')}>
+          <button className="treasure-buttons" onClick={() => openModal('photo')}>
             Upload treasure and receive a key!
           </button>
           <br />
