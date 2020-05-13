@@ -28,7 +28,7 @@
 
 /* move this css to a separate file */
 
-.create-treasure-wrapper, .retrieve-treasure-wrapper {
+.create-treasure-wrapper, .create-quote-wrapper, .retrieve-treasure-wrapper {
     border-radius: 5px;
     border: 3px solid rgb(103, 43, 23);
     box-shadow: 0 5px 10px 2px rgba(195,192,192,.5);
