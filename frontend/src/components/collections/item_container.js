@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import TreasureItem from './item';
 
-const mapStateToProps = (state) => ({
-
+const mapStateToProps = (state, {treasure}) => ({
+  imgUrl: treasure.url
 });
 
 const mapDispatchToProps = (dispatch) => ({

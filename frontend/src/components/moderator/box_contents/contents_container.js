@@ -3,7 +3,7 @@ import { fetchTreasures } from '../../../actions/treasure_actions';
 import TreasureContentsPage from './contents';
 
 const mapStateToProps = state => ({
-   allTreasures: Object.values(state.treasure.admin)
+  allTreasures: Object.values(state.treasure.admin)
 });
 
 const mapDispatchToProps = dispatch => ({
