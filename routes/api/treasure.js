@@ -34,8 +34,11 @@ const imageUpload = multer({
 }).single('profileImage');
 
 function checkFileType(file, cb) {
-  debugger
+<<<<<<< HEAD
+  const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
+=======
   const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
+>>>>>>> master
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
   if (mimetype && extname) {
@@ -48,7 +51,6 @@ function checkFileType(file, cb) {
 // @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
-    debugger
     if (error) {
       console.log('errors', error);
       res.json({
@@ -80,4 +82,15 @@ router.post('/upload', (req, res) => {
   });
 });
 
+
+router.get('/all', (req, res) => {
+  Treasure.find({}, {url:1, reported:1, reportMessage:1})
+    .then((treasures) => res.json(treasures))
+    .catch((errors) => res.statusMessage(400).json({
+      notreasuresfound: "No Treasures Found"
+    }))
+})
+
 module.exports = router;
+
+//hello
