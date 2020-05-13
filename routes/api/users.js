@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
+const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys_prod');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-
+const SavedTreasure = require('../../models/savedTreasure');
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
@@ -15,7 +15,8 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         firstName: req.user.firstName,
         lastName: req.user.lastName,
         email: req.user.email,
-        keyCount: req.user.keyCount
+        keyCount: req.user.keyCount,
+        savedTreasures: req.user.savedTreasures,
     });
 })
 
@@ -31,12 +32,17 @@ router.post("/register", (req, res) => {
             errors.email = "Email is taken";
             return res.status(400).json(errors);
         } else {
+            const savedTreasures = new SavedTreasure({
+                saved: [],
+            });
+
             const newUser = new User({
                 email: req.body.email,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 password: req.body.password,
-                keyCount: 0
+                keyCount: 0,
+                savedTreasures: savedTreasures.id,
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -51,6 +57,7 @@ router.post("/register", (req, res) => {
                                 email: user.email,
                                 firstName: user.firstName,
                                 keyCount: user.keyCount,
+                                savedTreasures: user.savedTreasures,
                             };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
@@ -83,8 +90,8 @@ router.post('/login', (req, res) => {
                             id: user.id,
                             email: user.email,
                             firstName: user.firstName,
-                            lastName: user.lastName,
                             keyCount: user.keyCount,
+                            savedTreasures: user.savedTreasures,
                         }
                         jwt.sign(
                             payload,

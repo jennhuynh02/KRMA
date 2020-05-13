@@ -13,8 +13,7 @@ const s3Bucket = new AWS.S3({
 });
 
 // UPLOAD FILE
-const profileImgUpload = multer({
-  // debugger
+const imageUpload = multer({
   storage: multerS3({
     s3: s3Bucket,
     bucket: keys.bucketName,
@@ -24,15 +23,15 @@ const profileImgUpload = multer({
     }
   }),
   limits: {
-    fileSize: 4000000
-  }, // In bytes: 2000000 bytes = 2 MB
+    fileSize: 4000000 // 4MB
+  },
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
   }
 }).single('profileImage');
 
 function checkFileType(file, cb) {
-  const filetypes = /jpeg|jpg|png|gif/;  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
   if (mimetype && extname) {
@@ -42,9 +41,9 @@ function checkFileType(file, cb) {
     }
   }
 
-// @route POST api/treasure/treasure-upload
-router.post('/treasure-upload', (req, res) => {
-  profileImgUpload(req, res, (error) => {
+// @route POST api/treasure/upload
+router.post('/upload', (req, res) => {
+  imageUpload(req, res, (error) => {
     if (error) {
       console.log('errors', error);
       res.json({
@@ -59,10 +58,10 @@ router.post('/treasure-upload', (req, res) => {
         // If Success
         const imageName = req.file.key;
         const imageLocation = req.file.location;
-        // Save the file name into database into profile model
+        // Need to save the file name into database into profile model
         res.json({
           image: imageName,
-          location: imageLocation
+          location: imageLocation,
         });
       }
     }
