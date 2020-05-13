@@ -9,6 +9,7 @@ export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
 export const RECEIVE_TREASURES = "RECEIVE_TREASURES";
 export const RECEIVE_USER_TREASURES = "RECEIVE_USER_TREASURES";
 export const RECEIVE_NEW_TREASURE = "RECEIVE_NEW_TREASURE";
+export const REMOVE_TREASURE = "REMOVE_TREASURE";
 
 export const receiveTreasure = treasure => ({
 	type: RECEIVE_TREASURE,
@@ -29,6 +30,12 @@ export const receiveNewTreasure = treasure => ({
 	type: RECEIVE_NEW_TREASURE,
 	treasure
 });
+
+
+export const removeTreasure = treasureId => ({
+    type: REMOVE_TREASURE,
+    treasureId
+})
 
 export const fetchTreasure = (id) => (dispatch) => (
 	getTreasure(id)
@@ -54,4 +61,11 @@ export const createTreasure = (data) => (dispatch) => (
 		.catch((error) => console.log(error))
     // .catch((errors) => dispatch(receiveErrors(errors.response.data)))
 );
+
+export const deleteTreasure = treasure => dispatch => (
+    destroyTreasure(treasure)
+        .then(treasureId => dispatch(removeTreasure(treasureId)))
+        .catch(err => console.log(err))
+
+)
 
