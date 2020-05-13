@@ -1,6 +1,11 @@
 .page-navbar {
   text-align: end;
-  height: 25px;
+  height: 80px;
+}
+
+.nav-collection {
+  height: 60px;
+  width: 60px;
 }
 
 .treasure-island {
