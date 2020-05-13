@@ -1,0 +1,25 @@
+.contents-page {
+  text-align: -webkit-center;
+  background-image: url(CollectionPage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1200px;
+}
+
+.contents-header {
+  font-family: cursive;
+  font-size: 90px;
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+
+.content-item {
+  border: solid 5px white;
+  border-radius: 10px;
+  height: 350px;
+  width: 300px;
+  color: white;
+  margin: 40px;
+  background-color: lightblue;
+}
