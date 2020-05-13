@@ -8,8 +8,7 @@ const TreasureSchema = new Schema ({
   },
   ownerId: {
     type: Schema.Types.ObjectId,
-    ref: 'users', 
-    default: '',
+    ref: 'users',
   },
   reported: {
     type: Boolean,

@@ -48,10 +48,11 @@ export const fetchUserTreasures = (id) => (dispatch) => (
 			.catch(err => console.log(err))
 );
 
-export const createTreasure = (data) => (dispatch) => (
-	postTreasure(data)
-		.then(res => dispatch(receiveNewTreasure(res)))
-		.catch((error) => console.log(error))
-    // .catch((errors) => dispatch(receiveErrors(errors.response.data)))
-);
-
+export const createTreasure = (data) => (dispatch) => {
+	return (
+		postTreasure(data)
+			.then(res => dispatch(receiveNewTreasure(res)))
+			.catch((error) => console.log(error))
+			// .catch((errors) => dispatch(receiveErrors(errors.response.data)))
+	)
+}
