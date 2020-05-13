@@ -64,20 +64,13 @@ router.post('/upload', (req, res) => {
         type: '',
       });
 
+      // does not work...yet
       User.findByIdAndUpdate(
         { _id: uploadedTreasure.creatorId },
         { $inc: { keyCount: 1 } },
       );
 
       uploadedTreasure.save();
-          // { keyCount: 0,
-          //   _id: 5ebae4490979a181798530b0,
-          //   treasureId: [],
-          //   email: 'treasure@treasurebox.com',
-          //   firstName: 'Treasure',
-          //   lastName: 'Hunter',
-          //   password:'$2a$10$h/LsbZ74UJk1sf8YdG',
-          //   date: 2020-05-12T18:00:41.051Z }
 
       res.json({
         owner: uploadedTreasure.creatorId,
