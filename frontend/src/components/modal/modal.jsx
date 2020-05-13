@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import CreateTreasureContainer from '../treasure/create_treasure_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
-// import './modal.css';
+import './modal.css';
 
 const Modal = ({ modal, closeModal }) => {
     if (!modal) return null;
