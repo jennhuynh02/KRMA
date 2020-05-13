@@ -2,7 +2,8 @@ import {
 	postTreasure,
 	getTreasure, 
 	getTreasures, 
-	getUserTreasures 
+	getUserTreasures,
+	destroyTreasure,
 } from "../util/treasure_api_util"
 
 export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
