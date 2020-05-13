@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import { fetchTreasure } from '../../actions/treasure_actions';
-import TreasureBox from './picture_island';
-
+import TreasureBox from './treasure_box'
 const mapStateToProps = (state) => ({
-    currentUser: state.session.currentUser,
+    currentUser: state.session.user,
     treasures: state.treasures,
     errors: state.errors.treasure
 });

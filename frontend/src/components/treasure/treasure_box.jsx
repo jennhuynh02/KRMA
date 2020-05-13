@@ -23,10 +23,9 @@ class TreasureBox extends React.Component{
 
     render(){
         return (
-            <div className="TreasureBox" onSubmit={e => this.fetchRandomTreasure(e)}>
-                <form className="TreasureBoxForm">
+            <div className="TreasureBox" >
+                <form className="TreasureBoxForm" onSubmit={e => this.fetchRandomTreasure(e)}>
                     <div className="TreasureBoxImage">
-                        "image here"
                     </div>
                     <button className="boxButton">Open The Box!</button>
                 </form>

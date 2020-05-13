@@ -1,0 +1,28 @@
+.boxButton {
+    margin: 30px;
+    background-color: beige;
+    border-radius: 5px;
+    border: solid 2px black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.TreasureBoxImage {
+    background-image: url("TreasureBoxHeader.jpg");
+    height: 200px;
+    width: 227px;
+}
+
+.TreasureBox {
+    display: flex;
+    justify-content: center;
+}
+
+.TreasureBoxForm {
+    background-color: aquamarine;
+    height: 100px;
+}
