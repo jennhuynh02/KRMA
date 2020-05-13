@@ -22,7 +22,7 @@ const treasureReducer = ( state = _defaultState, action ) => {
             newState.user = action.treasures; // may or may not need an extension
             return newState;
         case RECEIVE_NEW_TREASURE:
-            newState.new = actions.treasure; // may or may not need an extension
+            newState.new = action.treasure; // may or may not need an extension
             return newState;
         case REMOVE_TREASURE:
             delete newState.treasures[action.treasureId];
