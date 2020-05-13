@@ -1,0 +1,21 @@
+/* .modal-background {
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom:0;
+    width: auto !important;
+    z-index: 40;
+}
+
+.modal-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400
+    width: 500px;
+    background-color: #fff;
+} */
