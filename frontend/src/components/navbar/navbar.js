@@ -26,7 +26,7 @@ class NavBar extends React.Component {
     }
     handleTreasurePageButton(e) {
         e.preventDefault();
-        window.location.href = "/#/treasureisland"
+        window.location.href = "/#/collection"
     }
 
     getLinks() {
@@ -42,7 +42,7 @@ class NavBar extends React.Component {
         } else if (this.props.loggedIn) {
             return (
                 <div className="page-navbar">
-                    <img className="nav-treasure" src="TreasureBoxHeader.jpg" onClick={this.handleTreasurePageButton} />                   
+                    <img className="nav-collection" src="TreasureBoxHeader.jpg" onClick={this.handleTreasurePageButton} />                   
                     <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
                 </div>
             );
