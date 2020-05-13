@@ -20,8 +20,6 @@ const Admin = ({ component: Component, path, loggedIn, user, ...rest }) => (
   />
 );
 
-
-
 const mapState = (state) => ({
   loggedIn: state.session.isAuthenticated,
   user: state.session.user,

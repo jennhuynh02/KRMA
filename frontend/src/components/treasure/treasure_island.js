@@ -7,23 +7,25 @@ class TreasureIsland extends React.Component {
     const { openModal } = this.props;
 
     const treasureLinks = () => (
-      <div className="treasure-links">
-        <button className="session-buttons" onClick={() => openModal('upload')}>
-          Upload treasure and receive a key!
-        </button>
-        <button className="session-buttons" onClick={() => openModal('retrieve')}>
-          Use a key to open a treasure chest!
-        </button>
+      <div className="treasure-island-body">
+        <img className="chest" src="TreasureChest.jpg" />
+        <div>
+          <button className="treasure-buttons" onClick={() => openModal('upload')}>
+            Upload treasure and receive a key!
+          </button>
+          <br />
+          <button className="treasure-buttons" onClick={() => openModal('retrieve')}>
+            Use a key to open a treasure chest!
+          </button>
+        </div>
       </div> 
     )
 
     return (
       <div className="treasure-island">
-        <div>
           <h1 className="island-header">Welcome to Treasure Island</h1>
-        </div>
-        <div className="treasure-island-body">
           <Modal />
+        <div>
           {treasureLinks()}
         </div>
       </div>

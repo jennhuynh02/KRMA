@@ -4,7 +4,17 @@ class Collection extends React.Component {
   render() {
     return (
     <div className="collection-page">
-      <h1 className="collection-header">This is the collections page.</h1>
+      <h1 className="collection-header">{this.props.firstName}'s Treasures</h1>
+      <div className="the-collection">
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+        <p className="collection-item">Le Treasure Item</p>
+      </div>
     </div>
     );
   }
