@@ -68,4 +68,3 @@ export const deleteTreasure = treasure => dispatch => (
         .catch(err => console.log(err))
 
 )
-

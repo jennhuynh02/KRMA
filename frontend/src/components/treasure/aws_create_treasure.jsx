@@ -12,18 +12,22 @@ class AWSCreateTreasure extends React.Component {
     this.handleUpload = this.handleUpload.bind(this);
   }
 
-  handleFile = (e) => {
+  handleFile(e) {
     this.setState({
       selectedFile: e.currentTarget.files[0]
     });
   };
 
-  handleUpload = (e) => {
+  handleUpload(e) {
     e.preventDefault();
     let data = new FormData();
     if (this.state.selectedFile) {
       data.append('profileImage', this.state.selectedFile, this.state.selectedFile.name);
+      data.append('ownerId', this.props.currentUser.id)
       this.props.createTreasure(data);
+      this.setState({
+        selectedFile: "",
+      })
     } else {
       this.setState({
         error: 'Please upload file'

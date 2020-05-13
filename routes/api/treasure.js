@@ -1,10 +1,13 @@
 const express = require('express');
+const router = express.Router();
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const router = express.Router();
-const keys = require('../../config/keys_prod');
+const keys = require('../../config/keys_dev');
+const passport = require('passport');
+const Treasure = require('../../models/treasure');
+const User = require('../../models/user');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
@@ -31,6 +34,7 @@ const imageUpload = multer({
 }).single('profileImage');
 
 function checkFileType(file, cb) {
+  debugger
   const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
@@ -44,26 +48,34 @@ function checkFileType(file, cb) {
 // @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
+    debugger
     if (error) {
       console.log('errors', error);
       res.json({
         error: error
-      });
+      })
     } else {
-    // If File not found
-      if (req.file === undefined) {
-        console.log('Error: No File Selected!');
-        res.json('Error: No File Selected');
-      } else {
-        // If Success we do this
-        const imageName = req.file.key;
-        const imageLocation = req.file.location;
-        // Need to save the file name into database into profile model
-        res.json({
-          image: imageName,
-          location: imageLocation,
-        });
-      }
+      const uploadedTreasure = new Treasure({
+        creatorId: req.body.ownerId,
+        url: req.file.location,
+        ownerId: null,
+        reported: false,
+        reportMessage: '',
+        type: '',
+      });
+
+      // does not work...yet
+      User.findByIdAndUpdate(
+        { _id: uploadedTreasure.creatorId },
+        { $inc: { keyCount: 1 } },
+      );
+
+      uploadedTreasure.save();
+
+      res.json({
+        owner: uploadedTreasure.creatorId,
+        location: uploadedTreasure.url,
+      });
     }
   });
 });
