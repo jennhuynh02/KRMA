@@ -28,7 +28,6 @@ router.post("/register", (req, res) => {
 
     User.findOne({ email: req.body.email }).then(user => {
         if (user) {
-            // debugger
             errors.email = "Email is taken";
             return res.status(400).json(errors);
         } else {
@@ -47,7 +46,12 @@ router.post("/register", (req, res) => {
                     newUser
                         .save()
                         .then(user => {
-                            const payload = { id: user.id, email: user.email };
+                            const payload = { 
+                                id: user.id, 
+                                email: user.email,
+                                firstName: user.firstName,
+                                keyCount: user.keyCount,
+                            };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                 res.json({
@@ -77,9 +81,10 @@ router.post('/login', (req, res) => {
                     if (isMatch) {
                         const payload = {
                             id: user.id,
-                            email: req.body.email,
-                            firstName: req.body.firstName,
-                            lastName: req.body.lastName
+                            email: user.email,
+                            firstName: user.firstName,
+                            lastName: user.lastName,
+                            keyCount: user.keyCount,
                         }
                         jwt.sign(
                             payload,
@@ -96,6 +101,5 @@ router.post('/login', (req, res) => {
                 })
         })
 })
-
 
 module.exports = router;
