@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
-
+import { fetchAllUsers } from '../../../actions/user_actions'; 
 import UsersPage from './users';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => {
+  return ({
+    allUsers: Object.values(state.admin.users)
+  })
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getAllUsers: () => dispatch(fetchAllUsers()),
 });
 
-const mapDispatchToProps = dispatch => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersPage);
+export default connect(
+  mapStateToProps, mapDispatchToProps,
+)(UsersPage);

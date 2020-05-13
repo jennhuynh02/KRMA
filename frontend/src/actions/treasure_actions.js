@@ -32,32 +32,27 @@ export const receiveNewTreasure = treasure => ({
 	treasure
 });
 
-
 export const removeTreasure = treasureId => ({
-    type: REMOVE_TREASURE,
-    treasureId
+	type: REMOVE_TREASURE,
+	treasureId
 })
 
 export const fetchTreasure = (id) => (dispatch) => (
 	getTreasure(id)
-			.then(treasure => dispatch(receiveTreasure(treasure)))
-			.catch(err => console.log(err))
+		.then(treasure => dispatch(receiveTreasure(treasure)))
+		.catch(err => console.log(err))
 );
 
 export const fetchTreasures = () => (dispatch) => (
 	getTreasures()
-		// .then(treasures => {
-			// debugger;
-			// console.log(treasures)})
-
-			.then(treasures => dispatch(receiveTreasures(treasures)))
-			.catch(err => console.log(err))
+		.then(treasures => dispatch(receiveTreasures(treasures)))
+		.catch(err => console.log(err))
 );
 
 export const fetchUserTreasures = (id) => (dispatch) => (
 	getUserTreasures(id)
-			.then(treasures => dispatch(dispatch(receiveUserTreasures(treasures))))
-			.catch(err => console.log(err))
+		.then(treasures => dispatch(dispatch(receiveUserTreasures(treasures))))
+		.catch(err => console.log(err))
 );
 
 export const createTreasure = (data) => (dispatch) => (
