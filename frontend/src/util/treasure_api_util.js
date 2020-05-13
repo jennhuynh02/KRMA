@@ -2,7 +2,6 @@ import axios from 'axios';
 
 // Admin only
 export const getTreasures = () => {
-    debugger;
     return axios.get(`/api/treasure/all`);
 };
 

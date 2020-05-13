@@ -34,7 +34,6 @@ const imageUpload = multer({
 }).single('profileImage');
 
 function checkFileType(file, cb) {
-  debugger
   const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
@@ -48,7 +47,6 @@ function checkFileType(file, cb) {
 // @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
-    debugger
     if (error) {
       console.log('errors', error);
       res.json({
