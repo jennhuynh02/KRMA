@@ -1,11 +1,17 @@
 .page-navbar {
   text-align: end;
   height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  border: solid 2px black;
+  background-color: lightblue;
 }
 
 .nav-collection {
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
+  border: solid 3px gold;
+  border-radius: 15px;
 }
 
 .treasure-island {
@@ -14,7 +20,8 @@
 
 .island-header {
   font-family: cursive;
-  font-size: 50px;
+  font-size: 60px;
+  padding: 30px;
 }
 
 .treasure-island-page {

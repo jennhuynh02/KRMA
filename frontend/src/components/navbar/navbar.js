@@ -26,6 +26,10 @@ class NavBar extends React.Component {
     }
     handleTreasurePageButton(e) {
         e.preventDefault();
+        window.location.href = "/#/treasureisland"
+    }
+    handleCollectionPageButton(e) {
+        e.preventDefault();
         window.location.href = "/#/collection"
     }
 
@@ -42,8 +46,9 @@ class NavBar extends React.Component {
         } else if (this.props.loggedIn) {
             return (
                 <div className="page-navbar">
-                    <img className="nav-collection" src="TreasureBoxHeader.jpg" onClick={this.handleTreasurePageButton} />                   
-                    <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
+                    <img className="nav-collection" src="IconTreasureMap.jpg" onClick={this.handleTreasurePageButton} />                   
+                    <img className="nav-collection" src="TreasureBoxHeader.jpg" onClick={this.handleCollectionPageButton} />                   
+                    <img className="nav-collection" src="LogoutShip.jpg" onClick={this.logoutUser} />                   
                 </div>
             );
         } else {
