@@ -48,7 +48,19 @@ export const logout = () => (dispatch) => {
 
 export const signup = (user) => (dispatch) => (
   APIUtil.signup(user)
-    .then(() => dispatch(receiveUserSignIn()), 
-      errors => dispatch(receiveErrors(errors.response.data))
-  )
+    .then((res) => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+      APIUtil.setAuthToken(token);
+      const decoded = jwt_decode(token); // decode token so we have access to user data
+      dispatch(receiveCurrentUser(decoded));
+    })
+    .catch((errors) => dispatch(receiveErrors(errors.response.data)))
 )
+
+// export const signup = (user) => (dispatch) => (
+//   APIUtil.signup(user)
+//     .then(() => dispatch(receiveUserSignIn()), 
+//       errors => dispatch(receiveErrors(errors.response.data))
+//   )
+// )
