@@ -15,7 +15,6 @@ class TreasureContentsPage extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <div>
               This is the Treasure Contents Page for admin.

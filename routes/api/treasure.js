@@ -34,11 +34,7 @@ const imageUpload = multer({
 }).single('profileImage');
 
 function checkFileType(file, cb) {
-<<<<<<< HEAD
   const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
-=======
-  const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
->>>>>>> master
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
   if (mimetype && extname) {
@@ -63,25 +59,35 @@ router.post('/upload', (req, res) => {
         ownerId: null,
         reported: false,
         reportMessage: '',
-        type: '',
+        type: 'picture',
       });
 
       // does not work...yet
-      User.findByIdAndUpdate(
-        { _id: uploadedTreasure.creatorId },
-        { $inc: { keyCount: 1 } },
-      );
+      // User.update(
+      //   { _id: req.body.ownerId },
+      //   { $inc: { keyCount: 1 } },
+      // );
 
+      User.find({
+        _id: req.body.ownerId
+      }).then(user => console.log(user))
+
+      User.updateOne(      
+        { _id: req.body.ownerId },
+        { $inc: { keyCount: 1 } }, 
+      )
+
+      // User.save();
       uploadedTreasure.save();
 
       res.json({
         owner: uploadedTreasure.creatorId,
+        treasureId: uploadedTreasure._id,
         location: uploadedTreasure.url,
       });
     }
   });
 });
-
 
 router.get('/all', (req, res) => {
   Treasure.find({}, {url:1, reported:1, reportMessage:1})
@@ -92,5 +98,3 @@ router.get('/all', (req, res) => {
 })
 
 module.exports = router;
-
-//hello
