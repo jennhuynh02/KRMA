@@ -4,10 +4,15 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
+<<<<<<< HEAD
 const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
+=======
+const router = express.Router();
+const keys = require('../../config/keys_prod');
+>>>>>>> master
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,

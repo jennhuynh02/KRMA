@@ -1,24 +1,75 @@
 .page-navbar {
   text-align: end;
-  height: 80px;
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: beige;
 }
 
-.nav-collection {
-  height: 60px;
-  width: 60px;
+.nav-item {
+  text-align: center;
+  font-size: 23px;
+  font-family: fantasy;
+}
+
+.nav-icon {
+  height: 65px;
+  width: 65px;
+  border: solid 3px gold;
+  border-radius: 15px;
+}
+
+.nav-icon:hover {
+  opacity: 35%;
 }
 
 .treasure-island {
   text-align: -webkit-center;
+  background-image: url(treasureboxisland.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1200px;
+}
+
+.treasure-island-body {
+  margin-top: 500px;
+  display: flex;
+  margin-left: 140px;
+}
+
+.treasure-section {
+  margin: 50px;
 }
 
 .island-header {
   font-family: cursive;
-  font-size: 50px;
+  font-size: 80px;
+  color: gold;
+  padding: 30px;
+  font-weight: 700;
 }
 
-.treasure-island-page {
-  background-image: url(treasureisland.jpg);
-  height: 900px;
-  width: 1200px;
+
+.chest {
+  height: 400px;
+  border-radius: 20%;
+  opacity: 90%;
+  border: solid 1px gold;
+}
+
+.treasure-buttons {
+  margin: 30px;
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px gold;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.treasure-buttons:hover {
+  opacity: 70%;
 }
