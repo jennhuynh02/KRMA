@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import TreasureItem from './item'
+import TreasureItem from './item';
 
 const mapStateToProps = (state) => ({
 
