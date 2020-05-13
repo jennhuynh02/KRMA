@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_prod');
+const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -34,7 +34,6 @@ const imageUpload = multer({
 }).single('profileImage');
 
 function checkFileType(file, cb) {
-  debugger
   const filetypes = /jpeg|jpg|png|gif/;  // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype);  // Check mime
@@ -48,7 +47,6 @@ function checkFileType(file, cb) {
 // @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
-    debugger
     if (error) {
       console.log('errors', error);
       res.json({
