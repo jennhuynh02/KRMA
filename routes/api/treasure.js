@@ -60,25 +60,15 @@ router.post('/upload', (req, res) => {
         ownerId: null,
         reported: false,
         reportMessage: '',
-        type: 'picture',
+        type: 'image',
       });
 
-      // does not work...yet
-      // User.update(
-      //   { _id: req.body.ownerId },
-      //   { $inc: { keyCount: 1 } },
-      // );
-
-      User.find({
-        _id: req.body.ownerId
-      }).then(user => console.log(user))
-
-      User.updateOne(      
+      User.update(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
-      )
+        { new: true },
+      ).catch(err => console.log(err));
 
-      // User.save();
       uploadedTreasure.save();
 
       res.json({
@@ -104,6 +94,20 @@ router.get('/all', (req, res) => {
     }))
 })
 
+router.get('/flagged', (req, res) => {
+  Treasure.find({report: true})
+    .then(treasures => res.json(treasures))
+});
+
+router.post('/report', (req,res) => {
+  Treasure.update(
+      { _id: req.params.id }, 
+      { reported: true },
+      { reportMessage: req.params.report },
+    )
+    .then((treasure) => res.json(treasure))
+    .catch((err) => res.json({error: "Please try again"}))
+})
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
 //       .then((user) => {
@@ -126,7 +130,6 @@ router.get('/all', (req, res) => {
 //           })
 //       })
 // })
-
   
 router.delete('/:treasureId', (req, res) => {
   console.log(req.params.treasureId)
@@ -136,6 +139,5 @@ router.delete('/:treasureId', (req, res) => {
   res.json({});
   });
 });
-
 
 module.exports = router;
