@@ -1,4 +1,5 @@
 import React from 'react';
+import UserContainer from './u';
 
 class UsersPage extends React.Component {
 	constructor(props) {
@@ -15,9 +16,15 @@ class UsersPage extends React.Component {
 	}
 	
 	render() {
+		const { allUsers } = this.props;
 		return (
-			<div>
-				This is the Users Page for admin.
+			<div className="users-page">
+				<h1 className="users-page-header">All Treasure Box Users</h1>
+        <ul>
+          {allUsers.map((user) => (
+            <UserContainer key={user._id} user={user} />
+            ))}
+        </ul>
 			</div>
 		);
 	}

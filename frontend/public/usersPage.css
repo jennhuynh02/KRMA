@@ -1,0 +1,28 @@
+.users-page {
+  text-align: -webkit-center;
+  background-image: url(CollectionPage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1200px;
+}
+
+.users-page-header {
+  font-family: cursive;
+  font-size: 90px;
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+
+.user-box {
+    border: solid 5px white;
+    border-radius: 10px;
+    height: 50px;
+    width: 300px;
+    font-size: 18px;
+    font-family: fantasy;
+    margin: 40px;
+    padding: 5px;
+    background-color: lightblue;
+    display: inline-block;
+}

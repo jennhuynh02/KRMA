@@ -9,7 +9,7 @@ class Collection extends React.Component {
       <h1 className="collection-header">{this.props.firstName}'s Treasures</h1>
         <div className="the-collection">
           {allTreasures.map((treasure) => (
-            <TreasureItemContainer treasure={treasure} />
+            <TreasureItemContainer key={treasure._id} treasure={treasure} />
             ))}
         </div>
     </div>
