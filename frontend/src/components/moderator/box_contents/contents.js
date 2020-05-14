@@ -12,7 +12,6 @@ class TreasureContentsPage extends React.Component {
         const { allTreasures } = this.props
         return (
             <div className="contents-page">
-                <br />
               <h1 className="contents-header">Everything Inside the Treasure Box</h1>
               <div className="the-collection">
               {allTreasures.map((treasure) => (
