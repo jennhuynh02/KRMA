@@ -5,16 +5,12 @@ export const getTreasures = () => {
     return axios.get(`/api/treasure/all`);
 };
 
-export const getUserTreasures = (id) => {
-    return axios.get(`api/treasure/users/${id}`);
-};
-
 export const getTreasure = (id) => {
     return axios.get(`api/treasure/${id}`);
 };
 
-export const destroyTreasure = (treasure) => {
-    return axios.delete('api/treasure', treasure)
+export const destroyTreasure = (treasureId) => {
+    return axios.delete(`api/treasure/${treasureId}`);
 }
 
 export const postTreasure = (treasure) => (
@@ -26,3 +22,7 @@ export const postTreasure = (treasure) => (
         }
     })
 );
+
+// export const getUserTreasures = (currentUser) => {
+//     return axios.get(`api/treasure/savedTreasure/${currentUser.id}`);
+// };
