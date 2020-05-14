@@ -5,17 +5,27 @@ class RetrieveTreasure extends React.Component {
       super(props);
 
       this.state = { keyCount: this.props.keyCount };
-      // NEED TO GET KEYCOUNT SLICE OF STATE HERE
+      // Need keycount slice of state?
   }
   
   componentDidMount() {
-    // debugger
     const { fetchTreasure, currentUser } = this.props;
-    fetchTreasure(currentUser.id)
+    fetchTreasure(currentUser.id);
   }
+  
+  addOwnerId() {
+    const { currentUser, editTreasure } = this.props;
+
+    if (this.props.image._id) {
+      const treasure = this.props.image;
+      treasure.ownerId = currentUser.id;
+      editTreasure(treasure);
+    }
+  }
+
   render() {
     const { image } = this.props;
-    
+    this.addOwnerId();
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={this.props.closeModal}>

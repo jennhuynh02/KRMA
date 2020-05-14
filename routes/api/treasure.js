@@ -118,11 +118,11 @@ router.delete('/:treasureId', (req, res) => {
 });
 
 router.put('/update', (req, res) => {
-  console.log(req.params)
+  console.log(req.body);
   Treasure.findByIdAndUpdate(
-    { _id: req.params.id },
-    { reported: true },
-    { reportMessage: req.params.body},
+    req.body._id,
+    // { reported: true },
+    // { reportMessage: req.body},
     function(err, result) {
       if (err) {
         res.json(err)
