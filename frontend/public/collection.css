@@ -1,17 +1,19 @@
 .collection-page {
   text-align: -webkit-center;
-  background-image: url(TreasureCollectionPage.jpg);
+  background-image: url(treasureboxisland.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: normal;
   height: 1200px;
 }
 
 .collection-header {
   font-family: cursive;
-  font-size: 90px;
-  text-align: center;
-  color: white;
-  padding: 40px;
+  font-size: 80px;
+  color: gold;
+  padding: 30px;
+  font-weight: 700;
 }
 
 .the-collection {

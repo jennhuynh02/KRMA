@@ -14,26 +14,17 @@ class RetrieveTreasure extends React.Component {
       fetchTreasure(currentUser.id)
     }
 
-    render() {
-      const { treasure } = this.state;
-      debugger
-      return (
-        <div className="retrieve-treasure-wrapper">
-          <button className="close-modal" onClick={this.props.closeModal}>
-              X
-              {/* maybe get an icon here */}
-          </button>
-          { treasure ? treasure.treasureUrl : null }
-          <button>Save to Collection</button>
-          {/* onClick, will call action that will add received treasureId to user's collection array */}
-          <button>Report Treasure</button>
-          {/* onClick, will add treasureId to report queue or something idk how this will work */}
-          <br />
-          <button onClick={() => this.props.openModal("upload")}>
-            Upload Treasure Instead
-          </button>
-        </div>
-      );
+        return (
+          <div className="retrieve-treasure-wrapper">
+            <button className="close-modal" onClick={this.props.closeModal}>
+                X
+            </button>
+            
+            <button>Report Treasure</button>
+            <br />
+
+          </div>
+        );
     }
 }
 

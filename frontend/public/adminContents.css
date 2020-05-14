@@ -1,16 +1,27 @@
 .admin-nav-buttons {
   margin-top: 30px;
   margin-bottom: 30px;
+  font-size: 19px;
+  font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
+  letter-spacing: normal;
+  text-rendering: optimizelegibility;
+  line-height: 126%;
+  min-width: 194px;
+  padding: 7px 20px;
+  text-align: center;
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 1px 1px #a4e388;
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  border: 1px solid;
   border-radius: 5px;
-  border: solid 2px blue;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 15px;
-  font-weight: 600;
-  color: purple;
-  background-color: lightcyan;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 
@@ -33,9 +44,15 @@
 .content-item {
   border: solid 5px white;
   border-radius: 10px;
-  height: 350px;
-  width: 300px;
   color: white;
   margin: 40px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.content-img {
+  border: solid 5px white;
+  color: white;
   background-color: lightblue;
 }

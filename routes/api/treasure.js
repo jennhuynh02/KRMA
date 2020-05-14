@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_dev');
+const keys = require('../../config/keys_prod');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -27,7 +27,7 @@ const imageUpload = multer({
     }
   }),
   limits: {
-    fileSize: 4000000 // 4MB
+    fileSize: 4000000
   },
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
@@ -45,14 +45,10 @@ function checkFileType(file, cb) {
     }
   }
 
-// @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
     if (error) {
-      console.log('errors', error);
-      res.json({
-        error: error
-      })
+      res.json({ error: error })
     } else if (req.file) {
       const uploadedTreasure = new Treasure({
         creatorId: req.body.ownerId,
@@ -66,7 +62,11 @@ router.post('/upload', (req, res) => {
       User.updateOne(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
+<<<<<<< HEAD
         { new: true},
+=======
+        { new: true },
+>>>>>>> master
       )
 
       uploadedTreasure.save();
@@ -94,6 +94,7 @@ router.get('/all', (req, res) => {
     }))
 })
 
+<<<<<<< HEAD
 router.get('/treasure/new', (req, res) => {
   console.log(req.params)
   const num = Treasure.find({ ownerId: null }).countDocuments()
@@ -122,6 +123,12 @@ router.get('/treasure/new', (req, res) => {
 // })
 
 
+=======
+
+router.get('/newTreasure', (req, res) => {
+  
+})
+>>>>>>> master
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
 //       .then((user) => {
@@ -137,7 +144,6 @@ router.get('/treasure/new', (req, res) => {
 //               )
 //             })
 //             .then(treasures => {
-//               debugger
 //               console.log(treasures)
 //             })
 //             // .then((treasures) => res.json(treasures));

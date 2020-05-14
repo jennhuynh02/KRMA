@@ -41,7 +41,7 @@ class AWSCreateTreasure extends React.Component {
           <button className="close-modal" onClick={this.props.closeModal}>
             X
           </button>
-          <button onClick={() => this.props.openModal('photo')}>Photo</button>
+
           <button onClick={() => this.props.openModal('quote')}>Quote</button>
           <div className="card-header">
             <h3 style={{ color: "#555", marginLeft: "12px" }}>
