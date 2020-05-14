@@ -4,3 +4,8 @@ import axios from 'axios';
 export const getUsers = () => {
     return axios.get(`/api/users/all`);
 };
+
+// moderator only
+export const deleteUser = (userId) => {
+    return axios.delete(`/api/users/${userId}`);
+};

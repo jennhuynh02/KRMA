@@ -8,6 +8,7 @@ const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
+const SavedTreasure = require('../../models/savedTreasure');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
@@ -103,6 +104,30 @@ router.get('/all', (req, res) => {
     }))
 })
 
+// router.get('/savedTreasure/:id', (req, res) => {
+//   User.find({ _id: req.params.id })
+//       .then((user) => {
+
+//         // console.log(user) // how to key into savedTreasure
+//         SavedTreasure.find({ _id: user.savedTreasure })
+//           .then(userTreasures => {
+
+//             console.log(userTreasures) // works
+//             userTreasures.saved.map((treasureId) => {
+//               return (
+//                 Treasure.find({id: treasureId})
+//               )
+//             })
+//             .then(treasures => {
+//               debugger
+//               console.log(treasures)
+//             })
+//             // .then((treasures) => res.json(treasures));
+//           })
+//       })
+// })
+
+  
 router.delete('/:treasureId', (req, res) => {
   console.log(req.params.treasureId)
   Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
@@ -111,5 +136,6 @@ router.delete('/:treasureId', (req, res) => {
   res.json({});
   });
 });
+
 
 module.exports = router;
