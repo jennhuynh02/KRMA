@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_prod');
+const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -62,11 +62,7 @@ router.post('/upload', (req, res) => {
       User.updateOne(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
-<<<<<<< HEAD
-        { new: true},
-=======
         { new: true },
->>>>>>> master
       )
 
       uploadedTreasure.save();
@@ -94,7 +90,6 @@ router.get('/all', (req, res) => {
     }))
 })
 
-<<<<<<< HEAD
 router.get('/treasure/new', (req, res) => {
   console.log(req.params)
   const num = Treasure.find({ ownerId: null }).countDocuments()
@@ -122,13 +117,6 @@ router.get('/treasure/new', (req, res) => {
 //   )
 // })
 
-
-=======
-
-router.get('/newTreasure', (req, res) => {
-  
-})
->>>>>>> master
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
 //       .then((user) => {

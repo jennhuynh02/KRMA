@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     debugger
     return {
         currentUser: state.session.user,
-        currentTreasure: state.user,
+        currentTreasure: state.treasure.new,
+        imgUrl: state.treasure.new.url,
     }
 };
 
