@@ -27,7 +27,7 @@ const imageUpload = multer({
     }
   }),
   limits: {
-    fileSize: 4000000 // 4MB
+    fileSize: 4000000
   },
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
@@ -45,14 +45,10 @@ function checkFileType(file, cb) {
     }
   }
 
-// @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
     if (error) {
-      console.log('errors', error);
-      res.json({
-        error: error
-      })
+      res.json({ error: error })
     } else if (req.file) {
       const uploadedTreasure = new Treasure({
         creatorId: req.body.ownerId,
@@ -60,14 +56,14 @@ router.post('/upload', (req, res) => {
         ownerId: null,
         reported: false,
         reportMessage: '',
-        type: 'image',
+        type: 'picture',
       });
 
-      User.update(      
+      User.updateOne(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
         { new: true },
-      ).catch(err => console.log(err));
+      )
 
       uploadedTreasure.save();
 
@@ -94,19 +90,9 @@ router.get('/all', (req, res) => {
     }))
 })
 
-router.get('/flagged', (req, res) => {
-  Treasure.find({report: true})
-    .then(treasures => res.json(treasures))
-});
 
-router.post('/report', (req,res) => {
-  Treasure.update(
-      { _id: req.params.id }, 
-      { reported: true },
-      { reportMessage: req.params.report },
-    )
-    .then((treasure) => res.json(treasure))
-    .catch((err) => res.json({error: "Please try again"}))
+router.get('/newTreasure', (req, res) => {
+  
 })
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
@@ -123,13 +109,13 @@ router.post('/report', (req,res) => {
 //               )
 //             })
 //             .then(treasures => {
-//               debugger
 //               console.log(treasures)
 //             })
 //             // .then((treasures) => res.json(treasures));
 //           })
 //       })
 // })
+
   
 router.delete('/:treasureId', (req, res) => {
   console.log(req.params.treasureId)
