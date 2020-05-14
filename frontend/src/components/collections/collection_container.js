@@ -8,13 +8,14 @@ import {
 const mapStateToProps = state => ({
   firstName: state.session.user.firstName,
   allTreasures: Object.values(state.treasure.admin),
+  userTreasures: Object.values(state.treasure.user),
   admin: (state.session.user.email === "admin@treasurebox.com"),
-  // currentUser: state.session.user
+  currentUserId: state.session.user.id,
 });
 
 const mapDispatchToProps = dispatch => ({
   getAllTreasures: () => dispatch(fetchTreasures()),
-  // getUserTreasures: (currentUser) => dispatch(fetchUserTreasures(currentUser)),
+  getUserTreasures: (userId) => dispatch(fetchUserTreasures(userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Collection);
