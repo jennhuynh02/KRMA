@@ -32,6 +32,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = { email: this.state.email, password: this.state.password };
         this.props.login(user);
+        // return this.renderErrors();
     }
 
     handleDemoLoginButton(e) {
@@ -48,7 +49,9 @@ class LoginForm extends React.Component {
 
     renderErrors() {
         return (
+            
             <ul>
+                <br/>
                 {Object.keys(this.state.errors).map((error, i) => (
                     <li key={`errors-${i}`}>
                         {this.state.errors[error]}
@@ -59,6 +62,8 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        let errors = this.state.errors;
+        errors = Object.values(errors);
         return (
             <div className="login-session-form">
                 <form onSubmit={this.handleSubmit}>
@@ -81,13 +86,21 @@ class LoginForm extends React.Component {
                     />
                         <br />
                         <label>Password</label>
-                    {this.renderErrors()}
+                    <br/>
                     <button className="session-buttons">Log In</button>
                 </form>
+               
                 {/* <br /> */}
                 <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
-                <br/>
-                <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
+                <br />
+                <br />
+                <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button> 
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div>{errors.length > 0 ? (errors[0][errors[0].length-1] !== " " ? this.renderErrors() : "") : ""}</div>
             </div>
         );
     }
