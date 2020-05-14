@@ -69,6 +69,9 @@ class LoginForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <h2 className="form-title">Login</h2>
                     <br />
+                    <br />
+            <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
+            <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button> 
                     <input
                         className="form-inputs"
                         type="text" 
@@ -90,16 +93,6 @@ class LoginForm extends React.Component {
                     <button className="session-buttons">Log In</button>
                 </form>
                
-                {/* <br /> */}
-                <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
-                <br />
-                <br />
-                <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button> 
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
                 <div>{errors.length > 0 ? (errors[0][errors[0].length-1] !== " " ? this.renderErrors() : "") : ""}</div>
             </div>
         );
