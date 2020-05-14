@@ -8,6 +8,8 @@ const UsersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_USERS:
       return action.users.data;
+    // case DELETE_USER:
+    //   return 
     default:
       return state;
   }

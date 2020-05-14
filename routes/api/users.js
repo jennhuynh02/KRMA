@@ -114,4 +114,5 @@ router.get('/all', (req, res) => {
         .then((users) => {res.json(users)})
 })
 
+
 module.exports = router;
