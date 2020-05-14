@@ -17,10 +17,10 @@ class MainPage extends React.Component {
 
       <footer className="mainpage-footer">
       <p>Author-Programmers: </p>
-        <a className="linked-in-links" href="https://www.linkedin.com/in/james-jiang-b962a245/">James Jiang</a>,
-        <a className="linked-in-links" href="https://www.linkedin.com/in/jenniferanhhuynh/">Jennifer Huynh</a>,
-        <a className="linked-in-links" href="https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/">Joshua Silva-Roland</a>,
-        <a className="linked-in-links" href="https://www.linkedin.com/in/michael-murry-b3746a1a6/"> Michael Murry</a>
+        <a href="https://www.linkedin.com/in/james-jiang-b962a245/"><input className="linked-in-links" type="button" value="James Jiang"/></a>
+        <a href="https://www.linkedin.com/in/jenniferanhhuynh/"><input className="linked-in-links" type="button" value="Jennifer Huynh"/></a>
+        <a href="https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/"><input className="linked-in-links" type="button" value="Joshua Silva-Roland"/></a>
+        <a href="https://www.linkedin.com/in/michael-murry-b3746a1a6/"><input className="linked-in-links" type="button" value=" Michael Murry"/></a>
       <p>Copyright &copy; 2020 TreasureBox</p>
       </footer>
     </div>

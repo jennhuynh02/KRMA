@@ -21,13 +21,24 @@
   background-color: beige;
 }
 
+.linked-in-links {
+  margin: 30px;
+  background-color: beige;
+  border-radius: 5px;
+  border: solid 2px black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .linked-in-links:hover {
   text-align: center;
-  line-height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: sans-serif;
-  background-color: gold;
-  color: royalblue;
+  color: gold;
 }
 
 .form-title {
@@ -45,10 +56,11 @@
 .forms {
   display: flex;
   justify-content: center;
+  font-size: 18px;
 }
 .signup-session-form {
   border: dashed 5px black;
-  height: 500px;
+  height: 550px;
   width: 350px;
   text-align-last: center;
   padding: 30px;
@@ -57,7 +69,7 @@
 .login-session-form {
   border: dashed 5px black;
   border-left: none;
-  height: 500px;
+  height: 550px;
   width: 350px;
   text-align-last: center;
   padding: 30px;
@@ -72,6 +84,7 @@
   padding: 10px;
   width: 200px;
   margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -88,6 +101,14 @@
   font-weight: 600;
 }
 
+.session-buttons:hover {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: gold;
+  opacity: 90%;
+}
+
 .auto-log-session-buttons {
   margin: 15px;
   background-color: beige;
@@ -101,3 +122,10 @@
   font-weight: 600;
 }
 
+.auto-log-session-buttons:hover {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: gold;
+  opacity: 90%;
+}
