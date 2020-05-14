@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createTreasure } from '../../actions/treasure_actions';
+import { createQuoteTreasure } from '../../actions/treasure_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import CreateQuote from './create_quote';
 
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    createTreasure: (treasure) => dispatch(createTreasure(treasure)),
+    createTreasure: (treasure) => dispatch(createQuoteTreasure(treasure)),
     openModal: (modal) => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal()),
 });

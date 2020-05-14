@@ -22,7 +22,8 @@ class CreateQuote extends React.Component {
     e.preventDefault();
     let data = new FormData();
     if (this.state.quote !== "") {
-      data.append("quoteText", this.state.quote);
+      debugger
+      data.append("data", this.state.quote);
 			data.append("ownerId", this.props.currentUser.id);
 			this.props.createTreasure(data); // failing POST request currently
 			this.setState({ quote: "" });

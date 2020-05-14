@@ -22,7 +22,7 @@ class TreasureIsland extends React.Component {
             Upload photo!
           </button>
           <br />
-          <button className="upload-buttons" onClick={() => openModal('photo')}>
+          <button className="upload-buttons" onClick={() => openModal('quote')}>
             Share a quote!
           </button>
           </div>

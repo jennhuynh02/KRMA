@@ -33,7 +33,7 @@ const imageUpload = multer({
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
   }
-}).single('profileImage');
+}).single('image');
 
 function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
@@ -47,6 +47,8 @@ function checkFileType(file, cb) {
   }
 
 router.post('/upload', (req, res) => {
+  // add ternary logic for upload quote? or new route for upload quote?
+  console.log(req)
   imageUpload(req, res, (error) => {
     if (error) {
       res.json({ error: error })
@@ -57,7 +59,7 @@ router.post('/upload', (req, res) => {
         ownerId: null,
         reported: false,
         reportMessage: '',
-        type: 'picture',
+        type: 'media',
       });
 
       User.updateOne(      

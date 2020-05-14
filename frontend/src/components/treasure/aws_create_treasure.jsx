@@ -5,7 +5,7 @@ class AWSCreateTreasure extends React.Component {
     super(props);
     this.state = {
       selectedFile: null,
-      error: "",
+      error: '',
     }
 
     this.handleFile = this.handleFile.bind(this);
@@ -21,9 +21,11 @@ class AWSCreateTreasure extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     let data = new FormData();
+    debugger
     if (this.state.selectedFile) {
-      data.append('profileImage', this.state.selectedFile, this.state.selectedFile.name);
+      data.append('image', this.state.selectedFile, this.state.selectedFile.name);
       data.append('ownerId', this.props.currentUser.id)
+      data.append('fileType', 'media')
       this.props.createTreasure(data);
       this.setState({
         selectedFile: "",
