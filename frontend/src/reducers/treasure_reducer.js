@@ -2,7 +2,7 @@ import {
   REMOVE_TREASURE,
   RECEIVE_TREASURE,
   RECEIVE_TREASURES,
-  RECEIVE_USER_TREASURES,
+//   RECEIVE_USER_TREASURES,
   RECEIVE_NEW_TREASURE,
 } from "../actions/treasure_actions";
 
@@ -21,9 +21,6 @@ const treasureReducer = ( state = _defaultState, action ) => {
         //     debugger
         //     newState.user = action.treasures.data; // may or may not need an extension
         //     return newState;
-        case RECEIVE_NEW_TREASURE:
-            newState.new = action.treasure.data; // may or may not need an extension
-            return newState;
         case REMOVE_TREASURE:
             delete newState.admin[action.treasureId];
             return newState

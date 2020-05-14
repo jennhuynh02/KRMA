@@ -63,22 +63,12 @@ router.post('/upload', (req, res) => {
         type: 'picture',
       });
 
-      // does not work...yet
-      // User.update(
-      //   { _id: req.body.ownerId },
-      //   { $inc: { keyCount: 1 } },
-      // );
-
-      User.find({
-        _id: req.body.ownerId
-      }).then(user => console.log(user))
-
       User.updateOne(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
+        { new: true},
       )
 
-      // User.save();
       uploadedTreasure.save();
 
       res.json({
@@ -103,6 +93,34 @@ router.get('/all', (req, res) => {
       notreasuresfound: "No Treasures Found"
     }))
 })
+
+router.get('/treasure/new', (req, res) => {
+  console.log(req.params)
+  const num = Treasure.find({ ownerId: null }).countDocuments()
+  console.log(num)
+  const random = Math.floor(Math.random() * num)
+
+  Treasure.find({ownerId: null}).findOne().skip(random)
+    .then(treasure => console.log(treasure))
+    .update(     
+        { ownerId: req.params.userId }, 
+        { new: true })
+    .then(() => res.json(treasure))
+    .catch(err => res.json(err))
+})
+
+//   Treasure.find({ownerId: null}).findOne().skip(random)
+//     .then(treasure => {
+//       treasure.updateOne(      
+//         { _id: req.params.id },
+//         { ownerId: req.params.currentUserId }, 
+//         { new: true })
+//       .then(() => res.json(treasure))
+//       .catch(err => res.json(err))
+//     }
+//   )
+// })
+
 
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
