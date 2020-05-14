@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 1200px;
+  min-height: 1200px;
 }
 
 .collection-header {
