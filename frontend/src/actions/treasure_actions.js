@@ -3,6 +3,7 @@ import {
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
+	getUserTreasures
 } from "../util/treasure_api_util"
 
 export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
@@ -20,10 +21,10 @@ export const receiveTreasures = treasures => ({
 	treasures
 });
 
-// export const receiveUserTreasures = (treasures) => ({
-//   type: RECEIVE_USER_TREASURES,
-//   treasures,
-// });
+export const receiveUserTreasures = (treasures) => ({
+  type: RECEIVE_USER_TREASURES,
+  treasures,
+});
 
 export const removeTreasure = treasureId => ({
 	type: REMOVE_TREASURE,
@@ -31,7 +32,6 @@ export const removeTreasure = treasureId => ({
 })
 
 export const fetchTreasure = (userId) => (dispatch) => {
-	// debugger
 	return (
 		getTreasure(userId)
 			.then(treasure => dispatch(receiveTreasure(treasure)))
@@ -45,12 +45,11 @@ export const fetchTreasures = () => (dispatch) => (
 		.catch(err => console.log(err))
 );
 
-// export const fetchUserTreasures = (currentUser) => (dispatch) => (
-// 	getUserTreasures(currentUser)
-// 		// .then(res => console.log(res))
-// 		.then(treasures => dispatch(receiveUserTreasures(treasures)))
-// 		.catch(err => console.log(err))
-// );
+export const fetchUserTreasures = (userId) => (dispatch) => (
+	getUserTreasures(userId)
+		.then(treasures => dispatch(receiveUserTreasures(treasures)))
+		.catch(err => console.log(err))
+);
 
 export const createTreasure = (data) => (dispatch) => (
 	postTreasure(data)

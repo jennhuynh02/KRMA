@@ -24,6 +24,6 @@ export const postTreasure = (treasure) => (
     })
 );
 
-// export const getUserTreasures = (currentUser) => {
-//     return axios.get(`api/treasure/savedTreasure/${currentUser.id}`);
-// };
+export const getUserTreasures = (userId) => {
+    return axios.get(`api/treasure/collection/${userId}`);
+};
