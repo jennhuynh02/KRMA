@@ -91,7 +91,6 @@ router.get('/all', (req, res) => {
     }))
 })
 
-
 router.get('/new/:id', (req, res) => {
   Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
     var rand = Math.floor(Math.random() * count)
@@ -159,5 +158,20 @@ router.delete('/:treasureId', (req, res) => {
   res.json({});
   });
 });
+
+router.put('/update', (req, res) => {
+  Treasure.findByIdAndUpdate(
+    { _id: req.params.id },
+    { reported: true },
+    { reportMessage: req.params.body},
+    function(err, result) {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(result)
+      } 
+    }
+  )
+})
 
 module.exports = router;
