@@ -47,6 +47,11 @@ Treasure Box is a web application where users can place media in a treasure box 
 ### Admins can view and delete users with the delete buttons underneath each user.
 <br/>
 
+<br/>
+<br/>
+
+![StateSketch](https://user-images.githubusercontent.com/38839723/81970124-defd4600-95d3-11ea-9406-dc3f33477746.png)
+
 
 # Treasure Box Team ( Alphabetical Order - Last Names)
 <br/>
