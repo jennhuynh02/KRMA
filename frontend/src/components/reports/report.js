@@ -1,8 +1,13 @@
 import React from 'react';
 
 class Report extends React.Component {
+  componentDidMount() {
+    const { treasure, reportTreasure } = this.props;
+    // reportTreasure
+  }
+
   render() {
-    const { user, deleteSelectedUser } = this.props;
+    const { user, deleteSelectedUser, treasure } = this.props;
     let id;
     id = user._id;
     return (

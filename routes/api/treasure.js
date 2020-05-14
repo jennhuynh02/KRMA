@@ -117,6 +117,22 @@ router.delete('/:treasureId', (req, res) => {
   });
 });
 
+router.put('/update', (req, res) => {
+  console.log(req.params)
+  Treasure.findByIdAndUpdate(
+    { _id: req.params.id },
+    { reported: true },
+    { reportMessage: req.params.body},
+    function(err, result) {
+      if (err) {
+        res.json(err)
+      } else {
+        res.json(result)
+      } 
+    }
+  )
+})
+
 router.get('/collection/:id', (req, res) => {
   console.log(req.params.id)
   Treasure.find({ ownerId: req.params.id})
