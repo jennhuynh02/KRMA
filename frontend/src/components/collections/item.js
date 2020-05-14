@@ -6,8 +6,8 @@ class TreasureItem extends React.Component {
     let id
     id = treasure._id
     return (
-    <div>
-      <img className="collection-item" src={ imgUrl } />
+    <div className="content-item">
+      <img className="content-img" src={ imgUrl } />
       <button onClick={() => deleteTreasure(id)}>Delete This</button>
     </div>
     );

@@ -3,11 +3,9 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import TreasureIsland from './treasure_island';
 
-const mapStateToProps = state => {
-    return {
-        currentUser: state.session.user
-    };
-};
+const mapStateToProps = state => ({
+    currentUser: state.session.user
+});
 
 const mapDispatchToProps = dispatch => ({
     openModal: modal => dispatch(openModal(modal))

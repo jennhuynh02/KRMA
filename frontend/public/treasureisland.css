@@ -32,9 +32,7 @@
 }
 
 .treasure-island-body {
-  margin-top: 500px;
   display: flex;
-  margin-left: 140px;
 }
 
 .treasure-section {
@@ -51,7 +49,9 @@
 
 
 .chest {
-  height: 400px;
+  margin-top: 500px;
+  margin-left: 140px;
+  height: 450px;
   border-radius: 20%;
   opacity: 90%;
   border: solid 1px gold;
@@ -72,4 +72,60 @@
 
 .treasure-buttons:hover {
   opacity: 70%;
+}
+
+.bucket-box {
+  margin: 5px;
+  background-color: white;
+  border-radius: 20px;
+  border: solid 1px gold;
+  padding: 20px;
+  font-size: 23px;
+  font-weight: 600;
+  font-family: fantasy;
+  width: 500px;
+  height: 600px;
+  margin-left: 80px;
+  margin-top: 200px;
+  margin-right: 35px;
+}
+
+.bucket-explanation {
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: bolder;
+}
+
+.key-pocket {
+  margin: 5px;
+  background-color: white;
+  border-radius: 5px;
+  border: solid 1px gold;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 23px;
+  font-weight: 600;
+  font-family: fantasy;
+}
+
+.upload-buttons {
+    margin: 5px;
+    border-radius: 5px;
+    border: solid 2px black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.key {
+  height: 140px;
+}
+
+.key:hover {
+  opacity: 70%;  
 }
