@@ -4,7 +4,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  line-height: normal;
   height: 1200px;
 }
 
@@ -14,6 +13,7 @@
   color: gold;
   padding: 30px;
   font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .the-collection {
@@ -25,9 +25,9 @@
 .collection-item {
   border: solid 5px white;
   border-radius: 10px;
-  height: 350px;
-  width: 300px;
   color: white;
   margin: 40px;
-  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }

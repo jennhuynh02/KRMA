@@ -1,5 +1,5 @@
 .admin-nav-buttons {
-  margin-top: 30px;
+    margin-top: 30px;
   margin-bottom: 30px;
   font-size: inherit;
   font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
@@ -11,8 +11,7 @@
   padding: 7px 20px;
   text-align: center;
   background: linear-gradient(#67ae55, #578843);
-  background-color: #69a74e;
-  box-shadow: inset 0 1px 1px #a4e388;
+  box-shadow: inset 2px 2px 7px white;
   border-color: #3b6e22 #3b6e22 #2c5115;
   border: 1px solid;
   border-radius: 5px;
@@ -41,7 +40,7 @@
   color: white;
   font-weight: bolder;
   border: solid 10px;
-  /* background-color: seagreen; */
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
   background: linear-gradient(#67ae55, #578843);
   background-color: #69a74e;
   box-shadow: inset 0 1px 1px #a4e388;
@@ -66,6 +65,7 @@
   color: white;
   height: 400px;
   width: 500px;
+  padding: 10px;
 }
 
 .admin-delete-content {
