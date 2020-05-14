@@ -2,10 +2,10 @@ import React from 'react';
 import TreasureItemContainer from "./item_container"
 
 class Collection extends React.Component {
-  // componentDidMount() {
-  //   const { getUserTreasures, currentUser } = this.props
-  //   getUserTreasures(currentUser);
-  // }
+  componentDidMount() {
+    const { getUserTreasures, currentUserId } = this.props
+    getUserTreasures(currentUserId);
+  }
 
   render() {
     const { allTreasures, userTreasures, admin } = this.props
@@ -16,10 +16,10 @@ class Collection extends React.Component {
           { admin ? // show user items or admin items?
             allTreasures.map((treasure) => (
               <TreasureItemContainer key={treasure._id} treasure={treasure} />
-            )) : null
-            // userTreasures.map((treasure) => (
-            //   <TreasureItemContainer key={treasure._id} treasure={treasure} />
-            // ))
+            )) : 
+            userTreasures.map((treasure) => (
+              <TreasureItemContainer key={treasure._id} treasure={treasure} />
+            ))
           }
         </div>
         </div>

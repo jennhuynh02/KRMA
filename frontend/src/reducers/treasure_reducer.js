@@ -2,7 +2,7 @@ import {
   REMOVE_TREASURE,
   RECEIVE_TREASURE,
   RECEIVE_TREASURES,
-//   RECEIVE_USER_TREASURES,
+  RECEIVE_USER_TREASURES,
   RECEIVE_NEW_TREASURE,
 } from "../actions/treasure_actions";
 
@@ -18,10 +18,10 @@ const treasureReducer = ( state = _defaultState, action ) => {
         case RECEIVE_TREASURES: // for admin
             newState.admin = action.treasures.data; 
             return newState;
-        // case RECEIVE_USER_TREASURES:
-        //     debugger
-        //     newState.user = action.treasures.data;
-        //     return newState;
+        case RECEIVE_USER_TREASURES:
+            debugger
+            newState.user = action.treasures.data;
+            return newState;
         case REMOVE_TREASURE:
             delete newState.admin[action.treasureId];
             return newState
