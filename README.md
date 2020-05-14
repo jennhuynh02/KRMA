@@ -48,6 +48,50 @@ Treasure Box is a web application where users can place media in a treasure box 
 <br/>
 
 
+# Treasure Box Team ( Alphabetical Order - Last Names)
+<br/>
+  -----------------------------------------------------------------
+<br/>
+
+![Jennifer_Huynh](https://user-images.githubusercontent.com/38839723/81963012-62fe0080-95c9-11ea-9eb6-b2f273810b67.jpeg)
+
+### Team Leader: Jenn Huynh
+
+### Linkedin: https://www.linkedin.com/in/jenniferanhhuynh/
+
+<br/>
+  -----------------------------------------------------------------
+<br/>
+
+![James Jiang](https://user-images.githubusercontent.com/38839723/81963017-65605a80-95c9-11ea-919c-c7608b50157e.jpeg)
+
+### Team Member: James Jiang
+
+### Linkedin: https://www.linkedin.com/in/james-jiang-b962a245/
+<br/>
+  -----------------------------------------------------------------
+<br/>
+
+![Michael_Murry](https://user-images.githubusercontent.com/38839723/81963032-68f3e180-95c9-11ea-9446-c32c8634b72b.jpeg)
+
+### Team Member: Michael Murry
+
+### Linkedin: https://www.linkedin.com/in/michael-murry-b3746a1a6/
+
+<br/>
+  -----------------------------------------------------------------
+<br/>
+
+![Joshua_Silva-Roland](https://user-images.githubusercontent.com/38839723/81963022-66918780-95c9-11ea-86a5-cd3925417262.jpeg)
+
+### Team Member: Josh Silva-Roland
+
+### Linkedin: https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/
+
+<br/>
+ -----------------------------------------------------------------
+<br/>
+
 
 
 
