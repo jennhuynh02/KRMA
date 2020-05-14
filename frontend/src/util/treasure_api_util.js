@@ -13,8 +13,8 @@ export const getTreasure = (id) => {
     return axios.get(`api/treasure/${id}`);
 };
 
-export const destroyTreasure = (treasure) => {
-    return axios.delete('api/treasure', treasure)
+export const destroyTreasure = (treasureId) => {
+    return axios.delete(`api/treasure/${treasureId}`);
 }
 
 export const postTreasure = (treasure) => (

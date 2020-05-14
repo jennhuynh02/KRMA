@@ -19,7 +19,7 @@
   background-image: url(CollectionPage.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 1200px;
+  background-attachment: fixed;
 }
 
 .contents-header {
