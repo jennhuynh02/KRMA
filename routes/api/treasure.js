@@ -5,7 +5,7 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_dev');
+const keys = require('../../config/keys_prod');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -138,11 +138,11 @@ router.delete('/:treasureId', (req, res) => {
 });
 
 router.put('/update', (req, res) => {
-  console.log(req.params)
+  console.log(req.body);
   Treasure.findByIdAndUpdate(
-    { _id: req.params.id },
-    { reported: true },
-    { reportMessage: req.params.body},
+    req.body._id,
+    // { reported: true },
+    // { reportMessage: req.body},
     function(err, result) {
       if (err) {
         res.json(err)

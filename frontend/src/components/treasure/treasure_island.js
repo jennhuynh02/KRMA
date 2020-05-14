@@ -8,10 +8,10 @@ class TreasureIsland extends React.Component {
 
     let keyCount
     keyCount = currentUser.keyCount;
-    
-    const treasureLinks = () => (
-      <div>
 
+    return (
+      <div className="treasure-island">
+          <Modal />
       <h1 className="island-header">Welcome to Treasure Island</h1>
       <div className="treasure-island-body">
         <img className="chest" src="TreasureChest.jpg" />
@@ -19,12 +19,28 @@ class TreasureIsland extends React.Component {
             <p className="bucket-explanation">Upload a photo, where it will go into an AWS bucket and you never see it again.  In return, you will receive a key to retrieve a treasure uploaded by another user.  Call it a one-to-one exchange.</p>
           <div className="key-pocket">
           <button className="upload-buttons" onClick={() => openModal('photo')}>
-            Upload photo!
+            Upload a photo!
           </button>
-          <br />
           <button className="upload-buttons" onClick={() => openModal('quote')}>
             Share a quote!
           </button>
+
+          <button className="upload-buttons" onClick={() => openModal('quote')}>
+            Recommend book!
+          </button>
+
+          <button className="upload-buttons" onClick={() => openModal('quote')}>
+            Link a song!
+          </button>
+
+          <button className="upload-buttons" onClick={() => openModal('quote')}>
+            Suggest event!
+          </button>
+
+          <button className="upload-buttons" onClick={() => openModal('quote')}>
+            Tell a story!
+          </button>
+
           </div>
           <br />
           <div className="key-pocket">
@@ -34,15 +50,6 @@ class TreasureIsland extends React.Component {
               <img className="key" src="TreasureKey.jpg" onClick={() => openModal('retrieve')}/>
       </div>
           </div>
-        </div>
-      </div> 
-    )
-
-    return (
-      <div className="treasure-island">
-          <Modal />
-        <div>
-          {treasureLinks()}
         </div>
       </div>
     );

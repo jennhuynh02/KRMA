@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTreasure } from '../../actions/treasure_actions';
+import { fetchTreasure, editTreasure } from '../../actions/treasure_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import RetrieveTreasure from './retrieve_treasure';
 
@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchTreasure: (userId) => dispatch(fetchTreasure(userId)),
+        editTreasure: (treasure) => dispatch(editTreasure(treasure)),
         openModal: (modal) => dispatch(openModal(modal)),
         closeModal: () => dispatch(closeModal())
     };
