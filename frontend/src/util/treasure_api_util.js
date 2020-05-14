@@ -6,7 +6,6 @@ export const getTreasures = () => {
 };
 
 export const getTreasure = (userId) => {
-    // debugger
     return axios.get(`api/treasure/new/${userId}`);
 };
 
@@ -25,7 +24,6 @@ export const postTreasure = (treasure) => (
 );
 
 export const updateTreasureReport = (treasure) => {
-    debugger
     return (
         axios.put(`/api/treasure/update`, treasure)
     );
