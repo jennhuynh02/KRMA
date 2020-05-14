@@ -9,7 +9,6 @@ class RetrieveTreasure extends React.Component {
   }
   
   componentDidMount() {
-    // debugger
     const { fetchTreasure, currentUser } = this.props;
     fetchTreasure(currentUser.id)
   }

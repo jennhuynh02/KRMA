@@ -20,12 +20,13 @@ class CreateQuote extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    let data = new FormData();
     if (this.state.quote !== "") {
-      debugger
-      data.append("data", this.state.quote);
-			data.append("ownerId", this.props.currentUser.id);
-			this.props.createTreasure(data); // failing POST request currently
+      let treasure = {
+        ownerId: this.props.currentUser.id,
+        quote: this.state.quote,
+        type: "quote",
+      }
+			this.props.createTreasure(treasure);
 			this.setState({ quote: "" });
 			// maybe render a message to user saying "Upload successful!" as bonus feature
     } else {

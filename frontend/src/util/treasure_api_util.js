@@ -6,7 +6,6 @@ export const getTreasures = () => {
 };
 
 export const getTreasure = (userId) => {
-    // debugger
     return axios.get(`api/treasure/new/${userId}`);
 };
 
@@ -15,20 +14,18 @@ export const destroyTreasure = (treasureId) => {
 }
 
 export const addTreasure = (treasure) => {
-    debugger
-    return axios.post('/api/treasure/upload', treasure, {
-        headers: {
-          'accept': 'application/json',
-          'Accept-Language': 'en-US,en;q=0.8',
-          'Content-Type': `multipart/form-data; boundary=${treasure._boundary}`,
-        }
-    })
+    if (treasure.type === "media") {
+        return axios.post('/api/treasure/upload', treasure, {
+            headers: {
+              'accept': 'application/json',
+              'Accept-Language': 'en-US,en;q=0.8',
+              'Content-Type': `multipart/form-data; boundary=${treasure._boundary}`,
+            }
+        })
+    } else {
+        return axios.post('/api/treasure/upload', treasure)
+    }
 };
-
-export const addQuoteTreasure = (quote) => {
-    debugger
-    return axios.post('/api/treasure/postquote', quote)
-}
 
 export const updateTreasureReport = (treasure) => (
     axios.put(`/api/treasure/update`, treasure)

@@ -47,42 +47,58 @@ function checkFileType(file, cb) {
   }
 
 router.post('/upload', (req, res) => {
-  // add ternary logic for upload quote? or new route for upload quote?
-  console.log(req)
-  imageUpload(req, res, (error) => {
-    if (error) {
-      res.json({ error: error })
-    } else if (req.file) {
-      const uploadedTreasure = new Treasure({
-        creatorId: req.body.ownerId,
-        url: req.file.location,
-        ownerId: null,
-        reported: false,
-        reportMessage: '',
-        type: 'media',
-      });
+  if (req.body.type === "quote") {
+    const newQuote = new Treasure({
+      creatorId: req.body.ownerId,
+      url: req.body.quote,
+      ownerId: null,
+      reported: false,
+      reportMessage: '',
+      type: 'quote',
+    })
+    User.findByIdAndUpdate(      
+      { _id: req.body.ownerId },
+      { $inc: { keyCount: 1 } }, 
+      { new: true },
+    )
+    newQuote.save();
+    res.json({
+      owner: newQuote.creatorId,
+      treasureId: newQuote._id,
+      quote: newQuote.url,
+      type: newQuote.type
+    });
+  } else {
+    imageUpload(req, res, (error) => {
+      if (error) {
+        res.json({ error: error })
+      } else if (req.file) {
+        const uploadedTreasure = new Treasure({
+          creatorId: req.body.ownerId,
+          url: req.file.location,
+          ownerId: null,
+          reported: false,
+          reportMessage: '',
+          type: 'media',
+        });
 
-      User.updateOne(      
-        { _id: req.body.ownerId },
-        { $inc: { keyCount: 1 } }, 
-        { new: true },
-      )
+        User.findByIdAndUpdate(      
+          { _id: req.body.ownerId },
+          { $inc: { keyCount: 1 } }, 
+          { new: true },
+        )
 
-      uploadedTreasure.save();
+        uploadedTreasure.save();
 
-      res.json({
-        owner: uploadedTreasure.creatorId,
-        treasureId: uploadedTreasure._id,
-        location: uploadedTreasure.url,
-      });
-      
-    // POST request for quotes
-    } else if (req.quoteText) {
-      // const uploadedQuote = new Treasure({
-      //   // shape this however you think will work best
-      // });
-    }
-  });
+        res.json({
+          owner: uploadedTreasure.creatorId,
+          treasureId: uploadedTreasure._id,
+          location: uploadedTreasure.url,
+          type: uploadedTreasure.type,
+        });
+      }
+    });
+  }
 });
 
 router.get('/all', (req, res) => {
@@ -100,7 +116,7 @@ router.get('/new/:id', (req, res) => {
     Treasure.findOne({ownerId: null}).skip(rand)
       .then(treasure => res.json(treasure))
       .then(() => {
-        User.updateOne(      
+        User.findByIdAndUpdate(      
           { _id: req.params.id },
           { $inc: { keyCount: -1 } }, 
           { new: true },

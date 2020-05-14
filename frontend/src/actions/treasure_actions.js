@@ -1,6 +1,5 @@
 import {
 	addTreasure, 
-	addQuoteTreasure,
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
@@ -58,15 +57,6 @@ export const fetchUserTreasures = (userId) => (dispatch) => (
 		.then(treasures => dispatch(receiveUserTreasures(treasures)))
 		.catch(err => console.log(err))
 );
-
-export const createQuoteTreasure = (data) => (dispatch) => {
-	debugger
-	return (
-		addQuoteTreasure(data)
-			.then(res => dispatch(receiveTreasure(res)))
-			.catch((error) => console.log(error))
-	)
-}
 
 export const createTreasure = (data) => (dispatch) => {
 	return (
