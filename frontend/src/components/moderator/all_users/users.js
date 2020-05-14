@@ -1,5 +1,5 @@
 import React from 'react';
-import UserContainer from './u';
+import UserContainer from './u_container';
 
 class UsersPage extends React.Component {
 	constructor(props) {

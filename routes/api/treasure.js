@@ -27,7 +27,7 @@ const imageUpload = multer({
     }
   }),
   limits: {
-    fileSize: 4000000 // 4MB
+    fileSize: 4000000
   },
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
@@ -45,14 +45,10 @@ function checkFileType(file, cb) {
     }
   }
 
-// @route POST api/treasure/upload
 router.post('/upload', (req, res) => {
   imageUpload(req, res, (error) => {
     if (error) {
-      console.log('errors', error);
-      res.json({
-        error: error
-      })
+      res.json({ error: error })
     } else if (req.file) {
       const uploadedTreasure = new Treasure({
         creatorId: req.body.ownerId,
@@ -63,22 +59,12 @@ router.post('/upload', (req, res) => {
         type: 'picture',
       });
 
-      // does not work...yet
-      // User.update(
-      //   { _id: req.body.ownerId },
-      //   { $inc: { keyCount: 1 } },
-      // );
-
-      User.find({
-        _id: req.body.ownerId
-      }).then(user => console.log(user))
-
       User.updateOne(      
         { _id: req.body.ownerId },
         { $inc: { keyCount: 1 } }, 
+        { new: true },
       )
 
-      // User.save();
       uploadedTreasure.save();
 
       res.json({
@@ -104,6 +90,10 @@ router.get('/all', (req, res) => {
     }))
 })
 
+
+router.get('/newTreasure', (req, res) => {
+  
+})
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
 //       .then((user) => {
@@ -119,7 +109,6 @@ router.get('/all', (req, res) => {
 //               )
 //             })
 //             .then(treasures => {
-//               debugger
 //               console.log(treasures)
 //             })
 //             // .then((treasures) => res.json(treasures));

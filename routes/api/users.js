@@ -113,9 +113,9 @@ router.get('/all', (req, res) => {
         .then((users) => {res.json(users)})
 })
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     User.deleteOne({ _id: req.params.id})
-        .then(() => res.json({user: "Successfully deleted"}))
+        .then(() => res.json({}))    
         .catch((err) => res.status(400).json(err))
 })
 
