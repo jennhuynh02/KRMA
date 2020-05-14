@@ -25,7 +25,7 @@ const treasureReducer = ( state = _defaultState, action ) => {
             newState.new = action.treasure.data; // may or may not need an extension
             return newState;
         case REMOVE_TREASURE:
-            delete newState.treasures[action.treasureId];
+            delete newState.admin[action.treasureId];
             return newState
         default:
             return state;

@@ -127,4 +127,15 @@ router.get('/all', (req, res) => {
 //       })
 // })
 
+  
+router.delete('/:treasureId', (req, res) => {
+  console.log(req.params.treasureId)
+  Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
+  if(err) console.log(err);
+  console.log("Successful deletion");
+  res.json({});
+  });
+});
+
+
 module.exports = router;

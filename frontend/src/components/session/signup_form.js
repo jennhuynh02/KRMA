@@ -47,6 +47,7 @@ class SignupForm extends React.Component {
     renderErrors() {
         return (
             <ul>
+                <br/>
                 {Object.keys(this.state.errors).map((error, i) => (
                     <li key={`errors-${i}`}>
                         {this.state.errors[error]}
@@ -57,6 +58,8 @@ class SignupForm extends React.Component {
     }
 
     render() {
+        let errors = this.state.errors;
+        errors = Object.values(errors);
         return (
             <div className="signup-session-form">
                 <form onSubmit={this.handleSubmit}>
@@ -106,9 +109,10 @@ class SignupForm extends React.Component {
                         />
                     <br />
                         <label>Confirm Password</label>
-                    {this.renderErrors()}
+                    <br />
                     <button className="session-buttons">Sign Up</button>
                 </form>
+                <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] === " " ? this.renderErrors() : "") : ""}</div>
             </div>
         );
     }
