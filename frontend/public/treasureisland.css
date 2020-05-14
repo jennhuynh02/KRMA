@@ -3,7 +3,7 @@
   height: 100px;
   display: flex;
   justify-content: space-evenly;
-  background-color: beige;
+  background-color: lightcyan;
 }
 
 .nav-item {
@@ -115,9 +115,7 @@
 .upload-buttons {
     margin: 5px;
     border-radius: 5px;
-    border: solid 2px black;
-    padding-left: 20px;
-    padding-right: 20px;
+    border: solid 1px gold;
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 15px;
@@ -125,7 +123,8 @@
 }
 
 .key {
-  height: 140px;
+  height: 150px;
+  margin: 15px;
 }
 
 .key:hover {
