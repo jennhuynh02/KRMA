@@ -5,7 +5,7 @@ class AWSCreateTreasure extends React.Component {
     super(props);
     this.state = {
       selectedFile: null,
-      error: "",
+      error: '',
     }
 
     this.handleFile = this.handleFile.bind(this);
@@ -22,7 +22,7 @@ class AWSCreateTreasure extends React.Component {
     e.preventDefault();
     let data = new FormData();
     if (this.state.selectedFile) {
-      data.append('profileImage', this.state.selectedFile, this.state.selectedFile.name);
+      data.append('image', this.state.selectedFile, this.state.selectedFile.name);
       data.append('ownerId', this.props.currentUser.id)
       this.props.createTreasure(data);
       this.setState({
