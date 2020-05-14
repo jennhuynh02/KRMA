@@ -21,6 +21,15 @@
   background-color: beige;
 }
 
+.linked-in-links:hover {
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-family: sans-serif;
+  background-color: gold;
+  color: royalblue;
+}
+
 .form-title {
   padding-top: 20px;
   font-size: 40px;
