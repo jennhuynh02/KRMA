@@ -30,7 +30,7 @@ class TreasureIsland extends React.Component {
           <div className="key-pocket">
             Use a key to open a treasure chest!
             <br />
-            Your Keys: #{keyCount}
+              Your Keys:  #{keyCount} 
               <img className="key" src="TreasureKey.jpg" onClick={() => openModal('retrieve')}/>
       </div>
           </div>

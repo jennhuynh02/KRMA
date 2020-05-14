@@ -7,3 +7,11 @@
   line-height: normal;
   height: 1200px;
 }
+
+.reports-page-header {
+  font-family: cursive;
+  font-size: 90px;
+  text-align: center;
+  color: white;
+  padding: 30px;
+}

@@ -9,7 +9,7 @@ class ReportsPage extends React.Component {
     render() {
         return (
             <div className="report-page" >
-              <h1 className="users-page-header">
+              <h1 className="reports-page-header">
                   Review for deletion.
             </h1>
             </div>

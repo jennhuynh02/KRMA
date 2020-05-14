@@ -8,7 +8,7 @@ class AdminItem extends React.Component {
     return (
     <div className="content-item">
       <img className="content-img" src={ imgUrl } />
-      <button onClick={() => deleteTreasure(id)}>Delete This</button>
+      <button className="admin-delete-content" onClick={() => deleteTreasure(id)}>Delete This</button>
     </div>
     );
   }
