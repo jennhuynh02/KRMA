@@ -28,11 +28,13 @@
   background-image: url(treasureboxisland.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 1200px;
+  background-attachment: fixed;
+  line-height: normal;
 }
 
 .treasure-island-body {
   display: flex;
+  justify-content: space-around;
 }
 
 .treasure-section {

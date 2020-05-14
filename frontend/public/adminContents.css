@@ -35,14 +35,13 @@
   border-radius: 10px;
   color: white;
   margin: 40px;
-  background-color: lightblue;
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 
 .content-img {
   border: solid 5px white;
-  border-radius: 10px;
   color: white;
   background-color: lightblue;
 }

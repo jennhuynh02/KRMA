@@ -22,7 +22,7 @@ class Collection extends React.Component {
             // ))
           }
         </div>
-    </div>
+        </div>
     );
   }
 }

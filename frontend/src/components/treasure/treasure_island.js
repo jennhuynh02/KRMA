@@ -8,8 +8,11 @@ class TreasureIsland extends React.Component {
 
     let keyCount
     keyCount = currentUser.keyCount;
-
+    
     const treasureLinks = () => (
+      <div>
+
+      <h1 className="island-header">Welcome to Treasure Island</h1>
       <div className="treasure-island-body">
         <img className="chest" src="TreasureChest.jpg" />
         <div className="bucket-box">
@@ -29,6 +32,7 @@ class TreasureIsland extends React.Component {
             <br />
             Your Keys: #{keyCount}
               <img className="key" src="TreasureKey.jpg" onClick={() => openModal('retrieve')}/>
+      </div>
           </div>
         </div>
       </div> 
@@ -36,7 +40,6 @@ class TreasureIsland extends React.Component {
 
     return (
       <div className="treasure-island">
-          <h1 className="island-header">Welcome to Treasure Island</h1>
           <Modal />
         <div>
           {treasureLinks()}
