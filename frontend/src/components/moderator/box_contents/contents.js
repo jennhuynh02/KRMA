@@ -15,7 +15,7 @@ class TreasureContentsPage extends React.Component {
               <h1 className="contents-header">All Treasures</h1>
               <div className="the-collection">
               {allTreasures.map((treasure) => (
-                  <AdminItemContainer treasure={treasure} />
+                  <AdminItemContainer key={treasure._id} treasure={treasure} />
                   ))}
                 </div>
             </div>

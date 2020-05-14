@@ -109,4 +109,9 @@ router.post('/login', (req, res) => {
         })
 })
 
+router.get('/all', (req, res) => {
+    User.find({})
+        .then((users) => {res.json(users)})
+})
+
 module.exports = router;

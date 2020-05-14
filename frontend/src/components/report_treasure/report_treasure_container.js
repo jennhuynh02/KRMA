@@ -6,7 +6,6 @@ import ReportTreasure from './report_treasure';
 // query DB within report_treasure.jsx to update it
 
 const mapStateToProps = state => {
-    // debugger; test this with debugger once report buttons have been linked up to openModal('report')
     return {
         // treasure: this.state.treasure
     };

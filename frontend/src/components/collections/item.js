@@ -2,9 +2,10 @@ import React from 'react';
 
 class TreasureItem extends React.Component {
   render() {
+    const { imgUrl } = this.props
     return (
-    <div className="collection-item">
-
+    <div>
+      <img className="collection-item" src={ imgUrl } />
     </div>
     );
   }

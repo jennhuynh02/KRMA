@@ -37,10 +37,21 @@ class NavBar extends React.Component {
         if(this.props.loggedIn && (this.props.user.email === 'admin@treasurebox.com')) {
             return (
                 <div className="page-navbar">                    
-                    <button className="session-buttons" onClick={this.handleContentsButton}>Contents</button>
-                    <button className="session-buttons" onClick={this.handleReportsButton}>Reports</button>
-                    <button className="session-buttons" onClick={this.handleUsersButton}>Users</button>
-                    <button className="session-buttons" onClick={this.logoutUser}>Log Out</button>
+                    <button className="admin-nav-buttons" onClick={this.handleContentsButton}>All Treasure Contents</button>
+                    <button className="admin-nav-buttons" onClick={this.handleReportsButton}>All Flagged Reports</button>
+                    <button className="admin-nav-buttons" onClick={this.handleUsersButton}>Treasure Box Users</button>
+                    <div className="nav-item">
+                        <img alt="Treasure Island" title="Treasure Island" className="nav-icon" src="IconTreasureMap.jpg" onClick={this.handleTreasurePageButton} />
+                        <p>Treasure</p>                       
+                    </div>
+                    <div className="nav-item">
+                        <img alt="Treasure Collection" title="Treasure Collection" className="nav-icon" src="TreasureBoxHeader.jpg" onClick={this.handleCollectionPageButton} />                   
+                        <p>Collection</p>  
+                    </div>
+                    <div className="nav-item">
+                        <img alt="Sail Away!!!" title="Logout" className="nav-icon" src="LogoutShip.jpg" onClick={this.logoutUser} />                   
+                        <p>Logout</p>
+                    </div>
                 </div>
             );
         } else if (this.props.loggedIn) {
