@@ -27,7 +27,7 @@ class TreasureIsland extends React.Component {
           </button>
 
           <button className="upload-buttons" onClick={() => openModal('quote')}>
-            Recommend a book!
+            Recommend book!
           </button>
 
           <button className="upload-buttons" onClick={() => openModal('quote')}>

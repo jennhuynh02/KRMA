@@ -101,8 +101,7 @@
 
 .key-pocket {
   margin: 5px;
-  background-color: white;
-  border-radius: 5px;
+  background: radial-gradient(paleturquoise, transparent);  border-radius: 5px;
   border: solid 1px gold;
   padding-left: 20px;
   padding-right: 20px;
@@ -135,10 +134,9 @@
 .key {
   height: 150px;
   margin: 15px;
+  border-radius: 50%;
 }
 
 .key:hover {
-  opacity: 70%;
   border: dashed 10px gold;
-  border-radius: 50%;  
 }
