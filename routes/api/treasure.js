@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const AWS = require('aws-sdk');
@@ -91,9 +92,42 @@ router.get('/all', (req, res) => {
 })
 
 
-router.get('/newTreasure', (req, res) => {
-  
-})
+router.get('/new/:id', (req, res) => {
+  Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
+    var rand = Math.floor(Math.random() * count)
+
+    Treasure.findOne({ownerId: null}).skip(rand)
+      .then(treasure => res.json(treasure))
+      .then(() => {
+        User.updateOne(      
+          { _id: req.params.id },
+          { $inc: { keyCount: -1 } }, 
+          { new: true },
+        )
+        .catch(err => res.json(err))
+      })
+      .catch(err => res.json(err))
+  })
+}) 
+
+// router.get('/new/:id', (req, res) => {
+//   const num = Treasure.countDocuments({ ownerId: null })
+//   const rand = Math.floor(Math.random() * num)
+
+//   Treasure.find({ownerId: null}).findOne().skip(rand)
+//     .then(treasure => res.json(treasure))
+//     .then(() => {
+//       User.updateOne(      
+//         { _id: req.params.id },
+//         { $inc: { keyCount: -1 } }, 
+//         { new: true },
+//       )
+//       .then(user => console.log(user))
+//       .catch(err => res.json(err))
+//     })
+//     .catch(err => res.json(err))
+// })
+
 // router.get('/savedTreasure/:id', (req, res) => {
 //   User.find({ _id: req.params.id })
 //       .then((user) => {
@@ -118,9 +152,9 @@ router.get('/newTreasure', (req, res) => {
 
   
 router.delete('/:treasureId', (req, res) => {
-  console.log(req.params.treasureId)
+  // console.log(req.params.treasureId)
   Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
-  if(err) console.log(err);
+  if (err) console.log(err);
   console.log("Successful deletion");
   res.json({});
   });
