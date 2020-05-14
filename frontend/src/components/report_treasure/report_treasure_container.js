@@ -7,7 +7,7 @@ import ReportTreasure from './report_treasure';
 
 const mapStateToProps = state => {
     return {
-        // treasure: this.state.treasure
+        treasure: state.treasure
     };
 };
 
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => {
     // assuming updateTreasure action exists, which it doesn't yet
     return {
         processReport: treasure => dispatch(updateTreasure(treasure)),
+        editTreasure: (treasure) => dispatch(editTreasure(treasure)),
         closeModal: () => dispatch(closeModal())
     };
 };
