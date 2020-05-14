@@ -4,7 +4,7 @@ import {
   RECEIVE_TREASURES,
   RECEIVE_USER_TREASURES,
   RECEIVE_NEW_TREASURE,
-} from "../actions/treasure_actions"
+} from "../actions/treasure_actions";
 
 const _defaultState = { admin: {},  user: {}, new: {} };
 
@@ -17,9 +17,10 @@ const treasureReducer = ( state = _defaultState, action ) => {
         case RECEIVE_TREASURES: // for admin
             newState.admin = action.treasures.data; // may or may not need an extension
             return newState;
-        case RECEIVE_USER_TREASURES:
-            newState.user = action.treasures.data; // may or may not need an extension
-            return newState;
+        // case RECEIVE_USER_TREASURES:
+        //     debugger
+        //     newState.user = action.treasures.data; // may or may not need an extension
+        //     return newState;
         case RECEIVE_NEW_TREASURE:
             newState.new = action.treasure.data; // may or may not need an extension
             return newState;

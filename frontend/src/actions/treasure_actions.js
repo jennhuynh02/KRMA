@@ -22,10 +22,10 @@ export const receiveTreasures = treasures => ({
 	treasures
 });
 
-export const receiveUserTreasures = treasures => ({
-	type: RECEIVE_USER_TREASURES,
-	treasures
-});
+// export const receiveUserTreasures = (treasures) => ({
+//   type: RECEIVE_USER_TREASURES,
+//   treasures,
+// });
 
 export const receiveNewTreasure = treasure => ({
 	type: RECEIVE_NEW_TREASURE,
@@ -49,11 +49,12 @@ export const fetchTreasures = () => (dispatch) => (
 		.catch(err => console.log(err))
 );
 
-export const fetchUserTreasures = (id) => (dispatch) => (
-	getUserTreasures(id)
-		.then(treasures => dispatch(dispatch(receiveUserTreasures(treasures))))
-		.catch(err => console.log(err))
-);
+// export const fetchUserTreasures = (currentUser) => (dispatch) => (
+// 	getUserTreasures(currentUser)
+// 		// .then(res => console.log(res))
+// 		.then(treasures => dispatch(receiveUserTreasures(treasures)))
+// 		.catch(err => console.log(err))
+// );
 
 export const createTreasure = (data) => (dispatch) => (
 	postTreasure(data)

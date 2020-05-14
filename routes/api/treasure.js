@@ -8,6 +8,7 @@ const keys = require('../../config/keys_dev');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
+const SavedTreasure = require('../../models/savedTreasure');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
@@ -102,5 +103,28 @@ router.get('/all', (req, res) => {
       notreasuresfound: "No Treasures Found"
     }))
 })
+
+// router.get('/savedTreasure/:id', (req, res) => {
+//   User.find({ _id: req.params.id })
+//       .then((user) => {
+
+//         // console.log(user) // how to key into savedTreasure
+//         SavedTreasure.find({ _id: user.savedTreasure })
+//           .then(userTreasures => {
+
+//             console.log(userTreasures) // works
+//             userTreasures.saved.map((treasureId) => {
+//               return (
+//                 Treasure.find({id: treasureId})
+//               )
+//             })
+//             .then(treasures => {
+//               debugger
+//               console.log(treasures)
+//             })
+//             // .then((treasures) => res.json(treasures));
+//           })
+//       })
+// })
 
 module.exports = router;

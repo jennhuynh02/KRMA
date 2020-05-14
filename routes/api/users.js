@@ -8,6 +8,7 @@ const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const SavedTreasure = require('../../models/savedTreasure');
+const Treasure = require('../../models/treasure');
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
@@ -112,6 +113,12 @@ router.post('/login', (req, res) => {
 router.get('/all', (req, res) => {
     User.find({})
         .then((users) => {res.json(users)})
+})
+
+router.delete('/delete/:id', (req, res) => {
+    User.deleteOne({ _id: req.params.id})
+        .then(() => res.json({user: "Successfully deleted"}))
+        .catch((err) => res.status(400).json(err))
 })
 
 module.exports = router;
