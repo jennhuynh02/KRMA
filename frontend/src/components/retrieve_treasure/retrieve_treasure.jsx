@@ -9,19 +9,19 @@ class RetrieveTreasure extends React.Component {
   }
   
   componentDidMount() {
-    debugger
+    // debugger
     const { fetchTreasure, currentUser } = this.props;
     fetchTreasure(currentUser.id)
   }
   render() {
-    const {imgUrl } = this.props;
+    const { image } = this.props;
     
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={this.props.closeModal}>
             X
         </button>
-        <img className="content-img" src={ imgUrl } />
+        <img className="content-img" src={ image.url } />
         <button>Report Treasure</button>
         <br />
 

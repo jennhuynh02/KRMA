@@ -6,7 +6,7 @@ export const getTreasures = () => {
 };
 
 export const getTreasure = (userId) => {
-    debugger
+    // debugger
     return axios.get(`api/treasure/new/${userId}`);
 };
 

@@ -31,7 +31,7 @@ export const removeTreasure = treasureId => ({
 })
 
 export const fetchTreasure = (userId) => (dispatch) => {
-	debugger
+	// debugger
 	return (
 		getTreasure(userId)
 			.then(treasure => dispatch(receiveTreasure(treasure)))

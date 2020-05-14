@@ -13,13 +13,14 @@ const treasureReducer = ( state = _defaultState, action ) => {
     let newState = Object.assign({}, state)
     switch(action.type){
         case RECEIVE_TREASURE:
-            return action.treasure.data; // may or may not need an extension
+            newState.new = action.treasure.data;
+            return newState; 
         case RECEIVE_TREASURES: // for admin
-            newState.admin = action.treasures.data; // may or may not need an extension
+            newState.admin = action.treasures.data; 
             return newState;
         // case RECEIVE_USER_TREASURES:
         //     debugger
-        //     newState.user = action.treasures.data; // may or may not need an extension
+        //     newState.user = action.treasures.data;
         //     return newState;
         case REMOVE_TREASURE:
             delete newState.admin[action.treasureId];
