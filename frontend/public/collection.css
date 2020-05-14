@@ -4,8 +4,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
   line-height: normal;
-  min-height: 1200px;
+
+in-height: 1200px;
 }
 
 .collection-header {
@@ -26,9 +28,9 @@
 .collection-item {
   border: solid 5px white;
   border-radius: 10px;
-  height: 350px;
-  width: 300px;
   color: white;
   margin: 40px;
-  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }

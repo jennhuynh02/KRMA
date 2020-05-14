@@ -17,6 +17,7 @@
   width: 65px;
   border: solid 3px gold;
   border-radius: 15px;
+  box-shadow: inset 2px 2px 7px whit
 }
 
 .nav-icon:hover {
@@ -52,7 +53,7 @@
 
 
 .chest {
-  margin-top: 500px;
+  margin-top: 240px;
   margin-left: 140px;
   height: 450px;
   border-radius: 20%;
@@ -78,9 +79,9 @@
 
 .bucket-box {
   margin: 5px;
-  background-color: white;
+  background-color: beige;
   border-radius: 20px;
-  border: solid 1px gold;
+  border: solid 2px gold;
   padding: 20px;
   font-size: 23px;
   font-weight: 600;
@@ -88,7 +89,7 @@
   width: 500px;
   height: 600px;
   margin-left: 80px;
-  margin-top: 200px;
+  margin-top: 50px;
   margin-right: 35px;
 }
 
@@ -113,13 +114,22 @@
 }
 
 .upload-buttons {
-    margin: 5px;
-    border-radius: 5px;
-    border: solid 1px gold;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: 15px;
-    font-weight: 600;
+  margin: 5px;
+  border-radius: 5px;
+  border: solid 1px gold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: beige;
+  width: 180px;
+}
+
+.upload-buttons:hover {
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: gold;  
 }
 
 .key {
@@ -128,5 +138,7 @@
 }
 
 .key:hover {
-  opacity: 70%;  
+  opacity: 70%;
+  border: dashed 10px gold;
+  border-radius: 50%;  
 }

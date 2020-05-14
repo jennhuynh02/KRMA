@@ -1,4 +1,5 @@
 import React from 'react';
+import { editTreasure } from '../../actions/treasure_actions';
 
 class ReportTreasure extends React.Component {
     constructor(props) {
@@ -11,12 +12,13 @@ class ReportTreasure extends React.Component {
         return e => this.setState({ [field]: e.target.value });
     }
 
-    handleSubmit(e) {
+    handleReport(e) {
         e.preventDefault();
-        // either updateTreasure will be passed in as props or will have to do all logic here:
-        // (set reported value in DB to true)
-        // (set reportMessage in DB to this.state.reportMessage)
-            // .then(this.props.closeModal);
+        const treasure = this.state;
+        treasure.reported = true;
+        debugger
+        this.props.editTreasure(treasure);
+            // .then(this.props.closeModal); OR message saying report received
     }
 
     render() {
