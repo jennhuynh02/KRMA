@@ -8,9 +8,12 @@
 
 
 .login-signup-container {
-  background-image: url(treasuremap.jpg);
-  height: 1000px;
+  background-image: url(MainPage2.jpg);
+  text-align: -webkit-center;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: cursive;
+  height: 930px;
 }
 
 .mainpage-footer {
