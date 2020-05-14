@@ -1,10 +1,11 @@
+const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_dev');
+const keys = require('../../config/keys');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -90,40 +91,37 @@ router.get('/all', (req, res) => {
     }))
 })
 
+router.get('/new/:id', (req, res) => {
+  Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
+    var rand = Math.floor(Math.random() * count)
 
-router.get('/newTreasure', (req, res) => {
-  
-})
-// router.get('/savedTreasure/:id', (req, res) => {
-//   User.find({ _id: req.params.id })
-//       .then((user) => {
-
-//         // console.log(user) // how to key into savedTreasure
-//         SavedTreasure.find({ _id: user.savedTreasure })
-//           .then(userTreasures => {
-
-//             console.log(userTreasures) // works
-//             userTreasures.saved.map((treasureId) => {
-//               return (
-//                 Treasure.find({id: treasureId})
-//               )
-//             })
-//             .then(treasures => {
-//               console.log(treasures)
-//             })
-//             // .then((treasures) => res.json(treasures));
-//           })
-//       })
-// })
-
+    Treasure.findOne({ownerId: null}).skip(rand)
+      .then(treasure => res.json(treasure))
+      .then(() => {
+        User.updateOne(      
+          { _id: req.params.id },
+          { $inc: { keyCount: -1 } }, 
+          { new: true },
+        )
+        .catch(err => res.json(err))
+      })
+      .catch(err => res.json(err))
+  })
+}) 
   
 router.delete('/:treasureId', (req, res) => {
-  console.log(req.params.treasureId)
   Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
-  if(err) console.log(err);
+  if (err) console.log(err);
   console.log("Successful deletion");
   res.json({});
   });
 });
+
+router.get('/collection/:id', (req, res) => {
+  console.log(req.params.id)
+  Treasure.find({ ownerId: req.params.id})
+    .then((treasures) => res.json(treasures))
+    .catch((err) => console.log(err))
+})
 
 module.exports = router;

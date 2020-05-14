@@ -5,8 +5,9 @@ export const getTreasures = () => {
     return axios.get(`/api/treasure/all`);
 };
 
-export const getTreasure = (id) => {
-    return axios.get(`api/treasure/${id}`);
+export const getTreasure = (userId) => {
+    // debugger
+    return axios.get(`api/treasure/new/${userId}`);
 };
 
 export const destroyTreasure = (treasureId) => {
@@ -23,6 +24,6 @@ export const postTreasure = (treasure) => (
     })
 );
 
-// export const getUserTreasures = (currentUser) => {
-//     return axios.get(`api/treasure/savedTreasure/${currentUser.id}`);
-// };
+export const getUserTreasures = (userId) => {
+    return axios.get(`api/treasure/collection/${userId}`);
+};
