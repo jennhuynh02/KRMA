@@ -27,7 +27,7 @@
 
 .contents-page {
   text-align: -webkit-center;
-  background-image: url(CollectionPage.jpg);
+  background-image: url(TreasureCollectionPage.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -35,10 +35,15 @@
 
 .contents-header {
   font-family: cursive;
-  font-size: 90px;
+  font-size: 100px;
   text-align: center;
-  color: white;
-  padding: 40px;
+  color: powderblue;
+  font-weight: bolder;
+  border: solid 10px;
+  background-color: white;
+  width: 700px;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 .content-item {

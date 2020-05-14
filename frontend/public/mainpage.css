@@ -16,6 +16,8 @@
 .mainpage-footer {
   text-align: center;
   line-height: 50px;
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
 .form-title {
@@ -57,9 +59,10 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  padding: 15px;
+  padding: 10px;
   width: 200px;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .session-buttons {

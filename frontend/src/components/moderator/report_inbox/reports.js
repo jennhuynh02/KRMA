@@ -8,9 +8,9 @@ class ReportsPage extends React.Component {
 
     render() {
         return (
-            <div className="users-page" >
+            <div className="report-page" >
               <h1 className="users-page-header">
-                  This is the Reports Page for admin.
+                  Review for deletion.
             </h1>
             </div>
         );
