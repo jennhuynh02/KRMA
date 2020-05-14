@@ -1,0 +1,9 @@
+.report-page {
+  text-align: -webkit-center;
+  background-image: url(ReportsPage2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: normal;
+  height: 1200px;
+}

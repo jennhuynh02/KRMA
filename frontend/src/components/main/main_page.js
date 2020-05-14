@@ -16,7 +16,7 @@ class MainPage extends React.Component {
         </div>
 
       <footer className="mainpage-footer">
-      <h5>Author-Programmers: James Jiang, Michael Murry, Joshua Silva-Roland, Jennifer Huynh</h5>
+      <h5>Author-Programmers: James Jiang, Jennifer Huynh, Joshua Silva-Roland, Michael Murry</h5>
         Copyright &copy; 2020 TreasureBox
       </footer>
     </div>
