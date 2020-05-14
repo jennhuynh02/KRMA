@@ -1,3 +1,19 @@
+.admin-nav-buttons {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: solid 2px blue;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  color: purple;
+  background-color: lightcyan;
+}
+
+
 .contents-page {
   text-align: -webkit-center;
   background-image: url(CollectionPage.jpg);

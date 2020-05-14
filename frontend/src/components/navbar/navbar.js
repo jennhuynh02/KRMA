@@ -37,9 +37,9 @@ class NavBar extends React.Component {
         if(this.props.loggedIn && (this.props.user.email === 'admin@treasurebox.com')) {
             return (
                 <div className="page-navbar">                    
-                    <button className="session-buttons" onClick={this.handleContentsButton}>All Treasure Contents</button>
-                    <button className="session-buttons" onClick={this.handleReportsButton}>All Flagged Reports</button>
-                    <button className="session-buttons" onClick={this.handleUsersButton}>All Users</button>
+                    <button className="admin-nav-buttons" onClick={this.handleContentsButton}>All Treasure Contents</button>
+                    <button className="admin-nav-buttons" onClick={this.handleReportsButton}>All Flagged Reports</button>
+                    <button className="admin-nav-buttons" onClick={this.handleUsersButton}>Treasure Box Users</button>
                     <div className="nav-item">
                         <img alt="Treasure Island" title="Treasure Island" className="nav-icon" src="IconTreasureMap.jpg" onClick={this.handleTreasurePageButton} />
                         <p>Treasure</p>                       
