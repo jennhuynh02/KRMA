@@ -56,18 +56,21 @@ router.post('/upload', (req, res) => {
       reportMessage: '',
       type: 'quote',
     })
+
     User.findByIdAndUpdate(      
-      { _id: req.body.ownerId },
+      { _id: newQuote.creatorId },
       { $inc: { keyCount: 1 } }, 
       { new: true },
-    )
-    newQuote.save();
+    ).catch(err => console.log(err))
+
+    newQuote.save()
+
     res.json({
       owner: newQuote.creatorId,
       treasureId: newQuote._id,
       quote: newQuote.url,
       type: newQuote.type
-    });
+    })
   } else {
     imageUpload(req, res, (error) => {
       if (error) {
@@ -83,19 +86,18 @@ router.post('/upload', (req, res) => {
         });
 
         User.findByIdAndUpdate(      
-          { _id: req.body.ownerId },
+          { _id: uploadedTreasure.creatorId },
           { $inc: { keyCount: 1 } }, 
           { new: true },
-        )
-
-        uploadedTreasure.save();
-
+        ).catch(err => console.log(err))
+        
         res.json({
           owner: uploadedTreasure.creatorId,
           treasureId: uploadedTreasure._id,
           location: uploadedTreasure.url,
           type: uploadedTreasure.type,
         });
+        uploadedTreasure.save();
       }
     });
   }
