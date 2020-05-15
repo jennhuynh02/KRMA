@@ -18,7 +18,9 @@ class RetrieveTreasure extends React.Component {
 
   componentDidMount() {
     const { fetchTreasure, currentUser } = this.props;
-    fetchTreasure(currentUser._id);
+    console.log(currentUser)
+    fetchTreasure(currentUser.id);
+    
   }
 
   componentWillUnmount(){

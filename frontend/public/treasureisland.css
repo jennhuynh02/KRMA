@@ -7,9 +7,6 @@
 }
 
 .nav-item {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: flex-end; */
   text-align: center;
   font-size: 23px;
   font-family: fantasy;
@@ -21,14 +18,12 @@
   height: 65px;
   width: 65px;
   align-self: center;
-  /* margin-right: 30px; */
   border: solid 3px darkgreen;
   border-radius: 15px;
   box-shadow: inset 2px 2px 7px white;
 }
 
 .nav-icon:hover {
-  /* opacity: 35%; */
   border-color: gold;
 }
 
@@ -39,12 +34,13 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   line-height: normal;
-  height: vh;
+  height: 1200px;
 }
 
 .treasure-island-body {
   display: flex;
   justify-content: space-around;
+  margin-top: 180px;
 }
 
 .treasure-section {
@@ -148,4 +144,66 @@
 
 .key:hover {
   border: dashed 10px gold;
+}
+
+.upload-photo-input {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 25px;
+}
+
+.photo-upload-header {
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+
+.upload-photo-button {
+  background-color: beige;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px;
+  font-family: fantasy;
+}
+
+.report-treasure-button {
+  background-color: beige;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px;
+  font-family: fantasy;
+}
+
+.quote-upload-header {
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+
+.upload-quote-button {
+  background-color: beige;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px;
+  font-family: fantasy;
+}
+
+.quote-input {
+  width: 400px;
+  height: 170px;
+  font-size: 18px;
 }

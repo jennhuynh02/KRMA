@@ -116,12 +116,19 @@ router.get('/new/:id', (req, res) => {
     var rand = Math.floor(Math.random() * count)
 
     Treasure.findOne({ownerId: null}).skip(rand)
-      .then(treasure => res.json(treasure))
+      .then(treasure => {
+        Treasure.findByIdAndUpdate(
+          { _id: treasure._id},
+          { ownerId: req.params.id }
+        );
+        treasure.ownerId = req.params.id;
+        res.json(treasure);
+      })
       .then(() => {
         User.findByIdAndUpdate(      
           { _id: req.params.id },
           { $inc: { keyCount: -1 } }, 
-          { new: true },
+          { new: true }
         )
         .catch(err => res.json(err))
       })

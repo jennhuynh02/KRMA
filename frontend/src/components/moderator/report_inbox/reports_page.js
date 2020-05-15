@@ -18,7 +18,7 @@ class ReportsPage extends React.Component {
                   Review for deletion.
                 </h1>
                 { treasures.map(treasure => 
-                    treasure.reported ? <ReportedTreasureContainer treasure={treasure} /> : null
+                    treasure.reported ? <ReportedTreasureContainer key={treasure._id} treasure={treasure} /> : null
                 )}
             </div>
         );
