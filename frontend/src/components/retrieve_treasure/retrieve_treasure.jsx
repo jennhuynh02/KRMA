@@ -24,14 +24,14 @@ class RetrieveTreasure extends React.Component {
   }
 
   render() {
-    const { image } = this.props;
+    const { image, openModal, closeModal } = this.props;
     this.addOwnerId();
     return (
       <div className="retrieve-treasure-wrapper">
-        <button className="close-modal" onClick={this.props.closeModal}>
+        <button className="close-modal" onClick={closeModal}>
             X
         </button>
-        <img className="content-img-rt" src={ image.url } />
+        <img className="content-img-rt" src={ image.url }/>
         <button>Report Treasure</button>
         <br />
 
