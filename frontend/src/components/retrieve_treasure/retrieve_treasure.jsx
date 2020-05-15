@@ -8,7 +8,9 @@ class RetrieveTreasure extends React.Component {
   
   componentDidMount() {
     const { fetchTreasure, currentUser } = this.props;
-    fetchTreasure(currentUser._id);
+    console.log(currentUser)
+    fetchTreasure(currentUser.id);
+    
   }
   
   // addOwnerId() {
@@ -30,7 +32,7 @@ class RetrieveTreasure extends React.Component {
             X
         </button>
         <img className="content-img-rt" src={ image.url }/>
-        <button>Report Treasure</button>
+        <button className="report-treasure-button">Report Treasure</button>
         <br />
 
       </div>

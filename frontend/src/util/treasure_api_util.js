@@ -28,8 +28,9 @@ export const addTreasure = (treasure) => {
 };
 
 export const editTreasure = (treasure) => {
+    console.log(treasure)
     return (
-        axios.put(`/api/treasure/edit`, treasure)
+        axios.put(`/api/treasure/${treasure._id}`, treasure)
     );
 };
 

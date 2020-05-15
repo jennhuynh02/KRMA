@@ -4,6 +4,7 @@ class AWSCreateTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      photoUrl: null,
       selectedFile: null,
       error: '',
     }
@@ -13,9 +14,18 @@ class AWSCreateTreasure extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({
-      selectedFile: e.currentTarget.files[0]
-    });
+    e.preventDefault();
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({
+        selectedFile: file,
+        photoUrl: fileReader.result,
+      });
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   };
 
   handleUpload(e) {
@@ -27,7 +37,9 @@ class AWSCreateTreasure extends React.Component {
       this.props.createTreasure(data);
       this.setState({
         selectedFile: "",
-      })
+      });
+      this.props.currentUser.keyCount += 1;
+      this.props.closeModal()
     } else {
       this.setState({
         error: 'Please upload file'
@@ -36,26 +48,30 @@ class AWSCreateTreasure extends React.Component {
   };
 
   render() {
+    console.log(this.state)
+    const { closeModal } = this.props;
+    const preview = this.state.photoUrl ? <img className="content-img-rt" src={this.state.photoUrl} /> : null
     return (
         <div className="create-treasure-wrapper">
           <button className="close-modal" onClick={this.props.closeModal}>
             X
           </button>
-          <div className="card-header">
-            <h3 style={{ color: "#555", marginLeft: "12px" }}>
+          <div className="photo-upload-header">
+            <h3>
               Add a Photo to the Treasure Box
             </h3>
             <p> Max 4MB </p>
           </div>
           <div className="card-body">
-            <input type="file" onChange={this.handleFile} />
+            <input type="file" className="upload-photo-input" onChange={this.handleFile} />
             <div className="mt-5">
               {this.state.error}
-              <button className="btn btn-info" onClick={this.handleUpload}>
+              { preview }
+              <button className="upload-photo-button" onClick={this.handleUpload}>
                 Upload!
               </button>
+              <button className="upload-photo-button" onClick={(e) => closeModal(e)}>Cancel</button>
               <br />
-              <button onClick={() => this.props.openModal({ retrieve: -1 })}>Retrieve Treasure Instead</button>
             </div>
           </div>
         </div>
