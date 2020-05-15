@@ -55,7 +55,7 @@ class AWSCreateTreasure extends React.Component {
                 Upload!
               </button>
               <br />
-              <button onClick={() => this.props.openModal('retrieve')}>Retrieve Treasure Instead</button>
+              <button onClick={() => this.props.openModal({ retrieve: -1 })}>Retrieve Treasure Instead</button>
             </div>
           </div>
         </div>
