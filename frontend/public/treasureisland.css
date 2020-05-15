@@ -1,4 +1,13 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  /* padding-bottom: 100px; */
+}
+
 .page-navbar {
+  position: relative;
+  top: 0;
   width: 100vw;
   text-align: end;
   height: 100px;
@@ -95,10 +104,8 @@
   font-weight: 600;
   font-family: fantasy;
   width: 500px;
-  height: fit-content
-  margin-left: 80px;
-  margin-top: 50px;
-  margin-right: 35px;
+  height: fit-content;
+  margin: 50px 35px;
 }
 
 .bucket-explanation {
