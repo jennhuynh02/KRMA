@@ -7,23 +7,19 @@ class RetrieveTreasure extends React.Component {
   
   handleTreasure() {
     const { currentUser, updateTreasure, currentTreasure } = this.props;
-    if (!currentTreasure.ownerId) {
-      const fields = {
-        treasure: currentTreasure._id,
-        owner: currentUser.id
-      }
-      updateTreasure(fields);
+    const assignId = {
+      treasure: currentTreasure._id,
+      owner: currentUser.id
     }
+    updateTreasure(assignId);
   }
 
   componentDidMount() {
     const { fetchTreasure, currentUser } = this.props;
-    console.log(currentUser)
     fetchTreasure(currentUser.id);
-    
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.handleTreasure()
   }
   

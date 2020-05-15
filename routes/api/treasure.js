@@ -144,7 +144,7 @@ router.delete('/:treasureId', (req, res) => {
   });
 });
 
-router.put('/edit/:id', function (req, res) {
+router.put('/edit/:id', function (req, res) { 
   Treasure.findByIdAndUpdate({ _id: req.body.treasure }, {ownerId: req.body.owner},
     {new: true})
     .then(treasure => res.json(treasure))

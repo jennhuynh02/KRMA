@@ -3,7 +3,7 @@ import {
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
-getUserTreasures,
+	getUserTreasures,
 	editTreasure,
 } from "../util/treasure_api_util"
 

@@ -48,7 +48,6 @@ class AWSCreateTreasure extends React.Component {
   };
 
   render() {
-    console.log(this.state)
     const { closeModal } = this.props;
     const preview = this.state.photoUrl ? <img className="content-img-rt" src={this.state.photoUrl} /> : null
     return (
