@@ -116,19 +116,12 @@ router.get('/new/:id', (req, res) => {
     var rand = Math.floor(Math.random() * count)
 
     Treasure.findOne({ownerId: null}).skip(rand)
-      .then(treasure => {
-        Treasure.findByIdAndUpdate(
-          { _id: treasure._id},
-          { ownerId: req.params.id }
-        );
-        treasure.ownerId = req.params.id;
-        res.json(treasure);
-      })
+      .then(treasure => res.json(treasure))
       .then(() => {
         User.findByIdAndUpdate(      
           { _id: req.params.id },
           { $inc: { keyCount: -1 } }, 
-          { new: true }
+          { new: true },
         )
         .catch(err => res.json(err))
       })
@@ -144,18 +137,16 @@ router.delete('/:treasureId', (req, res) => {
   });
 });
 
-router.put('/:treasureId', function(req, res) {
-  console.log(req.body)
-  Treasure.findByIdAndUpdate(req.params.treasureId, req.body, function (err, treasure) {
-    if (err) {
-      res.json(err);
-    } else {
-      res.json(treasure);
-    }
- });
-});
+router.put('/edit', (req, res) => {
+  console.log(req.body);
+  Treasure.findById(req.params.id)
+    .then((treasure) => treasure.updateOne(req.body))
+    .then((treasure) => res.json(treasure))
+    .catch(err => res.json(err))
+})
 
 router.get('/collection/:id', (req, res) => {
+  console.log(req.params.id)
   Treasure.find({ ownerId: req.params.id})
     .then((treasures) => res.json(treasures))
     .catch((err) => console.log(err))
