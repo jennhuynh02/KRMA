@@ -1,5 +1,5 @@
 import {
-	postTreasure, 
+	addTreasure, 
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
@@ -58,11 +58,13 @@ export const fetchUserTreasures = (userId) => (dispatch) => (
 		.catch(err => console.log(err))
 );
 
-export const createTreasure = (data) => (dispatch) => (
-	postTreasure(data)
-		.then(res => dispatch(receiveTreasure(res)))
-		.catch((error) => console.log(error))
-);
+export const createTreasure = (data) => (dispatch) => {
+	return (
+		addTreasure(data)
+			.then(res => dispatch(receiveTreasure(res)))
+			.catch((error) => console.log(error))
+	);
+}
 
 export const deleteTreasure = (treasureId) => (dispatch) => {
 	const treasureIdsaved = treasureId;
