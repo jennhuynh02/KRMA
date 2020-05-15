@@ -44,9 +44,8 @@
 
 .linked-in-links:hover {
   text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: gold;
+  border-color: gold orange gold;
+  background: linear-gradient( gold, darkred);
 }
 
 .form-title {
@@ -111,11 +110,8 @@
 }
 
 .session-buttons:hover {
-  text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: gold;
-  opacity: 90%;
+  border-color: gold orange gold;
+  background: linear-gradient( gold, darkred);
 }
 
 .auto-log-session-buttons {
@@ -136,6 +132,6 @@
   text-align: center;
   font-size: 18px;
   font-family: sans-serif;
-  color: gold;
-  opacity: 90%;
+  border-color: gold orange gold;
+  background: linear-gradient( gold, darkred);
 }
