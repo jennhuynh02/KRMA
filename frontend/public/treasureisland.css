@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-evenly;
   background-color: lightcyan;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .nav-item {
@@ -34,7 +36,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   line-height: normal;
-  height: 1200px;
+  min-height: 100vh;
 }
 
 .treasure-island-body {
@@ -92,7 +94,7 @@
   font-weight: 600;
   font-family: fantasy;
   width: 500px;
-  height: 600px;
+  height: fit-content
   margin-left: 80px;
   margin-top: 50px;
   margin-right: 35px;
@@ -127,13 +129,13 @@
   font-weight: 600;
   background-color: beige;
   width: 180px;
+  text-align: center;
 }
 
 .upload-buttons:hover {
   text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
-  color: gold;  
+  border-color: gold orange gold;
+  background: linear-gradient( gold, darkred);
 }
 
 .key {

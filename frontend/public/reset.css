@@ -43,3 +43,16 @@ table {
 button:focus {
 	outline: none;
 }
+
+body, html, #root, .app {
+	/* height: fit-content; */
+	height: 100%;
+}
+
+.root {
+	height: 100%;
+}
+
+:root {
+	height: fit-content;
+}
