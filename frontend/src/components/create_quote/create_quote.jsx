@@ -60,7 +60,7 @@ class CreateQuote extends React.Component {
               Add Quote
             </button>
             <br />
-            <button onClick={() => this.props.openModal("retrieve")}>
+            <button onClick={() => this.props.openModal({ retrieve: -1 })}>
               Retrieve Treasure Instead
             </button>
           </div>

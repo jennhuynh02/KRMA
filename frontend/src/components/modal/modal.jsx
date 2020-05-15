@@ -5,13 +5,14 @@ import { closeModal } from '../../actions/modal_actions';
 import CreateTreasureContainer from '../treasure/create_treasure_container';
 import CreateQuoteContainer from '../create_quote/create_quote_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
+import ImageContainer from "../../components/image/image_container";
 import './modal.css';
 
 const Modal = ({ modal, closeModal }) => {
     if (!modal) return null;
 
     let component;
-    switch(modal) {
+    switch(Object.keys(modal)[0]) {
         case 'photo':
             component = <CreateTreasureContainer />;
             break;
@@ -20,6 +21,9 @@ const Modal = ({ modal, closeModal }) => {
             break;
         case 'retrieve':
             component = <RetrieveTreasureContainer />;
+            break;
+        case 'image':
+            component = <ImageContainer treasure={modal.image} />;
             break;
         default:
             return null;

@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
-
+import { fetchAllUsers } from "../../actions/user_actions";
 import { openModal } from '../../actions/modal_actions';
 import TreasureIsland from './treasure_island';
 
 const mapStateToProps = state => ({
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    keyCount: state.session.user.keyCount
 });
 
 const mapDispatchToProps = dispatch => ({
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    fetchAllUsers: () => dispatch(fetchAllUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreasureIsland);

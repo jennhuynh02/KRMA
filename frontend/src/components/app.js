@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, AdminRoute } from '../util/route_util';
 import MainPage from "../components/main/main_page";
 import NavBarContainer from '../components/navbar/navbar_container';
@@ -24,7 +24,7 @@ const App = () => (
       <AdminRoute exact path="/reports" component={ReportsContainer} />
       <AdminRoute exact path="/contents" component={TreasureContentsContainer} />
       <AdminRoute exact path="/users" component={UsersContainer} />
-      <Route exact path="/treasures/:id" component={TreasureContainer}/>
+      <Redirect path="/" to="/" />
     </Switch>
   </div>
 );

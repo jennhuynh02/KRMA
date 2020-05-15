@@ -1,6 +1,9 @@
 # treasure-box
 Treasure Box is a web application where users can place media in a treasure box in exchange for a key.  Keys can be used to fetch an item out of one of the treasure boxes.
 
+# Motivations
+We aimed to provide an online experience that takes inspiration from Geocaching — an outdoor activity involving searching for hidden containers that are stashed around the world. In one of the variants of Geocaching, the containers house small trinkets that finders can take, but the convention is to leave something in its place. Although we didn't emulate the exploration aspect of geocaching, we developed an application that preserved the essence of a one-for-one exchange. 
+
 # Overview How To Use The Website
 
 # Log in/Sign up page
