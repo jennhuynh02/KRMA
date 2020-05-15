@@ -3,7 +3,8 @@ import { createTreasure } from '../../actions/treasure_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import CreateQuote from './create_quote';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, {prompt}) => ({
+    prompt,
     currentUser: state.session.user,
     errors: state.errors.treasure,
 });

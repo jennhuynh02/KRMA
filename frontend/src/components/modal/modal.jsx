@@ -17,7 +17,7 @@ const Modal = ({ modal, closeModal }) => {
             component = <CreateTreasureContainer />;
             break;
         case 'quote': 
-            component = <CreateQuoteContainer />;
+            component = <CreateQuoteContainer prompt={modal} />;
             break;
         case 'retrieve':
             component = <RetrieveTreasureContainer />;

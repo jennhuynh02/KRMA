@@ -46,7 +46,8 @@ class CreateQuote extends React.Component {
         </button>
         <div>
           <h3 className="quote-upload-header">
-            Add a Quote to the Treasure Box
+            {/* Add a Quote to the Treasure Box */}
+            {this.props.prompt.quote}
           </h3>
         </div>
         <div >
@@ -60,7 +61,7 @@ class CreateQuote extends React.Component {
             {this.state.error}
             <br />
             <button className="upload-quote-button" onClick={this.handleUpload}>
-              Add Quote
+              Add Treasure
             </button>
             <br />
             <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>
