@@ -5,7 +5,6 @@ class RetrieveTreasure extends React.Component {
       super(props);
 
       this.state = { keyCount: this.props.keyCount };
-      // Need keycount slice of state?
   }
   
   componentDidMount() {
@@ -14,12 +13,12 @@ class RetrieveTreasure extends React.Component {
   }
   
   addOwnerId() {
-    const { currentUser, editTreasure } = this.props;
+    const { currentUser, updateTreasure } = this.props;
 
     if (this.props.image._id) {
       const treasure = this.props.image;
       treasure.ownerId = currentUser.id;
-      editTreasure(treasure);
+      updateTreasure(treasure);
     }
   }
 
