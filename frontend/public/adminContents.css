@@ -1,5 +1,5 @@
 .admin-nav-buttons {
-    margin-top: 30px;
+  margin-top: 30px;
   margin-bottom: 30px;
   font-size: inherit;
   font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
@@ -25,6 +25,7 @@
 
 .admin-nav-buttons:hover {
   font-size: 20px;
+  padding: 0;
 }
 
 
@@ -55,7 +56,7 @@
 }
 
 .content-item {
-  border: solid 5px white;
+  border: solid 5px tan;
   border-radius: 10px;
   color: white;
   margin: 40px;
@@ -65,8 +66,9 @@
 }
 
 .content-img {
-  border: solid 5px white;
-  color: white;
+  border: solid 5px tan;
+  color: tan;
+  background-color:tan;
   height: 400px;
   width: 500px;
   padding: 10px;

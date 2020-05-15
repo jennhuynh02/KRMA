@@ -31,6 +31,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   line-height: normal;
+  height: vh;
 }
 
 .treasure-island-body {
