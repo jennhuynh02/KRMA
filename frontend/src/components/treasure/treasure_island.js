@@ -2,12 +2,41 @@ import React from 'react';
 import Modal from '../modal/modal';
 
 class TreasureIsland extends React.Component {
+  constructor(props) {
+    super(props)
+    const {openModal} = this.props;
+
+    this.getTreasure = this.getTreasure.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllUsers();
+  }
+
+  getTreasure(e) {
+    e.preventDefault();
+    window.location.href = "/#/treasureisland";
+    this.props.openModal({ retrieve: -1 });
+    this.props.currentUser.keyCount -= 1;
+  }
+
 
   render() {
-    const { openModal, currentUser } = this.props;
+    const { openModal, currentUser, keyCount } = this.props;
 
-    let keyCount
-    keyCount = currentUser.keyCount;
+    const keyAccess = () => {
+      if (keyCount > 0) {
+        return (
+          <div>
+            <img className="key" src="TreasureKey.jpg" onClick={this.getTreasure} />
+          </div>
+        )
+      } else {
+        return (
+          <img className="key" src="TreasureKey.jpg" />
+        )
+      }
+    }
 
     return (
       <div className="treasure-island">
@@ -46,8 +75,8 @@ class TreasureIsland extends React.Component {
           <div className="key-pocket">
             Use a key to open a treasure chest!
             <br />
-              Your Keys:  #{keyCount} 
-              <img className="key" src="TreasureKey.jpg" onClick={() => openModal({ retrieve: -1 })}/>
+              Your Keys:  #{keyCount}
+              { keyAccess() }
       </div>
           </div>
         </div>
