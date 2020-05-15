@@ -1,4 +1,5 @@
 .page-navbar {
+  width: 100vw;
   text-align: end;
   height: 100px;
   display: flex;
@@ -31,18 +32,18 @@
 
 .treasure-island {
   text-align: -webkit-center;
-  background-image: url(treasureboxisland.jpg);
+  background-image: url(treasureboxisland5.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   line-height: normal;
+  height: 100px;
   min-height: 100vh;
 }
 
 .treasure-island-body {
   display: flex;
   justify-content: space-around;
-  margin-top: 180px;
 }
 
 .treasure-section {
@@ -63,8 +64,8 @@
   margin-top: 240px;
   margin-left: 140px;
   height: 450px;
-  border-radius: 20%;
-  border: solid 1px gold;
+  /* border-radius: 20%; */
+  /* border: solid 1px gold; */
 }
 
 .treasure-buttons {
@@ -146,6 +147,7 @@
 
 .key:hover {
   border: dashed 10px gold;
+  margin: 5px;
 }
 
 .upload-photo-input {

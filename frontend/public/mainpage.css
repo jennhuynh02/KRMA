@@ -1,3 +1,8 @@
+.app {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .session-navbar {
   text-align: center;
   font-family: cursive;
@@ -9,7 +14,6 @@
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
-
 .login-signup-container {
   background-image: url(MainPage2.jpg);
   text-align: -webkit-center;
@@ -17,6 +21,7 @@
   background-repeat: no-repeat;
   font-family: cursive;
   height: 930px;
+  min-height: 75vh;
   border-radius: 5px;
 }
 
@@ -130,8 +135,6 @@
 
 .auto-log-session-buttons:hover {
   text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
   border-color: gold orange gold;
   background: linear-gradient( gold, darkred);
 }
