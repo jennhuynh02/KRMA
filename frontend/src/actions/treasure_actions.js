@@ -3,7 +3,7 @@ import {
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
-getUserTreasures,
+	getUserTreasures,
 	editTreasure,
 } from "../util/treasure_api_util"
 
@@ -64,10 +64,15 @@ export const createTreasure = (data) => (dispatch) => {
 export const deleteTreasure = (treasureId) => (dispatch) => {
 	const treasureIdsaved = treasureId;
 	return destroyTreasure(treasureId)
-		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)));
+		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)))
+		.catch((error) => console.log(error))
+};
+
+export const updateTreasure = (treasure) => (dispatch) => {
+	return (
+		editTreasure(treasure)
+			.then((treasure) => dispatch(receiveTreasure(treasure)))
+			.catch((error) => console.log(error))
+	)
 }
 
-export const updateTreasure = (treasure) => (dispatch) => (
-	editTreasure(treasure)
-		.then((treasure) => dispatch(receiveTreasure(treasure)))
-);

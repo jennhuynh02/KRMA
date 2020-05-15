@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
     return {
         currentUser: state.session.user,
         currentTreasure: state.treasure.new,
-        image: state.treasure.new,
     }
 };
 
