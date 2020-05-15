@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { closeModal } from '../../../../actions/modal_actions';
-import { updateTreasure } from '../../../../actions/treasure_actions';
+import { closeModal } from '../../actions/modal_actions';
+import { updateTreasure } from '../../actions/treasure_actions';
 import ReportTreasure from './report_treasure';
 
 const mapStateToProps = (state, {treasure}) => {

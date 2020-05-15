@@ -1,5 +1,5 @@
 import React from 'react';
-import ReportTreasureContainer from "./report_treasure/report_treasure_container";
+import ReportedTreasureContainer from "../report_inbox/reports/report_container";
 
 class ReportsPage extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class ReportsPage extends React.Component {
                   Review for deletion.
                 </h1>
                 { treasures.map(treasure => 
-                    treasure.reported ? <ReportTreasureContainer treasure={treasure} /> : null
+                    treasure.reported ? <ReportedTreasureContainer treasure={treasure} /> : null
                 )}
             </div>
         );

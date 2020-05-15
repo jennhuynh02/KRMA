@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Report from './report';
-import { deleteUser } from '../../actions/user_actions';
-import { editTreasure } from '../../actions/treasure_actions';
+import { deleteUser } from '../../../../actions/user_actions';
+import { updateTreasure } from '../../../../actions/treasure_actions';
 
 const mapStateToProps = (state, {user}) => ({
   treasure: state.treasure.new,
@@ -10,7 +10,7 @@ const mapStateToProps = (state, {user}) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    reportTreasure: (treasure) => dispatch(editTreasure(treasure)),
+    reportTreasure: (treasure) => dispatch(updateTreasure(treasure)),
     deleteSelectedUser: (user) => dispatch(deleteUser(user)),
   })
 };
