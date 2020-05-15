@@ -31,7 +31,7 @@ class RetrieveTreasure extends React.Component {
         <button className="close-modal" onClick={this.props.closeModal}>
             X
         </button>
-        <img className="content-img" src={ image.url } />
+        <img className="content-img-rt" src={ image.url } />
         <button>Report Treasure</button>
         <br />
 
