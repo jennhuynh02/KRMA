@@ -7,22 +7,29 @@
 }
 
 .nav-item {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: flex-end; */
   text-align: center;
   font-size: 23px;
   font-family: fantasy;
+  justify-self: flex-end;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .nav-icon {
   height: 65px;
   width: 65px;
-  border: solid 3px gold;
+  align-self: center;
+  /* margin-right: 30px; */
+  border: solid 3px darkgreen;
   border-radius: 15px;
   box-shadow: inset 2px 2px 7px white;
 }
 
 .nav-icon:hover {
-  opacity: 35%;
+  /* opacity: 35%; */
+  border-color: gold;
 }
 
 .treasure-island {
