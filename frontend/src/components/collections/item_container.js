@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TreasureItem from './item';
-import { deleteTreasure } from '../../actions/treasure_actions'
+import { deleteTreasure, fetchTreasures } from '../../actions/treasure_actions'
 
 const mapStateToProps = (state, {treasure}) => ({
   treasure,
@@ -8,7 +8,8 @@ const mapStateToProps = (state, {treasure}) => ({
 });
 
 const mapDispatchToProps = (dispatch, ) => ({
-  deleteTreasure: (treasureId) => dispatch(deleteTreasure(treasureId))
+  deleteTreasure: (treasureId) => dispatch(deleteTreasure(treasureId)),
+  fetchTreasures: () => dispatch(fetchTreasures())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TreasureItem);

@@ -2,7 +2,11 @@ import React from 'react';
 import TreasureItemContainer from "./item_container"
 
 class Collection extends React.Component {
+  constructor (props){
+    super(props)
+  }
   componentDidMount() {
+    this.props.getAllTreasures();
     const { getUserTreasures, currentUserId } = this.props
     getUserTreasures(currentUserId);
   }
