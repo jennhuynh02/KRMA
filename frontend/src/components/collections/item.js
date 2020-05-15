@@ -20,14 +20,13 @@ class TreasureItem extends React.Component {
 
   render() {
     const { treasure, imgUrl, deleteTreasure } = this.props
-    console.log(treasure)
     let id
     id = treasure._id
     let content
     if (treasure.type === "media") {
       content = <img className="content-img" src={ treasure.url }/>
     } else {
-      content = <h1>{ treasure.url }</h1>
+      content = <h1 className="treasure-text">{ treasure.url }</h1>
     }
 
     return (

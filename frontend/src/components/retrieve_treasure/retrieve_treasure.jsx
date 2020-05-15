@@ -29,7 +29,7 @@ class RetrieveTreasure extends React.Component {
     if (currentTreasure.type === "media") {
       content = <img className="content-img-rt" src={ currentTreasure.url }/>
     } else {
-      content = <h1>{ currentTreasure.url }</h1>
+      content = <h1 className="treasure-text">{ currentTreasure.url }</h1>
     }
     return (
       <div className="retrieve-treasure-wrapper">
