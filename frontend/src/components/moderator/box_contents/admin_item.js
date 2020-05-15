@@ -18,7 +18,7 @@ class AdminItem extends React.Component {
     id = treasure._id
     let content
     if (treasure.type === "media") {
-      content = <img className="content-img-rt" src={ treasure.url }/>
+      content = <img className="content-img" src={ treasure.url }/>
     } else {
       content = <h1>{ treasure.url }</h1>
     }

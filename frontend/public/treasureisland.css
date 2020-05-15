@@ -95,10 +95,8 @@
   font-weight: 600;
   font-family: fantasy;
   width: 500px;
-  height: fit-content
-  margin-left: 80px;
-  margin-top: 50px;
-  margin-right: 35px;
+  height: fit-content;
+  margin: 50px 35px;
 }
 
 .bucket-explanation {
