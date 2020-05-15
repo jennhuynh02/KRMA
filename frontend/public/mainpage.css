@@ -1,9 +1,9 @@
 .app {
-  display: flex;
-  flex-direction: column-reverse;
+  margin-top: 130px;
 }
 
 .session-navbar {
+  width: 100vw;
   text-align: center;
   font-family: cursive;
   font-size: 60px;
