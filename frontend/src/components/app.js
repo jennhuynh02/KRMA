@@ -14,8 +14,7 @@ import TreasureContainer from "./treasure/treasure_container";
 import UsersContainer from "./moderator/all_users/users_container";
 
 const App = () => (
-  <div>
-    <NavBarContainer />
+  <div className='app'>
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
@@ -26,6 +25,7 @@ const App = () => (
       <AdminRoute exact path="/users" component={UsersContainer} />
       <Redirect path="/" to="/" />
     </Switch>
+    <NavBarContainer />
   </div>
 );
 
