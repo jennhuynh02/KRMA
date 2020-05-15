@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminItemContainer from '../box_contents/admin_item_container';
+import ReportTreasureContainer from "./report_treasure/report_treasure_container";
 
 class ReportsPage extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class ReportsPage extends React.Component {
                   Review for deletion.
                 </h1>
                 { treasures.map(treasure => 
-                    treasure.reported ? <AdminItemContainer treasure={treasure} /> : null
+                    treasure.reported ? <ReportTreasureContainer treasure={treasure} /> : null
                 )}
             </div>
         );
