@@ -5,7 +5,7 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys_prod');
+const keys = require('../../config/keys');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
@@ -73,12 +73,6 @@ router.post('/upload', (req, res) => {
         treasureId: uploadedTreasure._id,
         location: uploadedTreasure.url,
       });
-      
-    // POST request for quotes
-    } else if (req.quoteText) {
-      // const uploadedQuote = new Treasure({
-      //   // shape this however you think will work best
-      // });
     }
   });
 });
