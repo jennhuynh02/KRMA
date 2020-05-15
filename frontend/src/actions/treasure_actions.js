@@ -4,7 +4,7 @@ import {
 	getTreasure,
 	destroyTreasure, 
 	getUserTreasures,
-	updateTreasureReport,
+	editTreasure,
 } from "../util/treasure_api_util"
 
 export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
@@ -31,11 +31,6 @@ export const receiveUserTreasures = (treasures) => ({
 export const removeTreasure = treasureId => ({
 	type: REMOVE_TREASURE,
 	treasureId,
-})
-
-export const updateTreasure = (treasure) => ({
-	type: UPDATE_TREASURE,
-	treasure,
 })
 
 // for getting 1 treasure out of the treasure chest
@@ -72,7 +67,7 @@ export const deleteTreasure = (treasureId) => (dispatch) => {
 		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)));
 }
 
-export const editTreasure = (treasure) => (dispatch) => {
-	return updateTreasureReport(treasure)
-		.then((treasure) => dispatch(updateTreasure(treasure)))
-}
+export const updateTreasure = (treasure) => (dispatch) => (
+	editTreasure(treasure)
+		.then((treasure) => dispatch(receiveTreasure(treasure)))
+);

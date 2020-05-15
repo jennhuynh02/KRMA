@@ -27,9 +27,9 @@ export const addTreasure = (treasure) => {
     }
 };
 
-export const updateTreasureReport = (treasure) => {
+export const editTreasure = (treasure) => {
     return (
-        axios.put(`/api/treasure/update`, treasure)
+        axios.put(`/api/treasure/edit`, treasure)
     );
 };
 

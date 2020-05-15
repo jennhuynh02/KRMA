@@ -137,20 +137,12 @@ router.delete('/:treasureId', (req, res) => {
   });
 });
 
-router.put('/update', (req, res) => {
+router.put('/edit', (req, res) => {
   console.log(req.body);
-  Treasure.findByIdAndUpdate(
-    req.body._id,
-    // { reported: true },
-    // { reportMessage: req.body},
-    function(err, result) {
-      if (err) {
-        res.json(err)
-      } else {
-        res.json(result)
-      } 
-    }
-  )
+  Treasure.findById(req.params.id)
+    .then((treasure) => treasure.updateOne(req.body))
+    .then((treasure) => res.json(treasure))
+    .catch(err => res.json(err))
 })
 
 router.get('/collection/:id', (req, res) => {

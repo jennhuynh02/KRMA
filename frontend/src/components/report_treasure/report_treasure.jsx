@@ -1,5 +1,4 @@
 import React from 'react';
-import { editTreasure } from '../../actions/treasure_actions';
 
 class ReportTreasure extends React.Component {
     constructor(props) {
