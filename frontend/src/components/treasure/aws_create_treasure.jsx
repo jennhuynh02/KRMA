@@ -5,7 +5,7 @@ class AWSCreateTreasure extends React.Component {
     super(props);
     this.state = {
       selectedFile: null,
-      error: "",
+      error: '',
     }
 
     this.handleFile = this.handleFile.bind(this);
@@ -22,7 +22,7 @@ class AWSCreateTreasure extends React.Component {
     e.preventDefault();
     let data = new FormData();
     if (this.state.selectedFile) {
-      data.append('profileImage', this.state.selectedFile, this.state.selectedFile.name);
+      data.append('image', this.state.selectedFile, this.state.selectedFile.name);
       data.append('ownerId', this.props.currentUser.id)
       this.props.createTreasure(data);
       this.setState({
@@ -41,8 +41,6 @@ class AWSCreateTreasure extends React.Component {
           <button className="close-modal" onClick={this.props.closeModal}>
             X
           </button>
-
-          <button onClick={() => this.props.openModal('quote')}>Quote</button>
           <div className="card-header">
             <h3 style={{ color: "#555", marginLeft: "12px" }}>
               Add a Photo to the Treasure Box

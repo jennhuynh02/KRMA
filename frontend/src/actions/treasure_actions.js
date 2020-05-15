@@ -1,10 +1,10 @@
 import {
-	postTreasure, 
+	addTreasure, 
 	getTreasures, 
 	getTreasure,
 	destroyTreasure, 
 	getUserTreasures,
-	updateTreasureReport,
+	editTreasure,
 } from "../util/treasure_api_util"
 
 export const RECEIVE_TREASURE = "RECEIVE_TREASURE";
@@ -33,11 +33,6 @@ export const removeTreasure = treasureId => ({
 	treasureId,
 })
 
-export const updateTreasure = (treasure) => ({
-	type: UPDATE_TREASURE,
-	treasure,
-})
-
 // for getting 1 treasure out of the treasure chest
 export const fetchTreasure = (userId) => (dispatch) =>(
 	getTreasure(userId)
@@ -58,11 +53,13 @@ export const fetchUserTreasures = (userId) => (dispatch) => (
 		.catch(err => console.log(err))
 );
 
-export const createTreasure = (data) => (dispatch) => (
-	postTreasure(data)
-		.then(res => dispatch(receiveTreasure(res)))
-		.catch((error) => console.log(error))
-);
+export const createTreasure = (data) => (dispatch) => {
+	return (
+		addTreasure(data)
+			.then(res => dispatch(receiveTreasure(res)))
+			.catch((error) => console.log(error))
+	);
+}
 
 export const deleteTreasure = (treasureId) => (dispatch) => {
 	const treasureIdsaved = treasureId;
@@ -70,7 +67,7 @@ export const deleteTreasure = (treasureId) => (dispatch) => {
 		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)));
 }
 
-export const editTreasure = (treasure) => (dispatch) => {
-	return updateTreasureReport(treasure)
-		.then((treasure) => dispatch(updateTreasure(treasure)))
-}
+export const updateTreasure = (treasure) => (dispatch) => (
+	editTreasure(treasure)
+		.then((treasure) => dispatch(receiveTreasure(treasure)))
+);

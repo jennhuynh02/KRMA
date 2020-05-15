@@ -1,5 +1,4 @@
 import React from 'react';
-import { editTreasure } from '../../actions/treasure_actions';
 
 class ReportTreasure extends React.Component {
     constructor(props) {
@@ -16,7 +15,6 @@ class ReportTreasure extends React.Component {
         e.preventDefault();
         const treasure = this.state;
         treasure.reported = true;
-        debugger
         this.props.editTreasure(treasure);
             // .then(this.props.closeModal); OR message saying report received
     }

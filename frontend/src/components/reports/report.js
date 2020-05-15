@@ -14,7 +14,6 @@ class Report extends React.Component {
     <li className="user-box">
       <h1>{user.firstName} {user.lastName}</h1>
       <h1>{user.email}</h1>
-      <br />
       <button onClick={() => deleteSelectedUser(id)}>Delete User</button>
     </li>
     );

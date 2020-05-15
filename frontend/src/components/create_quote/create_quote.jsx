@@ -20,11 +20,13 @@ class CreateQuote extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    let data = new FormData();
     if (this.state.quote !== "") {
-      data.append("quoteText", this.state.quote);
-			data.append("ownerId", this.props.currentUser.id);
-			this.props.createTreasure(data); // failing POST request currently
+      let treasure = {
+        ownerId: this.props.currentUser.id,
+        quote: this.state.quote,
+        type: "quote",
+      }
+			this.props.createTreasure(treasure);
 			this.setState({ quote: "" });
 			// maybe render a message to user saying "Upload successful!" as bonus feature
     } else {
@@ -40,8 +42,6 @@ class CreateQuote extends React.Component {
         <button className="close-modal" onClick={this.props.closeModal}>
           X
         </button>
-        <button onClick={() => this.props.openModal("photo")}>Photo</button>
-        <button onClick={() => this.props.openModal("quote")}>Quote</button>
         <div className="quote-header">
           <h3 style={{ color: "#555", marginLeft: "12px" }}>
             Add a Quote to the Treasure Box
