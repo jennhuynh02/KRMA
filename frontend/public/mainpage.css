@@ -17,6 +17,7 @@
   background-repeat: no-repeat;
   font-family: cursive;
   height: 930px;
+  min-height: 75vh;
   border-radius: 5px;
 }
 
@@ -130,8 +131,6 @@
 
 .auto-log-session-buttons:hover {
   text-align: center;
-  font-size: 18px;
-  font-family: sans-serif;
   border-color: gold orange gold;
   background: linear-gradient( gold, darkred);
 }
