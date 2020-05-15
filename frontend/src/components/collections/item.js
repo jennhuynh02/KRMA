@@ -20,7 +20,6 @@ class TreasureItem extends React.Component {
 
   render() {
     const { treasure, imgUrl, deleteTreasure } = this.props
-    console.log(treasure)
     let id
     id = treasure._id
     let content
