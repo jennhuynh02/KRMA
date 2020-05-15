@@ -50,7 +50,7 @@ class AWSCreateTreasure extends React.Component {
 
   render() {
     const { closeModal } = this.props;
-    const preview = this.state.photoUrl ? <img className="content-img-rt" src={this.state.photoUrl} /> : null
+    const preview = this.state.photoUrl ? <img className="content-img" src={this.state.photoUrl} /> : null
     return (
         <div className="create-treasure-wrapper">
           <button className="close-modal" onClick={this.props.closeModal}>

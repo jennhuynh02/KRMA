@@ -73,8 +73,8 @@ class NavBar extends React.Component {
             );
         } else {
             return (
-                <div>                    
-                    <h1 className="session-navbar">Welcome to Treasure Island!</h1>
+                <div className="session-navbar">                    
+                    <h1>Welcome to Treasure Island!</h1>
                 </div>                
             )
         }
@@ -82,7 +82,7 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="navbar-wrapper">
             { this.getLinks() }
             </div>
         );
