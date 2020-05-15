@@ -12,7 +12,7 @@ const mapStateToProps = (state, {treasure}) => {
 const mapDispatchToProps = dispatch => {
     return {
         processReport: treasure => dispatch(updateTreasure(treasure)),
-        editTreasure: (treasure) => dispatch(updateTreasure(treasure)),
+        updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
         closeModal: () => dispatch(closeModal())
     };
 };

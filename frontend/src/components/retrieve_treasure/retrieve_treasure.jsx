@@ -4,27 +4,26 @@ class RetrieveTreasure extends React.Component {
   constructor(props) {
       super(props);
 
-      this.state = { keyCount: this.props.keyCount };
   }
   
   componentDidMount() {
     const { fetchTreasure, currentUser } = this.props;
-    fetchTreasure(currentUser.id);
+    fetchTreasure(currentUser._id);
   }
   
-  addOwnerId() {
-    const { currentUser, updateTreasure } = this.props;
+  // addOwnerId() {
+  //   const { currentUser, updateTreasure } = this.props;
 
-    if (this.props.image._id) {
-      const treasure = this.props.image;
-      treasure.ownerId = currentUser.id;
-      updateTreasure(treasure);
-    }
-  }
+  //   if (this.props.image._id) {
+  //     const treasure = this.props.image;
+  //     treasure.ownerId = currentUser.id;
+  //     updateTreasure(treasure);
+  //   }
+  // }
 
   render() {
     const { image, openModal, closeModal } = this.props;
-    this.addOwnerId();
+    // this.addOwnerId();
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={closeModal}>
