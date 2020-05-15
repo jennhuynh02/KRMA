@@ -15,7 +15,7 @@ class TreasureIsland extends React.Component {
 
   getTreasure(e) {
     e.preventDefault();
-    window.location.href = "/#/treasureisland";
+    window.location.reload();
     this.props.openModal({ retrieve: -1 });
     this.props.currentUser.keyCount -= 1;
   }
