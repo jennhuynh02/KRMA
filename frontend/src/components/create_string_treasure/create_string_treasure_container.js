@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { createTreasure } from '../../actions/treasure_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import CreateQuote from './create_quote';
+import CreateStringTreasure from './create_string_treasure';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, {type}) => ({
     currentUser: state.session.user,
     errors: state.errors.treasure,
+    type,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateQuote);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateStringTreasure);

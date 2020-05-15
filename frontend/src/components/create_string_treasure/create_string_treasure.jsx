@@ -1,6 +1,6 @@
 import React from "react";
 
-class CreateQuote extends React.Component {
+class CreateStringTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,12 +33,13 @@ class CreateQuote extends React.Component {
       console.log("Upload Successful!")
     } else {
       this.setState({
-        error: "Please enter a quote",
+        error: "Is this even a treasure? Please enter something...",
       });
     }
   }
 
   render() {
+    const {type} = this.props;
 		return (
       <div className="create-quote-wrapper">
         <button className="close-modal" onClick={this.props.closeModal}>
@@ -46,7 +47,7 @@ class CreateQuote extends React.Component {
         </button>
         <div>
           <h3 className="quote-upload-header">
-            Add a Quote to the Treasure Box
+            {type}
           </h3>
         </div>
         <div >
@@ -60,7 +61,7 @@ class CreateQuote extends React.Component {
             {this.state.error}
             <br />
             <button className="upload-quote-button" onClick={this.handleUpload}>
-              Add Quote
+              Leave this treasure for another!
             </button>
             <br />
             <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>
@@ -74,4 +75,4 @@ class CreateQuote extends React.Component {
   }
 }
 
-export default CreateQuote;
+export default CreateStringTreasure;
