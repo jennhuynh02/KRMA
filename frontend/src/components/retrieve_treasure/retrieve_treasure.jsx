@@ -25,12 +25,18 @@ class RetrieveTreasure extends React.Component {
   
   render() {
     const { currentTreasure, openModal, closeModal } = this.props;
+    let content
+    if (currentTreasure.type === "media") {
+      content = <img className="content-img-rt" src={ currentTreasure.url }/>
+    } else {
+      content = <h1>{ currentTreasure.url }</h1>
+    }
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={closeModal}>
             X
         </button>
-        <img className="content-img-rt" src={ currentTreasure.url }/>
+      { content }
         <button>Report Treasure</button>
         <br />
       </div>
