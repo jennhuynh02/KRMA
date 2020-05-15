@@ -16,3 +16,29 @@
   padding: 30px;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
+
+.reports-box {
+  font-size: inherit;
+  font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+  font-weight: bold !important;
+  letter-spacing: normal;
+  text-rendering: optimizelegibility;
+  line-height: 126%;
+  min-width: 194px;
+  padding: 7px 20px;
+  text-align: center;
+  background: linear-gradient(#67ae55, #578843);
+  background-color: #69a74e;
+  box-shadow: inset 0 1px 1px #a4e388;
+  
+  border: 5px solid;
+  border-radius: px;
+  /* height */
+  color: white;
+  border-color: #3b6e22 #3b6e22 #2c5115;
+  cursor: pointer;
+  display: inline-block;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
