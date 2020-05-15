@@ -36,3 +36,7 @@ export const editTreasure = (treasure) => {
 export const getUserTreasures = (userId) => {
     return axios.get(`api/treasure/collection/${userId}`);
 };
+
+export const resetOwners = () => {
+    return axios.put('api/treasure/resetowners')
+}

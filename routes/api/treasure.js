@@ -151,4 +151,10 @@ router.get('/collection/:id', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+router.get('/resetowners', (req, res) => {
+  Treasure.updateMany({}, {ownerId: null}, {new: true})
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+})
+
 module.exports = router;
