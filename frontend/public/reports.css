@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   line-height: normal;
-  min-height: 1200px;
+  min-height: 100vh;
 }
 
 .reports-page-header {
