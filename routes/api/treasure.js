@@ -145,7 +145,6 @@ router.put('/edit/:id', function (req, res) {
 })
 
 router.get('/collection/:id', (req, res) => {
-  console.log(req.params.id)
   Treasure.find({ ownerId: req.params.id})
     .then((treasures) => res.json(treasures))
     .catch((err) => console.log(err))
