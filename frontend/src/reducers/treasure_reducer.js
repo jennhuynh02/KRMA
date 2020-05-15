@@ -12,6 +12,7 @@ const treasureReducer = ( state = _defaultState, action ) => {
     let newState = Object.assign({}, state)
     switch(action.type){
         case RECEIVE_TREASURE:
+            debugger
             newState.new = action.treasure.data;
             return newState; 
         case RECEIVE_TREASURES: // for admin
