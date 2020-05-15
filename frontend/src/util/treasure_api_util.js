@@ -29,7 +29,11 @@ export const addTreasure = (treasure) => {
 
 export const editTreasure = (treasure) => {
     return (
+<<<<<<< HEAD
         axios.put(`/api/treasure/edit`, treasure)
+=======
+        axios.put(`/api/treasure/edit/${treasure.id}`, treasure)
+>>>>>>> 190695633f754c5a15110ef31a5fb810da68a12b
     );
 };
 

@@ -131,18 +131,17 @@ router.get('/new/:id', (req, res) => {
   
 router.delete('/:treasureId', (req, res) => {
   Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
-  if (err) console.log(err);
-  console.log("Successful deletion");
-  res.json({});
+    if (err) console.log(err);
+    console.log("Successful deletion");
+    res.json({});
   });
 });
 
-router.put('/edit', (req, res) => {
-  console.log(req.body);
-  Treasure.findById(req.params.id)
-    .then((treasure) => treasure.updateOne(req.body))
-    .then((treasure) => res.json(treasure))
-    .catch(err => res.json(err))
+router.put('/edit/:id', function (req, res) { 
+  Treasure.findByIdAndUpdate({ _id: req.body.treasure }, {ownerId: req.body.owner},
+    {new: true})
+    .then(treasure => res.json(treasure))
+    .catch(err => console.log(err))
 })
 
 router.get('/collection/:id', (req, res) => {
