@@ -31,3 +31,8 @@
   flex-direction: column;
   height: fit-content;
 }
+
+.treasure-text {
+  font-size: 20px;
+  background-color: beige;
+}
