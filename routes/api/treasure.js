@@ -33,7 +33,7 @@ const imageUpload = multer({
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
   }
-}).single('profileImage');
+}).single('image');
 
 function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
@@ -47,34 +47,60 @@ function checkFileType(file, cb) {
   }
 
 router.post('/upload', (req, res) => {
-  imageUpload(req, res, (error) => {
-    if (error) {
-      res.json({ error: error })
-    } else if (req.file) {
-      const uploadedTreasure = new Treasure({
-        creatorId: req.body.ownerId,
-        url: req.file.location,
-        ownerId: null,
-        reported: false,
-        reportMessage: '',
-        type: 'picture',
-      });
+  if (req.body.type === "quote") {
+    const newQuote = new Treasure({
+      creatorId: req.body.ownerId,
+      url: req.body.quote,
+      ownerId: null,
+      reported: false,
+      reportMessage: '',
+      type: 'quote',
+    })
 
-      User.updateOne(      
-        { _id: req.body.ownerId },
-        { $inc: { keyCount: 1 } }, 
-        { new: true },
-      )
+    User.findByIdAndUpdate(      
+      { _id: newQuote.creatorId },
+      { $inc: { keyCount: 1 } }, 
+      { new: true },
+    ).catch(err => console.log(err))
 
-      uploadedTreasure.save();
+    newQuote.save()
 
-      res.json({
-        owner: uploadedTreasure.creatorId,
-        treasureId: uploadedTreasure._id,
-        location: uploadedTreasure.url,
-      });
-    }
-  });
+    res.json({
+      owner: newQuote.creatorId,
+      treasureId: newQuote._id,
+      quote: newQuote.url,
+      type: newQuote.type
+    })
+  } else {
+    imageUpload(req, res, (error) => {
+      if (error) {
+        res.json({ error: error })
+      } else if (req.file) {
+        const uploadedTreasure = new Treasure({
+          creatorId: req.body.ownerId,
+          url: req.file.location,
+          ownerId: null,
+          reported: false,
+          reportMessage: '',
+          type: 'media',
+        });
+
+        User.findByIdAndUpdate(      
+          { _id: uploadedTreasure.creatorId },
+          { $inc: { keyCount: 1 } }, 
+          { new: true },
+        ).catch(err => console.log(err))
+        
+        res.json({
+          owner: uploadedTreasure.creatorId,
+          treasureId: uploadedTreasure._id,
+          location: uploadedTreasure.url,
+          type: uploadedTreasure.type,
+        });
+        uploadedTreasure.save();
+      }
+    });
+  }
 });
 
 router.get('/all', (req, res) => {
@@ -92,7 +118,7 @@ router.get('/new/:id', (req, res) => {
     Treasure.findOne({ownerId: null}).skip(rand)
       .then(treasure => res.json(treasure))
       .then(() => {
-        User.updateOne(      
+        User.findByIdAndUpdate(      
           { _id: req.params.id },
           { $inc: { keyCount: -1 } }, 
           { new: true },
