@@ -10,6 +10,7 @@
   text-align: center;
   font-size: 23px;
   font-family: fantasy;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .nav-icon {
@@ -17,7 +18,7 @@
   width: 65px;
   border: solid 3px gold;
   border-radius: 15px;
-  box-shadow: inset 2px 2px 7px whit
+  box-shadow: inset 2px 2px 7px white;
 }
 
 .nav-icon:hover {
