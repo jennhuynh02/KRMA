@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { closeModal } from '../../actions/modal_actions';
 import CreateTreasureContainer from '../treasure/create_treasure_container';
-import CreateQuoteContainer from '../create_quote/create_quote_container';
+import CreateStringTreasure from '../create_string_treasure/create_string_treasure_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 import ImageContainer from "../../components/image/image_container";
 import './modal.css';
@@ -16,8 +16,8 @@ const Modal = ({ modal, closeModal }) => {
         case 'photo':
             component = <CreateTreasureContainer />;
             break;
-        case 'quote': 
-            component = <CreateQuoteContainer />;
+        case 'type': 
+            component = <CreateStringTreasure type={modal.type} />;
             break;
         case 'retrieve':
             component = <RetrieveTreasureContainer />;

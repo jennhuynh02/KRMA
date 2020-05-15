@@ -50,23 +50,23 @@ class TreasureIsland extends React.Component {
           <button className="upload-buttons" onClick={() => openModal({ photo: -1 })}>
             Upload a photo!
           </button>
-          <button className="upload-buttons" onClick={() => openModal({ quote: -1 })}>
+          <button className="upload-buttons" onClick={() => openModal({ type: "Share a quote!" })}>
             Share a quote!
           </button>
 
-          <button className="upload-buttons" onClick={() => openModal({ quote: -1 })}>
+          <button className="upload-buttons" onClick={() => openModal({ type: "Recommend a book!" })}>
             Recommend book!
           </button>
 
-          <button className="upload-buttons" onClick={() => openModal({ quote: -1 })}>
+          <button className="upload-buttons" onClick={() => openModal({ type: "Link a song!" })}>
             Link a song!
           </button>
 
-          <button className="upload-buttons" onClick={() => openModal({ quote: -1 })}>
+          <button className="upload-buttons" onClick={() => openModal({ type: "Recommend event!" })}>
             Suggest event!
           </button>
 
-          <button className="upload-buttons" onClick={() => openModal({ quote: -1 })}>
+          <button className="upload-buttons" onClick={() => openModal({ type: "Tell a story" })}>
             Tell a story!
           </button>
 
