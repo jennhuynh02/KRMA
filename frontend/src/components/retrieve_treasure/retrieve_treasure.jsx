@@ -2,37 +2,39 @@ import React from 'react';
 
 class RetrieveTreasure extends React.Component {
   constructor(props) {
-      super(props);
-
+    super(props);
   }
   
+  handleTreasure() {
+    const { currentUser, updateTreasure, currentTreasure } = this.props;
+    if (!currentTreasure.ownerId) {
+      const fields = {
+        treasure: currentTreasure._id,
+        owner: currentUser.id
+      }
+      updateTreasure(fields);
+    }
+  }
+
   componentDidMount() {
     const { fetchTreasure, currentUser } = this.props;
     fetchTreasure(currentUser._id);
   }
+
+  componentWillUnmount(){
+    this.handleTreasure()
+  }
   
-  // addOwnerId() {
-  //   const { currentUser, updateTreasure } = this.props;
-
-  //   if (this.props.image._id) {
-  //     const treasure = this.props.image;
-  //     treasure.ownerId = currentUser.id;
-  //     updateTreasure(treasure);
-  //   }
-  // }
-
   render() {
-    const { image, openModal, closeModal } = this.props;
-    // this.addOwnerId();
+    const { currentTreasure, openModal, closeModal } = this.props;
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={closeModal}>
             X
         </button>
-        <img className="content-img-rt" src={ image.url }/>
+        <img className="content-img-rt" src={ currentTreasure.url }/>
         <button>Report Treasure</button>
         <br />
-
       </div>
     );
   }
