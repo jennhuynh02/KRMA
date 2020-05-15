@@ -39,8 +39,8 @@ class AWSCreateTreasure extends React.Component {
         selectedFile: "",
       });
       this.props.currentUser.keyCount += 1;
+      window.location.href = "/#/treasureisland";
       this.props.closeModal();
-      window.location.reload()
     } else {
       this.setState({
         error: 'Please upload file'
