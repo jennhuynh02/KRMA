@@ -48,9 +48,7 @@
 }
 
 .linked-in-links:hover {
-  text-align: center;
-  border-color: gold orange gold;
-  background: linear-gradient( gold, darkred);
+  opacity: 70%;
 }
 
 .form-title {
@@ -115,8 +113,7 @@
 }
 
 .session-buttons:hover {
-  border-color: gold orange gold;
-  background: linear-gradient( gold, darkred);
+  opacity: 70%;
 }
 
 .auto-log-session-buttons {
@@ -134,7 +131,5 @@
 }
 
 .auto-log-session-buttons:hover {
-  text-align: center;
-  border-color: gold orange gold;
-  background: linear-gradient( gold, darkred);
+  opacity: 70%;
 }

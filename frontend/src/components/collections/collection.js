@@ -1,32 +1,35 @@
 import React from 'react';
-import TreasureItemContainer from "./item_container"
+import TreasureItemContainer from './item_container';
 
 class Collection extends React.Component {
-  constructor (props){
-    super(props)
+  constructor(props) {
+    super(props);
   }
+
   componentDidMount() {
     this.props.getAllTreasures();
-    const { getUserTreasures, currentUserId } = this.props
+    const { getUserTreasures, currentUserId } = this.props;
     getUserTreasures(currentUserId);
   }
 
   render() {
-    const { allTreasures, userTreasures, admin } = this.props
+    const { allTreasures, userTreasures, admin } = this.props;
     return (
-    <div className="collection-page">
-      <h1 className="collection-header">{this.props.firstName}'s Treasures</h1>
+      <div className="collection-page">
+        <h1 className="collection-header">
+          {this.props.firstName}
+          's Treasures
+        </h1>
         <div className="the-collection">
-          { admin ? // show user items or admin items?
-            allTreasures.map((treasure) => (
-              <TreasureItemContainer key={treasure._id} treasure={treasure} />
-            )) : 
-            userTreasures.map((treasure) => (
+          { admin // show user items or admin items?
+            ? allTreasures.map((treasure) => (
               <TreasureItemContainer key={treasure._id} treasure={treasure} />
             ))
-          }
+            : userTreasures.map((treasure) => (
+              <TreasureItemContainer key={treasure._id} treasure={treasure} />
+            ))}
         </div>
-        </div>
+      </div>
     );
   }
 }

@@ -24,42 +24,28 @@
 }
 
 .admin-nav-buttons:hover {
-  border-color: gold orange gold;
-  background: linear-gradient( gold, darkred);
+  
 }
 
 
 .contents-page {
   text-align: -webkit-center;
-  background-image: url(TreasureCollectionPage.jpg);
+  background-image: url(CollectionPage.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .contents-header {
-  font-family: fantasy;
-  font-size: 50px;
-  padding: 10px;
+  font-family: cursive;
+  font-size: 90px;
   text-align: center;
   color: white;
-  font-weight: bolder;
-  border: solid 10px;
+  padding: 30px;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
-  background: linear-gradient(#67ae55, #578843);
-  background-color: #69a74e;
-  box-shadow: inset 0 1px 1px #a4e388;
-  border-color: #3b6e22 #3b6e22 #2c5115;
-  border-radius: 15px;
-  padding-top: 25px;
-  box-shadow: inset 0 1px 1px #a4e388;
 }
 
 .content-item {
-  border: solid 5px #3b6e22 #3b6e22 #2c5115;;
-  border-radius: 10px;
-  background-color: green;
-  /* color: green; */
   margin: 40px;
   display: flex;
   flex-direction: column;
@@ -67,36 +53,10 @@
 }
 
 .content-img {
-  border: solid 5px green;
-  border-color: #3b6e22 #3b6e22 #2c5115;
-  color: white;
   height: 400px;
   width: 500px;
-  padding: 10px;
 }
 
 .admin-delete-content {
-  font-size: inherit;
-  font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
-  font-weight: bold !important;
-  letter-spacing: normal;
-  text-rendering: optimizelegibility;
-  line-height: 126%;
-  min-width: 194px;
-  padding: 7px 20px;
-  text-align: center;
-  background: linear-gradient(#67ae55, #578843);
-  background-color: #69a74e;
-  box-shadow: inset 0 1px 1px #a4e388;
-  
-  border: 5px solid;
-  border-radius: px;
-  /* height */
-  color: white;
-  border-color: #3b6e22 #3b6e22 #2c5115;
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: 1px;
-  position: relative;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+
 }

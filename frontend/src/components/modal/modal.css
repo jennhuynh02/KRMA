@@ -1,45 +1,25 @@
 /* move this css file to proper place */
 
 
-/* .modal-background {
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom:0;
-    width: auto !important;
-    z-index: 40;
-} */
-
-.modal-child {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-95%, -55%);
-    background-color: #f5f5dc;
-    height: 550px;
+#modal-parent {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
 }
 
-
-
-
+#modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* move this css to a separate file */
 
-.create-treasure-wrapper, .create-quote-wrapper, .retrieve-treasure-wrapper {
-    border-radius: 5px;
-    /* border: 3px solid rgb(103, 43, 23);
-    box-shadow: 0 5px 10px 2px rgba(195,192,192,.5); */
-    padding: 5px 20px 15px;
-    /* height: 550px; */
-    height: 100%;
-    border-radius: 10px;
-    padding: 50px;
-    background-color: beige;
-    border: 3px solid rgb(103, 43, 23);
-}
 
 .close-modal {
     position: absolute;
@@ -50,16 +30,3 @@
     font-size: 35px;
     color: red;
 }
-
-.content-img-rt {
-    width: 90%;
-    height: 90%;
-    max-width: 800px;
-    max-height: 800px;
-    border: 3px solid rgb(103, 43, 23);
-}
-
-/* .content-img-rt > img {
-    width: 90%;
-    height: 90%;
-} */

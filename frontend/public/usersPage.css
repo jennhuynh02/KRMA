@@ -19,6 +19,7 @@
   border: solid 5px white;
   border-radius: 10px;
   width: 300px;
+  height: 100px;
   font-size: 20px;
   font-family: fantasy;
   margin: 40px;
@@ -33,4 +34,9 @@
   border-radius: 5px;
   font-size: 15px;
   font-weight: bold;
+}
+
+.user-delete-button:hover {
+  border: solid 2px black;
+  color: steelblue;
 }

@@ -7,12 +7,12 @@ class User extends React.Component {
     id = user._id;
     return (
     <div className="user-box">
-      <li>
+      <div>
         <h1>{user.firstName} {user.lastName}</h1>
         <h1>{user.email}</h1>
         <br />
         <button className="user-delete-button" onClick={() => deleteSelectedUser(id)}>Delete User</button>
-      </li>
+      </div>
     </div>
     );
   }
