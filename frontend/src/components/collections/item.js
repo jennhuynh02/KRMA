@@ -1,10 +1,11 @@
 import React from 'react';
+import Modal from '../modal/modal';
 
 class TreasureItem extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   // componentDidMount() {
@@ -19,21 +20,26 @@ class TreasureItem extends React.Component {
   }
 
   render() {
-    const { treasure, imgUrl, deleteTreasure } = this.props
-    let id
-    id = treasure._id
-    let content
-    if (treasure.type === "media") {
-      content = <img className="content-img" src={ treasure.url }/>
+    const {
+      treasure, imgUrl, deleteTreasure, openModal, closeModal,
+    } = this.props;
+    let id;
+    id = treasure._id;
+    let content;
+    if (treasure.type === 'media') {
+      content = <img className="content-img" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
     } else {
-      content = <h1 className="treasure-text">{ treasure.url }</h1>
+      content = <h1>{ treasure.url }</h1>;
     }
 
     return (
-    <div className="content-item">
-      { content }
-      <button className="admin-delete-content" onClick={this.handleDelete}>Delete This</button>
-    </div>
+      <div>
+        <div className="content-item">
+          <Modal />
+          { content }
+            <button onClick={this.handleDelete}>Delete This</button>
+        </div>
+      </div>
     );
   }
 }

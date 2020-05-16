@@ -20,11 +20,11 @@ class UsersPage extends React.Component {
 		return (
 			<div className="users-page">
 				<h1 className="users-page-header">All Treasure Box Users</h1>
-        <ul>
+        <div className="the-collection">
           {allUsers.map((user) => (
             <UserContainer key={user._id} user={user} />
             ))}
-        </ul>
+        </div>
 			</div>
 		);
 	}

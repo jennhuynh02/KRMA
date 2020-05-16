@@ -20,23 +20,14 @@
 
 .nav-item {
   text-align: center;
-  font-size: 23px;
-  font-family: fantasy;
-  justify-self: flex-end;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .nav-icon {
   height: 65px;
-  width: 65px;
-  align-self: center;
-  border: solid 3px darkgreen;
-  border-radius: 15px;
-  box-shadow: inset 2px 2px 7px white;
 }
 
 .nav-icon:hover {
-  border-color: gold;
+  opacity: 90%;
 }
 
 .treasure-island {
@@ -62,7 +53,6 @@
 .island-header {
   font-family: cursive;
   font-size: 80px;
-  color: gold;
   padding: 30px;
   font-weight: 700;
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
@@ -141,9 +131,7 @@
 }
 
 .upload-buttons:hover {
-  text-align: center;
-  border-color: gold orange gold;
-  background: linear-gradient( gold, darkred);
+  color: gold;
 }
 
 .key {
