@@ -8,14 +8,11 @@ class TreasureItem extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchTreasures();
-  // }
-
   handleDelete(e) {
+    const { deleteTreasure, fetchTreasures, treasure } = this.props;
     e.preventDefault();
-    this.props.deleteTreasure(this.props.treasure._id);
-    this.props.fetchTreasures();
+    deleteTreasure(treasure._id);
+    fetchTreasures();
     window.location.reload();
   }
 

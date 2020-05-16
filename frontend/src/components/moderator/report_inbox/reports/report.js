@@ -24,6 +24,9 @@ class Report extends React.Component {
             {reportMsg}
             "
           </p>
+          {/* item blacklisted by this user - create a blacklisted items hash for each user */}
+          <button>Return Item Back To Treasure Box</button> 
+          <button>Delete Treasure</button>
           <button onClick={() => deleteSelectedUser(id)}>Delete User</button>
         </div>
       </div>
