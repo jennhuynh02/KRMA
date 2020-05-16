@@ -1,126 +1,105 @@
-# treasure-box
-Treasure Box is a web application where users can place media in a treasure box in exchange for a key.  Keys can be used to fetch an item out of one of the treasure boxes.
+# Treasure Box
+Treasure Box is a web application where users can place media (either photo or desired text) into a treasure box in exchange for a key.  Keys can be used to fetch an item out of the treasure boxes. 
+
+Access the live site [here](treasure-box.herokuapp.com)
 
 # Motivations
 We aimed to provide an online experience that takes inspiration from Geocaching — an outdoor activity involving searching for hidden containers that are stashed around the world. In one of the variants of Geocaching, the containers house small trinkets that finders can take, but the convention is to leave something in its place. Although we didn't emulate the exploration aspect of geocaching, we developed an application that preserved the essence of a one-for-one exchange. 
 
-# Overview How To Use The Website
+# Configuration and Deployment Instructions:
+* Download the zip from github
+* Open terminal
+* `npm install` for Mongoose/Express/AWS dependencies
+* `cd frontend` and run `npm install` for React/Node dependencies
+*  `cd ..` then `npm run dev` to start frontend and backend servers (note: you will need the proper keys_dev.js in config)
+* localhost3000 should auto-generate in your main browser
 
-# Log in/Sign up page
-<img width="891" alt="Screen Shot 2020-05-14 at 7 54 58 AM" src="https://user-images.githubusercontent.com/38839723/81951343-e7488780-95b9-11ea-85cd-0d958707ef53.png">
+# Features Overview and Technologies Involved
+### MongoDB / Mongoose
+MongoDB is a popular document-based NoSQL database. For Treasure Box, we used the database to store collections of treasure documents and user documents. As a setup decision, each treasure document contains two references to two user documents: the owner of the treasure and the uploader of the treasuer. Each treasure also contains a link directing to an image hosted on S3. 
 
-### Click the demo or moderator portal button for quick access. You can also make your own account
-<br/>
+### Express
+Express is a web app framework for Node, and the means by which we were able to route our frontend components correctly.   
 
+### Javascript React, Redux & Node.js
+React is used to create and render the front end of our application - the UI (user interface). It is an advanced, abstracted version of HTML written in Javascript, which creates a virtual DOM where changes take effect almost instantaneously without a hard refresh. It consists of components that hold mutable state, and allows for changes to render via the use of props (delivered by the container). Redux combines the dispatched actions, reducers, and store altogether to change the state of components in the UI. With these front-end libraries, we are able to provide the user a fast and seamless web browing experience.
 
-# Navigation Bar
-<img width="1253" alt="Screen Shot 2020-05-14 at 7 56 13 AM" src="https://user-images.githubusercontent.com/38839723/81951302-dc8df280-95b9-11ea-871e-73282d8d402d.png">
+### AWS - S3
+Amazon Web Services provides many cloud-based services, including picture uploads. We utilized S3 as the main storage for the photo/gif media that were uploaded, and stored the resulting S3 link in Mongo.
 
-### The Nav Bar is at the top of the page. The buttons can be used for directing to Treasure Island (map), looking at the user's collection (chest) and logging out (ship)
-<br/>
+# Features and Functionality 
+``` javascript
+router.get('/new/:id', (req, res) => {
+  Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
+    var rand = Math.floor(Math.random() * count)
 
+    Treasure.findOne({ownerId: null}).skip(rand)
+      .then(treasure => res.json(treasure))
+      .then(() => {
+        User.findByIdAndUpdate(      
+          { _id: req.params.id },
+          { $inc: { keyCount: -1 } }, 
+          { new: true },
+        )
+        .catch(err => res.json(err))
+      })
+      .catch(err => res.json(err))
+  })
+}) 
+```
+We needed to add functionality such that the user could only receive a random treasure if the treasure has never been pulled before. This is consistent with our original goal of mimicking GeoCaching in that once a treasure is claimed only the recipient can access it. We implementented this logic in the backend, by first cycling through documents with no ownerId, then selecting a random document, and finally setting the the owerId to be equal the currentUserId that we pass through the params.
 
-# Treasure Island Menu
-<img width="500" alt="Screen Shot 2020-05-14 at 7 58 10 AM" src="https://user-images.githubusercontent.com/38839723/81951295-d8fa6b80-95b9-11ea-8b74-8a294f852da0.png">
+```javascript
+const Admin = ({ component: Component, path, loggedIn, user, ...rest }) => (
+  <Route {...rest} render={(props) => (
+    (loggedIn && (user.email === 'admin@treasurebox.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+  />
+);
+```
+In addition to the standard Protected and Authorized routes, we had to implemented an Admin route to hide certain functionality from an average user. We built this logic by checking across two criterias: 1) the current user is loggedin and 2) the current user has the approved Admin email.
 
-### Inside the left portion of the Treasure Island page is a menu where you can upload a photo, quote and see your key count. Keys are used to open the treasure chest for various loot.
-<br/>
+# UI snippets
+### Log in/Sign up page
+<img width="891" alt="login" src="https://user-images.githubusercontent.com/38839723/81951343-e7488780-95b9-11ea-85cd-0d958707ef53.png">
+To implement user auth securely, we used bcrypt to securely hash a user's password before storing it to Mongo and jsonwebtoken to generate/confirm a users' bearer token.
 
-# Admin Navigation Bar
-<img width="1256" alt="Screen Shot 2020-05-14 at 7 59 24 AM" src="https://user-images.githubusercontent.com/38839723/81951288-d566e480-95b9-11ea-8545-8155a5683f98.png">
+### Treasure Island Menu
+<img width="500" alt="treasureisland" src="https://user-images.githubusercontent.com/38839723/81951295-d8fa6b80-95b9-11ea-8b74-8a294f852da0.png">
+Inside the left portion of the Treasure Island page is a menu where you can upload a photo, quote and see your key count. Keys are used to open the treasure chest for various loot.
 
-### Admin's have three extrea buttons on the navigation bar. Ability to see all treasure items, the ability to see flagged content and the ability to access to all the users
-<br/>
-
-# All Treasure Contents Page
-<img width="1258" alt="Screen Shot 2020-05-14 at 8 03 46 AM" src="https://user-images.githubusercontent.com/38839723/81951253-c8e28c00-95b9-11ea-8524-a83d03b12511.png">
-
-### The page with all the loot gives the admin account access to delete them
-<br/>
-
- # All Flagged Reports Page
+### All Flagged Reports Page
 <img width="1254" alt="Screen Shot 2020-05-14 at 8 03 59 AM" src="https://user-images.githubusercontent.com/38839723/81951249-c6803200-95b9-11ea-9059-d7b9428a2826.png">
-
-### Admins can see all the flagged content
-<br/>
-
-# Treasure Box Users page
-<img width="1253" alt="Screen Shot 2020-05-14 at 8 04 17 AM" src="https://user-images.githubusercontent.com/38839723/81951236-c3854180-95b9-11ea-9b72-920a8daf9f48.png">
+Admins can see all the flagged content
 
 ### Admins can view and delete users with the delete buttons underneath each user.
-<br/>
+<img width="1256" alt="Screen Shot 2020-05-14 at 7 59 24 AM" src="https://user-images.githubusercontent.com/38839723/81970124-defd4600-95d3-11ea-9406-dc3f33477746.png">
 
-<br/>
-<br/>
-
-![StateSketch](https://user-images.githubusercontent.com/38839723/81970124-defd4600-95d3-11ea-9406-dc3f33477746.png)
+### Future Implementation
+* We want to give the user the ability to pull a treasure based on a criteria, ie pull a random book request or a quote or story, etc. This will require a small refactor of the treasure document model.
 
 
-# Treasure Box Team ( Alphabetical Order - Last Names)
-<br/>
+## Treasure Box Team
   -----------------------------------------------------------------
-<br/>
-
-![Jennifer_Huynh](https://user-images.githubusercontent.com/38839723/81963012-62fe0080-95c9-11ea-9eb6-b2f273810b67.jpeg)
 
 ### Team Leader: Jenn Huynh
+### [Linkedin](https://www.linkedin.com/in/jenniferanhhuynh/)
 
-### Linkedin: https://www.linkedin.com/in/jenniferanhhuynh/
-
-<br/>
   -----------------------------------------------------------------
-<br/>
-
-![James Jiang](https://user-images.githubusercontent.com/38839723/81963017-65605a80-95c9-11ea-919c-c7608b50157e.jpeg)
 
 ### Team Member: James Jiang
+### [Linkedin](https://www.linkedin.com/in/jamesjiang13/)
+### [Github](https://github.com/jamesjiang13)
 
-### Linkedin: https://www.linkedin.com/in/james-jiang-b962a245/
-<br/>
   -----------------------------------------------------------------
-<br/>
-
-![Michael_Murry](https://user-images.githubusercontent.com/38839723/81963032-68f3e180-95c9-11ea-9446-c32c8634b72b.jpeg)
 
 ### Team Member: Michael Murry
+### [Linkedin](https://www.linkedin.com/in/michael-murry-b3746a1a6/)
+### [Github](https://github.com/MichaelMurry49)
 
-### Linkedin: https://www.linkedin.com/in/michael-murry-b3746a1a6/
-
-<br/>
   -----------------------------------------------------------------
-<br/>
-
-![Joshua_Silva-Roland](https://user-images.githubusercontent.com/38839723/81963022-66918780-95c9-11ea-86a5-cd3925417262.jpeg)
 
 ### Team Member: Josh Silva-Roland
+### [Linkedin](https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/)
+### [Github](https://github.com/jsilvaroland)
 
-### Linkedin: https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/
-
-<br/>
  -----------------------------------------------------------------
-<br/>
-
-
-
-
-
-
-
-
-
-
-Project Requirements (PROMPT)
-All projects need to have these elements:
-
-Production README - make sure it has:
-Description of project, including goals
-Link to live demo and/or instructions on how to use and run code
-List of techs/languages/plugins/APIs used (MERN and any other tech)
-Technical implementation details for anything worth mentioning (basically anything you had to stop and think about before building)
-Include links to the neatest parts of the code, or embed snippets
-Include screenshots of anything that looks pretty
-To-dos and future features
-Make sure there's no .DS_Stores, node_modules, etc.
-
-
-
