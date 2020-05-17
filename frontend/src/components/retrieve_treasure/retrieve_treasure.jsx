@@ -19,6 +19,7 @@ class RetrieveTreasure extends React.Component {
       owner: currentUser.id,
     };
     updateTreasure(assignId);
+    
   }
 
   componentDidMount() {
