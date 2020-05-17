@@ -18,8 +18,11 @@
 }
 
 .report-info {
-  color: white;
-  font-size: 25px;
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  font-size: 20px;
   font-family: fantasy;
   background-color: lightblue;
   border: solid 5px white;
@@ -28,7 +31,7 @@
 }
 
 .admin-reports-buttons {
-  font-size: 15px;
+  font-size: 20px;
   font-family: cursive;
 }
 

@@ -54,7 +54,7 @@ class TreasureItem extends React.Component {
     if (treasure.type === 'media') {
       content = <img className="content-img" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
     } else {
-      content = <h1>{ treasure.url }</h1>;
+      content = <h1 className="treasure-text">{ treasure.url }</h1>;
     }
 
     return (

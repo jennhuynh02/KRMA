@@ -20,15 +20,18 @@
 
 .nav-item {
   text-align: center;
+  font-family: cursive;
+}
+
+.nav-item:hover {
+  opacity: 90%;
+  color: steelblue;
 }
 
 .nav-icon {
   height: 65px;
 }
 
-.nav-icon:hover {
-  opacity: 90%;
-}
 
 .treasure-island {
   text-align: -webkit-center;
@@ -122,8 +125,7 @@
   border: solid 1px gold;
   padding-top: 5px;
   padding-bottom: 5px;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 20px;
   background-color: beige;
   width: 180px;
   text-align: center;

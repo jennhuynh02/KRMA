@@ -7,9 +7,7 @@ class Image extends React.Component {
     id = treasure._id;
     return (
       <div>
-        <button className="close-image-view" onClick={closeModal}>X</button>
         <img src={imgUrl} alt="img" />
-        {/* <button className="admin-delete-content" onClick={() => deleteTreasure(id)}>Delete This</button> */}
       </div>
     );
   }

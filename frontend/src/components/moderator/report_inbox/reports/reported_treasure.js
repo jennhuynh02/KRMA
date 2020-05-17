@@ -25,7 +25,7 @@ class ReportedTreasure extends React.Component {
     let reportMsg;
     reportMsg = treasure.reportMessage;
     return (
-      <div className="content-item">
+      // <div className="content-item">
         <div className="report-info">
           <h1> Item was created by {' '}
             {user.firstName}
@@ -35,7 +35,7 @@ class ReportedTreasure extends React.Component {
           <h1>Email:  {user.email}</h1>
           <img className="content-img" src={imgUrl} />
           <p>
-            Flagged Content Report Message:  "
+            Flagged Content Message:  "
             {reportMsg}
             "
           </p>
@@ -44,7 +44,7 @@ class ReportedTreasure extends React.Component {
           <button className="admin-reports-buttons" onClick={this.handleDelete}>Delete Treasure</button>
           <button className="admin-reports-buttons" onClick={() => deleteSelectedUser(id)}>Delete User</button>
         </div>
-      </div>
+      // </div>
     );
   }
 }
