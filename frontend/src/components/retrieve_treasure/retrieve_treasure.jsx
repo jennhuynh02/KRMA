@@ -14,21 +14,25 @@ class RetrieveTreasure extends React.Component {
 
   componentDidMount() {
     const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
-    fetchTreasure(currentUser.id)
-      .then(() => this.handleTreasure())
-      .then(() => fetchCurrentUser(currentUser.id));
+    debugger
+    fetchTreasure(currentUser._id)
+      .then(() => this.handleTreasure());
+      // .then(() => fetchCurrentUser(currentUser.id));
   }
 
   componentWillUnmount() {
-    this.handleTreasure();
+    const { fetchCurrentUser } = this.props;
+    debugger
+    fetchCurrentUser();
   }
 
   handleTreasure() {
     const { currentUser, updateTreasure, currentTreasure } = this.props;
     const assignId = {
-      treasure: currentTreasure._id,
-      owner: currentUser.id,
+      treasure: currentTreasure.id,
+      owner: currentUser._id,
     };
+
     updateTreasure(assignId);
   }
 
@@ -60,12 +64,13 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
-    console.log(currentTreasure)
     let content;
-    if (currentTreasure.type === 'media') {
-      content = <ImageContainer treasure={currentTreasure} />;
-    } else {
-      content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
+    if (currentTreasure) {
+      if (currentTreasure.type === 'media') {
+        content = <ImageContainer treasure={currentTreasure} />;
+      } else {
+        content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
+      }
     }
 
     return (

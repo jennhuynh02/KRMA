@@ -9,7 +9,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const Treasure = require('../../models/treasure');
 
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/current/:id', (req, res) => {
     User.findOne({ _id: req.params.id })
         .then((user) => res.json(user))
         .catch((err) => console.log(err));
@@ -64,7 +64,7 @@ router.post("/register", (req, res) => {
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
 
-    if (!isValid) return res.status(400).json(errors)
+    if (!isValid) return res.status(400).json(errors);
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({ email })

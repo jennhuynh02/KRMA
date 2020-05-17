@@ -2,6 +2,7 @@ import {
   RECEIVE_USER_LOGOUT,
   RECEIVE_CURRENT_USER,
   RECEIVE_USER_SIGN_IN,
+  UPDATE_CURRENT_USER
 } from '../actions/session_actions';
 
 const initialState = {
@@ -26,7 +27,14 @@ const sessionReducer = ( state = initialState, action ) => {
       return {
         ...state,
         isSignedIn: true,
-      }
+      };
+    case UPDATE_CURRENT_USER:
+      debugger
+      return {
+        ...state,
+        isAuthenticated: !!action.currentUser,
+        user: action.currentUser.data,
+      };
     default:
       return state;
   }

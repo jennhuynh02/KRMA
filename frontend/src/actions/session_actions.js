@@ -5,6 +5,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_USER_LOGOUT = 'RECEIVE_USER_LOGOUT';
 export const RECEIVE_USER_SIGN_IN = 'RECEIVE_USER_SIGN_IN';
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 
 // dispatched when user signs in
 export const receiveCurrentUser = (currentUser) => ({
@@ -27,6 +28,11 @@ export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT,
 });
 
+export const updateCurrentUser = (user) => ({
+  type: UPDATE_CURRENT_USER,
+  user,
+});
+
 // once user logs in, we set session token & dispatch current user
 export const login = (user) => (dispatch) => (
   APIUtil.login(user)
@@ -41,10 +47,10 @@ export const login = (user) => (dispatch) => (
 );
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('jwtToken')
-  APIUtil.setAuthToken(false)
-  dispatch(logoutUser())
-}
+  localStorage.removeItem('jwtToken');
+  APIUtil.setAuthToken(false);
+  dispatch(logoutUser());
+};
 
 export const signup = (user) => (dispatch) => (
   APIUtil.signup(user)
@@ -60,6 +66,6 @@ export const signup = (user) => (dispatch) => (
 
 export const getCurrentUser = (userId) => (dispatch) => {
   APIUtil.currentUser(userId)
-    .then((user) => dispatch(receiveCurrentUser(user)))
+    .then((user) => dispatch(receiveCurrentUser(user.data)))
     .catch((err) => console.log(err));
 };
