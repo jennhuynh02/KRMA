@@ -1,5 +1,5 @@
 import React from 'react';
-import ReportedTreasureContainer from "../report_inbox/reports/report_container";
+import ReportedTreasureContainer from "../report_inbox/reports/reported_treasure_container";
 
 class ReportsPage extends React.Component {
     constructor(props) {

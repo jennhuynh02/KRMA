@@ -1,12 +1,27 @@
 import React from 'react';
 
-class Report extends React.Component {
+class ReportedTreasure extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(e) {
+    const { deleteTreasure, treasure } = this.props;
+    e.preventDefault();
+    deleteTreasure(treasure._id);
+    window.location.reload();
+  }
+
   render() {
-    const { user, deleteSelectedUser, treasure } = this.props;
+    const { user, deleteSelectedUser, treasure, deleteTreasure } = this.props;
     let id;
     id = user._id;
     let imgUrl;
+    let treasureId;
     imgUrl = treasure.url;
+    treasureId = treasure._id;
     let reportMsg;
     reportMsg = treasure.reportMessage;
     return (
@@ -26,7 +41,7 @@ class Report extends React.Component {
           </p>
           {/* item blacklisted by this user - create a blacklisted items hash for each user */}
           <button className="admin-reports-buttons" >Return Item Back To Treasure Box</button> 
-          <button className="admin-reports-buttons" >Delete Treasure</button>
+          <button className="admin-reports-buttons" onClick={this.handleDelete}>Delete Treasure</button>
           <button className="admin-reports-buttons" onClick={() => deleteSelectedUser(id)}>Delete User</button>
         </div>
       </div>
@@ -34,4 +49,4 @@ class Report extends React.Component {
   }
 }
 
-export default Report;
+export default ReportedTreasure;
