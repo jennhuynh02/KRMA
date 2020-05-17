@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
   return ({
     currentUser: state.session.user,
     currentTreasure: state.treasure.new,
-  })
-}
+  });
+};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTreasure: (userId) => dispatch(fetchTreasure(userId)),

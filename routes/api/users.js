@@ -41,7 +41,7 @@ router.post("/register", (req, res) => {
                         .save()
                         .then(user => {
                             const payload = { 
-                                id: user.id, 
+                                _id: user.id, 
                                 email: user.email,
                                 firstName: user.firstName,
                                 keyCount: user.keyCount,
@@ -64,7 +64,7 @@ router.post("/register", (req, res) => {
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
 
-    if (!isValid) return res.status(400).json(errors);
+    if (!isValid) return res.status(400).json(errors)
     const email = req.body.email;
     const password = req.body.password;
     User.findOne({ email })
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         const payload = {
-                            id: user.id,
+                            _id: user.id,
                             email: user.email,
                             firstName: user.firstName,
                             keyCount: user.keyCount,

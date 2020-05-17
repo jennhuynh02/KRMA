@@ -29,6 +29,7 @@ export const addTreasure = (treasure) => {
 
 // to delete once full update works; need to refactor a little
 export const editTreasure = (treasure) => {
+    console.log(treasure);
     return (
         axios.put(`/api/treasure/edit/${treasure.id}`, treasure)
     );

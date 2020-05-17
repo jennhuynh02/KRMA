@@ -11,7 +11,8 @@ class TreasureIsland extends React.Component {
 
   componentDidMount() {
     const { fetchAllUsers, getCurrentUser, currentUser } = this.props;
-    getCurrentUser(currentUser.id);
+    console.log(currentUser._id)
+    getCurrentUser(currentUser._id);
   }
 
   getTreasure(e) {

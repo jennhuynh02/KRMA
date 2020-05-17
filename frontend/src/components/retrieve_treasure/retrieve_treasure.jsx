@@ -14,26 +14,31 @@ class RetrieveTreasure extends React.Component {
 
   componentDidMount() {
     const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
-    debugger
-    fetchTreasure(currentUser._id)
-      .then(() => this.handleTreasure());
-      // .then(() => fetchCurrentUser(currentUser.id));
+    fetchTreasure(currentUser._id);
   }
 
   componentWillUnmount() {
-    const { fetchCurrentUser } = this.props;
-    debugger
-    fetchCurrentUser();
+    const { fetchCurrentUser, currentUser } = this.props;
+    this.handleTreasure();
+    console.log(currentUser._id)
+    fetchCurrentUser(currentUser._id);
   }
 
   handleTreasure() {
-    const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const assignId = {
-      treasure: currentTreasure.id,
-      owner: currentUser._id,
+    // const { currentUser, updateTreasure, currentTreasure } = this.props;
+    const { updateFullTreasure } = this.props;
+    const newTreasure = {
+      _id: this.props.currentTreasure._id,
+      creatorId: this.props.currentTreasure.creatorId,
+      date: this.props.currentTreasure.date,
+      ownerId: this.props.currentUser._id,
+      reportMessage: '',
+      reported: false,
+      type: this.props.currentTreasure.type,
+      url: this.props.currentTreasure.url,
     };
-
-    updateTreasure(assignId);
+    // window.location.reload();
+    updateFullTreasure(newTreasure);
   }
 
   handleReport() {

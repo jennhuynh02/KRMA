@@ -29,7 +29,6 @@ const sessionReducer = ( state = initialState, action ) => {
         isSignedIn: true,
       };
     case UPDATE_CURRENT_USER:
-      debugger
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
