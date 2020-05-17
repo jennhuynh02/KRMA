@@ -17,9 +17,9 @@ class TreasureIsland extends React.Component {
   getTreasure(e) {
     const { openModal, currentUser } = this.props;
     e.preventDefault();
-    window.location.href = '/#/treasureisland';
     openModal({ retrieve: -1 });
     currentUser.keyCount -= 1;
+    window.location.href = '/#/treasureisland';
   }
 
 
@@ -42,7 +42,6 @@ class TreasureIsland extends React.Component {
     return (
       <div className="treasure-island">
         <h1 className="island-header">Welcome to Treasure Island</h1>
-        {/* <Modal /> */}
         <div className="treasure-island-body">
           <div className="bucket-box">
             <p className="bucket-explanation">Upload an item, where it will go into an AWS S3 bucket and you will never see it again.  In return, you will receive a key in order to retrieve a treasure uploaded by another user.  Call it a one-to-one exchange.</p>

@@ -58,7 +58,7 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
-    console.log(currentTreasure)
+    console.log(currentTreasure);
     let content;
     if (currentTreasure.type === 'media') {
       content = <ImageContainer treasure={currentTreasure} />;
@@ -70,8 +70,8 @@ class RetrieveTreasure extends React.Component {
       <div className="retrieve-treasure-wrapper">
         { content }
         <br />
-        <input type="text" onChange={this.update()} value={this.state.reportMessage} />
-        <button type="submit" onClick={this.handleReport}>Report Treasure</button>
+        <input className="admin-delete-content" type="text" onChange={this.update()} value={this.state.reportMessage} placeholder="(Optional) Include reason for report:"/>
+        <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>
     );
   }

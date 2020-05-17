@@ -41,12 +41,9 @@ class CreateStringTreasure extends React.Component {
   render() {
     const {type} = this.props;
 		return (
-      <div className="create-quote-wrapper">
-        <button className="close-modal" onClick={this.props.closeModal}>
-          X
-        </button>
+      <div className="bucket-box">
         <div>
-          <h3 className="quote-upload-header">
+          <h3>
             {type}
           </h3>
         </div>
