@@ -5,15 +5,15 @@ const AWS = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
-const keys = require('../../config/keys');
 const passport = require('passport');
+const keys = require('../../config/keys');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
   secretAccessKey: keys.secretAccessKey,
-  Bucket: keys.bucketName
+  Bucket: keys.bucketName,
 });
 
 // UPLOAD FILE
@@ -27,7 +27,7 @@ const imageUpload = multer({
     }
   }),
   limits: {
-    fileSize: 4000000
+    fileSize: 4000000,
   },
   fileFilter: function(req, file, cb) {
     checkFileType(file, cb);
@@ -37,16 +37,16 @@ const imageUpload = multer({
 function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
-  const mimetype = filetypes.test(file.mimetype);  // Check mime
+  const mimetype = filetypes.test(file.mimetype); // Check mime
   if (mimetype && extname) {
-      return cb(null, true);
-    } else {
-      cb('Error: Images Only!');
-    }
+    return cb(null, true);
+  } else {
+    cb('Error: Images Only!');
   }
+}
 
 router.post('/upload', (req, res) => {
-  if (req.body.type === "quote") {
+  if (req.body.type === 'quote') {
     const newQuote = new Treasure({
       creatorId: req.body.ownerId,
       url: req.body.quote,
@@ -54,26 +54,26 @@ router.post('/upload', (req, res) => {
       reported: false,
       reportMessage: '',
       type: 'quote',
-    })
+    });
 
-    User.findByIdAndUpdate(      
+    User.findByIdAndUpdate(
       { _id: newQuote.creatorId },
-      { $inc: { keyCount: 1 } }, 
+      { $inc: { keyCount: 1 } },
       { new: true },
-    ).catch(err => console.log(err))
+    ).catch((err) => console.log(err));
 
-    newQuote.save()
+    newQuote.save();
 
     res.json({
       owner: newQuote.creatorId,
       treasureId: newQuote._id,
       quote: newQuote.url,
-      type: newQuote.type
-    })
+      type: newQuote.type,
+    });
   } else {
     imageUpload(req, res, (error) => {
       if (error) {
-        res.json({ error: error })
+        res.json({ error: error });
       } else if (req.file) {
         const uploadedTreasure = new Treasure({
           creatorId: req.body.ownerId,
@@ -84,12 +84,12 @@ router.post('/upload', (req, res) => {
           type: 'media',
         });
 
-        User.findByIdAndUpdate(      
+        User.findByIdAndUpdate(
           { _id: uploadedTreasure.creatorId },
-          { $inc: { keyCount: 1 } }, 
+          { $inc: { keyCount: 1 } },
           { new: true },
-        ).catch(err => console.log(err))
-        
+        ).catch((err) => console.log(err));
+
         res.json({
           owner: uploadedTreasure.creatorId,
           treasureId: uploadedTreasure._id,
@@ -114,20 +114,20 @@ router.get('/new/:id', (req, res) => {
   Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
     var rand = Math.floor(Math.random() * count)
 
-    Treasure.findOne({ownerId: null, creatorId: {$ne: req.params.id}}).skip(rand)
+    Treasure.findOne({ownerId: null, creatorId: {$ne: req.params.id}, reported: true}).skip(rand)
       .then(treasure => res.json(treasure))
       .then(() => {
-        User.findByIdAndUpdate(      
+        User.findByIdAndUpdate(
           { _id: req.params.id },
-          { $inc: { keyCount: -1 } }, 
+          { $inc: { keyCount: -1 } },
           { new: true },
         )
         .catch(err => res.json(err))
       })
       .catch(err => res.json(err))
-  })
-}) 
-  
+  });
+});
+
 router.delete('/:treasureId', (req, res) => {
   Treasure.findByIdAndDelete(req.params.treasureId, function (err) {
     if (err) console.log(err);
@@ -141,19 +141,18 @@ router.put('/edit/:id', function (req, res) {
     {new: true})
     .then(treasure => res.json(treasure))
     .catch(err => console.log(err))
-})
+});
 
-//this is the one
 router.put('/update/:id', (req, res) => {
-  Treasure.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true})
-    .then(treasure => res.json(treasure))
-    .catch(err => console.log(err))
-})
+  Treasure.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then((treasure) => res.json(treasure))
+    .catch((err) => console.log(err));
+});
 
 router.get('/collection/:id', (req, res) => {
-  Treasure.find({ ownerId: req.params.id})
+  Treasure.find({ ownerId: req.params.id })
     .then((treasures) => res.json(treasures))
-    .catch((err) => console.log(err))
-})
+    .catch((err) => console.log(err));
+});
 
 module.exports = router;
