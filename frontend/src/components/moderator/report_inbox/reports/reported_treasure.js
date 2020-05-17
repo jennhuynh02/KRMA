@@ -3,8 +3,10 @@ import React from 'react';
 class ReportedTreasure extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.handleDelete = this.handleDelete.bind(this);
+    this.unflagTreasure = this.unflagTreasure.bind(this);
+
   }
 
   handleDelete(e) {
@@ -12,6 +14,14 @@ class ReportedTreasure extends React.Component {
     e.preventDefault();
     deleteTreasure(treasure._id);
     window.location.reload();
+  }
+
+  unflagTreasure() {
+    const { treasure, updateFullTreasure } = this.props;
+    const unflagTreasure = treasure;
+    unflagTreasure.reported = false;
+    unflagTreasure.reportMessage = '';
+    updateFullTreasure(unflagTreasure);
   }
 
   render() {
@@ -40,7 +50,7 @@ class ReportedTreasure extends React.Component {
             "
           </p>
           {/* item blacklisted by this user - create a blacklisted items hash for each user */}
-          <button className="admin-reports-buttons" >Return Item Back To Treasure Box</button> 
+          <button className="admin-reports-buttons" onClick={this.unflagTreasure}>Return Item Back To Treasure Box</button> 
           <button className="admin-reports-buttons" onClick={this.handleDelete}>Delete Treasure</button>
           <button className="admin-reports-buttons" onClick={() => deleteSelectedUser(id)}>Delete User</button>
         </div>
