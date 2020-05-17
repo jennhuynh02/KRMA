@@ -28,6 +28,7 @@ class RetrieveTreasure extends React.Component {
       owner: currentUser.id,
     };
     updateTreasure(assignId);
+    window.location.reload();
   }
 
   handleReport() {
@@ -58,6 +59,7 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
+    console.log(currentTreasure)
     let content;
     if (currentTreasure.type === 'media') {
       content = <ImageContainer treasure={currentTreasure} />;
