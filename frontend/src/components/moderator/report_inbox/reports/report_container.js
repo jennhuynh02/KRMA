@@ -1,18 +1,16 @@
 import { connect } from 'react-redux';
-import Report from './report';
+import ReportedTreasure from './reported_treasure';
 import { deleteUser } from '../../../../actions/user_actions';
 import { updateTreasure } from '../../../../actions/treasure_actions';
 
-const mapStateToProps = (state, {treasure}) => ({
+const mapStateToProps = (state, { treasure }) => ({
   user: state.session.user,
-  treasure
+  treasure,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return ({
-    reportTreasure: (treasure) => dispatch(updateTreasure(treasure)),
-    deleteSelectedUser: (userId) => dispatch(deleteUser(userId)),
-  })
-};
+const mapDispatchToProps = (dispatch) => ({
+  reportTreasure: (treasure) => dispatch(updateTreasure(treasure)),
+  deleteSelectedUser: (userId) => dispatch(deleteUser(userId)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Report);
+export default connect(mapStateToProps, mapDispatchToProps)(ReportedTreasure);
