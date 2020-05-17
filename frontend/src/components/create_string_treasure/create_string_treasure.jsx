@@ -47,10 +47,9 @@ class CreateStringTreasure extends React.Component {
             {type}
           </h3>
         </div>
-        <div >
-          <input
+        <div>
+          <textarea
             className="quote-input"
-            type="textarea"
             value={this.state.quote}
             onChange={this.handleQuote}
           />
