@@ -5,13 +5,12 @@ import SignupFormContainer from "../session/signup_form_container";
 class MainPage extends React.Component {
   render() {
     return (
-    <div class="main-page-content">
+    <div className="main-page-content">
         <div className="login-signup-container">
           <h1 className="session-header">Login to unlock your treasures:</h1>
             <div className="forms">
-            <SignupFormContainer />
-
-            <LoginFormContainer />
+              <SignupFormContainer />
+              <LoginFormContainer />
             </div>
         </div>
 

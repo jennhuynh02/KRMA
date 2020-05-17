@@ -13,3 +13,8 @@ export const deleteUser = (userId) => {
 export const updateUser = (userId) => {
     return axios.put(`/api/users/${userId}`);
 };
+
+// moderator only
+export const resetOwners = () => {
+    return axios.put('api/users/resetowners')
+}

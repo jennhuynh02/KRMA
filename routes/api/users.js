@@ -7,7 +7,6 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
-const SavedTreasure = require('../../models/savedTreasure');
 const Treasure = require('../../models/treasure');
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -17,7 +16,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
         lastName: req.user.lastName,
         email: req.user.email,
         keyCount: req.user.keyCount,
-        savedTreasures: req.user.savedTreasures,
     });
 })
 
@@ -31,17 +29,12 @@ router.post("/register", (req, res) => {
             errors.email = "Email is taken";
             return res.status(400).json(errors);
         } else {
-            const savedTreasures = new SavedTreasure({
-                saved: [],
-            });
-
             const newUser = new User({
                 email: req.body.email,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 password: req.body.password,
                 keyCount: 0,
-                savedTreasures: savedTreasures.id,
             });
 
             bcrypt.genSalt(10, (err, salt) => {
@@ -56,7 +49,6 @@ router.post("/register", (req, res) => {
                                 email: user.email,
                                 firstName: user.firstName,
                                 keyCount: user.keyCount,
-                                savedTreasures: user.savedTreasures,
                             };
 
                             jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
@@ -90,7 +82,6 @@ router.post('/login', (req, res) => {
                             email: user.email,
                             firstName: user.firstName,
                             keyCount: user.keyCount,
-                            savedTreasures: user.savedTreasures,
                         }
                         jwt.sign(
                             payload,
@@ -117,6 +108,16 @@ router.delete('/:id', (req, res) => {
     User.deleteOne({ _id: req.params.id})
         .then(() => res.json({}))    
         .catch((err) => res.status(400).json(err))
+})
+
+router.put('/resetowners', (req, res) => {
+  Treasure.updateMany({}, {ownerId: null}, {new: true})
+    .then(users => {
+        User.find({})
+            .then((users) => {res.json(users)})
+        })
+        .catch(err => console.log(err))
+    .catch(err => console.log(err))
 })
 
 module.exports = router;

@@ -9,7 +9,6 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const Treasure = require('../../models/treasure');
 const User = require('../../models/user');
-const SavedTreasure = require('../../models/savedTreasure');
 
 const s3Bucket = new AWS.S3({
   accessKeyId: keys.accessKeyId,
@@ -115,7 +114,7 @@ router.get('/new/:id', (req, res) => {
   Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
     var rand = Math.floor(Math.random() * count)
 
-    Treasure.findOne({ownerId: null}).skip(rand)
+    Treasure.findOne({ownerId: null, creatorId: {$ne: req.params.id}}).skip(rand)
       .then(treasure => res.json(treasure))
       .then(() => {
         User.findByIdAndUpdate(      
@@ -155,12 +154,6 @@ router.get('/collection/:id', (req, res) => {
   Treasure.find({ ownerId: req.params.id})
     .then((treasures) => res.json(treasures))
     .catch((err) => console.log(err))
-})
-
-router.get('/resetowners', (req, res) => {
-  Treasure.updateMany({}, {ownerId: null}, {new: true})
-    .then(users => res.json(users))
-    .catch(err => console.log(err))
 })
 
 module.exports = router;
