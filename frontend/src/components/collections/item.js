@@ -32,7 +32,7 @@ class TreasureItem extends React.Component {
       type: this.props.treasure.type,
       url: this.props.treasure.url,
     };
-
+    window.location.reload();
     updateFullTreasure(newTreasure);
   }
 

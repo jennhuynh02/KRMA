@@ -42,7 +42,7 @@ class RetrieveTreasure extends React.Component {
       type: this.props.currentTreasure.type,
       url: this.props.currentTreasure.url,
     };
-
+    window.location.reload();
     updateFullTreasure(newTreasure);
   }
 
