@@ -104,7 +104,7 @@ router.post('/upload', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-  Treasure.find({}, {url:1, reported:1, reportMessage:1, type:1, quote:1})
+  Treasure.find({})
     .then((treasures) => res.json(treasures))
     .catch((errors) => res.statusMessage(400).json({
       notreasuresfound: "No Treasures Found"
@@ -140,6 +140,12 @@ router.delete('/:treasureId', (req, res) => {
 router.put('/edit/:id', function (req, res) { 
   Treasure.findByIdAndUpdate({ _id: req.body.treasure }, {ownerId: req.body.owner},
     {new: true})
+    .then(treasure => res.json(treasure))
+    .catch(err => console.log(err))
+})
+
+router.put('update/:id', (req, res) => {
+  Treasure.findByIdAndUpdate({ _id: req.body.id }, req.body, {new: true})
     .then(treasure => res.json(treasure))
     .catch(err => console.log(err))
 })

@@ -4,6 +4,18 @@ import ImageContainer from '../image/image_container';
 class RetrieveTreasure extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      _id: this.props.currentTreasure._id,
+      creatorId: this.props.currentTreasure.creatorId,
+      date: this.props.currentTreasure.date,
+      ownerId: this.props.currentTreasure.ownerId,
+      reportMessage: "",
+      reported: this.props.currentTreasure.reported,
+      type: this.props.currentTreasure.type,
+      url: this.props.currentTreasure.url,
+    }
+    this.handleReport = this.handleReport.bind(this);
+    this.handleTreasure = this.handleTreasure.bind(this);
   }
 
   handleTreasure() {
@@ -24,8 +36,21 @@ class RetrieveTreasure extends React.Component {
     this.handleTreasure();
   }
 
+  handleReport() {
+    const { updateFullTreasure } = this.props;
+    const newTreasure = this.state;
+    updateFullTreasure(newTreasure);
+  }
+
+  update() {
+    return (e) => this.setState({
+      reportMessage: e.currentTarget.value,
+      reported: true,
+    })
+  }
+
   render() {
-    const { currentTreasure, openModal, closeModal } = this.props;
+    const { currentTreasure, openModal, closeModal, report } = this.props;
     let content;
     if (currentTreasure.type === 'media') {
       content = <ImageContainer treasure={currentTreasure} />;
@@ -39,8 +64,9 @@ class RetrieveTreasure extends React.Component {
           X
         </button>
         { content }
-        <button>Report Treasure</button>
         <br />
+        <input type="text" onChange={this.update()} value={this.state.reportMessage} />
+        <button type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>
     );
   }
