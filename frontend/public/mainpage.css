@@ -49,6 +49,7 @@
 
 .linked-in-links:hover {
   opacity: 70%;
+  color: black;
 }
 
 .form-title {
@@ -114,6 +115,7 @@
 
 .session-buttons:hover {
   opacity: 70%;
+  color:black;
 }
 
 .auto-log-session-buttons {

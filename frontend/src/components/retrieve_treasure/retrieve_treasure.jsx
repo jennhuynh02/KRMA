@@ -4,6 +4,12 @@ import ImageContainer from '../image/image_container';
 class RetrieveTreasure extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      reportMessage: "",
+      reported: false,
+    }
+    this.handleReport = this.handleReport.bind(this);
+    this.handleTreasure = this.handleTreasure.bind(this);
   }
 
   handleTreasure() {
@@ -24,22 +30,48 @@ class RetrieveTreasure extends React.Component {
     this.handleTreasure();
   }
 
+  handleReport() {
+    const { updateFullTreasure,  } = this.props;
+    const newTreasure = {
+      _id: this.props.currentTreasure._id,
+      creatorId: this.props.currentTreasure.creatorId,
+      date: this.props.currentTreasure.date,
+      ownerId: this.props.currentTreasure.ownerId,
+      reportMessage: this.state.reportMessage,
+      reported: true,
+      type: this.props.currentTreasure.type,
+      url: this.props.currentTreasure.url,
+    };
+
+    updateFullTreasure(newTreasure);
+  }
+
+  update() {
+    return (e) => this.setState({
+      reportMessage: e.currentTarget.value,
+      reported: true,
+      creatorId: this.props.currentTreasure.creatorId,
+    })
+  }
+
   render() {
-    const { currentTreasure, openModal, closeModal } = this.props;
+    const { currentTreasure, openModal, closeModal, report } = this.props;
     let content;
     if (currentTreasure.type === 'media') {
       content = <ImageContainer treasure={currentTreasure} />;
     } else {
       content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
     }
+    
     return (
       <div className="retrieve-treasure-wrapper">
         <button className="close-modal" onClick={closeModal}>
           X
         </button>
         { content }
-        <button>Report Treasure</button>
         <br />
+        <input type="text" onChange={this.update()} value={this.state.reportMessage} />
+        <button type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>
     );
   }

@@ -17,7 +17,7 @@ class MainPage extends React.Component {
 
       <footer className="mainpage-footer">
       <p>Author-Programmers' LinkedIn: </p>
-        <a href="https://www.linkedin.com/in/james-jiang-b962a245/"><input className="linked-in-links" type="button" value="James Jiang"/></a>
+        <a href="/"><input className="linked-in-links" type="button" value="James Jiang"/></a>
         <a href="https://www.linkedin.com/in/jenniferanhhuynh/"><input className="linked-in-links" type="button" value="Jennifer Huynh"/></a>
         <a href="https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/"><input className="linked-in-links" type="button" value="Joshua Silva-Roland"/></a>
         <a href="https://www.linkedin.com/in/michael-murry-b3746a1a6/"><input className="linked-in-links" type="button" value=" Michael Murry"/></a>

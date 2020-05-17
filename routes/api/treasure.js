@@ -104,7 +104,7 @@ router.post('/upload', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-  Treasure.find({}, {url:1, reported:1, reportMessage:1, type:1, quote:1})
+  Treasure.find({})
     .then((treasures) => res.json(treasures))
     .catch((errors) => res.statusMessage(400).json({
       notreasuresfound: "No Treasures Found"
@@ -144,11 +144,23 @@ router.put('/edit/:id', function (req, res) {
     .catch(err => console.log(err))
 })
 
+//this is the one
+router.put('/update/:id', (req, res) => {
+  Treasure.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true})
+    .then(treasure => res.json(treasure))
+    .catch(err => console.log(err))
+})
+
 router.get('/collection/:id', (req, res) => {
-  console.log(req.params.id)
   Treasure.find({ ownerId: req.params.id})
     .then((treasures) => res.json(treasures))
     .catch((err) => console.log(err))
+})
+
+router.get('/resetowners', (req, res) => {
+  Treasure.updateMany({}, {ownerId: null}, {new: true})
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
 })
 
 module.exports = router;

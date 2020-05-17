@@ -15,7 +15,7 @@ class ReportTreasure extends React.Component {
         e.preventDefault();
         const treasure = this.state;
         treasure.reported = true;
-        this.props.updateTreasure(treasure);
+        this.props.updateFullTreasure(treasure);
             // .then(this.props.closeModal); OR message saying report received
     }
 
