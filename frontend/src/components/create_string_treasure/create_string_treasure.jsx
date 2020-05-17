@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 class CreateStringTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: "",
-      error: "",
+      quote: '',
+      error: '',
     };
 
     this.handleQuote = this.handleQuote.bind(this);
@@ -20,7 +20,7 @@ class CreateStringTreasure extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    if (this.state.quote !== "") {
+    if (this.state.quote !== '') {
       let treasure = {
         ownerId: this.props.currentUser.id,
         quote: this.state.quote,

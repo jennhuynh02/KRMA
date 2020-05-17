@@ -9,15 +9,11 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const Treasure = require('../../models/treasure');
 
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
-        email: req.user.email,
-        keyCount: req.user.keyCount,
-    });
-})
+router.get('/current/:id', (req, res) => {
+    User.findOne({ _id: req.params.id })
+        .then((user) => res.json(user))
+        .catch((err) => console.log(err));
+});
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -45,7 +41,7 @@ router.post("/register", (req, res) => {
                         .save()
                         .then(user => {
                             const payload = { 
-                                id: user.id, 
+                                _id: user.id, 
                                 email: user.email,
                                 firstName: user.firstName,
                                 keyCount: user.keyCount,
@@ -78,7 +74,7 @@ router.post('/login', (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         const payload = {
-                            id: user.id,
+                            _id: user.id,
                             email: user.email,
                             firstName: user.firstName,
                             keyCount: user.keyCount,

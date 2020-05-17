@@ -1,21 +1,25 @@
-import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import * as APIUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const RECEIVE_USER_LOGOUT = 'RECEIVE_USER_LOGOUT';
 export const RECEIVE_USER_SIGN_IN = 'RECEIVE_USER_SIGN_IN';
+export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 
 // dispatched when user signs in
-export const receiveCurrentUser = (currentUser) => ({
-  type: RECEIVE_CURRENT_USER,
-  currentUser,
-});
+export const receiveCurrentUser = (currentUser) => {
+  console.log(currentUser)
+  return ({
+    type: RECEIVE_CURRENT_USER,
+    currentUser,
+  });
+};
 
 // redirect to login page after signup
- export const receiveUserSignIn = () => ({
-   type: RECEIVE_USER_SIGN_IN,
- });
+export const receiveUserSignIn = () => ({
+  type: RECEIVE_USER_SIGN_IN,
+});
 
 // to dispatch errors
 export const receiveErrors = (errors) => ({
@@ -26,6 +30,16 @@ export const receiveErrors = (errors) => ({
 export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT,
 });
+
+export const updateCurrentUser = (user) => {
+  console.log(user)
+  return (
+    {
+      type: UPDATE_CURRENT_USER,
+      user,
+    }
+  );
+};
 
 // once user logs in, we set session token & dispatch current user
 export const login = (user) => (dispatch) => (
@@ -41,10 +55,10 @@ export const login = (user) => (dispatch) => (
 );
 
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('jwtToken')
-  APIUtil.setAuthToken(false)
-  dispatch(logoutUser())
-}
+  localStorage.removeItem('jwtToken');
+  APIUtil.setAuthToken(false);
+  dispatch(logoutUser());
+};
 
 export const signup = (user) => (dispatch) => (
   APIUtil.signup(user)
@@ -56,4 +70,11 @@ export const signup = (user) => (dispatch) => (
       dispatch(receiveCurrentUser(decoded));
     })
     .catch((errors) => dispatch(receiveErrors(errors.response.data)))
-)
+);
+
+export const getCurrentUser = (userId) => (dispatch) => {
+  console.log(userId)
+  APIUtil.currentUser(userId)
+    .then((user) => dispatch(receiveCurrentUser(user.data)))
+    .catch((err) => console.log(err));
+};

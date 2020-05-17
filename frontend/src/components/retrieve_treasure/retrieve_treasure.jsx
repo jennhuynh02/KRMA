@@ -13,21 +13,32 @@ class RetrieveTreasure extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchTreasure, currentUser } = this.props;
-    fetchTreasure(currentUser.id);
+    const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
+    fetchTreasure(currentUser._id);
   }
 
   componentWillUnmount() {
+    const { fetchCurrentUser, currentUser } = this.props;
     this.handleTreasure();
+    console.log(currentUser._id)
+    fetchCurrentUser(currentUser._id);
   }
 
   handleTreasure() {
-    const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const assignId = {
-      treasure: currentTreasure._id,
-      owner: currentUser.id,
+    // const { currentUser, updateTreasure, currentTreasure } = this.props;
+    const { updateFullTreasure } = this.props;
+    const newTreasure = {
+      _id: this.props.currentTreasure._id,
+      creatorId: this.props.currentTreasure.creatorId,
+      date: this.props.currentTreasure.date,
+      ownerId: this.props.currentUser._id,
+      reportMessage: '',
+      reported: false,
+      type: this.props.currentTreasure.type,
+      url: this.props.currentTreasure.url,
     };
-    updateTreasure(assignId);
+    // window.location.reload();
+    updateFullTreasure(newTreasure);
   }
 
   handleReport() {
@@ -58,12 +69,13 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
-    console.log(currentTreasure);
     let content;
-    if (currentTreasure.type === 'media') {
-      content = <ImageContainer treasure={currentTreasure} />;
-    } else {
-      content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
+    if (currentTreasure) {
+      if (currentTreasure.type === 'media') {
+        content = <ImageContainer treasure={currentTreasure} />;
+      } else {
+        content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
+      }
     }
 
     return (

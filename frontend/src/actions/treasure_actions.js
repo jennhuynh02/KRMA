@@ -1,6 +1,6 @@
 import {
 	addTreasure, 
-	getTreasures, 
+	getTreasures,
 	getTreasure,
 	destroyTreasure, 
 	getUserTreasures,
@@ -28,13 +28,13 @@ export const receiveUserTreasures = (treasures) => ({
   treasures,
 });
 
-export const removeTreasure = treasureId => ({
+export const removeTreasure = (treasureId) => ({
 	type: REMOVE_TREASURE,
 	treasureId,
 })
 
 // for getting 1 treasure out of the treasure chest
-export const fetchTreasure = (userId) => (dispatch) =>(
+export const fetchTreasure = (userId) => (dispatch) => (
 	getTreasure(userId)
 		.then(treasure => dispatch(receiveTreasure(treasure)))
 		.catch(err => console.log(err))
@@ -65,7 +65,7 @@ export const deleteTreasure = (treasureId) => (dispatch) => {
 	const treasureIdsaved = treasureId;
 	return destroyTreasure(treasureId)
 		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)))
-		.catch((error) => console.log(error))
+		.catch((error) => console.log(error));
 };
 
 // to be deleted once full update works

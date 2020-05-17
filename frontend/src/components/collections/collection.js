@@ -8,8 +8,8 @@ class Collection extends React.Component {
 
   componentDidMount() {
     this.props.getAllTreasures();
-    const { getUserTreasures, currentUserId } = this.props;
-    getUserTreasures(currentUserId);
+    const { getUserTreasures, currentUser } = this.props;
+    getUserTreasures(currentUser._id);
   }
 
   render() {

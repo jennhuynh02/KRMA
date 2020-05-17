@@ -35,7 +35,7 @@ const imageUpload = multer({
 }).single('image');
 
 function checkFileType(file, cb) {
-  const filetypes = /jpeg|jpg|png|gif|mov/;  // Allowed extensions
+  const filetypes = /jpeg|jpg|png|gif|mov/; // Allowed extensions
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = filetypes.test(file.mimetype); // Check mime
   if (mimetype && extname) {
@@ -114,7 +114,7 @@ router.get('/new/:id', (req, res) => {
   Treasure.countDocuments({ ownerId: null }).exec(function (err, count) {
     var rand = Math.floor(Math.random() * count)
 
-    Treasure.findOne({ownerId: null, creatorId: {$ne: req.params.id}, reported: true}).skip(rand)
+    Treasure.findOne({ownerId: null, reported: false}).skip(rand)
       .then(treasure => res.json(treasure))
       .then(() => {
         User.findByIdAndUpdate(

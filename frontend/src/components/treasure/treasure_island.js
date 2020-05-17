@@ -10,18 +10,20 @@ class TreasureIsland extends React.Component {
   }
 
   componentDidMount() {
-    const { fetchAllUsers } = this.props;
-    fetchAllUsers();
+    const { fetchAllUsers, getCurrentUser, currentUser } = this.props;
+    console.log(currentUser._id)
+    getCurrentUser(currentUser._id);
   }
 
   getTreasure(e) {
     const { openModal, currentUser } = this.props;
     e.preventDefault();
+    window.location.href = '/#/treasureisland';
+    // getCurrentUser(currentUser.id);
     openModal({ retrieve: -1 });
     currentUser.keyCount -= 1;
     window.location.href = '/#/treasureisland';
   }
-
 
   render() {
     const { openModal, currentUser, keyCount } = this.props;
