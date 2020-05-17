@@ -10,14 +10,10 @@ const validateLoginInput = require('../../validation/login');
 const Treasure = require('../../models/treasure');
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.json({
-        id: req.user.id,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
-        email: req.user.email,
-        keyCount: req.user.keyCount,
-    });
-})
+    User.findOne({ _id: req.params.id })
+        .then((user) => res.json(user))
+        .catch((err) => console.log(err));
+});
 
 router.post("/register", (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);

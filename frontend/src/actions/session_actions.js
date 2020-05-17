@@ -1,5 +1,5 @@
-import * as APIUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import * as APIUtil from '../util/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -13,9 +13,9 @@ export const receiveCurrentUser = (currentUser) => ({
 });
 
 // redirect to login page after signup
- export const receiveUserSignIn = () => ({
-   type: RECEIVE_USER_SIGN_IN,
- });
+export const receiveUserSignIn = () => ({
+  type: RECEIVE_USER_SIGN_IN,
+});
 
 // to dispatch errors
 export const receiveErrors = (errors) => ({
@@ -56,4 +56,10 @@ export const signup = (user) => (dispatch) => (
       dispatch(receiveCurrentUser(decoded));
     })
     .catch((errors) => dispatch(receiveErrors(errors.response.data)))
-)
+);
+
+export const getCurrentUser = (userId) => (dispatch) => {
+  APIUtil.currentUser(userId)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+    .catch((err) => console.log(err));
+};

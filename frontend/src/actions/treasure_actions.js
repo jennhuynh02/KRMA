@@ -65,7 +65,7 @@ export const deleteTreasure = (treasureId) => (dispatch) => {
 	const treasureIdsaved = treasureId;
 	return destroyTreasure(treasureId)
 		.then((treasureId) => dispatch(removeTreasure(treasureIdsaved)))
-		.catch((error) => console.log(error))
+		.catch((error) => console.log(error));
 };
 
 // to be deleted once full update works
