@@ -67,7 +67,7 @@ class RetrieveTreasure extends React.Component {
     }
 
     return (
-      <div className="retrieve-treasure-wrapper">
+      <div className="content-item">
         { content }
         <br />
         <input className="admin-delete-content" type="text" onChange={this.update()} value={this.state.reportMessage} placeholder="(Optional) Include reason for report:"/>
