@@ -37,7 +37,7 @@ export const editTreasure = (treasure) => {
 //full update, jenn needs this
 export const updateTotalTreasure = (treasure) => {
     return (
-        axios.put(`/api/treasure/update/${treasure.id}`, treasure)
+        axios.put(`/api/treasure/update/${treasure._id}`, treasure)
     )
 }
 

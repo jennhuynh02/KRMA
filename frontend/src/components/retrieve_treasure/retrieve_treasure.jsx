@@ -5,14 +5,8 @@ class RetrieveTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: this.props.currentTreasure._id,
-      creatorId: this.props.currentTreasure.creatorId,
-      date: this.props.currentTreasure.date,
-      ownerId: this.props.currentTreasure.ownerId,
       reportMessage: "",
-      reported: this.props.currentTreasure.reported,
-      type: this.props.currentTreasure.type,
-      url: this.props.currentTreasure.url,
+      reported: false,
     }
     this.handleReport = this.handleReport.bind(this);
     this.handleTreasure = this.handleTreasure.bind(this);
@@ -37,8 +31,18 @@ class RetrieveTreasure extends React.Component {
   }
 
   handleReport() {
-    const { updateFullTreasure } = this.props;
-    const newTreasure = this.state;
+    const { updateFullTreasure,  } = this.props;
+    const newTreasure = {
+      _id: this.props.currentTreasure._id,
+      creatorId: this.props.currentTreasure.creatorId,
+      date: this.props.currentTreasure.date,
+      ownerId: this.props.currentTreasure.ownerId,
+      reportMessage: this.state.reportMessage,
+      reported: true,
+      type: this.props.currentTreasure.type,
+      url: this.props.currentTreasure.url,
+    };
+
     updateFullTreasure(newTreasure);
   }
 
@@ -46,6 +50,7 @@ class RetrieveTreasure extends React.Component {
     return (e) => this.setState({
       reportMessage: e.currentTarget.value,
       reported: true,
+      creatorId: this.props.currentTreasure.creatorId,
     })
   }
 

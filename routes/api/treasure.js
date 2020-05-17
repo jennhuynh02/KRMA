@@ -144,14 +144,14 @@ router.put('/edit/:id', function (req, res) {
     .catch(err => console.log(err))
 })
 
-router.put('update/:id', (req, res) => {
-  Treasure.findByIdAndUpdate({ _id: req.body.id }, req.body, {new: true})
+//this is the one
+router.put('/update/:id', (req, res) => {
+  Treasure.findByIdAndUpdate({ _id: req.params.id }, req.body, {new: true})
     .then(treasure => res.json(treasure))
     .catch(err => console.log(err))
 })
 
 router.get('/collection/:id', (req, res) => {
-  console.log(req.params.id)
   Treasure.find({ ownerId: req.params.id})
     .then((treasures) => res.json(treasures))
     .catch((err) => console.log(err))
