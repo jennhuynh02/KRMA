@@ -65,9 +65,6 @@ class RetrieveTreasure extends React.Component {
     
     return (
       <div className="retrieve-treasure-wrapper">
-        <button className="close-modal" onClick={closeModal}>
-          X
-        </button>
         { content }
         <br />
         <input type="text" onChange={this.update()} value={this.state.reportMessage} />

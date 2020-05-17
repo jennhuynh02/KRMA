@@ -5,7 +5,8 @@ import MainPage from "../components/main/main_page";
 import NavBarContainer from '../components/navbar/navbar_container';
 import TreasureIslandContainer from "./treasure/treasure_island_container";
 import CollectionContainer from "./collections/collection_container";
-import TreasureBoxContainer from "./treasure/treasure_box_container"
+import TreasureBoxContainer from "./treasure/treasure_box_container";
+import Modal from '../components/modal/modal';
 
 // Admin
 import ReportsContainer from "./moderator/report_inbox/reports_container";
@@ -15,6 +16,7 @@ import UsersContainer from "./moderator/all_users/users_container";
 
 const App = () => (
   <div className='app'>
+    <Modal />
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
