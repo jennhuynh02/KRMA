@@ -18,7 +18,11 @@
 }
 
 .report-info {
-    color: white;
-    font-size: 25px;
-    font-family: fantasy;
+  color: white;
+  font-size: 25px;
+  font-family: fantasy;
+  background-color: lightblue;
+  border: solid 5px white;
+  padding: 15px;
+  border-radius: 10px;
 }
