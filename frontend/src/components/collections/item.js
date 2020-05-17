@@ -34,7 +34,7 @@ class TreasureItem extends React.Component {
         <div className="content-item">
           <Modal />
           { content }
-            <button onClick={this.handleDelete}>Delete This</button>
+            <button className="collection-item-buttons" onClick={this.handleDelete}>Delete This</button>
         </div>
       </div>
     );

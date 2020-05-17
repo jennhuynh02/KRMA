@@ -58,5 +58,12 @@
 }
 
 .admin-delete-content {
-
+  font-size: 14px;
+  font-family: cursive;
+  background-color: white;
 }
+
+.admin-delete-content:hover {
+  color: steelblue;
+}
+

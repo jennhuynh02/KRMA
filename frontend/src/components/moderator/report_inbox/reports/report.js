@@ -25,9 +25,9 @@ class Report extends React.Component {
             "
           </p>
           {/* item blacklisted by this user - create a blacklisted items hash for each user */}
-          <button>Return Item Back To Treasure Box</button> 
-          <button>Delete Treasure</button>
-          <button onClick={() => deleteSelectedUser(id)}>Delete User</button>
+          <button className="admin-reports-buttons" >Return Item Back To Treasure Box</button> 
+          <button className="admin-reports-buttons" >Delete Treasure</button>
+          <button className="admin-reports-buttons" onClick={() => deleteSelectedUser(id)}>Delete User</button>
         </div>
       </div>
     );

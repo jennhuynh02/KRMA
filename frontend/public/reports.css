@@ -26,3 +26,12 @@
   padding: 15px;
   border-radius: 10px;
 }
+
+.admin-reports-buttons {
+  font-size: 15px;
+  font-family: cursive;
+}
+
+.admin-reports-buttons:hover {
+  color: steelblue;
+}

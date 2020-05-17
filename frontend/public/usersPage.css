@@ -30,13 +30,12 @@
 }
 
 .user-delete-button {
-  border: solid 2px steelblue;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: bold;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: cursive;
 }
 
 .user-delete-button:hover {
-  border: solid 2px black;
   color: steelblue;
 }
