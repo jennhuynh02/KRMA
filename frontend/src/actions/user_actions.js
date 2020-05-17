@@ -27,3 +27,11 @@ export const deleteUser = (userId) => (dispatch) => {
     .then(() => dispatch(removeUser(userIdsaved)))
 		.catch(err => console.log(err))
 }
+
+export const resetOwners = () => (dispatch) => {
+	return (
+		UserAPIUtil.resetOwners()
+      .then(users => dispatch(receiveAllUsers(users)))
+		  .catch(err => console.log(err))
+	)
+}

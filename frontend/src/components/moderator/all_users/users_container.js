@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllUsers } from '../../../actions/user_actions'; 
+import { fetchAllUsers, resetOwners } from '../../../actions/user_actions'; 
 import UsersPage from './users';
 
 const mapStateToProps = (state) => ({
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAllUsers: () => dispatch(fetchAllUsers()),
+  resetOwners: () => dispatch(resetOwners()),
 });
 
 export default connect(
