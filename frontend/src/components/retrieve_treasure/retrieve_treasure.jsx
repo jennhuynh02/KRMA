@@ -5,21 +5,11 @@ class RetrieveTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reportMessage: "",
+      reportMessage: '',
       reported: false,
-    }
+    };
     this.handleReport = this.handleReport.bind(this);
     this.handleTreasure = this.handleTreasure.bind(this);
-  }
-
-  handleTreasure() {
-    const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const assignId = {
-      treasure: currentTreasure._id,
-      owner: currentUser.id,
-    };
-    updateTreasure(assignId);
-    
   }
 
   componentDidMount() {
@@ -29,6 +19,15 @@ class RetrieveTreasure extends React.Component {
 
   componentWillUnmount() {
     this.handleTreasure();
+  }
+
+  handleTreasure() {
+    const { currentUser, updateTreasure, currentTreasure } = this.props;
+    const assignId = {
+      treasure: currentTreasure._id,
+      owner: currentUser.id,
+    };
+    updateTreasure(assignId);
   }
 
   handleReport() {
@@ -52,18 +51,20 @@ class RetrieveTreasure extends React.Component {
       reportMessage: e.currentTarget.value,
       reported: true,
       creatorId: this.props.currentTreasure.creatorId,
-    })
+    });
   }
 
   render() {
-    const { currentTreasure, openModal, closeModal, report } = this.props;
+    const {
+      currentTreasure, openModal, closeModal, report,
+    } = this.props;
     let content;
     if (currentTreasure.type === 'media') {
       content = <ImageContainer treasure={currentTreasure} />;
     } else {
       content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
     }
-    
+
     return (
       <div className="retrieve-treasure-wrapper">
         { content }
