@@ -21,6 +21,7 @@
 .nav-item {
   text-align: center;
   font-family: cursive;
+  font-size: 25px
 }
 
 .nav-item:hover {
@@ -154,10 +155,12 @@
 }
 
 .photo-upload-header {
-  font-size: 23px;
+  font-size: 35px;
   line-height: 1.5;
   font-weight: bolder;
   font-family: fantasy;
+  color: white;
+  text-align: center;
 }
 
 .upload-photo-button {
@@ -185,10 +188,12 @@
 }
 
 .quote-upload-header {
-  font-size: 23px;
+  font-size: 35px;
   line-height: 1.5;
   font-weight: bolder;
   font-family: fantasy;
+  color: white;
+  text-align: center;
 }
 
 .upload-quote-button {

@@ -61,7 +61,7 @@ class CreateStringTreasure extends React.Component {
             {this.state.error}
             <br />
             <button className="upload-quote-button" onClick={this.handleUpload}>
-              Leave this treasure for another!
+              Exchange this treasure for key!
             </button>
             <br />
             <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>

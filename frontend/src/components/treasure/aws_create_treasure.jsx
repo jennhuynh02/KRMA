@@ -62,15 +62,20 @@ class AWSCreateTreasure extends React.Component {
             </h3>
             <p> Max 4MB </p>
           </div>
-          <div className="card-body">
+          <div>
             <input type="file" className="upload-photo-input" onChange={this.handleFile} />
             <div className="mt-5">
               {this.state.error}
               { preview }
-              <button className="upload-photo-button" onClick={this.handleUpload}>
-                Upload!
+              <button className="upload-quote-button" onClick={this.handleUpload}>
+                Upload this treasure for a key!
               </button>
-              <button className="upload-photo-button" onClick={(e) => closeModal(e)}>Cancel</button>
+              <br />
+              <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>
+                Retrieve Treasure Instead
+              </button>
+              <br />
+              <button className="upload-quote-button" onClick={(e) => closeModal(e)}>Cancel</button>
               <br />
             </div>
           </div>

@@ -27,9 +27,8 @@ class AdminItem extends React.Component {
     }
     return (
       <div className="content-item">
-        {/* <Modal /> */}
         {content}
-        <button className="admin-delete-content" onClick={this.handleDelete}>Delete This</button>
+        <button className="admin-delete-content" onClick={this.handleDelete}>Discard Treasure</button>
       </div>
     );
   }

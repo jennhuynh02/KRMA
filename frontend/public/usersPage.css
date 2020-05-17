@@ -19,19 +19,19 @@
   border: solid 5px white;
   border-radius: 10px;
   width: 300px;
-  height: 100px;
+  height: 120px;
   font-size: 20px;
   font-family: fantasy;
   margin: 40px;
   padding: 15px;
   background-color: lightblue;
   display: inline-block;
-  line-height: 20px;
+  line-height: 1.5;
 }
 
 .user-delete-button {
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     font-family: cursive;
 }

@@ -62,7 +62,7 @@ class TreasureItem extends React.Component {
           {/* <Modal /> */}
         <div className="content-item">
           { content }
-            <button className="collection-item-buttons" onClick={this.handleDelete}>Delete This</button>
+            <button className="collection-item-buttons" onClick={this.handleDelete}>Discard Treasure</button>
         </div>
         <input type="text" onChange={this.update()} value={this.state.reportMessage} />
         <button type="submit" onClick={this.handleReport}>Report Treasure</button>
