@@ -51,7 +51,9 @@ class TreasureItem extends React.Component {
     let id;
     id = treasure._id;
     let content;
-    if (treasure.type === 'media') {
+    let treasureType;
+    treasureType = treasure.type;
+    if (treasureType === 'media') {
       content = <img className="content-img" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
     } else {
       content = <h1 className="treasure-text">{ treasure.url }</h1>;
@@ -59,13 +61,12 @@ class TreasureItem extends React.Component {
 
     return (
       <div>
-          {/* <Modal /> */}
         <div className="content-item">
           { content }
-            <button className="collection-item-buttons" onClick={this.handleDelete}>Discard Treasure</button>
+        <button className="collection-item-buttons" onClick={this.handleDelete}>Discard Treasure</button>
+        <input className="admin-delete-content" type="text" onChange={this.update()} value={this.state.reportMessage} placeholder="(Optional) Include reason for report:"/>
+        <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
         </div>
-        <input type="text" onChange={this.update()} value={this.state.reportMessage} />
-        <button type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>
     );
   }

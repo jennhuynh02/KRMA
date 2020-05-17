@@ -52,11 +52,8 @@ class AWSCreateTreasure extends React.Component {
     const { closeModal } = this.props;
     const preview = this.state.photoUrl ? <img className="content-img" src={this.state.photoUrl} /> : null
     return (
-        <div className="create-treasure-wrapper">
-          <button className="close-modal" onClick={this.props.closeModal}>
-            X
-          </button>
-          <div className="photo-upload-header">
+        <div className="bucket-box">
+          <div>
             <h3>
               Add a Photo to the Treasure Box
             </h3>

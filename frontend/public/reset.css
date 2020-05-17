@@ -56,3 +56,7 @@ body, html, #root, .app {
 :root {
 	height: fit-content;
 }
+
+*:focus {
+	outline: none;
+}

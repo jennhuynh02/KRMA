@@ -32,7 +32,6 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = { email: this.state.email, password: this.state.password };
         this.props.login(user);
-        // return this.renderErrors();
     }
 
     handleDemoLoginButton(e) {
@@ -70,8 +69,6 @@ class LoginForm extends React.Component {
                     <h2 className="form-title">Login</h2>
                     <br />
                     <br />
-            <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
-            <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button> 
                     <input
                         className="form-inputs"
                         type="text" 
@@ -92,7 +89,8 @@ class LoginForm extends React.Component {
                     <br/>
                     <button className="session-buttons">Log In</button>
                 </form>
-               
+                <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
+                <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button> 
                 <div>{errors.length > 0 ? (errors[0][errors[0].length-1] !== " " ? this.renderErrors() : "") : ""}</div>
             </div>
         );
