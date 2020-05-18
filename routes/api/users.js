@@ -96,14 +96,14 @@ router.post('/login', (req, res) => {
 })
 
 router.get('/all', (req, res) => {
-    User.find({})
-        .then((users) => {res.json(users)})
+    User.find({email: {$nin: ['admin@treasurebox.com', 'treasure@treasurebox.com', 'seed@seed.com']}})
+        .then((users) => {res.json(users)});
 })
 
 router.delete('/:id', (req, res) => {
     User.deleteOne({ _id: req.params.id})
-        .then(() => res.json({}))    
-        .catch((err) => res.status(400).json(err))
+        .then(() => res.json({}))
+        .catch((err) => res.status(400).json(err));
 })
 
 router.put('/resetowners', (req, res) => {
