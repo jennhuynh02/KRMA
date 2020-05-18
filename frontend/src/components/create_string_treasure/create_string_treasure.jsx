@@ -24,7 +24,7 @@ class CreateStringTreasure extends React.Component {
     const { currentUser, createTreasure, closeModal } = this.props;
     if (quote !== '') {
       const treasure = {
-        ownerId: currentUser.id,
+        ownerId: currentUser._id,
         quote,
         type: 'quote',
       };
