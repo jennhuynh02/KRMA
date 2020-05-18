@@ -33,7 +33,7 @@ class AWSCreateTreasure extends React.Component {
     let data = new FormData();
     if (this.state.selectedFile) {
       data.append('image', this.state.selectedFile, this.state.selectedFile.name);
-      data.append('ownerId', this.props.currentUser.id)
+      data.append('ownerId', this.props.currentUser._id)
       this.props.createTreasure(data);
       this.setState({
         selectedFile: "",
