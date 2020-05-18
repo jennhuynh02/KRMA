@@ -20,27 +20,30 @@ class CreateStringTreasure extends React.Component {
 
   handleUpload(e) {
     e.preventDefault();
-    if (this.state.quote !== '') {
-      let treasure = {
-        ownerId: this.props.currentUser.id,
-        quote: this.state.quote,
-        type: "quote",
-      }
-			this.props.createTreasure(treasure);
-      this.setState({ quote: "" });
-      this.props.currentUser.keyCount += 1;
-      this.props.closeModal()
-      console.log("Upload Successful!")
+    const { quote } = this.state;
+    const { currentUser, createTreasure, closeModal } = this.props;
+    if (quote !== '') {
+      const treasure = {
+        ownerId: currentUser.id,
+        quote,
+        type: 'quote',
+      };
+      createTreasure(treasure);
+      this.setState({ quote: '' });
+      currentUser.keyCount += 1;
+      closeModal();
+      console.log('Upload Successful!');
     } else {
       this.setState({
-        error: "Is this even a treasure? Please enter something...",
+        error: 'Is this even a treasure? Please enter something...',
       });
     }
   }
 
   render() {
-    const {type} = this.props;
-		return (
+    const { type, openModal, closeModal } = this.props;
+    const { quote, error } = this.state;
+    return (
       <div className="bucket-box">
         <div>
           <h3>
@@ -50,20 +53,20 @@ class CreateStringTreasure extends React.Component {
         <div>
           <textarea
             className="quote-input"
-            value={this.state.quote}
+            value={quote}
             onChange={this.handleQuote}
           />
           <div className="mt-5">
-            {this.state.error}
+            {error}
             <br />
             <button className="upload-quote-button" onClick={this.handleUpload}>
               Exchange this treasure for key!
             </button>
             <br />
-            <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>
+            <button className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })} type="button">
               Retrieve Treasure Instead
             </button>
-            <button className="upload-quote-button" onClick={(e) => this.props.closeModal(e)}>Cancel</button>
+            <button className="upload-quote-button" onClick={(e) => closeModal(e)} type="button">Cancel</button>
           </div>
         </div>
       </div>
