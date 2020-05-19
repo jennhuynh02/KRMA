@@ -64,19 +64,15 @@ In addition to the standard Protected and Authorized routes, we had to implement
 
 # UI snippets
 ### Log in/Sign up page
-<img width="891" alt="login" src="https://user-images.githubusercontent.com/38839723/81951343-e7488780-95b9-11ea-85cd-0d958707ef53.png">
 To implement user auth securely, we used bcrypt to securely hash a user's password before storing it to Mongo and jsonwebtoken to generate/confirm a users' bearer token.
 
 ### Treasure Island Menu
-<img width="500" alt="treasureisland" src="https://user-images.githubusercontent.com/38839723/81951295-d8fa6b80-95b9-11ea-8b74-8a294f852da0.png">
 Inside the left portion of the Treasure Island page is a menu where you can upload a photo, quote and see your key count. Keys are used to open the treasure chest for various loot.
 
 ### All Flagged Reports Page
-<img width="1254" alt="Screen Shot 2020-05-14 at 8 03 59 AM" src="https://user-images.githubusercontent.com/38839723/81951249-c6803200-95b9-11ea-9059-d7b9428a2826.png">
 Admins can see all the flagged content
 
 ### Admins can view and delete users with the delete buttons underneath each user.
-<img width="1256" alt="Screen Shot 2020-05-14 at 7 59 24 AM" src="https://user-images.githubusercontent.com/38839723/81970124-defd4600-95d3-11ea-9406-dc3f33477746.png">
 
 ### Future Implementation
 * We want to give the user the ability to pull a treasure based on a criteria, ie pull a random book request or a quote or story, etc. This will require a small refactor of the treasure document model.
