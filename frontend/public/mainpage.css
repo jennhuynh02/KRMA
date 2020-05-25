@@ -136,3 +136,11 @@
 .auto-log-session-buttons:hover {
   opacity: 70%;
 }
+
+.authors {
+  line-height: 100px;
+}
+
+.programmer {
+  margin: 30px;
+}
