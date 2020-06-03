@@ -86,24 +86,24 @@ Admins can see all the flagged content
   -----------------------------------------------------------------
 
 ### Team Leader: Jenn Huynh
-### [Linkedin](https://www.linkedin.com/in/jenniferanhhuynh/)
+### [LinkedIn](https://www.linkedin.com/in/jenniferanhhuynh/)
 
   -----------------------------------------------------------------
 
 ### Team Member: James Jiang
-### [Linkedin](https://www.linkedin.com/in/jamesjiang13/)
+### [LinkedIn](https://www.linkedin.com/in/jamesjiang13/)
 ### [Github](https://github.com/jamesjiang13)
 
   -----------------------------------------------------------------
 
 ### Team Member: Michael Murry
-### [Linkedin](https://www.linkedin.com/in/michael-murry-b3746a1a6/)
+### [LinkedIn](https://www.linkedin.com/in/michael-murry-b3746a1a6/)
 ### [Github](https://github.com/MichaelMurry49)
 
   -----------------------------------------------------------------
 
 ### Team Member: Josh Silva-Roland
-### [Linkedin](https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/)
+### [LinkedIn](https://www.linkedin.com/in/joshua-silva-roland/)
 ### [Github](https://github.com/jsilvaroland)
 
  -----------------------------------------------------------------
