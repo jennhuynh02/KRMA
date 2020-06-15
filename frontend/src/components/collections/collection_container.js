@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Collection from './collection';
+import Collection from './collection.jsx';
 import {
   fetchTreasures,
   fetchUserTreasures,

@@ -2,31 +2,36 @@
   position: fixed;
   top: 0;
   z-index: 99;
-  /* padding-bottom: 100px; */
 }
 
 .page-navbar {
-  position: relative;
-  top: 0;
-  width: 100vw;
-  text-align: end;
-  height: 100px;
   display: flex;
-  justify-content: space-evenly;
-  background-color: lightcyan;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: -webkit-fill-available;
+  height: 40px;
+  padding: 5px;
+  padding-right: 25px;
+  padding-left: 25px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #dee0e1;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.04);
+  color: saddlebrown;
+  font-weight: bolder;
 }
 
 .nav-item {
-  text-align: center;
-  font-family: cursive;
-  font-size: 25px
+  font-size: 13px;
 }
 
 .nav-item:hover {
-  opacity: 90%;
-  color: steelblue;
+  cursor: pointer;
+  color: brown;
 }
 
 .nav-icon {
@@ -35,13 +40,6 @@
 
 
 .treasure-island {
-  text-align: -webkit-center;
-  background-image: url(treasureboxisland5.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  line-height: normal;
-  min-height: 100vh;
 }
 
 .treasure-island-body {
@@ -54,11 +52,7 @@
 }
 
 .island-header {
-  font-family: cursive;
-  font-size: 80px;
-  padding: 30px;
-  font-weight: 700;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+
 }
 
 
@@ -66,8 +60,6 @@
   margin-top: 240px;
   margin-left: 140px;
   height: 450px;
-  /* border-radius: 20%; */
-  /* border: solid 1px gold; */
 }
 
 .treasure-buttons {

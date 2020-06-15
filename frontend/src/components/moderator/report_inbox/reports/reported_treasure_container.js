@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ReportedTreasure from './reported_treasure';
+import ReportedTreasure from './reported_treasure.jsx';
 import { deleteUser } from '../../../../actions/user_actions';
 import { updateTreasure, deleteTreasure, updateFullTreasure } from '../../../../actions/treasure_actions';
 

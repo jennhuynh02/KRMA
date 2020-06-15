@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from '../modal/modal';
+import NavBarContainer from '../navbar/navbar_container';
+import AdminBarContainer from "../adminbar/admin_bar_container";
 
 class TreasureIsland extends React.Component {
   constructor(props) {
@@ -7,6 +9,7 @@ class TreasureIsland extends React.Component {
     const { openModal } = this.props;
 
     this.getTreasure = this.getTreasure.bind(this);
+    this.getAdminPortal = this.getAdminPortal.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +26,15 @@ class TreasureIsland extends React.Component {
     openModal({ retrieve: -1 });
     currentUser.keyCount -= 1;
     window.location.href = '/#/treasureisland';
+  }
+    getAdminPortal() {
+    if (this.props.loggedIn && (this.props.user.email === 'admin@treasurebox.com')) {
+      return (
+        <div>
+          <AdminBarContainer/>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -43,6 +55,8 @@ class TreasureIsland extends React.Component {
 
     return (
       <div className="treasure-island">
+        {this.getAdminPortal()}
+        <NavBarContainer />
         <h1 className="island-header">Welcome to Treasure Island</h1>
         <div className="treasure-island-body">
           <div className="bucket-box">

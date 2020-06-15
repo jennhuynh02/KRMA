@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ReportsPage from './reports_page';
+import ReportsPage from './reports_page.jsx';
 import { updateTreasure, deleteTreasure, fetchTreasures } from '../../../actions/treasure_actions';
 
 const mapStateToProps = state => ({

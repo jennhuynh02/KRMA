@@ -1,0 +1,25 @@
+body {
+  background-color: beige;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.admin-bar-navigators {
+  background-color: beige;
+  width: 150px;
+  height: -webkit-fill-available;
+  line-height: 40px;
+  padding-left: 25px;
+  position: fixed;
+  top: 50px;
+}
+
+.admin-bar-option {
+  float: left;
+  font-size: 13px;
+}
+
+.admin-bar-option:hover {
+  cursor: pointer;
+  color: brown;
+}
+

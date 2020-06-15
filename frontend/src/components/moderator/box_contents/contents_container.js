@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { fetchTreasures } from '../../../actions/treasure_actions';
-import TreasureContentsPage from './contents';
+import TreasureContentsPage from './contents.jsx';
 
-const mapStateToProps = state => ({
-  allTreasures: Object.values(state.treasure.admin)
+const mapStateToProps = (state) => ({
+  allTreasures: Object.values(state.treasure.admin),
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   getAllTreasures: () => dispatch(fetchTreasures()),
 });
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps, mapDispatchToProps,
 )(TreasureContentsPage);

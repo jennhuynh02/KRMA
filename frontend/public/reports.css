@@ -1,40 +1,27 @@
 .report-page {
   text-align: -webkit-center;
-  background-image: url(ReportsPage2.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  line-height: normal;
-  min-height: 100vh;
 }
 
 .reports-page-header {
-  font-family: cursive;
-  font-size: 90px;
-  text-align: center;
-  color: white;
-  padding: 30px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .report-info {
-  margin: 40px;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  font-size: 20px;
-  font-family: fantasy;
-  background-color: lightblue;
-  border: solid 5px white;
-  padding: 15px;
-  border-radius: 10px;
+    width: 600px;
+  height: auto;
+  border: solid 1px lightgray;
+  background-color: white;
+  padding-bottom: 4px;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 10px;
+  border-radius: 3px;
 }
 
 .admin-reports-buttons {
-  font-size: 20px;
-  font-family: cursive;
 }
 
 .admin-reports-buttons:hover {
-  color: steelblue;
+  cursor: pointer;
+  color: brown;
 }

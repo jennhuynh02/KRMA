@@ -1,41 +1,20 @@
 .users-page {
   text-align: -webkit-center;
-  background-image: url(CollectionPage.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
 }
 
 .users-page-header {
-  font-family: cursive;
-  font-size: 90px;
-  text-align: center;
-  color: white;
-  padding: 40px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
 .user-box {
-  border: solid 5px white;
-  border-radius: 10px;
-  width: 300px;
-  height: 120px;
-  font-size: 20px;
-  font-family: fantasy;
-  margin: 40px;
-  padding: 15px;
-  background-color: lightblue;
-  display: inline-block;
-  line-height: 1.5;
+  background-color: white;
+  height: 100px;
+  width: 600px;
+  font-size: 13px;
+  padding: 20px;
 }
 
 .user-delete-button {
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: cursive;
 }
 
 .user-delete-button:hover {
-  color: steelblue;
 }

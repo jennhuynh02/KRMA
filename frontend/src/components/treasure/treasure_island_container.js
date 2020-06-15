@@ -7,6 +7,8 @@ import TreasureIsland from './treasure_island';
 const mapStateToProps = (state) => ({
   currentUser: state.session.user,
   keyCount: state.session.user.keyCount,
+  loggedIn: state.session.isAuthenticated,
+  user: state.session.user,
 });
 
 const mapDispatchToProps = (dispatch) => ({
