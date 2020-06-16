@@ -6,6 +6,7 @@ import CreateTreasureContainer from '../treasure/create_treasure_container';
 import CreateStringTreasure from '../create_string_treasure/create_string_treasure_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 import ImageContainer from '../image/image_container';
+import ReportTreasureContainer from "../../components/report_treasure/report_treasure_container";
 import './modal.css';
 
 const Modal = ({ modal, closeModal }) => {
@@ -24,6 +25,9 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'image':
       component = <ImageContainer treasure={modal.image} />;
+      break;
+    case 'report':
+      component = <ReportTreasureContainer treasure={modal.image} />;
       break;
     default:
       return null;

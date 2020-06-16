@@ -25,7 +25,7 @@ class UsersPage extends React.Component {
         <AdminBarContainer />
         <h1 className="users-page-header">All Treasure Box Users</h1>
         {/* <button onClick={() => this.props.resetOwners()}> Reset all Owner Ids </button> */}
-        <ol>
+        <ol className="all-users">
           {allUsers.map((user) => (
             <UserContainer key={user._id} user={user} />
           ))}

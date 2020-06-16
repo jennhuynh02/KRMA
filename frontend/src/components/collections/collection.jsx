@@ -20,10 +20,10 @@ class Collection extends React.Component {
       <div className="collection-page">
         <NavBarContainer />
         <AdminBarContainer />
-        {/* <h1 className="collection-header">
+        <h1 className="collection-header">
           {this.props.firstName}
           's Treasures
-        </h1> */}
+        </h1>
         <div className="the-collection">
           { admin // show user items or admin items?
             ? allTreasures.map((treasure) => (

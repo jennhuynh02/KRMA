@@ -28,8 +28,12 @@ class AdminItem extends React.Component {
     return (
       <div className="content-item">
         {content}
-        <br />
-        <button className="admin-delete-content" onClick={this.handleDelete}>Discard Treasure</button>
+          <div className="dropdown">
+            <p className="drop-button-dots">* * *</p>
+            <ul className="dropdown-content">
+              <li className="dropdown-options" onClick={this.handleDelete}>Discard Treasure</li>
+            </ul>
+          </div>
       </div>
     );
   }

@@ -55,10 +55,14 @@ class ReportedTreasure extends React.Component {
           {reportMsg}
           "
         </p>
-        {/* item blacklisted by this user - create a blacklisted items hash for each user */}
-        <button className="admin-reports-buttons" onClick={this.unflagTreasure}>Return Item Back To Treasure Box</button>
-        <button className="admin-reports-buttons" onClick={this.handleDelete}>Delete Treasure</button>
-        <button className="admin-reports-buttons" onClick={() => deleteSelectedUser(id)}>Delete User</button>
+          <div className="dropdown">
+            <p className="drop-button-dots">* * *</p>
+            <ul className="dropdown-content">
+              <li className="dropdown-options" onClick={this.unflagTreasure}>Return Item Back To Treasure Box</li>
+              <li className="dropdown-options" onClick={this.handleDelete}>Delete Treasure</li>
+              <li className="dropdown-options" onClick={() => deleteSelectedUser(id)}>Delete User</li>
+            </ul>
+          </div>
       </div>
     );
   }

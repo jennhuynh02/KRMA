@@ -5,8 +5,8 @@ class TreasureItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reportMessage: ''
-    }
+      reportMessage: '',
+    };
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleReport = this.handleReport.bind(this);
@@ -41,7 +41,7 @@ class TreasureItem extends React.Component {
       reportMessage: e.currentTarget.value,
       reported: true,
       creatorId: this.props.treasure.creatorId,
-    })
+    });
   }
 
   render() {
@@ -63,12 +63,15 @@ class TreasureItem extends React.Component {
       <div>
         <div className="content-item">
           { content }
-          <br />
-        <button className="collection-item-buttons" onClick={this.handleDelete}>Discard Treasure</button>
-        <br />
-        <input className="admin-delete-content" type="text" onChange={this.update()} value={this.state.reportMessage} placeholder="(Optional) Include reason for report:"/>
-        <br />
-        <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
+
+          <div className="dropdown">
+            <p className="drop-button-dots">* * *</p>
+            <ul className="dropdown-content">
+              <li className="dropdown-options" onClick={this.handleDelete}>Discard Treasure</li>
+              <li className="dropdown-options" onClick={(e) => openModal({ report: this.props.treasure })}>Report Treasure</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     );

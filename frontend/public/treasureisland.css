@@ -40,6 +40,7 @@
 
 
 .treasure-island {
+  text-align: -webkit-center;
 }
 
 .treasure-island-body {
@@ -79,18 +80,9 @@
   opacity: 70%;
 }
 
-.bucket-box {
-  margin: 5px;
-  background-color: beige;
-  border-radius: 20px;
-  border: solid 2px gold;
-  padding: 20px;
-  font-size: 23px;
-  font-weight: 600;
-  font-family: fantasy;
-  width: 500px;
-  height: fit-content;
-  margin: 50px 35px;
+.bucket-box {    
+  width: 600px;
+  margin-top: 50px;
 }
 
 .bucket-explanation {

@@ -18,9 +18,9 @@ class ReportsPage extends React.Component {
       <div className="report-page">
         <AdminBarContainer />
         <NavBarContainer />
-        {/* <h1 className="reports-page-header">
+        <h1 className="reports-page-header">
                   Review for deletion.
-                </h1> */}
+                </h1>
         <div className="the-collection">
           { treasures.map((treasure) => (treasure.reported ? <ReportedTreasureContainer key={treasure._id} treasure={treasure} /> : null))}
         </div>
