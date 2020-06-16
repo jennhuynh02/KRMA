@@ -59,7 +59,9 @@ class TreasureIsland extends React.Component {
         <NavBarContainer />
         <h1 className="island-header">Welcome to Treasure Island</h1>
         <div className="treasure-island-body">
+
           <div className="bucket-box">
+          <img style={{height: 300}} src="treasure_box.png" />
             <p className="bucket-explanation">Upload an item, where it will go into an AWS S3 bucket and you will never see it again.  In return, you will receive a key in order to retrieve a treasure uploaded by another user.  Call it a one-to-one exchange.</p>
             <div className="key-pocket">
               <button type="button" className="upload-buttons" onClick={() => openModal({ photo: -1 })}>
