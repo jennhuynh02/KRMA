@@ -49,13 +49,13 @@ function MainPage(props) {
           </span>
 
           <span className="programmer">
-            <a href="https://www.linkedin.com/in/joshua-silva-roland-0b9b951a9/">
+            <a href="https://www.linkedin.com/in/joshua-silva-roland/">
               <i className="fa fa-linkedin-square" style={{ color: '#0077b5', fontSize: '45px' }} />
             </a>
             <a href="https://github.com/jsilvaroland">
               <i className="fa fa-github" style={{ color: 'black', fontSize: '45px' }} />
             </a>
-            Joshua Silva
+            Joshua Silva-Roland
           </span>
 
 
