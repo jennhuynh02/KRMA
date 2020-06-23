@@ -10,7 +10,7 @@ const mapStateToProps = (state, { treasure }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal()),
-  updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure))
+  updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Image);

@@ -14,12 +14,12 @@ body {
   top: 50px;
 }
 
-.admin-bar-option {
+.admin-bar-navigators span {
   float: left;
   font-size: 13px;
 }
 
-.admin-bar-option:hover {
+.admin-bar-navigators span:hover {
   cursor: pointer;
   color: brown;
 }

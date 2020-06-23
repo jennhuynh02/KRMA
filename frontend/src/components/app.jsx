@@ -6,7 +6,7 @@ import CollectionContainer from './collections/collection_container';
 import TreasureBoxContainer from './treasure/treasure_box_container';
 import Modal from './modal/modal';
 
-import MainPage from './main/main_page.jsx';
+import MainPage from './main/main_page';
 // Admin
 import ReportsContainer from './moderator/report_inbox/reports_container';
 import TreasureContentsContainer from './moderator/box_contents/contents_container';

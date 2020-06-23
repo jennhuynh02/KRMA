@@ -62,7 +62,7 @@ export const createTreasure = (data) => (dispatch) => (
 export const deleteTreasure = (treasureId) => (dispatch) => {
   const treasureIdsaved = treasureId;
   return destroyTreasure(treasureId)
-    .then((treasureId) => dispatch(removeTreasure(treasureIdsaved)))
+    .then(() => dispatch(removeTreasure(treasureIdsaved)))
     .catch((error) => console.log(error));
 };
 

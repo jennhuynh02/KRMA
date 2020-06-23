@@ -59,14 +59,14 @@ class CreateStringTreasure extends React.Component {
           <div className="mt-5">
             {error}
             <br />
-            <button className="upload-quote-button" onClick={this.handleUpload}>
+            <button type="button" className="upload-quote-button" onClick={this.handleUpload}>
               Exchange this treasure for key!
             </button>
             <br />
-            <button className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })} type="button">
+            <button type="button" className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })}>
               Retrieve Treasure Instead
             </button>
-            <button className="upload-quote-button" onClick={(e) => closeModal(e)} type="button">Cancel</button>
+            <button type="button" className="upload-quote-button" onClick={(e) => closeModal(e)}>Cancel</button>
           </div>
         </div>
       </div>
