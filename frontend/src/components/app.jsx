@@ -10,7 +10,7 @@ import MainPage from './main/main_page';
 // Admin
 import ReportsContainer from './moderator/report_inbox/reports_container';
 import TreasureContentsContainer from './moderator/box_contents/contents_container';
-import TreasureContainer from './treasure/treasure_container';
+// import TreasureContainer from './treasure/treasure_container';
 import UsersContainer from './moderator/all_users/users_container';
 
 const App = () => (

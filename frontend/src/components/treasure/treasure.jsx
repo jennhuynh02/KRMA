@@ -1,32 +1,34 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+// // mark for delete, i don't think we ever use this component
 
-class Treasure extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            treasure: ""
-        }
-        this.fetchTreasure = this.props.fetchTreasure.bind(this);
-    }
-    
+// import React from 'react';
+// import { withRouter } from 'react-router-dom';
 
-    componentDidMount(){
-        const {treasureId, fetchTreasure} = this.props;
-        this.setState({treasure: fetchTreasure(treasureId)});
-    }
+// class Treasure extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       treasure: '',
+//     };
+//     this.fetchTreasure = this.props.fetchTreasure.bind(this);
+//   }
 
-    render(){
-        const {treasure} = this.state;
-        return(
-            <div className="treasureDiv">
-                <h1 className="titleTreasure">{`Treasure Item: ${treasure.id}`}</h1>
-                <div className="treasureUrl">
-                    {treasure ? treasure.treasureUrl : ""}
-                </div>
-            </div>
-        )
-    }
-}
 
-export default withRouter(Treasure);
+//   componentDidMount() {
+//     const { treasureId, fetchTreasure } = this.props;
+//     this.setState({ treasure: fetchTreasure(treasureId) });
+//   }
+
+//   render() {
+//     const { treasure } = this.state;
+//     return (
+//       <div className="treasureDiv">
+//         <h1 className="titleTreasure">{`Treasure Item: ${treasure.id}`}</h1>
+//         <div className="treasureUrl">
+//           {treasure ? treasure.treasureUrl : ''}
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// export default withRouter(Treasure);

@@ -13,24 +13,26 @@ class ReportTreasure extends React.Component {
 
   handleReport(e) {
     e.preventDefault();
+    const { updateFullTreasure } = this.props;
     const treasure = this.state;
     treasure.reported = true;
-    this.props.updateFullTreasure(treasure);
+    updateFullTreasure(treasure);
     // .then(this.props.closeModal); OR message saying report received
   }
 
   render() {
+    const { reportMessage } = this.state;
     return (
       <div>
         <form onSubmit={this.handleReport}>
           <input
             className="report-input"
             type="textarea"
-            value={this.state.reportMessage}
+            value={reportMessage}
             placeholder="Please enter details here"
             onChange={this.change('reportMessage')}
           />
-          <button>Submit Report</button>
+          <button type="button">Submit Report</button>
         </form>
       </div>
     );

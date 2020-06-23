@@ -1,14 +1,16 @@
-import { connect } from 'react-redux';
-import Treasure from './treasure';
-import {fetchTreasure} from '../../actions/treasure_actions';
+// mark for delete, i don't think we ever use this component
 
-const mapStateToProps = (state, ownProps) => ({
-    treasureId: ownProps.match.params.treasureId,
-    currentUser: state.session.user,
-});
+// import { connect } from 'react-redux';
+// import Treasure from './treasure';
+// import {fetchTreasure} from '../../actions/treasure_actions';
 
-const mapDispatchToProps = dispatch => ({
-    fetchTreasure: treasureId => dispatch(fetchTreasure(treasureId))
-});
+// const mapStateToProps = (state, ownProps) => ({
+//     treasureId: ownProps.match.params.treasureId,
+//     currentUser: state.session.user,
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Treasure)
+// const mapDispatchToProps = dispatch => ({
+//     fetchTreasure: treasureId => dispatch(fetchTreasure(treasureId))
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Treasure)

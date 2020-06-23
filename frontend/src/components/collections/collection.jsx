@@ -1,28 +1,27 @@
 import React from 'react';
-import AdminBarContainer from "../adminbar/admin_bar_container";
+import AdminBarContainer from '../adminbar/admin_bar_container';
 import TreasureItemContainer from './item_container';
 import NavBarContainer from '../navbar/navbar_container';
 
 class Collection extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    this.props.getAllTreasures();
-    const { getUserTreasures, currentUser } = this.props;
+    const { getAllTreasures, getUserTreasures, currentUser } = this.props;
+    getAllTreasures();
     getUserTreasures(currentUser._id);
   }
 
   render() {
-    const { allTreasures, userTreasures, admin } = this.props;
+    const {
+      allTreasures, userTreasures, admin, firstName
+    } = this.props;
+
     return (
       <div className="collection-page">
         <NavBarContainer />
         <AdminBarContainer />
         <h1 className="collection-header">
-          {this.props.firstName}
-          's Treasures
+          {firstName}
+          &#39;s Treasures
         </h1>
         <div className="the-collection">
           { admin // show user items or admin items?

@@ -7,7 +7,7 @@ class AWSCreateTreasure extends React.Component {
       photoUrl: null,
       selectedFile: null,
       error: '',
-    }
+    };
 
     this.handleFile = this.handleFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
@@ -15,7 +15,7 @@ class AWSCreateTreasure extends React.Component {
 
   handleFile(e) {
     e.preventDefault();
-    const file = e.currentTarget.files[0]
+    const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({
@@ -26,57 +26,59 @@ class AWSCreateTreasure extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
-  };
+  }
 
   handleUpload(e) {
     e.preventDefault();
-    let data = new FormData();
-    if (this.state.selectedFile) {
-      data.append('image', this.state.selectedFile, this.state.selectedFile.name);
-      data.append('ownerId', this.props.currentUser._id)
-      this.props.createTreasure(data);
+    const data = new FormData();
+    const { selectedFile } = this.state;
+    const { currentUser, createTreasure, closeModal } = this.props;
+    if (selectedFile) {
+      data.append('image', selectedFile, selectedFile.name);
+      data.append('ownerId', currentUser._id);
+      createTreasure(data);
       this.setState({
-        selectedFile: "",
+        selectedFile: '',
       });
-      this.props.currentUser.keyCount += 1;
-      window.location.href = "/#/treasureisland";
-      this.props.closeModal();
+      currentUser.keyCount += 1;
+      window.location.href = '/#/treasureisland';
+      closeModal();
     } else {
       this.setState({
-        error: 'Please upload file'
-      })
+        error: 'Please upload file',
+      });
     }
-  };
+  }
 
   render() {
-    const { closeModal } = this.props;
-    const preview = this.state.photoUrl ? <img className="content-img" src={this.state.photoUrl} /> : null
+    const { closeModal, openModal } = this.props;
+    const { photoUrl, error } = this.state;
+    const preview = photoUrl ? <img className="content-img" src={photoUrl} alt="photourl" /> : null;
     return (
-        <div className="bucket-box">
-          <div>
-            <h3>
-              Add a Photo to the Treasure Box
-            </h3>
-            <p> Max 4MB </p>
-          </div>
-          <div>
-            <input type="file" className="upload-photo-input" onChange={this.handleFile} />
-            <div className="mt-5">
-              {this.state.error}
-              { preview }
-              <button className="upload-quote-button" onClick={this.handleUpload}>
-                Upload this treasure for a key!
-              </button>
-              <br />
-              <button className="upload-quote-button" onClick={() => this.props.openModal({ retrieve: -1 })}>
-                Retrieve Treasure Instead
-              </button>
-              <br />
-              <button className="upload-quote-button" onClick={(e) => closeModal(e)}>Cancel</button>
-              <br />
-            </div>
+      <div className="bucket-box">
+        <div>
+          <h3>
+            Add a Photo to the Treasure Box
+          </h3>
+          <p> Max 4MB </p>
+        </div>
+        <div>
+          <input type="file" className="upload-photo-input" onChange={this.handleFile} />
+          <div className="mt-5">
+            {error}
+            {preview}
+            <button type="button" className="upload-quote-button" onClick={this.handleUpload}>
+              Upload this treasure for a key!
+            </button>
+            <button type="button" className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })}>
+              Retrieve Treasure Instead
+            </button>
+            <button type="button" className="upload-quote-button" onClick={(e) => closeModal(e)}>
+              Cancel
+            </button>
           </div>
         </div>
+      </div>
     );
   }
 }

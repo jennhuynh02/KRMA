@@ -104,7 +104,7 @@
   font-family: fantasy;
 }
 
-.upload-buttons {
+.key-pocket button {
   margin: 5px;
   border-radius: 5px;
   border: solid 1px gold;
@@ -117,7 +117,7 @@
   font-family: cursive;
 }
 
-.upload-buttons:hover {
+.key-pocket button:hover {
   color: gold;
 }
 

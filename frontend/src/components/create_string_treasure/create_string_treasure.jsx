@@ -10,6 +10,7 @@ class CreateStringTreasure extends React.Component {
 
     this.handleQuote = this.handleQuote.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleQuote(e) {
@@ -40,6 +41,16 @@ class CreateStringTreasure extends React.Component {
     }
   }
 
+  handleClick() {
+    const { openModal, currentUser } = this.props;
+    debugger;
+    if (currentUser.keyCount > 0) {
+      openModal({ retrieve: -1 });
+    } else {
+      alert('You have no more keys left!');
+    }
+  }
+
   render() {
     const { type, openModal, closeModal } = this.props;
     const { quote, error } = this.state;
@@ -63,7 +74,7 @@ class CreateStringTreasure extends React.Component {
               Exchange this treasure for key!
             </button>
             <br />
-            <button type="button" className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })}>
+            <button type="button" className="upload-quote-button" onClick={this.handleClick}>
               Retrieve Treasure Instead
             </button>
             <button type="button" className="upload-quote-button" onClick={(e) => closeModal(e)}>Cancel</button>

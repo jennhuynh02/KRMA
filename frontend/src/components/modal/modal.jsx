@@ -6,7 +6,7 @@ import CreateTreasureContainer from '../treasure/create_treasure_container';
 import CreateStringTreasure from '../create_string_treasure/create_string_treasure_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 import ImageContainer from '../image/image_container';
-import ReportTreasureContainer from "../../components/report_treasure/report_treasure_container";
+import ReportTreasureContainer from '../report_treasure/report_treasure_container';
 import './modal.css';
 
 const Modal = ({ modal, closeModal }) => {
