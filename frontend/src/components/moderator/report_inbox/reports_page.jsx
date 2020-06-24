@@ -4,12 +4,9 @@ import NavBarContainer from '../../navbar/navbar_container';
 import AdminBarContainer from '../../adminbar/admin_bar_container';
 
 class ReportsPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    this.props.fetchTreasures();
+    const { fetchTreasures } = this.props;
+    fetchTreasures();
   }
 
   render() {
@@ -19,8 +16,8 @@ class ReportsPage extends React.Component {
         <AdminBarContainer />
         <NavBarContainer />
         <h1 className="reports-page-header">
-                  Review for deletion.
-                </h1>
+          Review for deletion.
+        </h1>
         <div className="the-collection">
           { treasures.map((treasure) => (treasure.reported ? <ReportedTreasureContainer key={treasure._id} treasure={treasure} /> : null))}
         </div>

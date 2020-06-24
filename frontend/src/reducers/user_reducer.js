@@ -10,12 +10,12 @@ const UsersReducer = (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       return action.users.data;
     case DELETE_USER:
-      let newState = Object.assign({}, state);
-      delete newState[action.userId]
-      return newState
+      const newState = { ...state };
+      delete newState[action.userId];
+      return newState;
     default:
       return state;
   }
-}
+};
 
 export default UsersReducer;

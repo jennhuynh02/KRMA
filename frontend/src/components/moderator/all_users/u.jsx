@@ -20,7 +20,7 @@ class User extends React.Component {
           <h1>{user.firstName}{' '}{user.lastName}</h1>
           <h1>{user.email}</h1>
           <br />
-          <button className="user-delete-button" onClick={this.deleteUser}>Delete This User</button>
+          <button type="button" className="user-delete-button" onClick={this.deleteUser}>Delete This User</button>
         </li>
       </div>
     );

@@ -47,13 +47,13 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    const { errors } = this.state;
     return (
-
       <ul>
         <br />
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(errors).map((error, i) => (
           <li key={`errors-${i}`}>
-            {this.state.errors[error]}
+            {errors[error]}
           </li>
         ))}
       </ul>
@@ -61,8 +61,10 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { email, password } = this.state;
     let { errors } = this.state;
     errors = Object.values(errors);
+
     return (
       <div className="login-session-form">
         <form onSubmit={this.handleSubmit}>
@@ -72,7 +74,7 @@ class LoginForm extends React.Component {
           <input
             className="form-inputs"
             type="text"
-            value={this.state.email}
+            value={email}
             onChange={this.update('email')}
           />
           <br />
@@ -81,7 +83,7 @@ class LoginForm extends React.Component {
           <input
             className="form-inputs"
             type="password"
-            value={this.state.password}
+            value={password}
             onChange={this.update('password')}
           />
           <br />
@@ -89,8 +91,8 @@ class LoginForm extends React.Component {
           <br />
           <button className="session-buttons">Log In</button>
         </form>
-        <button className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
-        <button className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
+        <button type="button" className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
+        <button type="button" className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
         <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] !== ' ' ? this.renderErrors() : '') : ''}</div>
       </div>
     );

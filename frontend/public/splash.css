@@ -1,0 +1,57 @@
+.splash-page-full {
+  height: 100vh;
+  width: 100%;
+  background-image: url("temple.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.splash-page-header {
+  display: flex;
+  justify-content: flex-end;
+  height: 80px;
+}
+
+.splash-page-header > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 40px;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 20px;
+  color: white;
+}
+
+.splash-page-header > a:hover {
+  background-color: white;
+  color: black;
+}
+
+.splash-text-main {
+  /* margin-bottom: 340px; */
+}
+
+.splash-text-main h1 {
+  font-size: 100px;
+  margin-top: 130px; 
+}
+
+.splash-text-main h2 {
+  font-weight: 200;
+}
+
+.what-is-krma a {
+  color: white;
+  padding: 10px 40px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.what-is-krma a:hover {
+  background-color: white;
+  color: black;
+}

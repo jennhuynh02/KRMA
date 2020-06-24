@@ -14,13 +14,12 @@ class TreasureIsland extends React.Component {
 
   componentDidMount() {
     const { fetchAllUsers, getCurrentUser, currentUser } = this.props;
-    console.log(currentUser._id);
     getCurrentUser(currentUser._id);
   }
 
   getTreasure(e) {
-    const { openModal, currentUser } = this.props;
     e.preventDefault();
+    const { openModal, currentUser } = this.props;
     window.location.href = '/#/treasureisland';
     openModal({ retrieve: -1 });
     currentUser.keyCount -= 1;
@@ -44,12 +43,12 @@ class TreasureIsland extends React.Component {
       if (keyCount > 0) {
         return (
           <div>
-            <img className="key" src="TreasureKey.jpg" onClick={this.getTreasure} />
+            <img className="key" src="TreasureKey.jpg" onClick={this.getTreasure} alt="treasurekey" />
           </div>
         );
       }
       return (
-        <img className="key" src="TreasureKey.jpg" />
+        <img className="key" src="TreasureKey.jpg" alt="treasurekey" />
       );
     };
 
@@ -61,7 +60,7 @@ class TreasureIsland extends React.Component {
         <div className="treasure-island-body">
 
           <div className="bucket-box">
-            <img style={{ height: 300 }} src="treasure_box.png" />
+            <img style={{ height: 300 }} src="treasure_box.png" alt="treasurebox"/>
             <p className="bucket-explanation">Upload an item, where it will go into an AWS S3 bucket and you will never see it again.  In return, you will receive a key in order to retrieve a treasure uploaded by another user.  Call it a one-to-one exchange.</p>
             <div className="key-pocket">
               <button type="button" onClick={() => openModal({ photo: -1 })}>

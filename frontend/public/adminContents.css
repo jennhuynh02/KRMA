@@ -11,20 +11,14 @@
   text-align: -webkit-center;
 }
 
-.contents-header {
-}
-
 .content-item {
   width: 600px;
   height: auto;
   border: solid 1px lightgray;
-  background-color: white;
-  padding-bottom: 4px;
-  padding-top: 16px;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-bottom: 10px;
   border-radius: 3px;
+  background-color: white;
+  padding: 16px 16px 4px 16px;
+  margin-bottom: 10px;
 }
 
 .content-img {
@@ -36,7 +30,7 @@
 }
 
 .admin-delete-content:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   color: brown;
 }
 

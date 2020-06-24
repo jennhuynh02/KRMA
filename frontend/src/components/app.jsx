@@ -7,6 +7,7 @@ import TreasureBoxContainer from './treasure/treasure_box_container';
 import Modal from './modal/modal';
 
 import MainPage from './main/main_page';
+import Splash from './splash_page/splash_page';
 // Admin
 import ReportsContainer from './moderator/report_inbox/reports_container';
 import TreasureContentsContainer from './moderator/box_contents/contents_container';
@@ -17,7 +18,8 @@ const App = () => (
   <div>
     <Modal />
     <Switch>
-      <AuthRoute exact path="/" component={MainPage} />
+      <AuthRoute exact path="/" component={Splash} />
+      <AuthRoute exact path="/enter" component={MainPage} />
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
       <Route exact path="/treasurebox" component={TreasureBoxContainer} />

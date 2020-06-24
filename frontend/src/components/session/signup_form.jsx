@@ -18,8 +18,9 @@ class SignupForm extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
+    const { history } = this.props;
     if (nextProps.currentUser === true) {
-      this.props.history.push('/main');
+      history.push('/main');
     }
 
     this.setState({ errors: nextProps.errors });
@@ -31,26 +32,31 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const {
+      email, firstName, lastName, password, password2,
+    } = this.state;
+    const { signup, history } = this.props;
     const user = {
-      email: this.state.email,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      password: this.state.password,
-      password2: this.state.password2,
+      email,
+      firstName,
+      lastName,
+      password,
+      password2,
       keyCount: 0,
       collection: [],
     };
 
-    this.props.signup(user, this.props.history);
+    signup(user, history);
   }
 
   renderErrors() {
+    const { errors } = this.state;
     return (
       <ul>
         <br />
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(errors).map((error, i) => (
           <li key={`errors-${i}`}>
-            {this.state.errors[error]}
+            {errors[error]}
           </li>
         ))}
       </ul>
@@ -62,6 +68,7 @@ class SignupForm extends React.Component {
       email, firstName, lastName, password, password2,
     } = this.state;
     let { errors } = this.state;
+
     errors = Object.values(errors);
     return (
       <div className="signup-session-form">

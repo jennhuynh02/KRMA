@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchTreasures } from '../../../actions/treasure_actions';
-import TreasureContentsPage from './contents.jsx';
+import TreasureContentsPage from './contents';
 
 const mapStateToProps = (state) => ({
   allTreasures: Object.values(state.treasure.admin),

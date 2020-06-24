@@ -43,7 +43,7 @@ class CreateStringTreasure extends React.Component {
 
   handleClick() {
     const { openModal, currentUser } = this.props;
-    debugger;
+
     if (currentUser.keyCount > 0) {
       openModal({ retrieve: -1 });
     } else {

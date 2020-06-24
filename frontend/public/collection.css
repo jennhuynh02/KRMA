@@ -27,6 +27,6 @@
 }
 
 .collection-item-buttons:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   color: brown;
 }

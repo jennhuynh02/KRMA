@@ -25,16 +25,13 @@ class ReportedTreasure extends React.Component {
 
   render() {
     const {
-      user, deleteSelectedUser, treasure, deleteTreasure,
+      user, deleteSelectedUser, treasure,
     } = this.props;
-    let id;
-    id = user._id;
-    let imgUrl;
-    let treasureId;
-    imgUrl = treasure.url;
-    treasureId = treasure._id;
-    let reportMsg;
-    reportMsg = treasure.reportMessage;
+
+    const id = user._id;
+    const imgUrl = treasure.url;
+    const reportMsg = treasure.reportMessage;
+
     return (
       <div className="report-info">
         <h1>

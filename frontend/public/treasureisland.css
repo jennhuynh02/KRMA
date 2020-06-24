@@ -30,7 +30,7 @@
 }
 
 .nav-item:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   color: brown;
 }
 

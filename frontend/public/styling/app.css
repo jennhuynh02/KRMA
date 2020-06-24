@@ -1,7 +1,12 @@
 body {
-  background-color: beige;
+  /* background-color: beige; */
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
 }
 
 .admin-bar-navigators {
@@ -20,7 +25,7 @@ body {
 }
 
 .admin-bar-navigators span:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   color: brown;
 }
 
@@ -39,9 +44,9 @@ body {
   padding: 15px;
 }
 
-.drop-button-dots:hover {
+/* .drop-button-dots:hover {
   cursor: pointer;  
-}
+} */
 
 /* ul */
 .dropdown-content{ 
@@ -69,14 +74,14 @@ body {
   display: block;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0;
-  cursor: pointer; 
+  /* cursor: pointer;  */
 }  
 
 /* ul > li */
 .dropdown-content > li:hover {
   background-color: #efefef;
   margin: 0;
-  cursor: pointer; 
+  /* cursor: pointer;  */
 }
 
 .dropdown-options {

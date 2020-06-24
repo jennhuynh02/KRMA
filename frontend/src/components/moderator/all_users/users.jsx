@@ -4,14 +4,6 @@ import NavBarContainer from '../../navbar/navbar_container';
 import AdminBarContainer from '../../adminbar/admin_bar_container';
 
 class UsersPage extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      users: [],
-    };
-  }
-
   componentDidMount() {
     const { getAllUsers } = this.props;
     getAllUsers();
