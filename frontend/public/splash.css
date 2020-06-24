@@ -11,47 +11,106 @@
 .splash-page-header {
   display: flex;
   justify-content: flex-end;
-  height: 80px;
+  height: 60px;
 }
 
-.splash-page-header > a {
+/* for button */
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button-container > button {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px 40px;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 5px;
   padding: 10px 40px;
   font-size: 20px;
-  color: white;
+  color: black;
+  background: none;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.4s;
 }
 
-.splash-page-header > a:hover {
-  background-color: white;
+.button-container > button:hover {
+  /* background-color: white; */
+  opacity: 50%;
+  border-color: black;
   color: black;
 }
 
-.splash-text-main {
-  /* margin-bottom: 340px; */
+.login-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  margin-right: 40px;
+  margin-top: 3px;
+}
+
+.login-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-dropdown li {
+  padding: 8px 12px;
+  color: black;
+}
+
+.login-dropdown li:hover {
+  cursor: pointer;
+}
+
+.login-dropdown a {
+  color: black;
+}
+
+.login-dropdown li:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+/* end of button */
+.splash-text-container {
+  display: flex;
+  justify-content: center;
 }
 
 .splash-text-main h1 {
-  font-size: 100px;
+  font-size: 120px;
+  font-weight: 300;
+  color: black;
   margin-top: 130px; 
 }
 
 .splash-text-main h2 {
   font-weight: 200;
+  color: black;
+}
+
+.what-is-krma {
+  position: absolute;
+  bottom: 100px;
 }
 
 .what-is-krma a {
-  color: white;
+  color: black;
   padding: 10px 40px;
-  border: 2px solid white;
+  border: 2px solid black;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .what-is-krma a:hover {
-  background-color: white;
+  background-color: black;
   color: black;
 }
