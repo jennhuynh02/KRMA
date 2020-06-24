@@ -17,8 +17,8 @@ class User extends React.Component {
     return (
       <div>
         <li className="user-box">
-          <h1>{user.firstName}{' '}{user.lastName}</h1>
-          <h1>{user.email}</h1>
+          <h2>{user.firstName}{' '}{user.lastName}</h2>
+          <h2>{user.email}</h2>
           <br />
           <button type="button" className="user-delete-button" onClick={this.deleteUser}>Delete This User</button>
         </li>

@@ -67,7 +67,7 @@ class CreateStringTreasure extends React.Component {
             value={quote}
             onChange={this.handleQuote}
           />
-          <div className="mt-5">
+          <div>
             {error}
             <br />
             <button type="button" className="upload-quote-button" onClick={this.handleUpload}>

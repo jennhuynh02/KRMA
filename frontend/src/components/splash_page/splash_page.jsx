@@ -31,7 +31,7 @@ class Splash extends React.Component {
 
   handleLogin(type) {
     let email;
-    (type === 'admin' ? email = 'admin@treasurebox.com' : email = 'treasure@treasurebox.com')
+    (type === 'admin' ? email = 'admin@krma.com' : email = 'demo@krma.com')
     const { login } = this.props;
     const user = { email, password: '123456' };
     login(user);
@@ -43,7 +43,7 @@ class Splash extends React.Component {
       <div className="splash-page-full" onClick={this.handleClickOutside}>
         <div className="splash-page-header">
           <div className="button-container" ref={this.container}>
-            <button type="button" onClick={this.handleClick}>Begin</button>
+            <button type="button" onClick={this.handleClick}>Start</button>
             {(open
               ? (
                 <div className="login-dropdown">

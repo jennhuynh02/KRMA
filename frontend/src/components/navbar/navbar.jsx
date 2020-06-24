@@ -1,38 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class NavBar extends React.Component {
+class NavBar extends Component {
   constructor(props) {
     super(props);
-    this.logoutUser = this.logoutUser.bind(this);
+
+    this.getTreasure = this.getTreasure.bind(this);
   }
 
-  logoutUser(e) {
+  getTreasure(e) {
     e.preventDefault();
-    this.props.logout();
-  }
-
-  handleTreasurePageButton(e) {
-    e.preventDefault();
-    window.location.href = '/#/treasureisland';
-  }
-
-  handleCollectionPageButton(e) {
-    e.preventDefault();
-    window.location.href = '/#/collection';
+    const { openModal, currentUser } = this.props;
+    if (currentUser.keyCount > 0) {
+      openModal({ retrieve: -1 });
+      currentUser.keyCount -= 1;
+    } else {
+      alert('To receive good karma, you must first give good karma. Add something!');
+    }
   }
 
   render() {
+    const { openModal, logout } = this.props;
     return (
-      <div className="navbar-wrapper">
-        <div className="page-navbar">
-          <div className="nav-item">
-            <p onClick={this.handleTreasurePageButton}>Treasure</p>
-          </div>
-          <div className="nav-item">
-            <p onClick={this.handleCollectionPageButton}>Collection</p>
-          </div>
-          <div className="nav-item">
-            <p onClick={this.logoutUser}>Logout</p>
+      <div className="navbar-container">
+        <div className="navbar-left">
+          <h1>KRMA</h1>
+        </div>
+        <div className="navbar-right">
+          <div className="navbar-items">
+            <div className="navbar-dropdown">
+              <div>Add</div>
+              <ul className="navbar-dropdown-content">
+                <li onClick={() => openModal({ photo: -1 })}>Upload a Photo</li>
+                <li onClick={() => openModal({ type: 'Share a quote!' })}>Share a Quote</li>
+                <li onClick={() => openModal({ type: 'Recommend a book!' })}>Recommend a Book</li>
+                <li onClick={() => openModal({ type: 'Link a song!' })}>Link a Song</li>
+                <li onClick={() => openModal({ type: 'Recommend event!' })}>Recommend an Event</li>
+                <li onClick={() => openModal({ type: 'Tell a story' })}>Tell a Story</li>
+              </ul>
+            </div>
+            <div onClick={this.getTreasure}>Redeem</div>
+            <Link to='/collection'>Collection</Link>
+            <div onClick={() => logout()}>Logout</div>
           </div>
         </div>
       </div>

@@ -1,0 +1,76 @@
+/* regular nav bar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 40px;
+}
+
+.navbar-left h1{
+  color:white;
+  font-weight: 300;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  background-color: none;
+  height: 40px;
+  color: white;
+}
+
+.navbar-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navbar-items a {
+  color: white;
+}
+
+.navbar-items > div,a {
+  font-size: 25px;
+  margin-left: 30px;
+  font-weight: 200;
+}
+
+.navbar-items div:hover, a:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+/* nav bar dropdown */
+.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  padding-top: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.navbar-dropdown:hover .navbar-dropdown-content {
+  display: block;
+}
+
+.navbar-dropdown-content > li {
+  padding: 10px;
+  color: black;
+  font-size: 18px;
+  font-weight: 300;
+  background-color: #c4c4c4;  
+}
+
+.navbar-dropdown-content > li:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer
+}
+
+
+/* admin nav bar */

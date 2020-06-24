@@ -64,7 +64,7 @@ class AWSCreateTreasure extends React.Component {
         </div>
         <div>
           <input type="file" className="upload-photo-input" onChange={this.handleFile} />
-          <div className="mt-5">
+          <div>
             {error}
             {preview}
             <button type="button" className="upload-quote-button" onClick={this.handleUpload}>

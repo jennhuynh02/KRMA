@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
 
   demoLogin() {
     const { login } = this.props;
-    const user = { email: 'treasure@treasurebox.com', password: '123456' };
+    const user = { email: 'demo@krma.com', password: '123456' };
     login(user);
   }
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, AdminRoute } from '../util/route_util';
 import TreasureIslandContainer from './treasure/treasure_island_container';
 import CollectionContainer from './collections/collection_container';
-import TreasureBoxContainer from './treasure/treasure_box_container';
+// import TreasureBoxContainer from './treasure/treasure_box_container';
 import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import Modal from './modal/modal';
@@ -25,7 +25,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
-      <Route exact path="/treasurebox" component={TreasureBoxContainer} />
+      {/* <Route exact path="/treasurebox" component={TreasureBoxContainer} /> */}
       <AdminRoute exact path="/reports" component={ReportsContainer} />
       <AdminRoute exact path="/contents" component={TreasureContentsContainer} />
       <AdminRoute exact path="/users" component={UsersContainer} />

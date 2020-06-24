@@ -96,7 +96,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-  User.find({ email: { $nin: ['admin@treasurebox.com', 'treasure@treasurebox.com', 'seed@seed.com'] } })
+  User.find({ email: { $nin: ['admin@krma.com', 'demo@krma.com', 'seed@seed.com'] } })
     .then((users) => { res.json(users); });
 });
 

@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import Collection from './collection.jsx';
+import Collection from './collection';
 import {
   fetchTreasures,
   fetchUserTreasures,
-} from "../../actions/treasure_actions";
+} from '../../actions/treasure_actions';
 
 const mapStateToProps = (state) => ({
   firstName: state.session.user.firstName,
   allTreasures: Object.values(state.treasure.admin),
   userTreasures: Object.values(state.treasure.user),
-  admin: (state.session.user.email === "admin@treasurebox.com"),
+  admin: (state.session.user.email === 'admin@krma.com'),
   currentUser: state.session.user,
 });
 

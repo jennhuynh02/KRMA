@@ -1,31 +1,33 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+// TBD
 
-class TreasureBox extends React.Component {
-  fetchRandomTreasure(e) {
-    e.preventDefault();
-    const { currentUser, treasures, deleteTreasure } = this.props;
-    let { collections } = this.props;
+// import React from 'react';
+// import { withRouter } from 'react-router-dom';
 
-    if (currentUser.keyCount > 0) {
-      const rand = Math.random(Object.values(treasures).length);
-      const myTreasure = Object.values(treasures)[rand];
-      collections = collections[currentUser.collectionId].push(myTreasure)[rand];
-      deleteTreasure(myTreasure);
-      return myTreasure;
-    }
-  }
+// class TreasureBox extends React.Component {
+//   fetchRandomTreasure(e) {
+//     e.preventDefault();
+//     const { currentUser, treasures, deleteTreasure } = this.props;
+//     let { collections } = this.props;
 
-  render() {
-    return (
-      <div className="TreasureBox">
-        <form className="TreasureBoxForm" onSubmit={(e) => this.fetchRandomTreasure(e)}>
-          <div className="TreasureBoxImage" />
-          <button type="button" className="boxButton">Open The Box!</button>
-        </form>
-      </div>
-    );
-  }
-}
+//     if (currentUser.keyCount > 0) {
+//       const rand = Math.random(Object.values(treasures).length);
+//       const myTreasure = Object.values(treasures)[rand];
+//       collections = collections[currentUser.collectionId].push(myTreasure)[rand];
+//       deleteTreasure(myTreasure);
+//       return myTreasure;
+//     }
+//   }
 
-export default withRouter(TreasureBox);
+//   render() {
+//     return (
+//       <div className="TreasureBox">
+//         <form className="TreasureBoxForm" onSubmit={(e) => this.fetchRandomTreasure(e)}>
+//           <div className="TreasureBoxImage" />
+//           <button type="button" className="boxButton">Open The Box!</button>
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+// export default withRouter(TreasureBox);

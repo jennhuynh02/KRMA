@@ -31,7 +31,7 @@ const Admin = ({
   <Route
     {...rest}
     render={(props) => (
-      (loggedIn && (user.email === 'admin@treasurebox.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+      (loggedIn && (user.email === 'admin@krma.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
   />
 );
 

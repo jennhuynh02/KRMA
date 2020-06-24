@@ -56,7 +56,7 @@ We needed to add functionality such that the user could only receive a random tr
 ```javascript
 const Admin = ({ component: Component, path, loggedIn, user, ...rest }) => (
   <Route {...rest} render={(props) => (
-    (loggedIn && (user.email === 'admin@treasurebox.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+    (loggedIn && (user.email === 'admin@krma.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
   />
 );
 ```

@@ -8,7 +8,6 @@
 
 .user-box {
   font-size: 13px;
-  /* padding: 20px; */
   display: flex;
   justify-content: space-evenly;
   width: 600px;
@@ -20,6 +19,6 @@
   margin-bottom: 10px;
 }
 
-/* .user-delete-button:hover {
-  cursor:pointer
-} */
+.user-box h2 {
+  font-weight: 200;
+}
