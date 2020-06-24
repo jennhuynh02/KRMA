@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Footer from '../main/footer';
+import Team from './team';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
+      team: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -37,7 +38,7 @@ class Splash extends React.Component {
   }
 
   render() {
-    const { open } = this.state;
+    const { open, team } = this.state;
     return (
       <div className="splash-page-full" onClick={this.handleClickOutside}>
         <div className="splash-page-header">
@@ -51,6 +52,7 @@ class Splash extends React.Component {
                     <li><Link to="/signup">Sign Up</Link></li>
                     <li onClick={() => this.handleLogin('demo')}>Demo User</li>
                     <li onClick={() => this.handleLogin('admin')}>Admin User</li>
+                    <li onClick={() => this.setState({team: true})}>Our Team</li>
                   </ul>
                 </div>
               )
@@ -58,10 +60,15 @@ class Splash extends React.Component {
           </div>
         </div>
         <section className="splash-text-container">
-          <div className="splash-text-main">
-            <h1>KRMA</h1>
-            <h2> &#34;Kindness, like a boomerang, always returns&#34; </h2>
-          </div>
+          {(!team
+            ? (
+              <div className="splash-text-main">
+                <h1>KRMA</h1>
+                <h2> &#34;Kindness, like a boomerang, always returns&#34; </h2>
+              </div>
+            )
+            : <Team />
+          )}
           {/* <div className="what-is-krma">
             <a href="#instructions" className="button scrolly">What is KRMA</a>
           </div> */}

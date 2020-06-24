@@ -1,13 +1,11 @@
-// TDB
-
 import React from 'react';
 
-class Footer extends React.PureComponent {
+class Team extends React.PureComponent {
   render() {
     return (
-      <footer className="mainpage-footer">
-        <div className="authors">
-          <div className="programmer">
+      <div className="mainpage-team">
+        <ul className="authors">
+          <li className="programmer">
             <a href="https://www.linkedin.com/in/jamesjiang13/">
               <img src="linkedin.png" alt="lnkd" />
             </a>
@@ -15,9 +13,9 @@ class Footer extends React.PureComponent {
               <img src="github.png" alt="lnkd" />
             </a>
             James Jiang
-          </div>
+          </li>
 
-          <div className="programmer">
+          <li className="programmer">
             <a href="https://www.linkedin.com/in/jenniferanhhuynh/">
               <img src="linkedin.png" alt="lnkd" />
             </a>
@@ -25,9 +23,9 @@ class Footer extends React.PureComponent {
               <img src="github.png" alt="lnkd" />
             </a>
             Jennifer Huynh
-          </div>
+          </li>
 
-          <div className="programmer">
+          <li className="programmer">
             <a href="https://www.linkedin.com/in/michael-murry-b3746a1a6/">
               <img src="linkedin.png" alt="lnkd" />
             </a>
@@ -35,9 +33,9 @@ class Footer extends React.PureComponent {
               <img src="github.png" alt="lnkd" />
             </a>
             Michael Murry
-          </div>
+          </li>
 
-          <div className="programmer">
+          <li className="programmer">
             <a href="https://www.linkedin.com/in/joshua-silva-roland/">
               <img src="linkedin.png" alt="lnkd" />
             </a>
@@ -45,12 +43,12 @@ class Footer extends React.PureComponent {
               <img src="github.png" alt="lnkd" />
             </a>
             Joshua Silva-Roland
-          </div>
-        </div>
-        <span>Copyright &copy; 2020 KRMA</span>
-      </footer>
+          </li>
+        </ul>
+        {/* <span>Copyright &copy; 2020 KRMA</span> */}
+      </div>
     );
   }
 }
 
-export default Footer;
+export default Team;

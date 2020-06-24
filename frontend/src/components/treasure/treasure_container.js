@@ -1,4 +1,4 @@
-// mark for delete, i don't think we ever use this component
+// TBD
 
 // import { connect } from 'react-redux';
 // import Treasure from './treasure';
@@ -13,4 +13,4 @@
 //     fetchTreasure: treasureId => dispatch(fetchTreasure(treasureId))
 // });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Treasure)
+// export default connect(mapStateToProps, mapDispatchToProps)(Treasure);

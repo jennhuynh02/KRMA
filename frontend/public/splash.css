@@ -111,3 +111,36 @@
   background-color: black;
   color: black;
 }
+
+.mainpage-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  font-size: 15px;
+  padding: 20px 0px;
+}
+
+.programmer {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.programmer a:hover {
+  opacity: 70%;
+}
+
+.programmer > a img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.authors {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}

@@ -15,6 +15,7 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -49,6 +50,12 @@ class SignupForm extends React.Component {
     signup(user, history);
   }
 
+  demoLogin() {
+    const { login } = this.props;
+    const user = { email: 'treasure@treasurebox.com', password: '123456' };
+    login(user);
+  }
+
   renderErrors() {
     const { errors } = this.state;
     return (
@@ -74,12 +81,12 @@ class SignupForm extends React.Component {
       <div className="session-form-main">
         <div className="session-form-container">
           <div className="session-form-switch">
-            <button type="button" className="session-buttons" onClick={() => window.location.href = '/#/signup'}>Sign Up</button>
+            <button type="button" className="session-buttons" onClick={() => window.location.href = '/#/login'}>Log In</button>
             <button type="button" className="session-buttons" onClick={this.demoLogin}>Demo User</button>
           </div>
           <div className="session-form">
             <form onSubmit={this.handleSubmit}>
-              <h2 className="form-title">Signup</h2>
+              <h2 className="form-title">Welcome</h2>
               <label>
                 <input
                   type="text"
@@ -120,7 +127,10 @@ class SignupForm extends React.Component {
                 />
                 Confirm Password
               </label>
-              <button className="session-buttons">Sign Up</button>
+              {(email && firstName && lastName && password && password2
+                ? <button className="session-buttons">Sign Up</button>
+                : null
+              )}
             </form>
             <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] === ' ' ? this.renderErrors() : '') : ''}</div>
           </div>

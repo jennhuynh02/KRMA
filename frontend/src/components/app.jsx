@@ -8,7 +8,7 @@ import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import Modal from './modal/modal';
 
-import MainPage from './main/main_page';
+// import MainPage from './main/main_page';
 import SplashPageContainer from './splash_page/splash_page_container';
 // Admin
 import ReportsContainer from './moderator/report_inbox/reports_container';
@@ -23,8 +23,6 @@ const App = () => (
       <AuthRoute exact path="/" component={SplashPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      
-      <AuthRoute exact path="/enter" component={MainPage} />
       <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
       <Route exact path="/treasurebox" component={TreasureBoxContainer} />

@@ -1,4 +1,4 @@
-// // mark for delete, i don't think we ever use this component
+// TBD
 
 // import React from 'react';
 // import { withRouter } from 'react-router-dom';
