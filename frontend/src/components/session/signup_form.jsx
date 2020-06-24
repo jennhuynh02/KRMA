@@ -55,7 +55,7 @@ class SignupForm extends React.Component {
       <ul>
         <br />
         {Object.keys(errors).map((error, i) => (
-          <li key={`errors-${i}`}>
+          <li key={`errors-${i}`} className="errors">
             {errors[error]}
           </li>
         ))}
@@ -71,58 +71,60 @@ class SignupForm extends React.Component {
 
     errors = Object.values(errors);
     return (
-      <div className="signup-session-form">
-        <form onSubmit={this.handleSubmit}>
-          <h2 className="form-title">Signup</h2>
-          <br />
-          <input
-            className="form-inputs"
-            type="text"
-            value={firstName}
-            onChange={this.update('firstName')}
-          />
-          <br />
-          <label>First Name</label>
-          <br />
-          <input
-            className="form-inputs"
-            type="text"
-            value={lastName}
-            onChange={this.update('lastName')}
-          />
-          <br />
-          <label>Last Name</label>
-          <br />
-          <input
-            className="form-inputs"
-            type="text"
-            value={email}
-            onChange={this.update('email')}
-          />
-          <br />
-          <label>Email</label>
-          <br />
-          <input
-            className="form-inputs"
-            type="password"
-            value={password}
-            onChange={this.update('password')}
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <input
-            className="form-inputs"
-            type="password"
-            value={password2}
-            onChange={this.update('password2')}
-          />
-          <br />
-          <label>Confirm Password</label>
-          <br />
-          <button className="session-buttons">Sign Up</button>
-        </form>
-        <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] === ' ' ? this.renderErrors() : '') : ''}</div>
+      <div className="session-form-main">
+        <div className="session-form-container">
+          <div className="session-form-switch">
+            <button type="button" className="session-buttons" onClick={() => window.location.href = '/#/signup'}>Sign Up</button>
+            <button type="button" className="session-buttons" onClick={this.demoLogin}>Demo User</button>
+          </div>
+          <div className="session-form">
+            <form onSubmit={this.handleSubmit}>
+              <h2 className="form-title">Signup</h2>
+              <label>
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={this.update('firstName')}
+                />
+                First Name
+              </label>
+              <label>
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={this.update('lastName')}
+                />
+                Last Name
+              </label>
+              <label>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={this.update('email')}
+                />
+                Email
+              </label>
+              <label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={this.update('password')}
+                />
+                Password
+              </label>
+              <label>
+                <input
+                  type="password"
+                  value={password2}
+                  onChange={this.update('password2')}
+                />
+                Confirm Password
+              </label>
+              <button className="session-buttons">Sign Up</button>
+            </form>
+            <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] === ' ' ? this.renderErrors() : '') : ''}</div>
+          </div>
+        </div>
       </div>
     );
   }

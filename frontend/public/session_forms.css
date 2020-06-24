@@ -1,0 +1,87 @@
+.session-form-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("temple.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.session-form-switch {
+  display: flex;
+  align-items: inherit;
+  justify-content: flex-end;
+  margin-right: 40px;
+}
+
+.session-form-switch button:last-child {
+  background-color: #4c5444;
+  border-color: #4c5444;
+  color: #eedec3;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.session-form form, label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-form label {
+  margin-top: 10px;
+}
+
+.form-title {
+  padding: 20px;
+  font-weight: 200;
+  font-size: 50px;
+}
+
+.session-form input {
+  background-color: transparent;
+  border-bottom: solid 2px black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 200px;
+  font-size: 18px;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.session-form label {
+  font-size: 18px;
+}
+
+.session-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 5px 0px 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 16px;
+  color: black;
+  background: none;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.4s;
+}
+
+.session-buttons:hover {
+  opacity: 70%;
+}
+
+.errors {
+  color: red;
+  font-weight: 500;
+}

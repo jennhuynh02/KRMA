@@ -1,0 +1,34 @@
+.mainpage-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  font-size: 15px;
+  background-color: lightgray;
+  padding: 20px 0px;
+}
+
+.programmer {
+  display: flex;
+  align-items: center;
+}
+
+.programmer a:hover {
+  opacity: 70%;
+}
+
+.programmer > a img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.authors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 15px;
+}

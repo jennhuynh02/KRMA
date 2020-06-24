@@ -11,9 +11,8 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
-    this.handleDemoLoginButton = this.handleDemoLoginButton.bind(this);
-    this.handleModeratorLoginButton = this.handleModeratorLoginButton.bind(this);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -30,20 +29,16 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const user = { email: this.state.email, password: this.state.password };
-    this.props.login(user);
+    const { login } = this.props;
+    const { email, password } = this.state;
+    const user = { email, password };
+    login(user);
   }
 
-  handleDemoLoginButton(e) {
-    e.preventDefault();
+  demoLogin() {
+    const { login } = this.props;
     const user = { email: 'treasure@treasurebox.com', password: '123456' };
-    this.props.login(user);
-  }
-
-  handleModeratorLoginButton(e) {
-    e.preventDefault();
-    const user = { email: 'admin@treasurebox.com', password: '123456' };
-    this.props.login(user);
+    login(user);
   }
 
   renderErrors() {
@@ -52,7 +47,7 @@ class LoginForm extends React.Component {
       <ul>
         <br />
         {Object.keys(errors).map((error, i) => (
-          <li key={`errors-${i}`}>
+          <li key={`errors-${i}`} className="errors">
             {errors[error]}
           </li>
         ))}
@@ -66,34 +61,38 @@ class LoginForm extends React.Component {
     errors = Object.values(errors);
 
     return (
-      <div className="login-session-form">
-        <form onSubmit={this.handleSubmit}>
-          <h2 className="form-title">Login</h2>
-          <br />
-          <br />
-          <input
-            className="form-inputs"
-            type="text"
-            value={email}
-            onChange={this.update('email')}
-          />
-          <br />
-          <label>Email</label>
-          <br />
-          <input
-            className="form-inputs"
-            type="password"
-            value={password}
-            onChange={this.update('password')}
-          />
-          <br />
-          <label>Password</label>
-          <br />
-          <button className="session-buttons">Log In</button>
-        </form>
-        <button type="button" className="auto-log-session-buttons" onClick={this.handleModeratorLoginButton}>Moderator Portal</button>
-        <button type="button" className="auto-log-session-buttons" onClick={this.handleDemoLoginButton}>Demo User Login</button>
-        <div>{errors.length > 0 ? (errors[0][errors[0].length - 1] !== ' ' ? this.renderErrors() : '') : ''}</div>
+      <div className="session-form-main">
+        <div className="session-form-container">
+          <div className="session-form-switch">
+            <button type="button" className="session-buttons" onClick={() => window.location.href = '/#/signup'}>Sign Up</button>
+            <button type="button" className="session-buttons" onClick={this.demoLogin}>Demo User</button>
+          </div>
+          <div className="session-form">
+            <form onSubmit={this.handleSubmit}>
+              <h2 className="form-title">Welcome Back</h2>
+              <label>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={this.update('email')}
+                />
+                Email
+              </label>
+              <label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={this.update('password')}
+                />
+                Password
+              </label>
+              {(email.length !== 0 && password.length !== 0 ? <button type="submit" className="session-buttons">Log In</button> : null)}
+            </form>
+            <div>
+              {errors.length > 0 ? (errors[0][errors[0].length - 1] !== ' ' ? this.renderErrors() : '') : ''}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

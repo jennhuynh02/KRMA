@@ -11,7 +11,7 @@
 .splash-page-header {
   display: flex;
   justify-content: flex-end;
-  height: 60px;
+  margin-right: 40px;
 }
 
 /* for button */
@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 40px;
+  margin-top: 20px;
   border: 2px solid black;
   border-radius: 5px;
   padding: 10px 40px;
@@ -37,10 +37,7 @@
 }
 
 .button-container > button:hover {
-  /* background-color: white; */
   opacity: 50%;
-  border-color: black;
-  color: black;
 }
 
 .login-dropdown {
