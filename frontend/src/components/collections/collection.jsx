@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminBarContainer from '../adminbar/admin_bar_container';
-import TreasureItemContainer from './item_container';
+import ItemContainer from './item_container';
 import NavBarContainer from '../navbar/navbar_container';
 
 class Collection extends React.Component {
@@ -16,20 +16,19 @@ class Collection extends React.Component {
     } = this.props;
 
     return (
-      <div className="collection-page">
+      <div className="collection-page-container">
         <NavBarContainer />
-        <AdminBarContainer />
-        <h1 className="collection-header">
-          {firstName}
-          &#39;s Treasures
-        </h1>
-        <div className="the-collection">
+        {(admin ? <AdminBarContainer /> : null)}
+        <div className="collection-header">
+          <h1>Your Karma Collection</h1>
+        </div>
+        <div className="collection-contents">
           { admin // show user items or admin items?
             ? allTreasures.map((treasure) => (
-              <TreasureItemContainer key={treasure._id} treasure={treasure} />
+              <ItemContainer key={treasure._id} treasure={treasure} />
             ))
             : userTreasures.map((treasure) => (
-              <TreasureItemContainer key={treasure._id} treasure={treasure} />
+              <ItemContainer key={treasure._id} treasure={treasure} />
             ))}
         </div>
       </div>

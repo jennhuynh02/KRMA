@@ -1,19 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class AdminBar extends React.PureComponent {
-  handleClick(path) {
-    window.location.href = `/#/${path}`
-  }
-
   render() {
+    const { logout } = this.props;
+
     return (
-      <div>
-        <div className="admin-bar-navigators">
-          <span onClick={() => this.handleClick('contents')}>Monitor Contents</span>
-          <span onClick={() => this.handleClick('reports')}>View Flagged Reports</span>
-          <span onClick={() => this.handleClick('users')}>All Users</span>
-          <span onClick={() => this.handleClick('treasureisland')}>Collected Treasure</span>
-          <span onClick={() => this.handleClick('collection')}>My Collection</span>
+      <div className="navbar-container">
+        <div className="navbar-left">
+          <Link to='/treasureisland'><h1>KRMA</h1></Link>
+        </div>
+        <div className="navbar-right">
+          <div className="navbar-items">
+            <Link to='/contents'>Content</Link>
+            <Link to='/users'>Users</Link>
+            <Link to='/reports'>Flagged</Link>
+            <div onClick={() => logout()}>Logout</div>
+          </div>
         </div>
       </div>
     );

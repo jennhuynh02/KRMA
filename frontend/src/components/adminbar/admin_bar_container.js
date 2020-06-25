@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import AdminBar from './admin_bar';
+import { logout } from '../../actions/session_actions';
 
-const mapStateToProps = (state) => ({
+const mapState = (state) => ({
   loggedIn: state.session.isAuthenticated,
   user: state.session.user,
 });
 
-export default connect(mapStateToProps)(AdminBar);
+const mapDispatch = (dispatch) => ({
+  logout: () => dispatch(logout()),
+});
+
+export default connect(mapState, mapDispatch)(AdminBar);

@@ -1,15 +1,28 @@
-.collection-page {
-  text-align: -webkit-center;
+/* collection page */
+.collection-page-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("ocean.jpg");
+  background-size: cover;
+  overflow: scroll;
+  position: relative;
+  text-align: center;
 }
 
-.collection-header {
+.collection-header h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 20px;
 }
 
-.the-collection {
-  font-size: 13px;
-  margin-top: 50px;
+.collection-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* individual collection item */
 .collection-item {
   border: solid 5px white;
   border-radius: 10px;
@@ -27,6 +40,5 @@
 }
 
 .collection-item-buttons:hover {
-  /* cursor: pointer; */
   color: brown;
 }

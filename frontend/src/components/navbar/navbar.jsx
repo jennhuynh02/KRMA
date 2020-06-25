@@ -15,7 +15,7 @@ class NavBar extends Component {
       openModal({ retrieve: -1 });
       currentUser.keyCount -= 1;
     } else {
-      alert('To receive good karma, you must first give good karma. Add something!');
+      alert('You currently have 0 karma. To receive good karma, you must first give good karma. Add something!');
     }
   }
 
@@ -24,7 +24,7 @@ class NavBar extends Component {
     return (
       <div className="navbar-container">
         <div className="navbar-left">
-          <h1>KRMA</h1>
+          <Link to='/treasureisland'><h1>KRMA</h1></Link>
         </div>
         <div className="navbar-right">
           <div className="navbar-items">

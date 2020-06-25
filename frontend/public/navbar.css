@@ -6,9 +6,19 @@
   margin: 20px 40px;
 }
 
-.navbar-left h1{
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left h1 {
   color:white;
   font-weight: 300;
+  font-size: 40px;
+}
+
+.navbar-left > a {
+  margin: 0;
 }
 
 .navbar-right {
@@ -74,3 +84,17 @@
 
 
 /* admin nav bar */
+/* .admin-bar-navigators {
+  background-color: beige;
+  width: 150px;
+  height: -webkit-fill-available;
+  line-height: 40px;
+  padding-left: 25px;
+  position: fixed;
+  top: 50px;
+}
+
+.admin-bar-navigators span {
+  float: left;
+  font-size: 13px;
+} */

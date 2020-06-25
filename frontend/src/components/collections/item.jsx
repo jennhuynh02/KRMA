@@ -1,7 +1,6 @@
 import React from 'react';
-import Modal from '../modal/modal';
 
-class TreasureItem extends React.Component {
+class Item extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +12,8 @@ class TreasureItem extends React.Component {
   }
 
   handleDelete(e) {
-    const { deleteTreasure, fetchTreasures, treasure } = this.props;
     e.preventDefault();
+    const { deleteTreasure, fetchTreasures, treasure } = this.props;
     deleteTreasure(treasure._id);
     fetchTreasures();
     window.location.reload();
@@ -37,16 +36,17 @@ class TreasureItem extends React.Component {
   }
 
   update() {
+    const { treasure } = this.props;
     return (e) => this.setState({
       reportMessage: e.currentTarget.value,
       reported: true,
-      creatorId: this.props.treasure.creatorId,
+      creatorId: treasure.creatorId,
     });
   }
 
   render() {
     const {
-      treasure, imgUrl, deleteTreasure, openModal, closeModal,
+      treasure, deleteTreasure, openModal, closeModal,
     } = this.props;
     let id;
     id = treasure._id;
@@ -78,4 +78,4 @@ class TreasureItem extends React.Component {
   }
 }
 
-export default TreasureItem;
+export default Item;

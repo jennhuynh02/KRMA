@@ -7,21 +7,6 @@ body {
   min-height: 100vh;
 }
 
-.admin-bar-navigators {
-  background-color: beige;
-  width: 150px;
-  height: -webkit-fill-available;
-  line-height: 40px;
-  padding-left: 25px;
-  position: fixed;
-  top: 50px;
-}
-
-.admin-bar-navigators span {
-  float: left;
-  font-size: 13px;
-}
-
 /* div */
  .dropdown {
    position: relative;
