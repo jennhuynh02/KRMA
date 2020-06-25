@@ -46,25 +46,38 @@ class Item extends React.Component {
 
   render() {
     const {
-      treasure, deleteTreasure, openModal, closeModal,
+      treasure, deleteTreasure, openModal, admin,
     } = this.props;
 
-    let content;
-    if (treasure.type === 'media') {
-      content = <img className="content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
-    } else {
-      content = <h1 className="content-text">{ treasure.url }</h1>;
-    }
+    // let content;
+    // if (treasure.type === 'media') {
+    //   content = <img className="content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
+    // } else {
+    //   content = <h1 className="content-text">{ treasure.url }</h1>;
+    // }
 
     return (
       <div>
         <div className="content-main">
           <div className="item-dropdown">
             <i className="fa fa-bars" aria-hidden="true"></i>
-            <ul className="item-dropdown-content">
+            {(admin
+              ? (
+                <ul className="item-dropdown-content">
+                  <li onClick={this.handleDelete}>Discard</li>
+                </ul>
+              )
+              : (
+                <ul className="item-dropdown-content">
+                  <li onClick={this.handleDelete}>Discard</li>
+                  <li onClick={(e) => openModal({ report: treasure })}>Report</li>
+                </ul>
+              )
+            )}
+            {/* <ul className="item-dropdown-content">
               <li onClick={this.handleDelete}>Discard</li>
               <li onClick={(e) => openModal({ report: treasure })}>Report</li>
-            </ul>
+            </ul> */}
           </div>
           <div className="content-container">
             {(treasure.type === 'media')

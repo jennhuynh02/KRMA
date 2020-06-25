@@ -23,15 +23,15 @@ class Collection extends React.Component {
       <div className="collection-page-container">
         {(admin ? <AdminBarContainer /> : <NavBarContainer />)}
         <div className="collection-header">
-          <h1>Your Karma Collection</h1>
+          {(admin ? <h1>All Karma</h1> : <h1>Your Karma Collection</h1>)}
         </div>
         <div className="collection-contents">
           { admin
             ? allTreasures.map((treasure) => (
-              <ItemContainer key={treasure._id} treasure={treasure} />
+              <ItemContainer key={treasure._id} treasure={treasure} admin={admin} />
             ))
             : userTreasures.map((treasure) => (
-              <ItemContainer key={treasure._id} treasure={treasure} />
+              <ItemContainer key={treasure._id} treasure={treasure} admin={admin} />
             ))}
         </div>
         <div className="scroll" onClick={() => this.scrollToTop()}>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { deleteUser } from '../../../actions/user_actions';
-import User from './u';
+import User from './user_item';
 
 const mapStateToProps = (state, { user }) => ({
   user,

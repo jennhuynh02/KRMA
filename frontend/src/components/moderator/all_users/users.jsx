@@ -1,5 +1,5 @@
 import React from 'react';
-import UserContainer from './u_container';
+import UserContainer from './user_item_container';
 import AdminBarContainer from '../../adminbar/admin_bar_container';
 
 class UsersPage extends React.Component {

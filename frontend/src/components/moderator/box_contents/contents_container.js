@@ -1,3 +1,5 @@
+// TBD
+
 import { connect } from 'react-redux';
 import { fetchTreasures } from '../../../actions/treasure_actions';
 import TreasureContentsPage from './contents';
