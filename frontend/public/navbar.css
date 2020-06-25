@@ -43,11 +43,13 @@
   font-size: 25px;
   margin-left: 30px;
   font-weight: 200;
-  opacity: 50%;
+  opacity: 1;
+  text-align: initial;
 }
 
 .navbar-items div:hover, a:hover {
   cursor: pointer;
+  color: lightgray;
   opacity: 1;
 }
 
@@ -74,11 +76,18 @@
   color: black;
   font-size: 18px;
   font-weight: 300;
-  background-color: #c4c4c4;  
+  background-color: #ddd;  
 }
 
 .navbar-dropdown-content > li:hover {
   background-color: white;
   color: black;
   cursor: pointer
+}
+
+.user-karma {
+  margin-right: 30px;
+  font-size: 25px;
+  font-weight: 200;
+  opacity: 1;
 }

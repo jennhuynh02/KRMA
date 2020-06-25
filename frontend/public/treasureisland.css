@@ -9,16 +9,6 @@
   position: relative;
 }
 
-/* .main > span {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 200px;
-  width: 100%;
-  color: white;
-  font-style: italic;
-} */
-
 .counter {
   display: flex;
   align-items: flex-end;
@@ -30,17 +20,4 @@
 .counter span {
   margin-bottom: 10px;
   font-size: 20px;
-}
-
-/* for uploading docs */
-.upload-photo-input {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 25px;
-}
-
-.quote-input {
-  width: 400px;
-  height: 170px;
-  font-size: 18px;
 }

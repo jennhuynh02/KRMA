@@ -81,7 +81,6 @@ class RetrieveTreasure extends React.Component {
     return (
       <div className="content-item">
         { content }
-        <br />
         <input className="admin-delete-content" type="text" onChange={this.update()} value={reportMessage} placeholder="(Optional) Include reason for report:" />
         <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AWSCreateTreasure extends React.Component {
+class CreateImageTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,29 +53,25 @@ class AWSCreateTreasure extends React.Component {
   render() {
     const { closeModal, openModal } = this.props;
     const { photoUrl, error } = this.state;
-    const preview = photoUrl ? <img className="content-img" src={photoUrl} alt="photourl" /> : null;
+
     return (
-      <div className="bucket-box">
-        <div>
-          <h3>
-            Add a Photo to the Treasure Box
-          </h3>
-          <p> Max 4MB </p>
+      <div className="add-karma-main">
+        <div className="add-karma-title">
+          <h3>Add a Photo</h3>
         </div>
-        <div>
+        <div className="add-karma-input">
+          {(photoUrl ? <img className="content-img" src={photoUrl} alt="photourl" /> : null)}
           <input type="file" className="upload-photo-input" onChange={this.handleFile} />
-          <div>
-            {error}
-            {preview}
-            <button type="button" className="upload-quote-button" onClick={this.handleUpload}>
-              Upload this treasure for a key!
-            </button>
-            <button type="button" className="upload-quote-button" onClick={() => openModal({ retrieve: -1 })}>
-              Retrieve Treasure Instead
-            </button>
-            <button type="button" className="upload-quote-button" onClick={(e) => closeModal(e)}>
-              Cancel
-            </button>
+          <div className="add-karma-input">
+            <div className="add-karma-button-container">
+              <button type="button" onClick={this.handleUpload}>
+                Add Karma
+              </button>
+              <button type="button" onClick={(e) => closeModal(e)}>
+                Cancel
+              </button>
+            </div>
+            <span className="add-karma-errors">{error}</span>
           </div>
         </div>
       </div>
@@ -83,4 +79,4 @@ class AWSCreateTreasure extends React.Component {
   }
 }
 
-export default AWSCreateTreasure;
+export default CreateImageTreasure;

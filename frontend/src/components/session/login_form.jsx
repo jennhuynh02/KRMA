@@ -45,7 +45,6 @@ class LoginForm extends React.Component {
     const { errors } = this.state;
     return (
       <ul>
-        <br />
         {Object.keys(errors).map((error, i) => (
           <li key={`errors-${i}`} className="errors">
             {errors[error]}

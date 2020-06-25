@@ -17,12 +17,6 @@ class TreasureIsland extends React.Component {
           ? <AdminBarContainer />
           : <NavBarContainer />
         )}
-        <div className="bucket-box">
-          <div className="counter">
-            <span>Your Karma:</span>
-            <span>{currentUser.keyCount}</span>
-          </div>
-        </div>
       </div>
     );
   }

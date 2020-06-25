@@ -20,7 +20,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const { openModal, logout } = this.props;
+    const { openModal, logout, currentUser } = this.props;
     return (
       <div className="navbar-container">
         <div className="navbar-left">
@@ -28,15 +28,16 @@ class NavBar extends Component {
         </div>
         <div className="navbar-right">
           <div className="navbar-items">
+            <span className="user-karma">Your Karma: {currentUser.keyCount}</span>
             <div className="navbar-dropdown">
               <div>Add</div>
               <ul className="navbar-dropdown-content">
                 <li onClick={() => openModal({ photo: -1 })}>Upload a Photo</li>
-                <li onClick={() => openModal({ type: 'Share a quote!' })}>Share a Quote</li>
-                <li onClick={() => openModal({ type: 'Recommend a book!' })}>Recommend a Book</li>
-                <li onClick={() => openModal({ type: 'Link a song!' })}>Link a Song</li>
-                <li onClick={() => openModal({ type: 'Recommend event!' })}>Recommend an Event</li>
-                <li onClick={() => openModal({ type: 'Tell a story' })}>Tell a Story</li>
+                <li onClick={() => openModal({ type: 'Share a Quote' })}>Share a Quote</li>
+                <li onClick={() => openModal({ type: 'Recommend a Book' })}>Recommend a Book</li>
+                <li onClick={() => openModal({ type: 'Link a Song' })}>Link a Song</li>
+                <li onClick={() => openModal({ type: 'Recommend an Event' })}>Recommend an Event</li>
+                <li onClick={() => openModal({ type: 'Share a Story' })}>Share a Story</li>
               </ul>
             </div>
             <div onClick={this.getTreasure}>Redeem</div>

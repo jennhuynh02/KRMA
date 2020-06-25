@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -46,6 +47,11 @@ button:focus {
 }
 
 /* custom reset */
+
+textarea {
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
 h1 {
  font-size: 2em;
  font-weight: bolder;
@@ -88,4 +94,9 @@ button:hover, a:hover {
 
 a {
 	text-decoration: none;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
 }

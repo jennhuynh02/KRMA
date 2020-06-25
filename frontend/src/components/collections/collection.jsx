@@ -10,6 +10,10 @@ class Collection extends React.Component {
     getUserTreasures(currentUser._id);
   }
 
+  scrollToTop() {
+    return () => {window.scrollTo(0, 0)};
+  }
+
   render() {
     const {
       allTreasures, userTreasures, admin, firstName
@@ -22,13 +26,16 @@ class Collection extends React.Component {
           <h1>Your Karma Collection</h1>
         </div>
         <div className="collection-contents">
-          { admin // show user items or admin items?
+          { admin
             ? allTreasures.map((treasure) => (
               <ItemContainer key={treasure._id} treasure={treasure} />
             ))
             : userTreasures.map((treasure) => (
               <ItemContainer key={treasure._id} treasure={treasure} />
             ))}
+        </div>
+        <div className="scroll" onClick={() => this.scrollToTop()}>
+          <i className="fa fa-arrow-up" aria-hidden="true"></i>
         </div>
       </div>
     );

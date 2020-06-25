@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { closeModal } from '../../actions/modal_actions';
-import CreateTreasureContainer from '../treasure/create_treasure_container';
-import CreateStringTreasure from '../create_string_treasure/create_string_treasure_container';
+import CreateImageTreasureContainer from '../treasure/create_image_treasure_container';
+import CreateStringTreasureContainer from '../treasure/create_string_treasure_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 import ImageContainer from '../image/image_container';
 import ReportTreasureContainer from '../report_treasure/report_treasure_container';
@@ -15,10 +15,10 @@ const Modal = ({ modal, closeModal }) => {
   let component;
   switch (Object.keys(modal)[0]) {
     case 'photo':
-      component = <CreateTreasureContainer />;
+      component = <CreateImageTreasureContainer />;
       break;
     case 'type':
-      component = <CreateStringTreasure type={modal.type} />;
+      component = <CreateStringTreasureContainer type={modal.type} />;
       break;
     case 'retrieve':
       component = <RetrieveTreasureContainer />;

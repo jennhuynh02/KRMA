@@ -60,7 +60,7 @@ class Item extends React.Component {
       <div>
         <div className="content-main">
           <div className="item-dropdown">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+            <i className="fa fa-bars" aria-hidden="true"></i>
             <ul className="item-dropdown-content">
               <li onClick={this.handleDelete}>Discard</li>
               <li onClick={(e) => openModal({ report: treasure })}>Report</li>
