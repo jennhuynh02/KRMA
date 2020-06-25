@@ -18,7 +18,7 @@ const App = () => (
       <AuthRoute exact path="/" component={SplashPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <ProtectedRoute exact path="/treasureisland" component={TreasureIslandContainer} />
+      <ProtectedRoute exact path="/main" component={TreasureIslandContainer} />
       <ProtectedRoute exact path="/collection" component={CollectionContainer} />
       <AdminRoute exact path="/reports" component={ReportsContainer} />
       <AdminRoute exact path="/contents" component={TreasureContentsContainer} />

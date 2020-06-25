@@ -15,13 +15,14 @@ class User extends React.Component {
   render() {
     const { user } = this.props;
     return (
-      <div>
-        <li className="user-box">
+      <div className="user-box">
+        <div>
           <h2>{user.firstName}{' '}{user.lastName}</h2>
+        </div>
+        <div>
           <h2>{user.email}</h2>
-          <br />
-          <button type="button" className="user-delete-button" onClick={this.deleteUser}>Delete This User</button>
-        </li>
+        </div>
+        <button type="button" className="user-delete-button" onClick={this.deleteUser}>Delete</button>
       </div>
     );
   }

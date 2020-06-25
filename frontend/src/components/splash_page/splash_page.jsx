@@ -43,7 +43,7 @@ class Splash extends React.Component {
       <div className="splash-page-full" onClick={this.handleClickOutside}>
         <div className="splash-page-header">
           <div className="button-container" ref={this.container}>
-            <button type="button" onClick={this.handleClick}>Start</button>
+            <button type="button" onClick={this.handleClick}>Begin</button>
             {(open
               ? (
                 <div className="login-dropdown">

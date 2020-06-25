@@ -41,7 +41,7 @@ class CreateImageTreasure extends React.Component {
         selectedFile: '',
       });
       currentUser.keyCount += 1;
-      window.location.href = '/#/treasureisland';
+      window.location.href = '/#/main';
       closeModal();
     } else {
       this.setState({
@@ -57,7 +57,7 @@ class CreateImageTreasure extends React.Component {
     return (
       <div className="add-karma-main">
         <div className="add-karma-title">
-          <h3>Add a Photo</h3>
+          <h3>Upload a Photo</h3>
         </div>
         <div className="add-karma-input">
           {(photoUrl ? <img className="content-img" src={photoUrl} alt="photourl" /> : null)}

@@ -8,7 +8,7 @@ class AdminBar extends React.PureComponent {
     return (
       <div className="navbar-container">
         <div className="navbar-left">
-          <Link to='/treasureisland'><h1>KRMA</h1></Link>
+          <Link to='/main'><h1>KRMA</h1></Link>
         </div>
         <div className="navbar-right">
           <div className="navbar-items">

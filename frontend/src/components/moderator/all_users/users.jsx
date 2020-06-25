@@ -1,6 +1,5 @@
 import React from 'react';
 import UserContainer from './u_container';
-import NavBarContainer from '../../navbar/navbar_container';
 import AdminBarContainer from '../../adminbar/admin_bar_container';
 
 class UsersPage extends React.Component {
@@ -12,16 +11,17 @@ class UsersPage extends React.Component {
   render() {
     const { allUsers } = this.props;
     return (
-      <div className="users-page">
-        <NavBarContainer />
+      <div className="all-users-main">
         <AdminBarContainer />
-        <h1 className="users-page-header">All Treasure Box Users</h1>
+        <h1>All Users</h1>
         {/* <button onClick={() => this.props.resetOwners()}> Reset all Owner Ids </button> */}
-        <ol className="all-users">
-          {allUsers.map((user) => (
-            <UserContainer key={user._id} user={user} />
-          ))}
-        </ol>
+        <div>
+          <ul className="all-users">
+            {allUsers.map((user) => (
+              <li><UserContainer key={user._id} user={user} /></li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }

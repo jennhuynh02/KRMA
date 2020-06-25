@@ -9,7 +9,7 @@ const Auth = ({
     path={path}
     exact={exact}
     render={(props) => (
-      !loggedIn ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+      !loggedIn ? <Component {...props} /> : <Redirect to="/main" />)}
   />
 );
 
@@ -31,7 +31,7 @@ const Admin = ({
   <Route
     {...rest}
     render={(props) => (
-      (loggedIn && (user.email === 'admin@krma.com')) ? <Component {...props} /> : <Redirect to="/treasureisland" />)}
+      (loggedIn && (user.email === 'admin@krma.com')) ? <Component {...props} /> : <Redirect to="/main" />)}
   />
 );
 
