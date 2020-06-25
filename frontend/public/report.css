@@ -1,26 +1,65 @@
-.report-page {
-  text-align: -webkit-center;
+/* main report page */
+.report-page-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("ocean3.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  overflow: scroll;
 }
 
-.reports-page-header {
+.report-header h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 30px;
 }
 
-.report-info {
-  width: 600px;
+.report-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* reported treasure item */
+.report-content-main {
+  width: 500px;
   height: auto;
-  border: solid 1px lightgray;
-  border-radius: 4px;
-  background-color: white;
-  padding-top: 16px 16px 4px 16px;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  background: white;
 }
 
-.admin-reports-buttons:hover {
-  color: brown;
+.report-content-creator  {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.report-content-creator > span {
+  font-size: 25px;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+.report-content-reason {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30px 15px 30px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.report-content-reason span {
+  color: red;
 }
 
 /* user reports a treasure */
-.report-container {
+.add-report-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +71,7 @@
   border-radius: 5px;
 }
 
-.report-title span {
+.add-report-title span {
   display: flex;
   flex-wrap: wrap;
   width: 330px;

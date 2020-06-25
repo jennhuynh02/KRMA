@@ -11,12 +11,12 @@ class Collection extends React.Component {
   }
 
   scrollToTop() {
-    return () => {window.scrollTo(0, 0)};
+    return () => { window.scrollTo(0, 0); };
   }
 
   render() {
     const {
-      allTreasures, userTreasures, admin, firstName
+      allTreasures, userTreasures, admin, firstName,
     } = this.props;
 
     return (
@@ -35,7 +35,7 @@ class Collection extends React.Component {
             ))}
         </div>
         <div className="scroll" onClick={() => this.scrollToTop()}>
-          <i className="fa fa-arrow-up" aria-hidden="true"></i>
+          <i className="fa fa-arrow-up" aria-hidden="true" />
         </div>
       </div>
     );

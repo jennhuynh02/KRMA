@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import ReportedTreasure from './reported_treasure';
-import { deleteUser } from '../../../../actions/user_actions';
-import { updateTreasure, deleteTreasure, updateFullTreasure } from '../../../../actions/treasure_actions';
+import ReportedKarma from './reported_karma';
+import { deleteUser } from '../../../actions/user_actions';
+import { updateTreasure, deleteTreasure, updateFullTreasure } from '../../../actions/treasure_actions';
 
 const mapStateToProps = (state, { treasure }) => ({
   user: state.session.user,
@@ -11,9 +11,9 @@ const mapStateToProps = (state, { treasure }) => ({
 const mapDispatchToProps = (dispatch) => ({
   reportTreasure: (treasure) => dispatch(updateTreasure(treasure)),
   deleteTreasure: (treasureId) => dispatch(deleteTreasure(treasureId)),
-  deleteSelectedUser: (userId) => dispatch(deleteUser(userId)),
+  deleteUser: (userId) => dispatch(deleteUser(userId)),
   updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure)),
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReportedTreasure);
+export default connect(mapStateToProps, mapDispatchToProps)(ReportedKarma);

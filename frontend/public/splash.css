@@ -34,11 +34,9 @@
   transition-property: background-color, border-color, color;
   transition-timing-function: ease;
   transition-duration: 0.2s;
-  /* opacity: 70%; */
 }
 
 .button-container > button:hover {
-  /* opacity: 1; */
   color: #e1cdac;
   background-color: #4c5444;
   border-color: #4c5444;
@@ -92,13 +90,13 @@
 .splash-text-main h1 {
   font-size: 120px;
   font-weight: 300;
-  color: black;
+  color: #4c5444;
   margin-top: 130px; 
 }
 
 .splash-text-main h2 {
   font-weight: 200;
-  color: black;
+  color: #4c5444;
 }
 
 .what-is-krma {
@@ -135,6 +133,10 @@
   font-size: 40px;
   font-weight: 100;
   margin-bottom: 20px;
+}
+
+.programmer > a {
+  margin: 0;
 }
 
 .programmer a:hover {

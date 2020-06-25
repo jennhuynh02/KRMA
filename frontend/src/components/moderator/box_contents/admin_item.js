@@ -23,7 +23,7 @@ class AdminItem extends React.Component {
     id = treasure._id;
     let content;
     if (treasure.type === 'media') {
-      content = <img className="content-img" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
+      content = <img className="upload-content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} />;
     } else {
       content = <h1 className="treasure-text">{ treasure.url }</h1>;
     }

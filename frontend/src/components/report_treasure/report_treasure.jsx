@@ -36,8 +36,8 @@ class ReportTreasure extends React.Component {
     const { closeModal } = this.props;
     const { reportMessage, error } = this.state;
     return (
-      <div className="report-container">
-        <div className="report-title">
+      <div className="add-report-container">
+        <div className="add-report-title">
           <span>
             We're sorry this happened. Please let us know why this Karma is inappropriate.
           </span>
