@@ -13,7 +13,7 @@
   color: white;
   font-size: 40px;
   font-weight: 200;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .collection-contents {
@@ -23,22 +23,69 @@
 }
 
 /* individual collection item */
-.collection-item {
-  border: solid 5px white;
-  border-radius: 10px;
-  color: white;
-  margin: 40px;
+.content-main {
+  width: 500px;
+  height: auto;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  background: white;
+}
+
+.content-image {
+  width: 100%
+}
+.content-text {
+  padding: 0 30px;
+  font-weight: 200;
+  font-size: 2.5vw;
+}
+
+/* div */
+.item-dropdown {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  height: fit-content;
+  justify-content: flex-end;
+  padding: 13px;
 }
 
-.treasure-text {
+/* ul */
+.item-dropdown-content{ 
+  /* font-size: 15px; */
+  display: none;
+  position: relative;
+  background-color: #f9f9f9;
+  width: max-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: auto;
+  border: solid 1px lightgray;
 }
 
-.collection-item-buttons {
+.item-dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100px;
+  margin-top: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
 }
 
-.collection-item-buttons:hover {
-  color: brown;
+.item-dropdown:hover .item-dropdown-content {
+  display: block;
+}
+
+.item-dropdown-content > li {
+  padding: 10px;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: white;  
+}
+
+.item-dropdown-content > li:hover {
+  /* opacity: 70%; */
+  /* background-color: white; */
+  color: red;
+  cursor: pointer
 }

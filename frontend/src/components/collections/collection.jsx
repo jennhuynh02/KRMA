@@ -17,8 +17,7 @@ class Collection extends React.Component {
 
     return (
       <div className="collection-page-container">
-        <NavBarContainer />
-        {(admin ? <AdminBarContainer /> : null)}
+        {(admin ? <AdminBarContainer /> : <NavBarContainer />)}
         <div className="collection-header">
           <h1>Your Karma Collection</h1>
         </div>

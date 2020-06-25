@@ -12,9 +12,9 @@ class AdminBar extends React.PureComponent {
         </div>
         <div className="navbar-right">
           <div className="navbar-items">
-            <Link to='/contents'>Content</Link>
-            <Link to='/users'>Users</Link>
-            <Link to='/reports'>Flagged</Link>
+            <Link to='/users'>All Users</Link>
+            <Link to='/contents'>All Content</Link>
+            <Link to='/reports'>Reported Content</Link>
             <div onClick={() => logout()}>Logout</div>
           </div>
         </div>
