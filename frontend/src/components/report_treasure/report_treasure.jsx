@@ -12,8 +12,8 @@ class ReportTreasure extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    return (e) => this.setState({ reportMessage: e.target.value });
+  handleChange(event) {
+    this.setState({ reportMessage: event.target.value });
   }
 
   handleReport(e) {
@@ -39,7 +39,7 @@ class ReportTreasure extends React.Component {
       <div className="add-report-container">
         <div className="add-report-title">
           <span>
-            We're sorry this happened. Please let us know why this Karma is inappropriate.
+            We&#39;re sorry this happened. Please let us know why this Karma is inappropriate.
           </span>
         </div>
         <div className="add-report-input">

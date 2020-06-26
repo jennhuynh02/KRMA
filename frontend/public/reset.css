@@ -100,3 +100,9 @@ a {
   position: relative;
   min-height: 100vh;
 }
+
+button {
+	transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}

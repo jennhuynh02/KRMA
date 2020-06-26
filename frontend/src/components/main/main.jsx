@@ -1,15 +1,15 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
-import AdminBarContainer from '../adminbar/admin_bar_container';
+import AdminBarContainer from '../admin/adminbar/admin_bar_container';
 
-class TreasureIsland extends React.Component {
+class Main extends React.Component {
   componentDidMount() {
     const { getCurrentUser, currentUser } = this.props;
     getCurrentUser(currentUser._id);
   }
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, openModal } = this.props;
 
     return (
       <div className="main">
@@ -17,9 +17,12 @@ class TreasureIsland extends React.Component {
           ? <AdminBarContainer />
           : <NavBarContainer />
         )}
+        <div className="main-instructions" onClick={() => openModal({instructions: -1})}>
+          <i className="fa fa-question-circle" aria-hidden="true"></i>
+        </div>
       </div>
     );
   }
 }
 
-export default TreasureIsland;
+export default Main;

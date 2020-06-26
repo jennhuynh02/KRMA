@@ -8,13 +8,13 @@ class AdminBar extends React.PureComponent {
     return (
       <div className="navbar-container">
         <div className="navbar-left">
-          <Link to='/main'><h1>KRMA</h1></Link>
+          <Link to="/main"><h1>KRMA</h1></Link>
         </div>
         <div className="navbar-right">
           <div className="navbar-items">
-            <Link to='/users'>All Users</Link>
-            <Link to='/collection'>All Karma</Link>
-            <Link to='/reports'>Reported Karma</Link>
+            <Link to="/users">All Users</Link>
+            <Link to="/collection">All Karma</Link>
+            <Link to="/reports">Reported Karma</Link>
             <div onClick={() => logout()}>Logout</div>
           </div>
         </div>

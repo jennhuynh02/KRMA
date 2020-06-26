@@ -35,7 +35,7 @@
   border-radius: 5px;
   background-color: #213637;
   color: white;
-  padding: 16px;
+  padding: 7px;
   margin-bottom: 10px;
 }
 
@@ -49,17 +49,25 @@
   width: 300px;
 }
 
+.user-box > div:last-child {
+  justify-content: flex-end;
+}
+
 .user-delete-button {
-  padding: 5px 20px;
-  font-size: 13px;
-  color: #213637;
-  border: none;
+  padding: 7px 25px;
+  font-size: 18px;
+  color: white;
+  background-color: #213637;
+  border: 1px solid white;
   border-radius: 3px;
-  background-color: white;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
 }
 
 .user-delete-button:hover {
-  padding: 5px 20px;
-  font-size: 13px;
-  background-color: #ddd;
+  color: #213637;
+  font-weight: 300;
+  background-color: white;
+
 }

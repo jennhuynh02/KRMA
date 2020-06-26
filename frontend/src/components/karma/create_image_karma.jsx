@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CreateImageTreasure extends React.Component {
+class CreateImageKarma extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,33 +45,38 @@ class CreateImageTreasure extends React.Component {
       closeModal();
     } else {
       this.setState({
-        error: 'Please upload file',
+        error: 'Please upload a file',
       });
     }
   }
 
   render() {
-    const { closeModal, openModal } = this.props;
+    const { closeModal } = this.props;
     const { photoUrl, error } = this.state;
 
     return (
       <div className="add-karma-main">
-        <div className="add-karma-title">
-          <h3>Upload a Photo</h3>
+        <div className="add-karma-left">
+          <img src="rocks.jpg" alt="rocks" />
         </div>
-        <div className="add-karma-input">
-          {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : null)}
-          <input type="file" className="upload-photo-input" onChange={this.handleFile} />
-          <div className="add-karma-input">
-            <div className="add-karma-button-container">
-              <button type="button" onClick={this.handleUpload}>
-                Add Karma
-              </button>
-              <button type="button" onClick={(e) => closeModal(e)}>
-                Cancel
-              </button>
+        <div className="add-karma-right">
+          <div onClick={() => closeModal()}>
+            <i class="fa fa-close"></i>
+          </div>
+          <div className="add-karma-title">
+            <h3>Upload a Photo</h3>
+          </div>
+          <div className="add-karma-input-image">
+            {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : null)}
+            <input type="file" className="upload-photo-input" onChange={this.handleFile} />
+            <div className="add-karma-input">
+              <div className="add-karma-button-container">
+                <div type="button" onClick={this.handleUpload}>
+                  Add Karma
+                </div>
+              </div>
+              <span className="add-karma-errors">{error}</span>
             </div>
-            <span className="add-karma-errors">{error}</span>
           </div>
         </div>
       </div>
@@ -79,4 +84,4 @@ class CreateImageTreasure extends React.Component {
   }
 }
 
-export default CreateImageTreasure;
+export default CreateImageKarma;

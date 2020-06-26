@@ -1,6 +1,6 @@
 import React from 'react';
 import ReportedTreasureContainer from './reported_karma_container';
-import AdminBarContainer from '../../adminbar/admin_bar_container';
+import AdminBarContainer from '../adminbar/admin_bar_container';
 
 class ReportsPage extends React.Component {
   componentDidMount() {

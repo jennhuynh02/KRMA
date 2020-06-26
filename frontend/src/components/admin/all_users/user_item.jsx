@@ -22,7 +22,9 @@ class User extends React.Component {
         <div>
           <h2>{user.email}</h2>
         </div>
-        <button type="button" className="user-delete-button" onClick={this.deleteUser}>Delete</button>
+        <div className="user-delete-button-container">
+          <div type="button" className="user-delete-button" onClick={this.deleteUser}>Delete</div>
+        </div>
       </div>
     );
   }

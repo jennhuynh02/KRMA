@@ -4,9 +4,7 @@ class Image extends React.PureComponent {
   render() {
     const { imgUrl } = this.props;
     return (
-      <div>
-        <img src={imgUrl} alt="img" />
-      </div>
+      <img className="image-popout-container" src={imgUrl} alt="img" />
     );
   }
 }

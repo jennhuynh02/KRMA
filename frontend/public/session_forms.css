@@ -15,10 +15,39 @@
   margin-right: 40px;
 }
 
+.session-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 5px 0px 5px;
+  border: 2px solid #4c5444;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 16px;
+  color: #4c5444;
+  background: none;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+
+.session-buttons:hover {
+  color: #e1cdac;
+  background-color: #4c5444;
+  border-color: #4c5444;
+}
+
 .session-form-switch button:last-child {
   background-color: #4c5444;
   border-color: #4c5444;
-  color: #eedec3;
+  color: #e1cdac;
+  transition-property: opacity;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+
+.session-form-switch button:last-child:hover {
+  opacity: 70%;
 }
 
 .session-form {
@@ -46,11 +75,11 @@
 
 .session-form input {
   background-color: transparent;
-  border-bottom: solid 2px black;
+  border-bottom: solid 1px black;
   border-top: none;
   border-left: none;
   border-right: none;
-  width: 200px;
+  width: 300px;
   font-size: 18px;
   font-weight: 100;
   text-align: center;
@@ -59,26 +88,6 @@
 
 .session-form label {
   font-size: 18px;
-}
-
-.session-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 5px 0px 5px;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 10px 40px;
-  font-size: 16px;
-  color: black;
-  background: none;
-  transition-property: background-color, border-color, color;
-  transition-timing-function: ease;
-  transition-duration: 0.4s;
-}
-
-.session-buttons:hover {
-  opacity: 70%;
 }
 
 .errors {

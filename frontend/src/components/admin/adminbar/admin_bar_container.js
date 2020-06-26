@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AdminBar from './admin_bar';
-import { logout } from '../../actions/session_actions';
+import { logout } from '../../../actions/session_actions';
 
 const mapState = (state) => ({
   loggedIn: state.session.isAuthenticated,

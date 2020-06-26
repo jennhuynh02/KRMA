@@ -80,8 +80,8 @@
 .login-dropdown li:hover {
   background-color: rgba(0, 0, 0, 0.14);
 }
-
 /* end of button */
+
 .splash-text-container {
   display: flex;
   justify-content: center;
@@ -151,5 +151,11 @@
 .authors {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+.team-copyrights > span {
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 400;
 }

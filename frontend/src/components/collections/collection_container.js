@@ -4,6 +4,7 @@ import {
   fetchTreasures,
   fetchUserTreasures,
 } from '../../actions/treasure_actions';
+import { getCurrentUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
   firstName: state.session.user.firstName,
@@ -16,6 +17,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllTreasures: () => dispatch(fetchTreasures()),
   getUserTreasures: (userId) => dispatch(fetchUserTreasures(userId)),
+  getCurrentUser: (userId) => dispatch(getCurrentUser(userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Collection);

@@ -81,15 +81,13 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  border: 1px solid light gray;
   border-radius: 5px;
   padding: 10px;
-  color: white;
+  color: rgb(22, 22, 22);
   background-color: gray;
 }
 
 .scroll:hover {
-  background: lightgray;
-  color: darkgray;
   cursor: pointer;
+  background: white;
 }

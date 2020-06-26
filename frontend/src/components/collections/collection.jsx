@@ -1,13 +1,16 @@
 import React from 'react';
-import AdminBarContainer from '../adminbar/admin_bar_container';
+import AdminBarContainer from '../admin/adminbar/admin_bar_container';
 import ItemContainer from './item_container';
 import NavBarContainer from '../navbar/navbar_container';
 
 class Collection extends React.Component {
   componentDidMount() {
-    const { getAllTreasures, getUserTreasures, currentUser } = this.props;
+    const {
+      getAllTreasures, getUserTreasures, getCurrentUser, currentUser
+    } = this.props;
     getAllTreasures();
     getUserTreasures(currentUser._id);
+    getCurrentUser(currentUser._id);
   }
 
   scrollToTop() {

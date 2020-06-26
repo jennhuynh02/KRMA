@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CreateStringTreasure extends React.Component {
+class CreateStringKarma extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,12 +29,11 @@ class CreateStringTreasure extends React.Component {
         type: 'quote', // need to fix
       };
       createTreasure(treasure);
-      // this.setState({ string: '' });
       currentUser.keyCount += 1;
       closeModal();
     } else {
       this.setState({
-        error: '10 character minimum. Please try again.',
+        error: '10 character minimum',
       });
     }
   }
@@ -44,28 +43,35 @@ class CreateStringTreasure extends React.Component {
     const { string, error } = this.state;
     return (
       <div className="add-karma-main">
-        <div className="add-karma-title">
-          <h3>{type}</h3>
+        <div className="add-karma-left">
+          <img src="rocks.jpg" alt="rocks" />
         </div>
-        <div className="add-karma-input">
-          <textarea
-            value={string}
-            onChange={this.handleChange}
-            placeholder="Use this space to share some positive Karma"
-          />
-          <div className="add-karma-button-container">
-            <button type="button" onClick={this.handleUpload}>
-              Add Karma
-            </button>
-            <button type="button" onClick={(e) => closeModal(e)}>
-              Cancel
-            </button>
+        <div className="add-karma-right">
+          <div onClick={() => closeModal()}>
+            <i className="fa fa-close"></i>
           </div>
-          <span className="add-karma-errors">{error}</span>
+          <div className="add-karma-title">
+            <h3>{type}</h3>
+          </div>
+          <div className="add-karma-input">
+            <div className="add-karma-desc">
+              <textarea
+                value={string}
+                onChange={this.handleChange}
+                placeholder="Use this space to share some positive Karma"
+              />
+            </div>
+            <div className="add-karma-button-container">
+              <div onClick={this.handleUpload}>
+                Add Karma
+              </div>
+            </div>
+            <span className="add-karma-errors">{error}</span>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default CreateStringTreasure;
+export default CreateStringKarma;

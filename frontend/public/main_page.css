@@ -9,15 +9,68 @@
   position: relative;
 }
 
-.counter {
-  display: flex;
-  align-items: flex-end;
-  margin-right: 40px;
+.main-instructions {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
   color: white;
-  flex-direction: column;
 }
 
-.counter span {
-  margin-bottom: 10px;
-  font-size: 20px;
+.fa-question-circle {
+  font-size: 35px;
+  color: gray;
+}
+
+.fa-question-circle:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* instructions modal */
+.instructions-container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  background-color: lightgray;
+  padding: 50px;
+}
+
+.instructions-title {
+  font-size: 40px;
+  font-weight: 200;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.instructions-steps li {
+  margin: 18px 0px;
+  line-height: 1.2;
+}
+
+.instructions-close-modal-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.instructions-close-modal-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;;
+  border: 1px solid #233935;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #233935;
+  background-color: lightgray;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+
+.instructions-close-modal-button:hover {
+  color: lightgray;
+  background-color: #233935;
 }

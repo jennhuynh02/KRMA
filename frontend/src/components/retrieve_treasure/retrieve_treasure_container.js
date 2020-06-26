@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
   updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure)),
   fetchCurrentUser: (userId) => dispatch(getCurrentUser(userId)),
-  openModal: (modal) => dispatch(openModal(modal)),
+  // openModal: (modal) => dispatch(openModal(modal)),
   closeModal: () => dispatch(closeModal()),
 });
 
