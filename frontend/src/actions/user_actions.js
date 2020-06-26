@@ -12,26 +12,24 @@ export const receiveAllUsers = (users) => ({
 export const removeUser = (userId) => ({
   type: DELETE_USER,
   userId,
-})
+});
 
 // dispatched when admin requests all users
 export const fetchAllUsers = () => (dispatch) => (
   UserAPIUtil.getUsers()
-		.then(users => dispatch(receiveAllUsers(users)))
-		.catch(err => console.log(err))
+    .then((users) => dispatch(receiveAllUsers(users)))
+    .catch((err) => console.log(err))
 );
 
 export const deleteUser = (userId) => (dispatch) => {
   const userIdsaved = userId;
   UserAPIUtil.deleteUser(userId)
     .then(() => dispatch(removeUser(userIdsaved)))
-		.catch(err => console.log(err))
-}
+    .catch((err) => console.log(err));
+};
 
-export const resetOwners = () => (dispatch) => {
-	return (
-		UserAPIUtil.resetOwners()
-      .then(users => dispatch(receiveAllUsers(users)))
-		  .catch(err => console.log(err))
-	)
-}
+export const resetOwners = () => (dispatch) => (
+  UserAPIUtil.resetOwners()
+    .then((users) => dispatch(receiveAllUsers(users)))
+    .catch((err) => console.log(err))
+);

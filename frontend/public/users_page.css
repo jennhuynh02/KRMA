@@ -1,0 +1,73 @@
+/* all users  */
+.all-users-main {
+  height: 100vh;
+  width: 100%;
+  background-image: url("mini_tree.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  overflow: scroll;
+}
+
+.all-users-main > h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.all-users {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* individual user component */
+.user-box {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 650px;
+  border: solid 1px #797976;
+  border-radius: 5px;
+  background-color: #213637;
+  color: white;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
+.user-box h2 {
+  font-weight: 200;
+}
+
+.user-box > div {
+  display: flex;
+  justify-content: flex-start;
+  width: 300px;
+}
+
+.user-box > div:last-child {
+  justify-content: flex-end;
+}
+
+.user-delete-button {
+  padding: 7px 25px;
+  font-size: 18px;
+  color: white;
+  background-color: #213637;
+  border: 1px solid white;
+  border-radius: 3px;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+
+.user-delete-button:hover {
+  color: #213637;
+  font-weight: 300;
+  background-color: white;
+
+}

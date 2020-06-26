@@ -20,7 +20,6 @@ class RetrieveTreasure extends React.Component {
   componentWillUnmount() {
     const { fetchCurrentUser, currentUser } = this.props;
     this.handleTreasure();
-    console.log(currentUser._id)
     fetchCurrentUser(currentUser._id);
   }
 
@@ -37,7 +36,7 @@ class RetrieveTreasure extends React.Component {
       type: this.props.currentTreasure.type,
       url: this.props.currentTreasure.url,
     };
-    // window.location.reload();
+
     updateFullTreasure(newTreasure);
   }
 
@@ -69,6 +68,7 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
+    const { reportMessage } = this.state;
     let content;
     if (currentTreasure) {
       if (currentTreasure.type === 'media') {
@@ -81,8 +81,7 @@ class RetrieveTreasure extends React.Component {
     return (
       <div className="content-item">
         { content }
-        <br />
-        <input className="admin-delete-content" type="text" onChange={this.update()} value={this.state.reportMessage} placeholder="(Optional) Include reason for report:"/>
+        <input className="admin-delete-content" type="text" onChange={this.update()} value={reportMessage} placeholder="(Optional) Include reason for report:" />
         <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
       </div>
     );

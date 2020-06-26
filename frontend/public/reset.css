@@ -1,3 +1,4 @@
+/* default reset  */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -44,8 +46,33 @@ button:focus {
 	outline: none;
 }
 
+/* custom reset */
+
+textarea {
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+ font-size: 2em;
+ font-weight: bolder;
+}
+
+h2 {
+ font-size: 1.5em;
+ font-weight: bolder;
+}
+
+h3 {
+ font-size: 1.2em;
+ font-weight: bolder;
+}
+
+h4 {
+ font-size: 1em;
+ font-weight: bolder;
+}
+
 body, html, #root, .app {
-	/* height: fit-content; */
 	height: 100%;
 }
 
@@ -59,4 +86,23 @@ body, html, #root, .app {
 
 *:focus {
 	outline: none;
+}
+
+button:hover, a:hover {
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+button {
+	transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
 }

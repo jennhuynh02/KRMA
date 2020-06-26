@@ -1,32 +1,93 @@
-.collection-page {
-  text-align: -webkit-center;
+/* collection page */
+.collection-page-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("mini_tree.jpg");
+  background-size: cover;
+  overflow: scroll;
+  position: relative;
+  text-align: center;
 }
 
-.collection-header {
-}
-
-.the-collection {
-  font-size: 13px;
-  margin-top: 50px;
-}
-
-.collection-item {
-  border: solid 5px white;
-  border-radius: 10px;
+.collection-header h1 {
   color: white;
-  margin: 40px;
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.collection-contents {
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  align-items: center;
 }
 
-.treasure-text {
+/* individual collection item */
+.content-main {
+  width: 500px;
+  height: auto;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  background: white;
 }
 
-.collection-item-buttons {
+.content-image {
+  width: 100%
 }
 
-.collection-item-buttons:hover {
+.content-text {
+  padding: 0 30px;
+  font-weight: 200;
+  font-size: 2.5vw;
+}
+
+.item-dropdown {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 13px;
+}
+
+.item-dropdown-content {
+  display: none;
+  position: absolute;
+  width: 120px;
+  margin-top: 20px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  border: solid 1px lightgray;
+  z-index: 1;
+}
+
+.item-dropdown:hover .item-dropdown-content {
+  display: block;
+}
+
+.item-dropdown-content > li {
+  padding: 10px;
+  color: black;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #ddd;  
+}
+
+.item-dropdown-content > li:hover {
+  color: red;
+  cursor: pointer
+}
+
+/* scroll to top  */
+.scroll {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(22, 22, 22);
+  background-color: gray;
+}
+
+.scroll:hover {
   cursor: pointer;
-  color: brown;
+  background: white;
 }

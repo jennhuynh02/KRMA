@@ -1,0 +1,117 @@
+/* main report page */
+.report-page-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("mini_tree.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  overflow: scroll;
+}
+
+.report-header h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.report-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* reported treasure item */
+.report-content-main {
+  width: 500px;
+  height: auto;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  background: white;
+}
+
+.report-content-creator  {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+
+.report-content-creator > span {
+  font-size: 25px;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+.report-content-reason {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 30px 15px 30px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.report-content-reason span {
+  color: red;
+}
+
+/* user reports a treasure */
+.add-report-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: lightgray;
+  padding: 20px;
+  padding-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.add-report-title span {
+  display: flex;
+  flex-wrap: wrap;
+  width: 330px;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 1.2;
+}
+
+.add-report-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.add-report-input > textarea {
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.add-report-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.add-report-button-container button {
+  padding: 5px 15px;
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.add-report-errors {
+  color: red;
+  font-weight: 200;
+  font-size: 18px;
+  height: 20px;
+  margin-top:10px;
+}

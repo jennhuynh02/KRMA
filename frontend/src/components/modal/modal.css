@@ -1,6 +1,4 @@
 /* move this css file to proper place */
-
-
 .modal-background {
   position: fixed;
   top: 0;
@@ -19,14 +17,13 @@
 }
 
 /* move this css to a separate file */
-
- .close-x {
-   position: absolute;
-   top: 5px;
-   right: 5px;
-   cursor: pointer;
- }
+/* .close-x {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
 
 .close-image-view {
   color: goldenrod;
-}
+} */

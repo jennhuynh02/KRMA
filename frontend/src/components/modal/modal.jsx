@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { closeModal } from '../../actions/modal_actions';
-import CreateTreasureContainer from '../treasure/create_treasure_container';
-import CreateStringTreasure from '../create_string_treasure/create_string_treasure_container';
+import CreateImageKarmaContainer from '../karma/create_image_karma_container';
+import CreateStringKarmaContainer from '../karma/create_string_karma_container';
 import RetrieveTreasureContainer from '../retrieve_treasure/retrieve_treasure_container';
 import ImageContainer from '../image/image_container';
-import ReportTreasureContainer from "../../components/report_treasure/report_treasure_container";
+import ReportTreasureContainer from '../report_treasure/report_treasure_container';
+import InstructionsContainer from '../main/instructions_container';
 import './modal.css';
 
 const Modal = ({ modal, closeModal }) => {
@@ -15,10 +16,10 @@ const Modal = ({ modal, closeModal }) => {
   let component;
   switch (Object.keys(modal)[0]) {
     case 'photo':
-      component = <CreateTreasureContainer />;
+      component = <CreateImageKarmaContainer />;
       break;
     case 'type':
-      component = <CreateStringTreasure type={modal.type} />;
+      component = <CreateStringKarmaContainer type={modal.type} />;
       break;
     case 'retrieve':
       component = <RetrieveTreasureContainer />;
@@ -28,6 +29,9 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'report':
       component = <ReportTreasureContainer treasure={modal.image} />;
+      break;
+    case 'instructions':
+      component = <InstructionsContainer />;
       break;
     default:
       return null;

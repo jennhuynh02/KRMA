@@ -1,0 +1,161 @@
+.splash-page-full {
+  height: 100vh;
+  width: 100%;
+  background-image: url("temple.jpg");
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.splash-page-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+}
+
+/* for button */
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button-container > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  border: 1px solid #4c5444;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 20px;
+  color: #4c5444;
+  background: none;
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.2s;
+}
+
+.button-container > button:hover {
+  color: #e1cdac;
+  background-color: #4c5444;
+  border-color: #4c5444;
+}
+
+.login-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  margin-right: 40px;
+  margin-top: 3px;
+}
+
+.login-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-dropdown li {
+  padding: 8px 12px;
+  color: black;
+}
+
+.login-dropdown li:hover {
+  cursor: pointer;
+}
+
+.login-dropdown a, li {
+  color: black;
+  font-weight: 200;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.login-dropdown li:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+/* end of button */
+
+.splash-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.splash-text-main h1 {
+  font-size: 120px;
+  font-weight: 300;
+  color: #4c5444;
+  margin-top: 130px; 
+}
+
+.splash-text-main h2 {
+  font-weight: 200;
+  color: #4c5444;
+}
+
+.what-is-krma {
+  position: absolute;
+  bottom: 100px;
+}
+
+.what-is-krma a {
+  color: black;
+  padding: 10px 40px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.what-is-krma a:hover {
+  background-color: black;
+  color: black;
+}
+
+.mainpage-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  font-size: 15px;
+  padding: 20px 0px;
+}
+
+.programmer {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.programmer > a {
+  margin: 0;
+}
+
+.programmer a:hover {
+  opacity: 70%;
+}
+
+.programmer > a img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.authors {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.team-copyrights > span {
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 400;
+}

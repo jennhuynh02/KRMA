@@ -3,35 +3,57 @@ import React from 'react';
 class ReportTreasure extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.treasure;
+    this.state = {
+      reportMessage: '',
+      error: '',
+    };
+
     this.handleReport = this.handleReport.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  change(field) {
-    return (e) => this.setState({ [field]: e.target.value });
+  handleChange(event) {
+    this.setState({ reportMessage: event.target.value });
   }
 
   handleReport(e) {
     e.preventDefault();
-    const treasure = this.state;
-    treasure.reported = true;
-    this.props.updateFullTreasure(treasure);
+    const { updateFullTreasure, treasure, closeModal } = this.props;
+    const { reportMessage } = this.state;
+    if (reportMessage.length > 10) {
+      const newTreasure = { ...treasure };
+      newTreasure.reported = true;
+      newTreasure.reportMessage = reportMessage;
+      updateFullTreasure(newTreasure);
+      closeModal();
+    } else {
+      this.setState({ error: '10 character minimum' });
+    }
     // .then(this.props.closeModal); OR message saying report received
   }
 
   render() {
+    const { closeModal } = this.props;
+    const { reportMessage, error } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleReport}>
-          <input
-            className="report-input"
-            type="textarea"
-            value={this.state.reportMessage}
+      <div className="add-report-container">
+        <div className="add-report-title">
+          <span>
+            We&#39;re sorry this happened. Please let us know why this Karma is inappropriate.
+          </span>
+        </div>
+        <div className="add-report-input">
+          <textarea
+            value={reportMessage}
             placeholder="Please enter details here"
-            onChange={this.change('reportMessage')}
+            onChange={this.handleChange}
           />
-          <button>Submit Report</button>
-        </form>
+          <div className="add-report-button-container">
+            <button type="button" onClick={this.handleReport}>Report</button>
+            <button type="button" onClick={(e) => closeModal(e)}>Cancel</button>
+          </div>
+        </div>
+        <span className="add-report-errors">{error}</span>
       </div>
     );
   }
