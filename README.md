@@ -1,7 +1,7 @@
-# Treasure Box
-Treasure Box is a web application where users can place media (either photo or desired text) into a treasure box in exchange for a key.  Keys can be used to fetch an item out of the treasure boxes. 
+# KRMA
+KRMA is a web application where users can place media (either photo or desired text) into KRMA in exchange for a karma key.  Keys can be used to fetch an item out of the karmic cycle. 
 
-Access the live site [here](treasure-box.herokuapp.com)
+Access the live site [here](krmaa.herokuapp.com)
 
 ## Demo
 
@@ -20,7 +20,7 @@ We aimed to provide an online experience that takes inspiration from Geocaching 
 
 # Features Overview and Technologies Involved
 ### MongoDB / Mongoose
-MongoDB is a popular document-based NoSQL database. For Treasure Box, we used the database to store collections of treasure documents and user documents. As a setup decision, each treasure document contains two references to two user documents: the owner of the treasure and the uploader of the treasuer. Each treasure also contains a link directing to an image hosted on S3. 
+MongoDB is a popular document-based NoSQL database. For KRMA, we used the database to store collections of karma documents and user documents. As a setup decision, each krma document contains two references to two user documents: the owner of the karma and the uploader of the karma. Each karma also contains a link directing to an image hosted on S3. 
 
 ### Express
 Express is a web app framework for Node, and the means by which we were able to route our frontend components correctly.   
