@@ -29,6 +29,9 @@
   margin-bottom: 40px;
   padding-bottom: 40px;
   background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 .content-image {

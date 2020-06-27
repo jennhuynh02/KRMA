@@ -8,6 +8,7 @@ export const getTreasure = (userId) => axios.get(`api/treasure/new/${userId}`);
 export const destroyTreasure = (treasureId) => axios.delete(`api/treasure/${treasureId}`);
 
 export const addTreasure = (treasure) => {
+  console.log(treasure)
   if (treasure.type === 'media') {
     return axios.post('/api/treasure/upload', treasure, {
       headers: {

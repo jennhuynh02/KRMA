@@ -74,15 +74,21 @@ class RetrieveTreasure extends React.Component {
       if (currentTreasure.type === 'media') {
         content = <ImageContainer treasure={currentTreasure} />;
       } else {
-        content = <h1 className="treasure-text">{ currentTreasure.url }</h1>;
+        content = <h1 className="karma-text">{ currentTreasure.url }</h1>;
       }
     }
 
     return (
-      <div className="content-item">
+      <div className="content-main">
         { content }
-        <input className="admin-delete-content" type="text" onChange={this.update()} value={reportMessage} placeholder="(Optional) Include reason for report:" />
-        <button className="admin-delete-content" type="submit" onClick={this.handleReport}>Report Treasure</button>
+        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
+        <div className="add-karma-input">
+          <div className="add-karma-button-container">
+            <div type="submit" onClick={this.handleReport}>
+              Report Karma
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
