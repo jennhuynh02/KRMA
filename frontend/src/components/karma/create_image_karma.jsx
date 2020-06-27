@@ -41,7 +41,7 @@ class CreateImageKarma extends React.Component {
         selectedFile: '',
       });
       currentUser.keyCount += 1;
-      window.location.href = '/#/main';
+      window.location.reload();
       closeModal();
     } else {
       this.setState({

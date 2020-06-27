@@ -1,6 +1,5 @@
 .image-popout-container {
-  max-height: 90vh;
-  max-width: 90vh;
+  height: 500px;
 }
 
 .karma-text {
@@ -8,4 +7,10 @@
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 20px;
+}
+
+.karma-image-instruction {
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 5px;
 }

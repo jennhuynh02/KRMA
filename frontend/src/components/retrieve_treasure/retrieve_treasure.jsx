@@ -25,7 +25,7 @@ class RetrieveTreasure extends React.Component {
 
   handleTreasure() {
     // const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const { updateFullTreasure } = this.props;
+    const { updateTreasure } = this.props;
     const newTreasure = {
       _id: this.props.currentTreasure._id,
       creatorId: this.props.currentTreasure.creatorId,
@@ -37,7 +37,7 @@ class RetrieveTreasure extends React.Component {
       url: this.props.currentTreasure.url,
     };
 
-    updateFullTreasure(newTreasure);
+    updateTreasure(newTreasure);
   }
 
   handleReport() {
