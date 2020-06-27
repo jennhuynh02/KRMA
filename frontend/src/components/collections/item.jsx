@@ -69,8 +69,11 @@ class Item extends React.Component {
             )}
           </div>
           <div className="content-container">
-            {(treasure.type === 'media')
-              ? <img className="content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} alt="content" />
+            {(treasure.type === 'media') ?
+              <div>
+                <h1 className="karma-image-instruction">Click on image to view full size.</h1>
+                <img className="content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} alt="content" />
+              </div>
               : <h1 className="content-text">{ treasure.url }</h1>}
           </div>
         </div>

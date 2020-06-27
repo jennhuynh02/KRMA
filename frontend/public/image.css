@@ -8,3 +8,9 @@
   font-weight: 300;
   margin-bottom: 20px;
 }
+
+.karma-image-instruction {
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 5px;
+}
