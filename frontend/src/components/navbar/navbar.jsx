@@ -4,8 +4,15 @@ import { Link } from 'react-router-dom';
 class NavBar extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      keyCount: this.props.currentUser.keyCount,
+    };
     this.getTreasure = this.getTreasure.bind(this);
+  }
+
+  componentDidMount() {
+    const { getCurrentUser, currentUser } = this.props;
+    getCurrentUser(currentUser._id);
   }
 
   getTreasure(e) {
@@ -28,7 +35,7 @@ class NavBar extends Component {
         </div>
         <div className="navbar-right">
           <div className="navbar-items">
-            <span className="user-karma">Your Karma: {currentUser.keyCount}</span>
+            <span className="user-karma">Your Karma: {this.props.currentUser.keyCount}</span>
             <div className="navbar-dropdown">
               <div>Add</div>
               <ul className="navbar-dropdown-content">
