@@ -67,7 +67,7 @@ class CreateImageKarma extends React.Component {
             <h3>Upload a Photo</h3>
           </div>
           <div className="add-karma-input-image">
-            {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : null)}
+            {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : <div className="upload-content-image" />)}
             <input type="file" className="upload-photo-input" onChange={this.handleFile} />
             <div className="add-karma-input">
               <div className="add-karma-button-container">

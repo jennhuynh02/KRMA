@@ -107,10 +107,11 @@
 
 /* for uploading images */
 .upload-photo-input {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .upload-content-image {
   width: 300px;
-  margin-bottom: 15px;
+  height: 360px;
+  /* margin-bottom: 15px; */
 }
