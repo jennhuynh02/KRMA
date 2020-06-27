@@ -1,7 +1,7 @@
 # KRMA
 KRMA is a web application where users can place media (either photo or desired text) into KRMA in exchange for a karma key.  Keys can be used to fetch an item out of the karmic cycle. 
 
-Access the live site [here](krmaa.herokuapp.com)
+Access the live site [here](https://krmaa.herokuapp.com/).
 
 ## Demo
 
