@@ -61,7 +61,7 @@ class CreateImageKarma extends React.Component {
         </div>
         <div className="add-karma-right">
           <div onClick={() => closeModal()}>
-            <i class="fa fa-close"></i>
+            <i className="fa fa-close"></i>
           </div>
           <div className="add-karma-title">
             <h3>Upload a Photo</h3>

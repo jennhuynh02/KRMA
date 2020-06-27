@@ -115,3 +115,8 @@
   height: 360px;
   /* margin-bottom: 15px; */
 }
+
+.report-karma-input {
+  border: none;
+  border-radius: 3px;
+}
