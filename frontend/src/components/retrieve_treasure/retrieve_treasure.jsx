@@ -5,11 +5,13 @@ class RetrieveTreasure extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      inappropriate: false,
       reportMessage: '',
       reported: false,
     };
     this.handleReport = this.handleReport.bind(this);
     this.handleTreasure = this.handleTreasure.bind(this);
+    this.showReport = this.showReport.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +40,10 @@ class RetrieveTreasure extends React.Component {
     };
 
     updateTreasure(newTreasure);
+  }
+
+  showReport() {
+    this.setState({ inappropriate: true });
   }
 
   handleReport() {
@@ -78,17 +84,30 @@ class RetrieveTreasure extends React.Component {
       }
     }
 
-    return (
-      <div className="content-main">
-        { content }
-        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
-        <div className="add-karma-input">
+    const reportBox = () => (
+      <div className="add-karma-input">
+      <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
           <div className="add-karma-button-container">
             <div type="submit" onClick={this.handleReport}>
               Report Karma
             </div>
           </div>
         </div>
+    );
+
+    return (
+      <div className="content-main">
+        { content }
+        { this.state.inappropriate ? reportBox()
+          : (
+            <div className="add-karma-input">
+              <div className="add-karma-button-container">
+                <div type="submit" onClick={this.showReport}>
+                  Report Karma
+                </div>
+              </div>
+            </div>
+          )}
       </div>
     );
   }
