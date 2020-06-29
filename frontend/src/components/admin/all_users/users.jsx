@@ -10,6 +10,7 @@ class UsersPage extends React.Component {
 
   render() {
     const { allUsers } = this.props;
+    console.log(allUsers)
     return (
       <div className="all-users-main">
         <AdminBarContainer />
@@ -18,7 +19,7 @@ class UsersPage extends React.Component {
         <div>
           <ul className="all-users">
             {allUsers.map((user) => (
-              <li><UserContainer key={user._id} user={user} /></li>
+              <li key={user.email}><UserContainer user={user} /></li>
             ))}
           </ul>
         </div>
