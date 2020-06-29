@@ -101,6 +101,7 @@ class RetrieveTreasure extends React.Component {
         { this.state.inappropriate ? reportBox()
           : (
             <div className="add-karma-input">
+              If you find this content inappropriate, please report this.
               <div className="add-karma-button-container">
                 <div type="submit" onClick={this.showReport}>
                   Report Karma
