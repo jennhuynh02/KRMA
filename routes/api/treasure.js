@@ -162,7 +162,7 @@ router.put('/update/:id', (req, res) => {
 });
 
 router.get('/collection/:id', (req, res) => {
-  Treasure.find({ ownerId: req.params.id })
+  Treasure.find({ ownerId: req.params.id, reported: false })
     .then((treasures) => res.json(treasures))
     .catch((err) => res.json(err));
 });
