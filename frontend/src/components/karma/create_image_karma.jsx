@@ -7,10 +7,14 @@ class CreateImageKarma extends React.Component {
       photoUrl: null,
       selectedFile: null,
       error: '',
+      uploaded: false,
+      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleFile = this.handleFile.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.addAnother = this.addAnother.bind(this);
+    this.goToCollection = this.goToCollection.bind(this);
   }
 
   handleFile(e) {
@@ -41,8 +45,9 @@ class CreateImageKarma extends React.Component {
         selectedFile: '',
       });
       currentUser.keyCount += 1;
-      window.location.reload();
-      closeModal();
+      this.setState({
+        uploaded: true,
+      });
     } else {
       this.setState({
         error: 'Please upload a file',
@@ -50,35 +55,77 @@ class CreateImageKarma extends React.Component {
     }
   }
 
+  addAnother() {
+    this.setState({
+      uploaded: false,
+      selectedFile: null,
+      photoUrl: null,
+    });
+  }
+
+  goToCollection() {
+    const { closeModal } = this.props;
+    window.location.href="/#/collection";
+    closeModal();
+  }
+
   render() {
     const { closeModal } = this.props;
     const { photoUrl, error } = this.state;
+
+    const submission = () => (
+      <div className="add-karma-right">
+        <div onClick={() => closeModal()}>
+          <i className="fa fa-close" />
+        </div>
+        <div className="thank-you-confirm">
+          <h3>Thank you for your submission!</h3>
+          You have
+          {' '}
+          {this.state.keyCount}
+          {' '}
+          karma points :)
+        </div>
+        <div className="add-karma-button-container">
+          <div onClick={this.addAnother}>
+            Add Another Karma
+          </div>
+        </div>
+        <div className="add-karma-button-container">
+          <div onClick={this.goToCollection}>
+            Go to your Collection
+          </div>
+        </div>
+      </div>
+    );
 
     return (
       <div className="add-karma-main">
         <div className="add-karma-left">
           <img src="rocks.jpg" alt="rocks" />
         </div>
-        <div className="add-karma-right">
-          <div onClick={() => closeModal()}>
-            <i className="fa fa-close"></i>
-          </div>
-          <div className="add-karma-title">
-            <h3>Upload a Photo</h3>
-          </div>
-          <div className="add-karma-input-image">
-            {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : <div className="upload-content-image" />)}
-            <input type="file" className="upload-photo-input" onChange={this.handleFile} />
-            <div className="add-karma-input">
-              <div className="add-karma-button-container">
-                <div type="button" onClick={this.handleUpload}>
-                  Add Karma
+            
+            <div className="add-karma-right">
+              <div onClick={() => closeModal()}>
+                <i className="fa fa-close" />
+              </div>
+              <div className="add-karma-title">
+                <h3>Upload a Photo</h3>
+              </div>
+              <div className="add-karma-input-image">
+                {(photoUrl ? <img className="upload-content-image" src={photoUrl} alt="photourl" /> : <div className="upload-content-image" />)}
+                <input type="file" className="upload-photo-input" onChange={this.handleFile} />
+                <div className="add-karma-input">
+                  <div className="add-karma-button-container">
+                    <div type="button" onClick={this.handleUpload}>
+                      Add Karma
+                    </div>
+                  </div>
+                  <span className="add-karma-errors">{error}</span>
                 </div>
               </div>
-              <span className="add-karma-errors">{error}</span>
             </div>
-          </div>
-        </div>
+          )}
       </div>
     );
   }
