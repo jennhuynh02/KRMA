@@ -81,17 +81,16 @@ class RetrieveTreasure extends React.Component {
 
     const reportBox = () => (
       <div className="add-karma-input">
-      <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
-          <div className="add-karma-button-container">
-            <div type="submit" onClick={this.handleReport}>
-              Report
-            </div>
-            <div type="submit" onClick={() => closeModal()}>
-              Cancel
-            </div>
+        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
+        <div className="add-karma-button-container">
+          <div type="submit" onClick={this.handleReport}>
+            Report
           </div>
-          <span className="add-karma-errors">{error}</span>
+          <div type="submit" onClick={() => closeModal()}>
+            Cancel
+          </div>
         </div>
+        <span className="add-karma-errors">{error}</span>
       </div>
     );
 
