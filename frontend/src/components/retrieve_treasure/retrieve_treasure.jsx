@@ -29,14 +29,12 @@ class RetrieveTreasure extends React.Component {
   }
 
   handleTreasure() {
-    // const { currentUser, updateTreasure, currentTreasure } = this.props;
     const { updateFullTreasure, currentTreasure, currentUser } = this.props;
     const newTreasure = { ...currentTreasure };
     newTreasure.reportMessage = '';
     newTreasure.reported = false;
     newTreasure.ownerId = currentUser._id;
 
-    debugger
     updateFullTreasure(newTreasure);
   }
 
@@ -47,25 +45,10 @@ class RetrieveTreasure extends React.Component {
   handleReport() {
     const { updateFullTreasure, currentTreasure, closeModal } = this.props;
     const { reportMessage } = this.state;
-    // const newTreasure = {
-    //   _id: this.props.currentTreasure._id,
-    //   creatorId: this.props.currentTreasure.creatorId,
-    //   date: this.props.currentTreasure.date,
-    //   ownerId: this.props.currentTreasure.ownerId,
-    //   reportMessage: this.state.reportMessage,
-    //   reported: true,
-    //   type: this.props.currentTreasure.type,
-    //   url: this.props.currentTreasure.url,
-    // };
-    // const newTreasure = this.props.currentTreasure;
-    // newTreasure.reportMessage = reportMessage;
-    // newTreasure.reported = true;
-
     if (reportMessage.length > 10) {
       const newTreasure = { ...currentTreasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
-      debugger;
       updateFullTreasure(newTreasure);
       closeModal();
       window.location.reload();

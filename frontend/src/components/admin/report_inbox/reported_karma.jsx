@@ -32,14 +32,6 @@ class ReportedKarma extends React.Component {
               <li className="dropdown-options" onClick={() => this.handleDelete('user')}>Delete User</li>
             </ul>
         </div>
-        {/* <div className="report-content-creator">
-          <span>
-            Uploaded by: {user.firstName} {user.lastName} (not correct)
-          </span>
-          <span>
-            Email: {user.email} (not correct)
-          </span>
-        </div> */}
         <div className="report-content-reason">
           <p>
             Report Reason: <span>{treasure.reportMessage}</span>
