@@ -30,19 +30,13 @@ class RetrieveTreasure extends React.Component {
 
   handleTreasure() {
     // const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const { updateFullTreasure } = this.props;
-    const newTreasure = {
-      _id: this.props.currentTreasure._id,
-      creatorId: this.props.currentTreasure.creatorId,
-      date: this.props.currentTreasure.date,
-      ownerId: this.props.currentUser._id,
-      reportMessage: '',
-      reported: false,
-      type: this.props.currentTreasure.type,
-      url: this.props.currentTreasure.url,
-    };
-    debugger;
+    const { updateFullTreasure, currentTreasure, currentUser } = this.props;
+    const newTreasure = { ...currentTreasure };
+    newTreasure.reportMessage = '';
+    newTreasure.reported = false;
+    newTreasure.ownerId = currentUser._id;
 
+    debugger
     updateFullTreasure(newTreasure);
   }
 
@@ -74,12 +68,10 @@ class RetrieveTreasure extends React.Component {
       debugger;
       updateFullTreasure(newTreasure);
       closeModal();
+      window.location.reload();
     } else {
       this.setState({ error: '10 character minimum' });
     }
-
-    window.location.reload();
-    // updateFullTreasure(newTreasure);
   }
 
   update() {
@@ -106,12 +98,12 @@ class RetrieveTreasure extends React.Component {
 
     const reportBox = () => (
       <div className="add-karma-input">
-        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
+        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Let us know why this is inappropriate or offensive" />
         <div className="add-karma-button-container">
           <div type="submit" onClick={this.handleReport}>
             Report Karma
           </div>
-          {error}
+          <span className="add-karma-errors">{error}</span>
         </div>
       </div>
     );

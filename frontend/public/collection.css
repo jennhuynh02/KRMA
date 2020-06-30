@@ -27,11 +27,10 @@
   width: 500px;
   height: auto;
   margin-bottom: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   background: white;
   display: flex;
   flex-direction: column;
-  padding: 20px;
 }
 
 .content-image {
@@ -49,6 +48,7 @@
   position: relative;
   display: flex;
   justify-content: flex-end;
+  padding: 10px 10px 0px 0px;
 }
 
 .item-dropdown-content {

@@ -36,24 +36,53 @@ class ReportTreasure extends React.Component {
     const { closeModal } = this.props;
     const { reportMessage, error } = this.state;
     return (
-      <div className="add-report-container">
-        <div className="add-report-title">
-          <span>
-            We&#39;re sorry this happened. Please let us know why this Karma is inappropriate.
-          </span>
+      // <div className="add-report-container">
+      //   <div className="add-report-title">
+      //     <span>
+      //       We&#39;re sorry this happened. Please let us know why this Karma is inappropriate.
+      //     </span>
+      //   </div>
+      //   <div className="add-report-input">
+      //     <textarea
+      //       value={reportMessage}
+      //       placeholder="Please enter details here"
+      //       onChange={this.handleChange}
+      //     />
+      //     <div className="add-report-button-container">
+      //       <button type="button" onClick={this.handleReport}>Report</button>
+      //       <button type="button" onClick={(e) => closeModal(e)}>Cancel</button>
+      //     </div>
+      //   </div>
+      //   <span className="add-report-errors">{error}</span>
+      // </div>
+
+      <div className="add-karma-main">
+        <div className="add-karma-left">
+          <img src="rocks.jpg" alt="rocks" />
         </div>
-        <div className="add-report-input">
-          <textarea
-            value={reportMessage}
-            placeholder="Please enter details here"
-            onChange={this.handleChange}
-          />
-          <div className="add-report-button-container">
-            <button type="button" onClick={this.handleReport}>Report</button>
-            <button type="button" onClick={(e) => closeModal(e)}>Cancel</button>
+        <div className="add-karma-right">
+          <div onClick={() => closeModal()}>
+            <i className="fa fa-close"></i>
+          </div>
+          <div className="add-karma-title">
+            <h3>Report a Karma</h3>
+          </div>
+          <div className="add-karma-input">
+            <div className="add-karma-desc">
+              <textarea
+                value={reportMessage}
+                onChange={this.handleChange}
+                placeholder="We&#39;re sorry this happened. Please let us know why this Karma is inappropriate."
+              />
+            </div>
+            <div className="add-karma-button-container">
+              <div onClick={this.handleReport}>
+                Report
+              </div>
+            </div>
+            <span className="add-karma-errors">{error}</span>
           </div>
         </div>
-        <span className="add-report-errors">{error}</span>
       </div>
     );
   }
