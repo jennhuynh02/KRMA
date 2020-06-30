@@ -7,7 +7,6 @@ import {
 import { getCurrentUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
-  firstName: state.session.user.firstName,
   allTreasures: Object.values(state.treasure.admin),
   userTreasures: Object.values(state.treasure.user),
   admin: (state.session.user.email === 'admin@krma.com'),
