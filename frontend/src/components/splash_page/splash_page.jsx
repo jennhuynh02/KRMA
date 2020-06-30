@@ -39,6 +39,7 @@ class Splash extends React.Component {
 
   render() {
     const { open, team } = this.state;
+    const { openModal } = this.props;
     return (
       <div className="splash-page-full" onClick={this.handleClickOutside}>
         <div className="splash-page-header">
@@ -73,15 +74,9 @@ class Splash extends React.Component {
             <a href="#instructions" className="button scrolly">What is KRMA</a>
           </div> */}
         </section>
-        <section id="instructions">
-          <div>
-            <span className="splash-instructions-logo" />
-            <span />
-          </div>
-          <ul>
-            <li />
-          </ul>
-        </section>
+        <div className="main-instructions" onClick={() => openModal({instructions: -1})}>
+          <i className="fa fa-question-circle" aria-hidden="true"></i>
+        </div>
       </div>
     );
   }

@@ -43,7 +43,13 @@
 .add-karma-input {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
+}
+
+.add-karma-input > span {
+  /* color: gray; */
+  margin-top: 10px;
 }
 
 .add-karma-desc {
@@ -71,7 +77,8 @@
 
 .add-karma-button-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -112,11 +119,6 @@
 
 .upload-content-image {
   width: 300px;
-  height: 360px;
+  height: 330px;
   /* margin-bottom: 15px; */
-}
-
-.report-karma-input {
-  border: none;
-  border-radius: 3px;
 }

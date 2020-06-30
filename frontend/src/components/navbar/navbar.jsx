@@ -27,7 +27,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const { openModal, logout, currentUser } = this.props;
+    const { openModal, logout } = this.props;
     return (
       <div className="navbar-container">
         <div className="navbar-left">

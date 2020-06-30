@@ -8,6 +8,7 @@ class RetrieveTreasure extends React.Component {
       inappropriate: false,
       reportMessage: '',
       reported: false,
+      error: '',
     };
     this.handleReport = this.handleReport.bind(this);
     this.handleTreasure = this.handleTreasure.bind(this);
@@ -16,30 +17,25 @@ class RetrieveTreasure extends React.Component {
 
   componentDidMount() {
     const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
-    fetchTreasure(currentUser._id);
+    fetchTreasure(currentUser._id)
+      .then(() => fetchCurrentUser(currentUser._id));
   }
 
   componentWillUnmount() {
-    const { fetchCurrentUser, currentUser } = this.props;
+    const { fetchUserTreasures, currentUser, fetchTreasure } = this.props;
     this.handleTreasure();
-    fetchCurrentUser(currentUser._id);
+    fetchTreasure(currentUser._id);
+    fetchUserTreasures(currentUser._id);
   }
 
   handleTreasure() {
-    // const { currentUser, updateTreasure, currentTreasure } = this.props;
-    const { updateTreasure } = this.props;
-    const newTreasure = {
-      _id: this.props.currentTreasure._id,
-      creatorId: this.props.currentTreasure.creatorId,
-      date: this.props.currentTreasure.date,
-      ownerId: this.props.currentUser._id,
-      reportMessage: '',
-      reported: false,
-      type: this.props.currentTreasure.type,
-      url: this.props.currentTreasure.url,
-    };
+    const { updateFullTreasure, currentTreasure, currentUser } = this.props;
+    const newTreasure = { ...currentTreasure };
+    newTreasure.reportMessage = '';
+    newTreasure.reported = false;
+    newTreasure.ownerId = currentUser._id;
 
-    updateTreasure(newTreasure);
+    updateFullTreasure(newTreasure);
   }
 
   showReport() {
@@ -47,19 +43,18 @@ class RetrieveTreasure extends React.Component {
   }
 
   handleReport() {
-    const { updateFullTreasure } = this.props;
-    const newTreasure = {
-      _id: this.props.currentTreasure._id,
-      creatorId: this.props.currentTreasure.creatorId,
-      date: this.props.currentTreasure.date,
-      ownerId: this.props.currentTreasure.ownerId,
-      reportMessage: this.state.reportMessage,
-      reported: true,
-      type: this.props.currentTreasure.type,
-      url: this.props.currentTreasure.url,
-    };
-    window.location.reload();
-    updateFullTreasure(newTreasure);
+    const { updateFullTreasure, currentTreasure, closeModal } = this.props;
+    const { reportMessage } = this.state;
+    if (reportMessage.length > 10) {
+      const newTreasure = { ...currentTreasure };
+      newTreasure.reported = true;
+      newTreasure.reportMessage = reportMessage;
+      updateFullTreasure(newTreasure);
+      closeModal();
+      window.location.reload();
+    } else {
+      this.setState({ error: '10 character minimum' });
+    }
   }
 
   update() {
@@ -74,7 +69,7 @@ class RetrieveTreasure extends React.Component {
     const {
       currentTreasure, openModal, closeModal, report,
     } = this.props;
-    const { reportMessage } = this.state;
+    const { reportMessage, inappropriate, error } = this.state;
     let content;
     if (currentTreasure) {
       if (currentTreasure.type === 'media') {
@@ -86,22 +81,24 @@ class RetrieveTreasure extends React.Component {
 
     const reportBox = () => (
       <div className="add-karma-input">
-      <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
-          <div className="add-karma-button-container">
-            <div type="submit" onClick={this.handleReport}>
-              Report Karma
-            </div>
+        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Let us know why this is inappropriate or offensive" />
+        <div className="add-karma-button-container">
+          <div type="submit" onClick={this.handleReport}>
+            Report Karma
           </div>
+          <span className="add-karma-errors">{error}</span>
         </div>
+      </div>
     );
 
     return (
       <div className="content-main">
         { content }
-        { this.state.inappropriate ? reportBox()
+        { inappropriate
+          ? reportBox()
           : (
             <div className="add-karma-input">
-              If you find this content inappropriate, please report this.
+              <span>Please report this karma if you find this content inappropriate.</span>
               <div className="add-karma-button-container">
                 <div type="submit" onClick={this.showReport}>
                   Report Karma

@@ -19,7 +19,7 @@ class Collection extends React.Component {
 
   render() {
     const {
-      allTreasures, userTreasures, admin, firstName,
+      allTreasures, userTreasures, admin,
     } = this.props;
 
     return (
