@@ -1,12 +1,12 @@
 .image-popout-container {
-  height: 500px;
+  width: 500px;
 }
 
 .karma-text {
   text-align: center;
   font-size: 20px;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin: 20px 0px;
 }
 
 .karma-image-instruction {

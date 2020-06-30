@@ -45,7 +45,7 @@ class ReportedKarma extends React.Component {
             Report Reason: <span>{treasure.reportMessage}</span>
           </p>
         </div>
-        <img className="content-image" src={treasure.url} />
+        <img className="content-image" src={treasure.url} alt="content" />
       </div>
     );
   }
