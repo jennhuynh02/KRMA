@@ -51,7 +51,7 @@ router.get('/new/:id', (req, res) => {
   });
 });
 ```
-We needed to add functionality such that the user could only receive a random treasure if the treasure has never been pulled before. This is consistent with our original goal of mimicking GeoCaching in that once a treasure is claimed only the recipient can access it. We implementented this logic in the backend, by first cycling through documents with no ownerId, then selecting a random document, and finally setting the the owerId to be equal the currentUserId that we pass through the params.
+We needed to add functionality such that the user could only receive a random karma if the karma has never been pulled before. This is consistent with our original goal of mimicking GeoCaching in that once a karma is claimed only the recipient can access it. We implementented this logic in the backend, by first cycling through documents with no ownerId, then selecting a random document, and finally setting the the owerId to be equal the currentUserId that we pass through the params.
 
 ```javascript
 const Admin = ({ component: Component, path, loggedIn, user, ...rest }) => (
@@ -78,7 +78,7 @@ Admins can see all the flagged content
 * We want to give the user the ability to pull a treasure based on a criteria, ie pull a random book request or a quote or story, etc. This will require a small refactor of the treasure document model.
 
 
-## Treasure Box Team
+## KRMA Team
   -----------------------------------------------------------------
 
 ### Team Leader: Jenn Huynh
