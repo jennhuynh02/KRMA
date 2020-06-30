@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { updateFullTreasure } from '../../actions/treasure_actions';
+import { updateTreasure } from '../../actions/treasure_actions';
 import ReportTreasure from './report_treasure';
 
 const mapStateToProps = (state, { treasure }) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state, { treasure }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure)),
+  updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
   closeModal: () => dispatch(closeModal()),
 });
 

@@ -20,7 +20,7 @@ class Item extends React.Component {
   }
 
   handleReport() {
-    const { updateFullTreasure } = this.props;
+    const { updateTreasure } = this.props;
     const newTreasure = {
       _id: this.props.treasure._id,
       creatorId: this.props.treasure.creatorId,
@@ -32,7 +32,7 @@ class Item extends React.Component {
       url: this.props.treasure.url,
     };
     window.location.reload();
-    updateFullTreasure(newTreasure);
+    updateTreasure(newTreasure);
   }
 
   update() {

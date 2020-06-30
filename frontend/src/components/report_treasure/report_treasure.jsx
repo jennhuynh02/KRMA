@@ -18,19 +18,17 @@ class ReportTreasure extends React.Component {
 
   handleReport(e) {
     e.preventDefault();
-    const { updateFullTreasure, treasure, closeModal } = this.props;
+    const { updateTreasure, treasure, closeModal } = this.props;
     const { reportMessage } = this.state;
     if (reportMessage.length > 10) {
-      debugger;
       const newTreasure = { ...treasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
-      updateFullTreasure(newTreasure);
+      updateTreasure(newTreasure);
       closeModal();
     } else {
       this.setState({ error: '10 character minimum' });
     }
-    // .then(this.props.closeModal); OR message saying report received
   }
 
   render() {

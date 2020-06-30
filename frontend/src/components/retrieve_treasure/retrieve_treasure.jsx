@@ -22,18 +22,16 @@ class RetrieveTreasure extends React.Component {
   }
 
   componentWillUnmount() {
-    const { fetchUserTreasures, currentUser, fetchTreasure } = this.props;
+    const { fetchUserTreasures, currentUser } = this.props;
     this.updateOwnerId();
-    // fetchTreasure(currentUser._id);
     fetchUserTreasures(currentUser._id);
   }
 
   updateOwnerId() {
-    const { updateFullTreasure, currentTreasure, currentUser } = this.props;
+    const { updateTreasure, currentTreasure, currentUser } = this.props;
     const newTreasure = { ...currentTreasure };
     newTreasure.ownerId = currentUser._id;
-
-    updateFullTreasure(newTreasure);
+    updateTreasure(newTreasure);
   }
 
   showReport() {
@@ -42,13 +40,13 @@ class RetrieveTreasure extends React.Component {
   }
 
   handleReport() {
-    const { updateFullTreasure, currentTreasure, closeModal } = this.props;
+    const { updateTreasure, currentTreasure, closeModal } = this.props;
     const { reportMessage } = this.state;
     if (reportMessage.length > 10) {
       const newTreasure = { ...currentTreasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
-      updateFullTreasure(newTreasure);
+      updateTreasure(newTreasure);
       closeModal();
       window.location.reload();
     } else {
@@ -60,7 +58,7 @@ class RetrieveTreasure extends React.Component {
     return (e) => this.setState({
       reportMessage: e.currentTarget.value,
       reported: true,
-      creatorId: this.props.currentTreasure.creatorId,
+      // creatorId: this.props.currentTreasure.creatorId,
     });
   }
 

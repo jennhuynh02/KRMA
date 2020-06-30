@@ -8,7 +8,6 @@ export const getTreasure = (userId) => axios.get(`api/treasure/new/${userId}`);
 export const destroyTreasure = (treasureId) => axios.delete(`api/treasure/${treasureId}`);
 
 export const addTreasure = (treasure) => {
-  console.log(treasure)
   if (treasure.type === 'media') {
     return axios.post('/api/treasure/upload', treasure, {
       headers: {
@@ -21,20 +20,9 @@ export const addTreasure = (treasure) => {
   return axios.post('/api/treasure/upload', treasure);
 };
 
-// to delete once full update works; need to refactor a little
-export const editTreasure = (treasure) => {
-  console.log(treasure);
-  return (
-    axios.put(`/api/treasure/edit/${treasure.id}`, treasure)
-  );
-};
-
-// full update
-export const updateTotalTreasure = (treasure) => {
-  debugger;
-  return (
-    axios.put(`/api/treasure/update/${treasure._id}`, treasure)
-  );
-};
+// editTreasure
+export const editTreasure = (treasure) => (
+  axios.put(`/api/treasure/update/${treasure._id}`, treasure)
+);
 
 export const getUserTreasures = (userId) => axios.get(`api/treasure/collection/${userId}`);

@@ -9,8 +9,7 @@ class ReportsPage extends React.Component {
   }
 
   scrollToTop() {
-    // let header = document.getElementById("")
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
+    document.getElementById('navbar-id').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {

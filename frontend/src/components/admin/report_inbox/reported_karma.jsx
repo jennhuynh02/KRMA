@@ -12,11 +12,11 @@ class ReportedKarma extends React.Component {
   }
 
   unflagTreasure() {
-    const { treasure, updateFullTreasure } = this.props;
+    const { treasure, updateTreasure } = this.props;
     const unflagTreasure = treasure;
     unflagTreasure.reported = false;
     unflagTreasure.reportMessage = '';
-    updateFullTreasure(unflagTreasure);
+    updateTreasure(unflagTreasure);
   }
 
   render() {

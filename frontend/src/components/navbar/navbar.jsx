@@ -29,7 +29,7 @@ class NavBar extends Component {
   render() {
     const { openModal, logout } = this.props;
     return (
-      <div className="navbar-container">
+      <div className="navbar-container" id="navbar-id">
         <div className="navbar-left">
           <Link to='/main'><h1>KRMA</h1></Link>
         </div>
