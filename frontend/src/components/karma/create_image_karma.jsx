@@ -65,7 +65,7 @@ class CreateImageKarma extends React.Component {
 
   goToCollection() {
     const { closeModal } = this.props;
-    window.location.href="/#/collection";
+    window.location.href = '/#/collection';
     closeModal();
   }
 
@@ -104,7 +104,8 @@ class CreateImageKarma extends React.Component {
         <div className="add-karma-left">
           <img src="rocks.jpg" alt="rocks" />
         </div>
-            
+        { this.state.uploaded ? submission()
+          : (
             <div className="add-karma-right">
               <div onClick={() => closeModal()}>
                 <i className="fa fa-close" />
