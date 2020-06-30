@@ -48,7 +48,7 @@ class ReportTreasure extends React.Component {
           <div className="add-karma-title">
             <h3>Report a Karma</h3>
           </div>
-          <div className="add-karma-input">
+          <div className="add-karma-report">
             <div className="add-karma-desc">
               <textarea
                 value={reportMessage}

@@ -11,7 +11,7 @@ class RetrieveTreasure extends React.Component {
       error: '',
     };
     this.handleReport = this.handleReport.bind(this);
-    this.handleTreasure = this.handleTreasure.bind(this);
+    this.updateOwnerId = this.updateOwnerId.bind(this);
     this.showReport = this.showReport.bind(this);
   }
 
@@ -23,23 +23,22 @@ class RetrieveTreasure extends React.Component {
 
   componentWillUnmount() {
     const { fetchUserTreasures, currentUser, fetchTreasure } = this.props;
-    this.handleTreasure();
-    fetchTreasure(currentUser._id);
+    this.updateOwnerId();
+    // fetchTreasure(currentUser._id);
     fetchUserTreasures(currentUser._id);
   }
 
-  handleTreasure() {
+  updateOwnerId() {
     const { updateFullTreasure, currentTreasure, currentUser } = this.props;
     const newTreasure = { ...currentTreasure };
-    newTreasure.reportMessage = '';
-    newTreasure.reported = false;
     newTreasure.ownerId = currentUser._id;
 
     updateFullTreasure(newTreasure);
   }
 
   showReport() {
-    this.setState({ inappropriate: true });
+    const { inappropriate } = this.state;
+    this.setState({ inappropriate: !inappropriate });
   }
 
   handleReport() {
@@ -67,7 +66,7 @@ class RetrieveTreasure extends React.Component {
 
   render() {
     const {
-      currentTreasure, openModal, closeModal, report,
+      currentTreasure, closeModal,
     } = this.props;
     const { reportMessage, inappropriate, error } = this.state;
     let content;
@@ -86,7 +85,7 @@ class RetrieveTreasure extends React.Component {
           <div type="submit" onClick={this.handleReport}>
             Report
           </div>
-          <div type="submit" onClick={() => closeModal()}>
+          <div type="submit" onClick={this.showReport}>
             Cancel
           </div>
         </div>

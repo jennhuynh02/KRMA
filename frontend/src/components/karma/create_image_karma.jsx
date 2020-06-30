@@ -8,7 +8,6 @@ class CreateImageKarma extends React.Component {
       selectedFile: null,
       error: '',
       uploaded: false,
-      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleFile = this.handleFile.bind(this);
@@ -36,16 +35,14 @@ class CreateImageKarma extends React.Component {
     e.preventDefault();
     const data = new FormData();
     const { selectedFile } = this.state;
-    const { currentUser, createTreasure, closeModal } = this.props;
+    const { currentUser, createTreasure, closeModal, getCurrentUser } = this.props;
     if (selectedFile) {
       data.append('image', selectedFile, selectedFile.name);
       data.append('ownerId', currentUser._id);
       createTreasure(data);
+      getCurrentUser(currentUser._id);
       this.setState({
         selectedFile: '',
-      });
-      currentUser.keyCount += 1;
-      this.setState({
         uploaded: true,
       });
     } else {
@@ -70,7 +67,7 @@ class CreateImageKarma extends React.Component {
   }
 
   render() {
-    const { closeModal } = this.props;
+    const { closeModal, currentUser } = this.props;
     const { photoUrl, error } = this.state;
 
     const submission = () => (
@@ -82,7 +79,7 @@ class CreateImageKarma extends React.Component {
           <h3>Thank you for your submission!</h3>
           You have
           {' '}
-          {this.state.keyCount}
+          {currentUser.keyCount}
           {' '}
           karma points :)
         </div>

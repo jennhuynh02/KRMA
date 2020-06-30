@@ -15,15 +15,3 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* move this css to a separate file */
-/* .close-x {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-}
-
-.close-image-view {
-  color: goldenrod;
-} */

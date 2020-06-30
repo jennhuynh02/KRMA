@@ -1,5 +1,6 @@
 .image-popout-container {
   max-width: 70vw;
+  max-height: 70vh;
 }
 
 .karma-text {

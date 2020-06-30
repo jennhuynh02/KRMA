@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTreasures: () => dispatch(fetchTreasures()),
-  updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
+  // updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
   deleteTreasure: (treasureId) => dispatch(deleteTreasure(treasureId)),
 });
 

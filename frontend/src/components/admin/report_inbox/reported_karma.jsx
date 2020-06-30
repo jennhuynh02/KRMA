@@ -20,24 +20,30 @@ class ReportedKarma extends React.Component {
   }
 
   render() {
-    const { user, treasure } = this.props;
+    const { treasure, openModal } = this.props;
 
     return (
       <div className="report-content-main">
         <div className="item-dropdown">
           <i className="fa fa-bars" aria-hidden="true" />
-            <ul className="item-dropdown-content">
-              <li className="dropdown-options" onClick={() => this.unflagTreasure()}>Approve Karma</li>
-              <li className="dropdown-options" onClick={() => this.handleDelete('karma')}>Delete Karma</li>
-              <li className="dropdown-options" onClick={() => this.handleDelete('user')}>Delete User</li>
-            </ul>
+          <ul className="item-dropdown-content">
+            <li className="dropdown-options" onClick={() => this.unflagTreasure()}>Approve Karma</li>
+            <li className="dropdown-options" onClick={() => this.handleDelete('karma')}>Delete Karma</li>
+            <li className="dropdown-options" onClick={() => this.handleDelete('user')}>Delete User</li>
+          </ul>
         </div>
         <div className="report-content-reason">
           <p>
-            Report Reason: <span>{treasure.reportMessage}</span>
+            Report Reason:
+            {' '}
+            <span>{treasure.reportMessage}</span>
           </p>
         </div>
-        <img className="content-image" src={treasure.url} alt="content" />
+        <div className="content-container">
+          {(treasure.type === 'media')
+            ? <img className="content-image" src={treasure.url} onClick={(e) => openModal({ image: treasure })} alt="content" />
+            : <h1 className="content-text">{ treasure.url }</h1>}
+        </div>
       </div>
     );
   }
