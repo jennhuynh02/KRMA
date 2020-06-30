@@ -10,7 +10,6 @@ class UsersPage extends React.Component {
 
   render() {
     const { allUsers } = this.props;
-    console.log(allUsers)
     return (
       <div className="all-users-main">
         <AdminBarContainer />

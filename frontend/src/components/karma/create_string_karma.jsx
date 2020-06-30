@@ -6,10 +6,14 @@ class CreateStringKarma extends React.Component {
     this.state = {
       string: '',
       error: '',
+      uploaded: false,
+      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
+    this.addAnother = this.addAnother.bind(this);
+    this.goToCollection = this.goToCollection.bind(this);
   }
 
   handleChange(e) {
@@ -30,7 +34,9 @@ class CreateStringKarma extends React.Component {
       };
       createTreasure(treasure);
       currentUser.keyCount += 1;
-      closeModal();
+      this.setState({
+        uploaded: true,
+      });
     } else {
       this.setState({
         error: '10 character minimum',
@@ -38,37 +44,80 @@ class CreateStringKarma extends React.Component {
     }
   }
 
+  addAnother() {
+    this.setState({
+      uploaded: false,
+      string: '',
+    });
+  }
+
+  goToCollection() {
+    const { closeModal } = this.props;
+    window.location.href = '/#/collection';
+    closeModal();
+  }
+
   render() {
     const { type, closeModal } = this.props;
     const { string, error } = this.state;
+
+    const submission = () => (
+      <div className="add-karma-right">
+        <div onClick={() => closeModal()}>
+          <i className="fa fa-close" />
+        </div>
+        <div className="thank-you-confirm">
+          <h3>Thank you for your submission!</h3>
+          You have
+          {' '}
+          {this.state.keyCount}
+          {' '}
+          karma points :)
+        </div>
+        <div className="add-karma-button-container">
+          <div onClick={this.addAnother}>
+            Add Another Karma
+          </div>
+        </div>
+        <div className="add-karma-button-container">
+          <div onClick={this.goToCollection}>
+            Go to your Collection
+          </div>
+        </div>
+      </div>
+    );
+
     return (
       <div className="add-karma-main">
         <div className="add-karma-left">
           <img src="rocks.jpg" alt="rocks" />
         </div>
-        <div className="add-karma-right">
-          <div onClick={() => closeModal()}>
-            <i className="fa fa-close"></i>
-          </div>
-          <div className="add-karma-title">
-            <h3>{type}</h3>
-          </div>
-          <div className="add-karma-input">
-            <div className="add-karma-desc">
-              <textarea
-                value={string}
-                onChange={this.handleChange}
-                placeholder="Use this space to share some positive Karma"
-              />
-            </div>
-            <div className="add-karma-button-container">
-              <div onClick={this.handleUpload}>
-                Add Karma
+        { this.state.uploaded ? submission()
+          : (
+            <div className="add-karma-right">
+              <div onClick={() => closeModal()}>
+                <i className="fa fa-close" />
+              </div>
+              <div className="add-karma-title">
+                <h3>{type}</h3>
+              </div>
+              <div className="add-karma-input">
+                <div className="add-karma-desc">
+                  <textarea
+                    value={string}
+                    onChange={this.handleChange}
+                    placeholder="Use this space to share some positive Karma"
+                  />
+                </div>
+                <div className="add-karma-button-container">
+                  <div onClick={this.handleUpload}>
+                    Add Karma
+                  </div>
+                </div>
+                <span className="add-karma-errors">{error}</span>
               </div>
             </div>
-            <span className="add-karma-errors">{error}</span>
-          </div>
-        </div>
+          )}
       </div>
     );
   }

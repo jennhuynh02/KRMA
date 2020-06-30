@@ -89,7 +89,10 @@ class RetrieveTreasure extends React.Component {
       <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
           <div className="add-karma-button-container">
             <div type="submit" onClick={this.handleReport}>
-              Report Karma
+              Report
+            </div>
+            <div type="submit" onClick={() => closeModal()}>
+              Cancel
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ class NavBar extends Component {
       openModal({ retrieve: -1 });
       currentUser.keyCount -= 1;
     } else {
-      alert('You currently have 0 karma. To receive good karma, you must first give good karma. Add something!');
+      openModal({ instructions: -1 });
     }
   }
 
