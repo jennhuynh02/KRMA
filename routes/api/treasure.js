@@ -150,8 +150,7 @@ router.delete('/:treasureId',
   });
 
 router.put('/edit/:id', (req, res) => {
-  Treasure.findByIdAndUpdate({ _id: req.body.treasure }, { ownerId: req.body.owner },
-    { new: true })
+  Treasure.findByIdAndUpdate({ _id: req.body.treasure }, { ownerId: req.body.owner }, { new: true })
     .then((treasure) => res.json(treasure))
     .catch((err) => res.json(err));
 });

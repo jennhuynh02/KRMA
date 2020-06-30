@@ -21,6 +21,7 @@ class ReportTreasure extends React.Component {
     const { updateFullTreasure, treasure, closeModal } = this.props;
     const { reportMessage } = this.state;
     if (reportMessage.length > 10) {
+      debugger;
       const newTreasure = { ...treasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;

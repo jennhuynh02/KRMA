@@ -30,8 +30,11 @@ export const editTreasure = (treasure) => {
 };
 
 // full update
-export const updateTotalTreasure = (treasure) => (
-  axios.put(`/api/treasure/update/${treasure._id}`, treasure)
-);
+export const updateTotalTreasure = (treasure) => {
+  debugger;
+  return (
+    axios.put(`/api/treasure/update/${treasure._id}`, treasure)
+  );
+};
 
 export const getUserTreasures = (userId) => axios.get(`api/treasure/collection/${userId}`);

@@ -4,7 +4,7 @@ import { updateTreasure, updateFullTreasure } from '../../actions/treasure_actio
 import ReportTreasure from './report_treasure';
 
 const mapStateToProps = (state, { treasure }) => ({
-  treasure: state.treasure,
+  treasure,
 });
 
 const mapDispatchToProps = (dispatch) => ({
