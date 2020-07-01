@@ -64,6 +64,7 @@ class CreateImageKarma extends React.Component {
 
   goToCollection() {
     const { closeModal } = this.props;
+    window.location.href = '/#/collection';
     closeModal();
   }
 
