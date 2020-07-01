@@ -7,7 +7,6 @@ class CreateStringKarma extends React.Component {
       string: '',
       error: '',
       uploaded: false,
-      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,7 +24,7 @@ class CreateStringKarma extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const { string } = this.state;
-    const { currentUser, createTreasure, closeModal } = this.props;
+    const { currentUser, createTreasure, closeModal, getCurrentUser } = this.props;
     if (string.length > 10) {
       const treasure = {
         ownerId: currentUser._id,
@@ -33,7 +32,7 @@ class CreateStringKarma extends React.Component {
         type: 'quote', // need to fix
       };
       createTreasure(treasure);
-      currentUser.keyCount += 1;
+      getCurrentUser(currentUser._id);
       this.setState({
         uploaded: true,
       });
@@ -58,7 +57,7 @@ class CreateStringKarma extends React.Component {
   }
 
   render() {
-    const { type, closeModal } = this.props;
+    const { type, closeModal, currentUser } = this.props;
     const { string, error } = this.state;
 
     const submission = () => (
@@ -70,7 +69,7 @@ class CreateStringKarma extends React.Component {
           <h3>Thank you for your submission!</h3>
           You have
           {' '}
-          {this.state.keyCount}
+          {currentUser.keyCount}
           {' '}
           karma points :)
         </div>

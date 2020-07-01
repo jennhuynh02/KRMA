@@ -18,18 +18,19 @@ class ReportTreasure extends React.Component {
 
   handleReport(e) {
     e.preventDefault();
-    const { updateFullTreasure, treasure, closeModal } = this.props;
+    const { updateTreasure, treasure, closeModal, currentUser, fetchUserTreasures } = this.props;
     const { reportMessage } = this.state;
     if (reportMessage.length > 10) {
       const newTreasure = { ...treasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
-      updateFullTreasure(newTreasure);
+      updateTreasure(newTreasure);
+      debugger
+      fetchUserTreasures(currentUser._id);
       closeModal();
     } else {
       this.setState({ error: '10 character minimum' });
     }
-    // .then(this.props.closeModal); OR message saying report received
   }
 
   render() {
@@ -47,7 +48,7 @@ class ReportTreasure extends React.Component {
           <div className="add-karma-title">
             <h3>Report a Karma</h3>
           </div>
-          <div className="add-karma-input">
+          <div className="add-karma-report">
             <div className="add-karma-desc">
               <textarea
                 value={reportMessage}

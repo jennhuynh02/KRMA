@@ -11,45 +11,45 @@ class RetrieveTreasure extends React.Component {
       error: '',
     };
     this.handleReport = this.handleReport.bind(this);
-    this.handleTreasure = this.handleTreasure.bind(this);
+    this.updateOwnerId = this.updateOwnerId.bind(this);
     this.showReport = this.showReport.bind(this);
   }
 
   componentDidMount() {
     const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
-    fetchTreasure(currentUser._id)
-      .then(() => fetchCurrentUser(currentUser._id));
+    fetchTreasure(currentUser._id);
+    fetchCurrentUser(currentUser._id);
   }
 
   componentWillUnmount() {
-    const { fetchUserTreasures, currentUser, fetchTreasure } = this.props;
-    this.handleTreasure();
-    fetchTreasure(currentUser._id);
+    const { fetchUserTreasures, currentUser } = this.props;
+    const { reported } = this.state;
+    if (!reported) {
+      this.updateOwnerId();
+    }
     fetchUserTreasures(currentUser._id);
   }
 
-  handleTreasure() {
-    const { updateFullTreasure, currentTreasure, currentUser } = this.props;
+  updateOwnerId() {
+    const { updateTreasure, currentTreasure, currentUser } = this.props;
     const newTreasure = { ...currentTreasure };
-    newTreasure.reportMessage = '';
-    newTreasure.reported = false;
     newTreasure.ownerId = currentUser._id;
-
-    updateFullTreasure(newTreasure);
+    updateTreasure(newTreasure);
   }
 
   showReport() {
-    this.setState({ inappropriate: true });
+    const { inappropriate } = this.state;
+    this.setState({ inappropriate: !inappropriate });
   }
 
   handleReport() {
-    const { updateFullTreasure, currentTreasure, closeModal } = this.props;
+    const { updateTreasure, currentTreasure, closeModal } = this.props;
     const { reportMessage } = this.state;
     if (reportMessage.length > 10) {
       const newTreasure = { ...currentTreasure };
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
-      updateFullTreasure(newTreasure);
+      updateTreasure(newTreasure);
       closeModal();
       window.location.reload();
     } else {
@@ -61,13 +61,12 @@ class RetrieveTreasure extends React.Component {
     return (e) => this.setState({
       reportMessage: e.currentTarget.value,
       reported: true,
-      creatorId: this.props.currentTreasure.creatorId,
     });
   }
 
   render() {
     const {
-      currentTreasure, openModal, closeModal, report,
+      currentTreasure, closeModal,
     } = this.props;
     const { reportMessage, inappropriate, error } = this.state;
     let content;
@@ -81,12 +80,12 @@ class RetrieveTreasure extends React.Component {
 
     const reportBox = () => (
       <div className="add-karma-input">
-        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="Please include reason for report:" />
+        <textarea className="report-karma-input" type="text" onChange={this.update()} value={reportMessage} placeholder="We&#39;re sorry this happened. Please let us know why this Karma is inappropriate." />
         <div className="add-karma-button-container">
           <div type="submit" onClick={this.handleReport}>
             Report
           </div>
-          <div type="submit" onClick={() => closeModal()}>
+          <div type="submit" onClick={this.showReport}>
             Cancel
           </div>
         </div>
@@ -96,6 +95,9 @@ class RetrieveTreasure extends React.Component {
 
     return (
       <div className="content-main">
+        <div onClick={() => closeModal()}>
+          <i className="fa fa-close" />
+        </div>
         { content }
         { inappropriate
           ? reportBox()

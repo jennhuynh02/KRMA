@@ -5,7 +5,6 @@ import {
   destroyTreasure,
   getUserTreasures,
   editTreasure,
-  updateTotalTreasure,
 } from '../util/treasure_api_util';
 
 export const RECEIVE_TREASURE = 'RECEIVE_TREASURE';
@@ -66,15 +65,9 @@ export const deleteTreasure = (treasureId) => (dispatch) => {
     .catch((error) => console.log(error));
 };
 
-// to be deleted once full update works
+
 export const updateTreasure = (treasure) => (dispatch) => (
   editTreasure(treasure)
-    .then((treasure) => dispatch(receiveTreasure(treasure)))
-    .catch((error) => console.log(error))
-);
-
-export const updateFullTreasure = (treasure) => (dispatch) => (
-  updateTotalTreasure(treasure)
     .then((treasure) => dispatch(receiveTreasure(treasure)))
     .catch((error) => console.log(error))
 );

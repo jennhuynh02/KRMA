@@ -9,7 +9,7 @@ class ReportsPage extends React.Component {
   }
 
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('adminbar-id').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {

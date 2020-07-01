@@ -6,7 +6,7 @@ class AdminBar extends React.PureComponent {
     const { logout } = this.props;
 
     return (
-      <div className="navbar-container">
+      <div className="navbar-container" id="adminbar-id">
         <div className="navbar-left">
           <Link to="/main"><h1>KRMA</h1></Link>
         </div>

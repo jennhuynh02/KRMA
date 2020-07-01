@@ -70,9 +70,6 @@ class Splash extends React.Component {
             )
             : <Team />
           )}
-          {/* <div className="what-is-krma">
-            <a href="#instructions" className="button scrolly">What is KRMA</a>
-          </div> */}
         </section>
         <div className="main-instructions" onClick={() => openModal({instructions: -1})}>
           <i className="fa fa-question-circle" aria-hidden="true"></i>

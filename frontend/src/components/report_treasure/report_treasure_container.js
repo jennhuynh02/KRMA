@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import { updateTreasure, updateFullTreasure } from '../../actions/treasure_actions';
+import { updateTreasure, fetchUserTreasures } from '../../actions/treasure_actions';
 import ReportTreasure from './report_treasure';
 
 const mapStateToProps = (state, { treasure }) => ({
-  treasure: state.treasure,
+  currentUser: state.session.user,
+  treasure,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  processReport: (treasure) => dispatch(updateTreasure(treasure)),
   updateTreasure: (treasure) => dispatch(updateTreasure(treasure)),
-  updateFullTreasure: (treasure) => dispatch(updateFullTreasure(treasure)),
+  fetchUserTreasures: (userId) => dispatch(fetchUserTreasures(userId)),
   closeModal: () => dispatch(closeModal()),
 });
 

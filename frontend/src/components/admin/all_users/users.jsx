@@ -14,6 +14,7 @@ class UsersPage extends React.Component {
       <div className="all-users-main">
         <AdminBarContainer />
         <h1>All Users</h1>
+        {/* god button */}
         {/* <button onClick={() => this.props.resetOwners()}> Reset all Owner Ids </button> */}
         <div>
           <ul className="all-users">

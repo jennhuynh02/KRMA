@@ -28,7 +28,7 @@ const Modal = ({ modal, closeModal }) => {
       component = <ImageContainer treasure={modal.image} />;
       break;
     case 'report':
-      component = <ReportTreasureContainer treasure={modal.image} />;
+      component = <ReportTreasureContainer treasure={modal.report} />;
       break;
     case 'instructions':
       component = <InstructionsContainer />;

@@ -14,7 +14,7 @@ class Collection extends React.Component {
   }
 
   scrollToTop() {
-    return () => { window.scrollTo(0, 0); };
+    document.getElementById('navbar-id').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {
