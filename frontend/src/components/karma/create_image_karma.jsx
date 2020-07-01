@@ -8,6 +8,7 @@ class CreateImageKarma extends React.Component {
       selectedFile: null,
       error: '',
       uploaded: false,
+      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleFile = this.handleFile.bind(this);
@@ -44,6 +45,7 @@ class CreateImageKarma extends React.Component {
       this.setState({
         selectedFile: '',
         uploaded: true,
+        keyCount: this.state.keyCount += 1,
       });
     } else {
       this.setState({
@@ -62,7 +64,6 @@ class CreateImageKarma extends React.Component {
 
   goToCollection() {
     const { closeModal } = this.props;
-    window.location.href = '/#/collection';
     closeModal();
   }
 
@@ -79,7 +80,7 @@ class CreateImageKarma extends React.Component {
           <h3>Thank you for your submission!</h3>
           You have
           {' '}
-          {currentUser.keyCount}
+          {this.state.keyCount}
           {' '}
           karma points :)
         </div>

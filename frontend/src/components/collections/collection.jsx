@@ -19,7 +19,7 @@ class Collection extends React.Component {
 
   render() {
     const {
-      allTreasures, userTreasures, admin,
+      allTreasures, userTreasures, admin, openModal
     } = this.props;
 
     return (
@@ -36,6 +36,9 @@ class Collection extends React.Component {
             : userTreasures.map((treasure) => (
               <ItemContainer key={treasure._id} treasure={treasure} admin={admin} />
             ))}
+        </div>
+        <div className="main-instructions" onClick={() => openModal({instructions: -1})}>
+          <i className="fa fa-question-circle" aria-hidden="true"></i>
         </div>
         <div className="scroll" onClick={() => this.scrollToTop()}>
           <i className="fa fa-arrow-up" aria-hidden="true" />

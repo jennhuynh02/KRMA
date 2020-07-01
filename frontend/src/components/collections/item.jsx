@@ -23,23 +23,11 @@ class Item extends React.Component {
     const { updateTreasure, treasure } = this.props;
     const { reportMessage } = this.state;
 
-    // const newTreasure = {
-    //   _id: this.props.treasure._id,
-    //   creatorId: this.props.treasure.creatorId,
-    //   date: this.props.treasure.date,
-    //   ownerId: null,
-    //   reportMessage: this.state.reportMessage,
-    //   reported: true,
-    //   type: this.props.treasure.type,
-    //   url: this.props.treasure.url,
-    // };
-
     const newTreasure = { ...treasure };
     newTreasure.reportMessage = reportMessage;
     newTreasure.ownerId = null;
     newTreasure.reported = true;
     updateTreasure(newTreasure);
-    debugger;
     window.location.reload();
   }
 

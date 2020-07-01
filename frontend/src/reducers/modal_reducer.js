@@ -6,6 +6,7 @@ const modalReducer = (state = null, action) => {
     case OPEN_MODAL:
       return action.modal;
     case CLOSE_MODAL:
+      window.location.reload();
       return null;
     default:
       return state;

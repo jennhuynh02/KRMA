@@ -25,7 +25,6 @@ class ReportTreasure extends React.Component {
       newTreasure.reported = true;
       newTreasure.reportMessage = reportMessage;
       updateTreasure(newTreasure);
-      debugger
       fetchUserTreasures(currentUser._id);
       closeModal();
     } else {
