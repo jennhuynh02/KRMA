@@ -17,13 +17,16 @@ class RetrieveTreasure extends React.Component {
 
   componentDidMount() {
     const { fetchTreasure, currentUser, fetchCurrentUser } = this.props;
-    fetchTreasure(currentUser._id)
-      .then(() => fetchCurrentUser(currentUser._id));
+    fetchTreasure(currentUser._id);
+    fetchCurrentUser(currentUser._id);
   }
 
   componentWillUnmount() {
     const { fetchUserTreasures, currentUser } = this.props;
-    this.updateOwnerId();
+    const { reported } = this.state;
+    if (!reported) {
+      this.updateOwnerId();
+    }
     fetchUserTreasures(currentUser._id);
   }
 
@@ -58,7 +61,6 @@ class RetrieveTreasure extends React.Component {
     return (e) => this.setState({
       reportMessage: e.currentTarget.value,
       reported: true,
-      // creatorId: this.props.currentTreasure.creatorId,
     });
   }
 
@@ -93,6 +95,9 @@ class RetrieveTreasure extends React.Component {
 
     return (
       <div className="content-main">
+        <div onClick={() => closeModal()}>
+          <i className="fa fa-close" />
+        </div>
         { content }
         { inappropriate
           ? reportBox()

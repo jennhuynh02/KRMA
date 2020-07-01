@@ -107,7 +107,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.put('/resetowners', (req, res) => {
-  Treasure.updateMany({}, { ownerId: null }, { new: true })
+  Treasure.updateMany({}, { ownerId: null }, { new: false })
     .then((users) => {
       User.find({})
         .then((users) => { res.json(users); });
