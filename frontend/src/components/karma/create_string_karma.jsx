@@ -7,6 +7,7 @@ class CreateStringKarma extends React.Component {
       string: '',
       error: '',
       uploaded: false,
+      keyCount: this.props.currentUser.keyCount,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,6 +36,7 @@ class CreateStringKarma extends React.Component {
       getCurrentUser(currentUser._id);
       this.setState({
         uploaded: true,
+        keyCount: this.state.keyCount += 1,
       });
     } else {
       this.setState({
@@ -69,7 +71,7 @@ class CreateStringKarma extends React.Component {
           <h3>Thank you for your submission!</h3>
           You have
           {' '}
-          {currentUser.keyCount}
+          {this.state.keyCount}
           {' '}
           karma points :)
         </div>

@@ -5,6 +5,7 @@ import {
   fetchUserTreasures,
 } from '../../actions/treasure_actions';
 import { getCurrentUser } from '../../actions/session_actions';
+import { openModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => ({
   allTreasures: Object.values(state.treasure.admin),
@@ -17,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   getAllTreasures: () => dispatch(fetchTreasures()),
   getUserTreasures: (userId) => dispatch(fetchUserTreasures(userId)),
   getCurrentUser: (userId) => dispatch(getCurrentUser(userId)),
+  openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Collection);

@@ -22,7 +22,6 @@ export const addTreasure = (treasure) => {
 
 // editTreasure
 export const editTreasure = (treasure) => {
-  debugger;
   return (
     axios.put(`/api/treasure/update/${treasure._id}`, treasure)
   );
