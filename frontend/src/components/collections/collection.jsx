@@ -14,7 +14,11 @@ class Collection extends React.Component {
   }
 
   scrollToTop() {
-    document.getElementById('navbar-id').scrollIntoView({ behavior: 'smooth' });
+    const { admin } = this.props;
+    (admin
+      ? document.getElementById('adminbar-id').scrollIntoView({ behavior: 'smooth' })
+      : document.getElementById('navbar-id').scrollIntoView({ behavior: 'smooth' })
+    )
   }
 
   render() {

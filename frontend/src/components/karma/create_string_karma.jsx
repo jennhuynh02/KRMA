@@ -25,7 +25,7 @@ class CreateStringKarma extends React.Component {
   handleUpload(e) {
     e.preventDefault();
     const { string } = this.state;
-    const { currentUser, createTreasure, closeModal, getCurrentUser } = this.props;
+    const { currentUser, createTreasure, getCurrentUser } = this.props;
     if (string.length > 10) {
       const treasure = {
         ownerId: currentUser._id,
