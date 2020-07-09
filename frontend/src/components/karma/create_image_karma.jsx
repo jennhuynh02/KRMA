@@ -36,7 +36,7 @@ class CreateImageKarma extends React.Component {
     e.preventDefault();
     const data = new FormData();
     const { selectedFile } = this.state;
-    const { currentUser, createTreasure, closeModal, getCurrentUser } = this.props;
+    const { currentUser, createTreasure, getCurrentUser } = this.props;
     if (selectedFile) {
       data.append('image', selectedFile, selectedFile.name);
       data.append('ownerId', currentUser._id);
